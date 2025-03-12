@@ -1,0 +1,222 @@
+[
+ {
+  "Dist_Name": "Eastern West Khasi Hills",
+  "Block_Name": "Mairang"
+ },
+ {
+  "Dist_Name": "Eastern West Khasi Hills",
+  "Block_Name": "Mawthadraishan"
+ },
+ {
+  "Dist_Name": "East Garo Hills",
+  "Block_Name": "Dambo Rongjeng"
+ },
+ {
+  "Dist_Name": "East Garo Hills",
+  "Block_Name": "Samanda"
+ },
+ {
+  "Dist_Name": "East Garo Hills",
+  "Block_Name": "Songsak"
+ },
+ {
+  "Dist_Name": "East Jaintia Hills",
+  "Block_Name": "Lumshnong"
+ },
+ {
+  "Dist_Name": "East Jaintia Hills",
+  "Block_Name": "Saipung"
+ },
+ {
+  "Dist_Name": "East Jaintia Hills",
+  "Block_Name": "Wapung"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Khadarshnong-Laitkroh"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawkynrew"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawlai"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawpat"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawphlang"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawryngkneng"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mawsynram"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Mylliem"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Pynursla"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Shella Bholaganj"
+ },
+ {
+  "Dist_Name": "East Khasi Hills",
+  "Block_Name": "Sohiong"
+ },
+ {
+  "Dist_Name": "North Garo Hills",
+  "Block_Name": "Adokgre"
+ },
+ {
+  "Dist_Name": "North Garo Hills",
+  "Block_Name": "Bajengdoba"
+ },
+ {
+  "Dist_Name": "North Garo Hills",
+  "Block_Name": "Kharkutta"
+ },
+ {
+  "Dist_Name": "North Garo Hills",
+  "Block_Name": "Resubelpara"
+ },
+ {
+  "Dist_Name": "Ri Bhoi",
+  "Block_Name": "Bhoirymbong"
+ },
+ {
+  "Dist_Name": "Ri Bhoi",
+  "Block_Name": "Jirang"
+ },
+ {
+  "Dist_Name": "Ri Bhoi",
+  "Block_Name": "Umling"
+ },
+ {
+  "Dist_Name": "Ri Bhoi",
+  "Block_Name": "Umsning"
+ },
+ {
+  "Dist_Name": "South Garo Hills",
+  "Block_Name": "Baghmara"
+ },
+ {
+  "Dist_Name": "South Garo Hills",
+  "Block_Name": "Chokpot"
+ },
+ {
+  "Dist_Name": "South Garo Hills",
+  "Block_Name": "Gasuapara"
+ },
+ {
+  "Dist_Name": "South Garo Hills",
+  "Block_Name": "Rongara"
+ },
+ {
+  "Dist_Name": "South Garo Hills",
+  "Block_Name": "Siju"
+ },
+ {
+  "Dist_Name": "South West Garo Hills",
+  "Block_Name": "Betasing"
+ },
+ {
+  "Dist_Name": "South West Garo Hills",
+  "Block_Name": "Purakhasia"
+ },
+ {
+  "Dist_Name": "South West Garo Hills",
+  "Block_Name": "Rerapara"
+ },
+ {
+  "Dist_Name": "South West Garo Hills",
+  "Block_Name": "Zikzak"
+ },
+ {
+  "Dist_Name": "South West Khasi Hills",
+  "Block_Name": "Mawkyrwat"
+ },
+ {
+  "Dist_Name": "South West Khasi Hills",
+  "Block_Name": "Ranikor"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Batabari"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Dadenggiri"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Dalu"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Demdema"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Gambegre"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Rongram"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Salsella"
+ },
+ {
+  "Dist_Name": "West Garo Hills",
+  "Block_Name": "Tikrikilla"
+ },
+ {
+  "Dist_Name": "West Jaintia Hills",
+  "Block_Name": "Amlarem"
+ },
+ {
+  "Dist_Name": "West Jaintia Hills",
+  "Block_Name": "Laskein"
+ },
+ {
+  "Dist_Name": "West Jaintia Hills",
+  "Block_Name": "Namdong"
+ },
+ {
+  "Dist_Name": "West Jaintia Hills",
+  "Block_Name": "Thadlaskein"
+ },
+ {
+  "Dist_Name": "West Khasi Hills",
+  "Block_Name": "Mawshynrut"
+ },
+ {
+  "Dist_Name": "West Khasi Hills",
+  "Block_Name": "Nongstoin"
+ },
+ {
+  "Dist_Name": "West Khasi Hills",
+  "Block_Name": "Rambrai"
+ },
+ {
+  "Dist_Name": "West Khasi Hills",
+  "Block_Name": "Ri-Muliang"
+ },
+ {
+  "Dist_Name": "West Khasi Hills",
+  "Block_Name": "Shallang"
+ }
+]
