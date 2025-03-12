@@ -123,7 +123,7 @@ class HomeController extends Controller
             $Management_Expense=$request->input('Management_Expense');
             $Other_Expense=$request->input('Other_Expense');
             
-            $society=membersociety::create([
+            membersociety::create([
                 'Society_Id'=> $id_of_society,
                 'ST_Male'=> $ST_Male,
                 'ST_Female' => $ST_Female,
@@ -158,6 +158,46 @@ class HomeController extends Controller
             
             //return redirect()->route('pages.management1');
            return redirect()->action([HomeController::class, 'management_2'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+            //return "success";
+            
+    }
+    public function Society_Member(Request $request): RedirectResponse
+    {
+            
+            $Name_of_the_Society=$request->input('Name_of_society2525');
+            $id_of_society=$request->input('id_of_society');
+            $President_Name=$request->input('President_Name');
+            $President_DOB=$request->input('President_DOB');
+            $President_Contact=$request->input('President_Contact');
+            $President_Email=$request->input('President_Email');
+            $Secretary_Name=$request->input('Secretary_Name');
+            $Secretary_DOB=$request->input('Secretary_DOB');
+            $Secretary_Contact=$request->input('Secretary_Contact');
+            $Secretary_Email=$request->input('Secretary_Email');
+          
+           
+           
+            $Member_Name = json_encode($request->input('Member_Name'));
+            $Member_Contact = json_encode($request->input('Member_Contact'));
+            
+
+            membersociety::create([
+                'id_of_society'=> $id_of_society,
+                'President_Name'=> $President_Name,
+                'President_DOB' => $President_DOB,
+                'President_Contact'=>$President_Contact,
+                'President_Email'=>$President_Email,
+                'Secretary_Name'=> $Secretary_Name,
+                'Secretary_DOB'=>$Secretary_DOB,
+                'Secretary_Contact' => $Secretary_Contact,
+                'Secretary_Email'=>$Secretary_Email,
+                'Member_Name' => $Member_Name,
+                'Member_Contact'=>$Member_Contact,
+               
+
+            ]);
+            //return redirect()->route('pages.management1');
+           return redirect()->action([HomeController::class, 'capital'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
             //return "success";
             
     }

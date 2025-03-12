@@ -5,29 +5,29 @@
                   
 
                  
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" action="/capitals" method ="POST"  novalidate>
               @csrf
                    
-                    <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
+                    <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
                     <input type="hidden" name="id_of_society" value="{{ Session()->get('id_key'); }}">
                     <div class="card-header"><div class="card-title">DETAILS OF THE CHAIRMAN/PRESIDENT</div></div>
                     <div class="card-body">
                             <div class="row g-2">
                                
-                              <x-column_-input  title="Name" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Date of Birt" Name="Member_Name[]" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
-                              <x-column_-input  title="Contact No." Name="Member_Name[]" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
-                              <x-column_-input  title="Email" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
+                              <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
+                              <x-column_-input  title="Date of Birth" Name="President_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
+                              <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
+                              <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
 
                             </div>
                     </div>
                     <div class="card-header"><div class="card-title">DETAILS OF THE SECRETARY</div></div>
                     <div class="card-body">
                             <div class="row g-2">
-                              <x-column_-input  title="Name" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Date of Birt" Name="Member_Name[]" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
-                              <x-column_-input  title="Contact No." Name="Member_Name[]" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
-                              <x-column_-input  title="Email" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
+                              <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
+                              <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
+                              <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
+                              <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
                                 
                             </div>
                     </div>
@@ -83,7 +83,9 @@
                 '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
 
             $('#newinput').append(newRowAdd);
+            
         });
+
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         })

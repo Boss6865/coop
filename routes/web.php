@@ -14,3 +14,4 @@ Route::get('/management2',[HomeController::class,'management_2']);
 Route::get('/capitals',[HomeController::class,'capital']);
 Route::post('/management1',[HomeController::class,'store']);
 Route::post('/management2',[HomeController::class,'store_Member']);
+Route::post('/capitals',[HomeController::class,'Society_Member']);
