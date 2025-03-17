@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('Secretary_Name');
             $table->date('Secretary_DOB');
             $table->Integer('Secretary_Contact');
-            $table->Integer('Secretary_Email');
-            $table->text('Member_Name');
-            $table->text('Member_Contact');
+            $table->String('Secretary_Email');
+            $table->json('Member_Name');
+            $table->json('Member_Contact');
             $table->timestamps();
             $table->foreign('Society_Id')->references('id')->on('_societydata')->onDelete('cascade');
         });

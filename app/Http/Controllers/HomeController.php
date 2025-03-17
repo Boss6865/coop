@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Basic;
 use App\Models\membersociety;
+use App\Models\committee;
+
 
 class HomeController extends Controller
 {
@@ -33,6 +35,7 @@ class HomeController extends Controller
     {
         return view('pages.capital');
     }
+   
     public function store(Request $request): RedirectResponse
     {
             $Name_of_the_Society=$request->input('Name_of_the_Society');
@@ -165,7 +168,7 @@ class HomeController extends Controller
     {
             
             $Name_of_the_Society=$request->input('Name_of_society2525');
-            $id_of_society=$request->input('id_of_society');
+            $id_of_society=$request->input('id_of_society2525');
             $President_Name=$request->input('President_Name');
             $President_DOB=$request->input('President_DOB');
             $President_Contact=$request->input('President_Contact');
@@ -174,15 +177,12 @@ class HomeController extends Controller
             $Secretary_DOB=$request->input('Secretary_DOB');
             $Secretary_Contact=$request->input('Secretary_Contact');
             $Secretary_Email=$request->input('Secretary_Email');
-          
-           
-           
             $Member_Name = json_encode($request->input('Member_Name'));
             $Member_Contact = json_encode($request->input('Member_Contact'));
             
 
-            membersociety::create([
-                'id_of_society'=> $id_of_society,
+            committee::create([
+                'Society_Id'=> $id_of_society,
                 'President_Name'=> $President_Name,
                 'President_DOB' => $President_DOB,
                 'President_Contact'=>$President_Contact,
@@ -192,13 +192,15 @@ class HomeController extends Controller
                 'Secretary_Contact' => $Secretary_Contact,
                 'Secretary_Email'=>$Secretary_Email,
                 'Member_Name' => $Member_Name,
-                'Member_Contact'=>$Member_Contact,
+                'Member_Contact'=>$Member_Contact
                
 
             ]);
             //return redirect()->route('pages.management1');
            return redirect()->action([HomeController::class, 'capital'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
             //return "success";
-            
+    
     }
+
+   
 }

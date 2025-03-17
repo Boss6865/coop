@@ -9,7 +9,7 @@
               @csrf
                    
                     <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
-                    <input type="hidden" name="id_of_society" value="{{ Session()->get('id_key'); }}">
+                    <input type="hidden" name="id_of_society2525" value="{{ Session()->get('id_key'); }}">
                     <div class="card-header"><div class="card-title">DETAILS OF THE CHAIRMAN/PRESIDENT</div></div>
                     <div class="card-body">
                             <div class="row g-2">
