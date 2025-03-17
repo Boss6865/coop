@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -28,7 +28,8 @@ class BasicController extends Controller
 
     public function Viewsociety()
     {
-        return view('pages.letview');
+        $users = DB::table('_societydata')->get();
+        return view('pages.letview', ['Societies' => $users]);
     }
 
     /**
