@@ -148,7 +148,7 @@ class BasicController extends Controller
             $MANAGERIAL_SUBSIDY_RECEIVED_Amount=$request->input('MANAGERIAL_SUBSIDY_RECEIVED_Amount');
           
             $society=capital::create([
-        'Society_Id'=> $Name_of_the_Society,
+        'Society_Id'=> $id_of_society,
         'Admission_fee'=>$Admission_fee,
         'Share_face_value'=>$Share_face_value,
         'Authorize_share_capital'=>$Authorize_share_capital,
