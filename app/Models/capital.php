@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class capital extends Model
 {
@@ -59,4 +60,7 @@ class capital extends Model
     ];
 
 protected $table ='societycapitals';
+public function basic():BelongsTo {
+    return $this->belongsTo(Basic::class);
+}
 }

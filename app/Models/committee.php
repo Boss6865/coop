@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class committee extends Model
 {
@@ -22,4 +23,8 @@ class committee extends Model
     ];
 
 protected $table ='committee';
+
+public function basic():BelongsTo {
+    return $this->belongsTo(Basic::class);
+}
 }

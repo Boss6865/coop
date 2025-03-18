@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class membersociety extends Model
 {
@@ -42,4 +43,8 @@ class membersociety extends Model
                         ];
 
     protected $table ='_member_of_society';
+
+    public function basic():BelongsTo {
+        return $this->belongsTo(Basic::class);
+    }
 }

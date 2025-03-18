@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\capital;
-
+use App\Models\Basic;
+use App\Models\membersociety;
 
 class BasicController extends Controller
 {
@@ -28,7 +29,9 @@ class BasicController extends Controller
 
     public function Viewsociety()
     {
-        $users = DB::table('_societydata')->get();
+        // $users = DB::table('_societydata')->get();
+        $users=Basic::all();
+        // dd($users);
         return view('pages.letview', ['Societies' => $users]);
     }
 
@@ -280,7 +283,13 @@ class BasicController extends Controller
      */
     public function show(string $id)
     {
-        //
+            // $data=Basic::find($id)->membersociety()
+            // ->where('Society_Id',$id);
+        //$data=membersociety::where('Society_Id', $id)->get();
+        //$comments =$data->membersociety;
+        $data=Basic::find($id);
+        // dd($data);
+        return view('pages.society')->with('Datas',$data);
     }
 
     /**
