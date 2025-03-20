@@ -201,6 +201,11 @@ class HomeController extends Controller
             //return "success";
     
     }
+    public function edit(string $id)
+    {
+        //
+    }
+
 
    
 }

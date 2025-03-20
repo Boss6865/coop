@@ -58,9 +58,9 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="./generate/theme.html" class="nav-link">
+                <a href="/letview" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Theme Generate</p>
+                  <p>View Society</p>
                 </a>
               </li>
               <li class="nav-item {{request()->is('basic_infos','management1','management2','capitals')?'menu-open':''}}">

@@ -18,4 +18,5 @@ Route::post('/capitals',[HomeController::class,'Society_Member']);
 Route::get('/letview',[BasicController::class,'Viewsociety']);
 Route::post('/letview',[BasicController::class,'store']);
 Route::get('/society/{id}',[BasicController::class,'show']);
+Route::get('/edit/{id}',[BasicController::class,'edit']);
 

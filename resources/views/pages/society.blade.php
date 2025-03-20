@@ -1,5 +1,5 @@
 <x-layout>
-    <x-navigation title="{{ $Datas->Name_of_the_Society }}" Nav="Capitals" />
+    <x-navigation title="{{ $Datas->Name_of_the_Society }}" Nav="View Society" />
    
       <style>
         .card{
@@ -19,7 +19,7 @@ overflow:scroll;
     <div class="container-fluid">
       <!--begin::Row-->
       <div class="row g-4 mb-4">
-        <div class="col-6 g-4 mb-4">
+        <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header ">
@@ -164,7 +164,7 @@ overflow:scroll;
           <!-- /.card -->
         </div>
 
-        <div class="col-6 g-4 mb-4">
+        <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header">
@@ -353,7 +353,7 @@ overflow:scroll;
           </div>
           <!-- /.card -->
         </div>
-        <div class="col-6 g-4 mb-4">
+        <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header">
@@ -492,7 +492,7 @@ overflow:scroll;
           </div>
           <!-- /.card -->
         </div>
-        <div class="col-6 g-4 mb-4">
+        <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header">
