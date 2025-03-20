@@ -13,11 +13,11 @@
         <input
             type="text"
             class="form-control {{$inclass}}"
-            id={{$id}}
-            value=""
-            name={{$Name}}
+            id="{{$id}}"
+            value="{{$val}}"
+            name="{{$Name}}"
             required
-            placeholder={{$placeholder}}
+            placeholder="{{$placeholder}}"
         />
         <div class="valid-feedback">Looks good!</div>
         <div class="invalid-feedback">{{$e_msg}}</div>

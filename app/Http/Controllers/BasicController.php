@@ -297,7 +297,8 @@ class BasicController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.editsociety');
+        $data=Basic::find($id);
+        return view('pages.editsociety')->with('Datas',$data);
     }
 
     /**

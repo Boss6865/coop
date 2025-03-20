@@ -157,7 +157,9 @@ overflow:scroll;
           
             <!-- /.card-body -->
             <div class="card-footer">
-              <a class="btn btn-primary btn-sm" href="">Edit</a>
+              @foreach($Datas->committee as $data)
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              @endforeach
             </div>
             <!-- /.card-footer-->
           </div>
@@ -347,7 +349,9 @@ overflow:scroll;
             </div>
            
             <div class="card-footer">
-              <a class="btn btn-primary btn-sm" href="">Edit</a>
+              @foreach($Datas->committee as $data)
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              @endforeach
             </div>
             <!-- /.card-footer-->
           </div>
@@ -487,7 +491,9 @@ overflow:scroll;
            
           
             <!-- /.card-body -->
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href="">Edit</a></div>
+            <div class="card-footer">@foreach($Datas->committee as $data)
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              @endforeach</div>
             <!-- /.card-footer-->
           </div>
           <!-- /.card -->
@@ -978,7 +984,10 @@ overflow:scroll;
            
           
             <!-- /.card-body -->
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href=""><i class="fas fa-edit"></i>Edit</a></div>
+            <div class="card-footer">@foreach($Datas->committee as $data)
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              @endforeach
+            </div>
             <!-- /.card-footer-->
           </div>
           <!-- /.card -->
