@@ -572,7 +572,8 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="capital" role="tabpanel" aria-labelledby="capital-tab">
-                <h1>On monday</h1>
+                <!-- https://gijgo.com/datepicker/example/bootstrap-5 -->
+                  <h1>On monday</h1>
               </div>
             </div>
           </div>
