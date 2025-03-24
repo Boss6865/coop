@@ -280,7 +280,7 @@
                               <option selected disabled value="">Choose...</option>
                               <option value="Function">Function</option>
                               <option value="Non-function">Non-function</option>
-                              <option value="Under Liquidation">Under Liquidation</option>
+                              <option value="Under-Liquidation">Under Liquidation</option>
                             </select>
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -634,7 +634,7 @@
                           for(j=0;j<data_filter2.length;j++)
                       {
                         
-                        $optGroup+='<option value='+data_filter2[j].Vill_Name+'>'+data_filter2[j].Vill_Name+'</option>';
+                        $optGroup+='<option>'+data_filter2[j].Vill_Name+'</option>';
                           //$('#js-example-basic-single').append($('<option>').val(data_filter2[j].Vill_Name ).text(data_filter2[j].Vill_Name ));
                           
                       }

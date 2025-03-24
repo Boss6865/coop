@@ -19,4 +19,8 @@ Route::get('/letview',[BasicController::class,'Viewsociety']);
 Route::post('/letview',[BasicController::class,'store']);
 Route::get('/society/{id}',[BasicController::class,'show']);
 Route::get('/edit/{id}',[BasicController::class,'edit']);
+Route::put('/basic/{id}',[HomeController::class,'update']);
+Route::put('/updatemange1/{id}',[BasicController::class,'updatemanagement_1']);
+Route::put('/updatemange2/{id}',[HomeController::class,'updatemanagement_2']);
+Route::put('/capital/{id}',[BasicController::class,'update']);
 

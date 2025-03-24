@@ -172,6 +172,7 @@
                             <button class="btn btn-info" type="submit">Next</button>
                       </div>
                   </form>
+  </div>
                         <!--end::Form-->
                         <!--begin::JavaScript-->
                         <script>
@@ -252,6 +253,6 @@ $( ".target2" ).on( "change", function() {
     </script>
                         
                         <!--end::JavaScript-->
-      </div>
+      
 
 </x-layout>

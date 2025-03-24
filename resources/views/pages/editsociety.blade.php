@@ -35,10 +35,9 @@
           
             <div class="tab-content mt-3" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <form class="needs-validation" action="/letview" method ="POST" novalidate>
+                <form class="needs-validation" action="/basic/{{$Datas->id}}" method ="POST" novalidate>
                     @csrf
-                    <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                    <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+                    @method("PUT")
                     <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
                           <div class="card-body">
                                   <div class="row g-2">
@@ -48,6 +47,8 @@
                                     
                                       
                                   </div>
+                                  <input type="hidden" name="Board" value="Board">
+                            
                           </div>
                           <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
                           <div class="card-body">
@@ -57,32 +58,22 @@
                                         @php
                                             $sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
                                         @endphp
-                                        
 
-                                      
                                         <select class="form-select" name="Sector_Type" id="Sector" required>
-                                            
-                                            
                                           <option selected disabled value="">Choose...</option>
                                             @forEach($sectors as $sector)
-                            
                                             <option value="{{ $sector->Sector_Name}}" 
                                                 @if($Datas->Sector_Type==$sector->Sector_Name)
                                                 selected
                                                 @endif
-                                                
                                                 >{{ $sector->Sector_Name}}</option>
-                                           
-                                            @endforeach
-
-
-                                         
+                                                 @endforeach
                                         </select>
                                         <div class="valid-feedback">Looks good!</div>
                                         <div class="invalid-feedback">This field is required. Can't be empty</div>
                                     </div>
                                     <x-column_-input  title="E-MAIL ID of the Society" Name="Email" val="{{$Datas->Email}}" div_class="col-md-4"/>
-                                    <x-column_-input  title="PAN NO. of the Society" Name="Registration_No"  val="{{$Datas->Pan_of_Society}}" div_class="col-md-4"/>
+                                    <x-column_-input  title="PAN NO. of the Society" Name="Pan_of_Society"  val="{{$Datas->Pan_of_Society}}" div_class="col-md-4"/>
                                       
                                   </div>
                           </div>
@@ -229,16 +220,24 @@
                                               @endforeach
                                             </select>
                                           </div>
-                                          <div class="col-md-1">
-                                            <input type="text" class="form-control" placeholder="Toal No." id="GetTotal" disabled="false" />
-                                          </div>
+                                          
                                           <div class="col-md-6">
+                                            @php
+                                            $stringArray = explode(",",$Datas->Operation_villages);
+                                            @endphp
+
                                             <select class="form-select js-example-basic-multiple"  name="Operation_villages1" id="js-example-basic-single">
                                               <option selected disabled value="">Choose Villages</option>
-                                              <option selected>{{$Datas->Operation_villages}}</option>
+                                             @forEach($stringArray as $key => $data)
+                                             <option selected>{{ $data}}</option>
+                                             @endforeach
+                                              
                                             </select>
                                             
-                                            <input type="hidden" name="Operation_villages" id="villageselected"/>
+                                            <input type="hidden" name="Operation_villages" id="villageselected" value="{{$Datas->Operation_villages}}"/>
+                                          </div>
+                                          <div class="col-md-1">
+                                            <input type="text" class="form-control" placeholder="Toal No." id="GetTotal" disabled="false" value="{{$key+1}}"/>
                                           </div>
                                           
                                         </div>
@@ -271,21 +270,10 @@
                                               <label for="validationCustom02" class="form-label">Present Status Of The Society</label>
                                               <select class="form-select" name="Status" id="validationCustom04" required onchange="HideMe(this.value)">
                                                 <option selected disabled value="">Choose...</option>
-                                                @if($Datas->Status=="Function")
-                                                <option selected value="Function">Function</option>
-                                                <option value="Non-function">Non-function</option>
-                                                <option value="Under Liquidation">Under Liquidation</option>
                                                
-                                                @elseif($Datas->Status=="Non-function")
-                                                <option value="Function">Function</option>
-                                                <option slelected value="Non-function">Non-function</option>
-                                                <option value="Under Liquidation">Under Liquidation</option>
-                                                @else
-                                                <option value="Function">Function</option>
-                                                <option value="Non-function">Non-function</option>
-                                                <option selected value="Under Liquidation">Under Liquidation</option>
-                                                @endif
-                                                
+                                                <option  @if($Datas->Status=="Function") selected  @endif value="Function">Function</option>
+                                                <option  @if($Datas->Status=="Non-function") selected  @endif value="Non-function">Non-function</option>
+                                                <option  @if($Datas->Status=="Under-Liquidation") selected  @endif value="Under-Liquidation">Under Liquidation</option>
                                               </select>
                                               <div class="valid-feedback">Looks good!</div>
                                               <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -296,7 +284,19 @@
                                           
                                             <div class="row g-2" id="mydiv" @if($Datas->Status=="Function")  hidden @endif >
                                                 <div class="row g-2">
-                                                 <x-column_-input  title="Nos Of Years The Society Have Stop Functioning" Name="Years_of_Non_function"  val="{{$Datas->Years_of_Non_function}}" div_class="col-md-4"/>
+                                                  <div class="col-md-4">
+                                                    <label for="validationCustom01" class="form-label">Nos Of Years The Society Have Stop Functioning</label>
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            value="{{$Datas->Years_of_Non_function}}"
+                                                            name="Years_of_Non_function"
+                                                         
+                                                        />
+                                                        <div class="valid-feedback">Looks good!</div>
+                                                        <div class="invalid-feedback">Connot be empty</div>
+                                                </div>
+                                                 
                                                    <div class="col-md-4">
                                                        <label for="validationCustom01" class="form-label">Section 61/62 Conducted Or Not (Mentioned Date/Year)
                                                          <select class="form-select" name="" id="No1"  onchange="">
@@ -362,8 +362,9 @@
         <div class="card-header"><div class="card-title">NUMBER OF MEMBERS OF THE SOCIETY</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-            <form class="needs-validation" action="" method ="" novalidate>
+            <form class="needs-validation" action="/updatemange1/{{$Datas->id}}" method ="POST" novalidate>
               @csrf
+              @method("PUT")
                     <!--begin::Body-->
                     @forEach($Datas->membersociety as $data)
                 <div class="card-body">
@@ -512,9 +513,9 @@
                   
 
                  
-                  <form class="needs-validation" action="" method =""  novalidate>
+                  <form class="needs-validation" action="/updatemange2/{{$Datas->id}}" method ="POST"  novalidate>
                     @csrf
-                         
+                         @method("PUT")
                           @forEach($Datas->committee as $data)
                           <div class="card-header"><div class="card-title">DETAILS OF THE CHAIRMAN/PRESIDENT</div></div>
                           <div class="card-body">
@@ -571,9 +572,199 @@
                         <!--end::JavaScript-->
                 </div>
               </div>
+              {{-- capitals tabs begin here --}}
               <div class="tab-pane fade" id="capital" role="tabpanel" aria-labelledby="capital-tab">
+
                 <!-- https://gijgo.com/datepicker/example/bootstrap-5 -->
-                  <h1>On monday</h1>
+                  
+                <div class="card card-info card-outline mb-4">
+                  
+                  @foreach($Datas->capital as $data)
+                 
+                  <form class="needs-validation" action="/capital/{{$data->Society_Id}}" method ="POST" novalidate>
+                    @csrf
+                    @method('PUT')
+                          <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
+                          
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Admission_fee',$data->Admission_fee)"/>
+                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Share_face_value',$data->Share_face_value)"/>
+                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Authorize_share_capital"/>
+                                    
+                                      
+                                  </div>
+
+                          </div>
+                          <div class="card-header"><div class="card-title">SHARE CAPITAL CONTRIBUTION</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                     
+                                    <x-column_-input  title="Individual" Name="Individual_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Individual_share',$data->Individual_share)"/>
+                                    <x-column_-input  title="Govt." Name="Govt_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Govt_share"/>
+                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Other_coop_share"/>
+                                    
+                                  </div>
+                          </div>
+
+                          <div class="card-header"><div class="card-title">ACTIVITIES OF THE SOCIETY (IF NIL, MENTION THE OBJECTIVE OF THE SOCIETY AS PER ITS BYE-LAW)</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                     
+                                    <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
+                                    <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Secondary_Activity"/>
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/>
+                                    <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Other_Activity"/>
+
+                                  </div>
+                          </div>
+
+                          
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                     
+                                    <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Society_Fair_Price_Shop"/>
+                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/>
+                                      
+                                      <!--begin::Col-->
+                                      <div class="col-md-3">
+                                            <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
+                                            <select Name="Audit_Class" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($data->Audit_Class=="A") selected @endif>A</option>
+                                                <option @if($data->Audit_Class=="B") selected @endif>B</option>
+                                                <option @if($data->Audit_Class=="C") selected @endif>C</option>
+                                                <option @if($data->Audit_Class=="D") selected @endif>D</option>
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Working_Capitals"/>
+                                        <!--end::Col-->
+                                      
+                          </div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Business Turnover" Name="Business_turnover" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Business_turnover"/>
+                                    <x-column_-input  title="Total Reserve" Name="Total_reserve" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Total_reserve"/>
+                                    <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Profit_loss"/>
+                                    <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Net_Profit_Loss"/>
+                                      
+                                  </div>
+                          </div>
+
+                          <div class="card-header"><div class="card-title">ACCUMULATED</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Profit" Name="Profit" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Profit"/>
+                                    <x-column_-input  title="Loss" Name="Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Loss"/>
+                                      
+                                  </div>
+                          </div>
+                          <div class="card-body">
+                                  <div id= "newinput1" class="row g-2">
+                                     
+                                      <!--begin::Col-->
+                                        <div class="col-md-3">
+                                            <label for="validationCustom01" class="form-label">Whether Dividend Decleared By The Society</label>
+                                            <select name="Declear_Dividen" class="form-select target" id="selectid" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($data->Declear_Dividen=="Yes") selected @endif>Yes</option>
+                                                <option @if($data->Declear_Dividen=="No") selected @endif>No</option>
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        @if($data->Declear_Dividen=="Yes")
+                                        <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Members</label>
+                                          <input type="text" Name="Yes_Dividen_Amount_topaid" class="form-control" placeholder="Eg-1000" required value="{{$data->Yes_Dividen_Amount_topaid}}"> </div>
+                                          <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>
+                                          <input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required value="{{$data->Yes_Dividen_Amount_topaid_Govt}}"> </div>
+                                          <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>
+                                          <input type="text" Name="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required value="{{$data->Yes_Dividen_Challan_date}}"> </div>
+                                          @endif
+                                        <!--end::Col-->
+                                  </div>
+                          </div>
+                          <div class="card-body">
+                                  <div id= "newinput2" class="row g-2">
+                                     
+                                      <!--begin::Col-->
+                                        <div class="col-md-3">
+                                            <label for="validationCustom01" class="form-label">Whether  CDF Paid By The Society</label>
+                                            <select name="CDF_Paid" class="form-select target2" id="selectid2" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($data->CDF_Paid=="Yes") selected @endif>Yes</option>
+                                                <option @if($data->CDF_Paid=="No") selected @endif> No</option>
+                                            </select>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        <!--end::Col-->
+                                        @if($data->CDF_Paid=="Yes")
+                                        <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>
+                                          <input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required value="{{$data->CDf_Yes_paidamount}}"> </div>
+                                          <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>
+                                          <input type="text" Name="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required value="{{$data->CDf_Yes_paidDate}}"> </div>
+                                          @endif
+                                  </div>
+                          </div>
+
+
+                          <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A GRANT</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
+                                    <x-column_-input  title="Year" Name="Grant_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
+                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
+                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
+                                    <x-column_-input  title="Grant Release" Name="Date_release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
+                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
+
+                                  </div>
+                          </div>
+
+                          <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+
+                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Type"/>
+                                    <x-column_-input  title="Year" Name="Aid_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Year"/>
+                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Agencies_Name"/>
+                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
+                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
+                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Subsidies"/>
+
+                                  </div>
+                          </div>
+
+
+                          <div class="card-header"><div class="card-title">REFUND OF AID SANCTIONED AS  LOAN</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Sanctioned"/>
+                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Refunded"/>
+                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Outstanding"/>
+
+                                  </div>
+                          </div>
+
+                          <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
+                          <div class="card-body">
+                                  <div class="row g-2">
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
+                                      
+                                      
+                                  </div>
+                          </div>
+                        
+                          <div class="card-footer">
+                            <button class="btn btn-info" type="submit">Update</button>
+                      </div>
+                  </form>
+                  @endforeach
+          </div>
               </div>
             </div>
           </div>
@@ -825,7 +1016,7 @@ $('#Select_District1').on("change",function() {
                         for(j=0;j<data_filter2.length;j++)
                     {
                       
-                      $optGroup+='<option value='+data_filter2[j].Vill_Name+'>'+data_filter2[j].Vill_Name+'</option>';
+                      $optGroup+='<option>'+data_filter2[j].Vill_Name+'</option>';
                         //$('#js-example-basic-single').append($('<option>').val(data_filter2[j].Vill_Name ).text(data_filter2[j].Vill_Name ));
                         
                     }
@@ -838,11 +1029,12 @@ $('#Select_District1').on("change",function() {
 }
 
 $( "#js-example-basic-single" ).on( "change", function() {
-      var valueof=$( "#js-example-basic-single" ).val();
+      var valueof=$('#js-example-basic-single').val();
+      //var valueof=$('#js-example-basic-single').select2('data');
     $("#GetTotal").val(valueof.length);
        
     $("#villageselected").val(valueof);
-    //console.log(valueof);
+    console.log(valueof);
       
     });
 
@@ -872,3 +1064,53 @@ $( "#Yes1" ).on( "change", function() {
 });
 
     </script>
+    {{-- capital jquery --}}
+
+<script type="text/javascript">
+  $( "#selectid" ).on( "change", function() {
+   
+      var singleValues = $( "#selectid" ).val();
+      //console.log(singleValues);
+    if(singleValues=='Yes'){
+      newRowAdd =
+                  '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Members</label>' +
+                  '<input type="text" Name="Yes_Dividen_Amount_topaid" class="form-control" placeholder="Eg-1000" required> </div>'+
+                  '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>' +
+                  '<input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required> </div>'+
+                  '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>' +
+                  '<input type="text" Name="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required> </div>';
+  
+              $('#newinput1').append(newRowAdd);
+  
+        
+  
+  
+    }
+    else if(singleValues=='No'){
+      $(".toremove").remove();
+    }
+    
+  } );
+  
+  $( ".target2" ).on( "change", function() {
+      var singleValues = $( "#selectid2" ).val();
+    if(singleValues=='Yes'){
+      newRowAdd =
+                  '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>' +
+                  '<input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required> </div>'+
+                  '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>' +
+                  '<input type="text" Name="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required> </div>';
+  
+              $('#newinput2').append(newRowAdd);
+  
+  
+  
+  
+    }
+    else if(singleValues=='No'){
+      $(".toremove2").remove();
+    }
+    
+  } );
+         
+      </script>

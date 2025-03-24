@@ -205,7 +205,76 @@ class HomeController extends Controller
     {
         //
     }
+    public function update(Request $request, string $id)
+    {
+        
+        $validatedData=$request->validate([
+            'Name_of_the_Society'=> 'required|string',
+            'Registration_No' => 'required|string',
+            'Date_of_registration'=>'required|string',
+            'Sector_Type'=>'required|string',
+            'Email'=> 'required|string',
+            'Pan_of_Society'=>'required|string',
+            'Location_Area' => 'required|string',
+            'District'=>'required|string',
+            'Block'=>'required|string',
+            'Board'=>'required|string',
+            'Circle'=>'required|string',
+            'Village'=>'required|string',
+            'Post_office'=>'required|string',
+            'Police_Station'=>'required|string',
+            'Pincode'=>'required|string',
+            'Operation_District'=>'required|string',
+            'Operation_villages'=> 'required|string',
+            'Affiliation'=>'required|string',
+            'Status'=>'required|string',
+            'Years_of_Non_function'=>'nullable|string',
+            'Section_Conducted'=> 'nullable|string',
+            'Section_Cancellation'=> 'nullable|string',
 
+        ]);
+        $finddata= Basic::find($id);
+        
+        $finddata->update($validatedData);
+        
 
+        $data=Basic::find($id);
+        return view('pages.society')->with('Datas',$data);
+    }
+    public function updatemanagement_2(Request $request, string $id)
+    {
+    
+            $President_Name=$request->input('President_Name');
+            $President_DOB=$request->input('President_DOB');
+            $President_Contact=$request->input('President_Contact');
+            $President_Email=$request->input('President_Email');
+            $Secretary_Name=$request->input('Secretary_Name');
+            $Secretary_DOB=$request->input('Secretary_DOB');
+            $Secretary_Contact=$request->input('Secretary_Contact');
+            $Secretary_Email=$request->input('Secretary_Email');
+            $Member_Name = json_encode($request->input('Member_Name'));
+            $Member_Contact = json_encode($request->input('Member_Contact'));
+            
+            $finddata= committee::where('Society_Id', $id);
+            $finddata->update([
+                'President_Name'=> $President_Name,
+                'President_DOB' => $President_DOB,
+                'President_Contact'=>$President_Contact,
+                'President_Email'=>$President_Email,
+                'Secretary_Name'=> $Secretary_Name,
+                'Secretary_DOB'=>$Secretary_DOB,
+                'Secretary_Contact' => $Secretary_Contact,
+                'Secretary_Email'=>$Secretary_Email,
+                'Member_Name' => $Member_Name,
+                'Member_Contact'=>$Member_Contact
+               
+
+            ]);
+        
+        
+
+        $data=Basic::find($id);
+        return view('pages.society')->with('Datas',$data);
+    }
    
 }

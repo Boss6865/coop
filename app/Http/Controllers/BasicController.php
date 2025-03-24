@@ -182,14 +182,14 @@ class BasicController extends Controller
         'CDf_Yes_paidDate'=>$CDf_Yes_paidDate,
         'Grant_Type'=>$Grant_Type,
         'Grant_Year'=>$Grant_Year,
-        'Deptt_Name'=>$Grant_Sanctioned,
+        'Deptt_Name'=>$Deptt_Name,
         'Grant_Sanctioned'=>$Grant_Sanctioned,
         'Grant_Release'=>$Grant_Release,
         'Date_release'=>$Date_release,
         'Aid_Type'=>$Aid_Type,
         'Aid_Year'=>$Aid_Year,
         'Agencies_Name'=>$Agencies_Name,
-        'Aid_Sanctioned'=>$Loan_Sanctioned,
+        'Aid_Sanctioned'=>$Aid_Sanctioned,
         'Aid_Grant_Release'=>$Aid_Grant_Release,
         'Grant_Subsidies'=> $Grant_Subsidies,
         'Loan_Sanctioned'=>$Loan_Sanctioned,
@@ -306,9 +306,109 @@ class BasicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+            
+        $validatedData=$request->validate([
+           
+            'Admission_fee'=> 'required|integer',
+            'Share_face_value'=> 'required|integer',
+            'Authorize_share_capital'=> 'required|integer',
+            'Individual_share'=> 'required|integer',
+            'Govt_share'=> 'required|integer',
+            'Other_coop_share'=> 'nullable|integer',
+            'Primary_Activity'=> 'required|string',
+            'Secondary_Activity'=> 'nullable|string',
+            'Tertiary_Activity'=> 'nullable|string',
+            'Other_Activity'=> 'nullable|string',
+            'Society_Fair_Price_Shop'=> 'nullable|string',
+            'Latest_Audit_complete'=> 'nullable|date',
+            'Audit_Class'=> 'nullable|string',
+            'Working_Capitals'=> 'nullable|integer',
+            'Business_turnover'=> 'nullable|integer',
+            'Total_reserve'=> 'nullable|integer',
+            'Profit_loss'=> 'nullable|integer',
+            'Net_Profit_Loss'=> 'nullable|integer',
+            'Profit'=> 'required|integer',
+            'Loss'=> 'required|integer',
+            'Declear_Dividen'=> 'required|string',
+            'Yes_Dividen_Amount_topaid'=> 'nullable|integer',
+            'Yes_Dividen_Amount_topaid_Govt'=> 'nullable|integer',
+            'Yes_Dividen_Challan_date'=> 'nullable|date',
+            'CDF_Paid'=> 'required|string',
+            'CDf_Yes_paidamount'=> 'nullable|integer',
+            'CDf_Yes_paidDate'=> 'nullable|date',
+            'Grant_Type'=> 'nullable|string',
+            'Grant_Year'=> 'nullable|date',
+            'Deptt_Name'=> 'nullable|string',
+            'Grant_Sanctioned'=> 'nullable|integer',
+            'Grant_Release'=> 'nullable|integer',
+            'Date_release'=> 'nullable|date',
+            'Aid_Type'=> 'nullable|string',
+            'Aid_Year'=> 'nullable|date',
+            'Agencies_Name'=> 'nullable|string',
+            'Aid_Sanctioned'=> 'nullable|integer',
+            'Aid_Grant_Release'=> 'nullable|integer',
+            'Grant_Subsidies'=> 'nullable|integer',
+            'Loan_Sanctioned'=> 'nullable|integer',
+            'Loan_Refunded'=> 'nullable|integer',
+            'Loan_Outstanding'=> 'nullable|integer',
+            'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|date',
+            'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
+
+        ]);
+
+
+
+            $finddata= capital::where('Society_Id', $id);
+           
+            $finddata->update($validatedData);
+
+       
+        $data=Basic::find($id);
+        return view('pages.society')->with('Datas',$data);
+    }
+    public function updatemanagement_1(Request $request, string $id)
+    {
+        $validatedData=$request->validate([
+            
+                'ST_Male'=>'required|integer',
+                'ST_Female' => 'required|integer',
+                'ST_PG'=>'required|integer',
+                'ST_CoopSociety'=>'required|integer',
+                'ST_SHG'=> 'required|integer',
+                'SC_Male'=>'required|integer',
+                'SC_Female' => 'required|integer',
+                'SC_CoopSociety'=>'required|integer',
+                'SC_PG'=>'required|integer',
+                'SC_SHG'=>'required|integer',
+                'Gen_Male'=>'required|integer',
+                'Gen_Female'=>'required|integer',
+                'Gen_CoopSociety'=>'required|integer',
+                'Gen_PG'=>'required|integer',
+                'Gen_SHG'=>'required|integer',
+                'Managing_Male'=>'required|integer',
+                'Managing_Female'=> 'required|integer',
+                'Date_of_LastAGM'=>'required|date',
+                'Employee_Male'=>'required|integer',
+                'Employee_Female'=>'required|integer',
+                'Trained_Male'=> 'required|integer',
+                'Trained_Female'=> 'required|integer',
+                'Programme_Type'=>'nullable|string',
+                'Training_Program'=>'nullable|string',
+                'Number_of_Trainee'=>'required|integer',
+                'Managemnt_Salary'=> 'required|integer',
+                'Management_Expense'=> 'required|integer',
+                'Other_Expense'=> 'required|integer',
+
+        ]);
+
+        $finddata= membersociety::where('Society_Id', $id);
+        $finddata->update($validatedData);
+
+        $data=Basic::find($id);
+        return view('pages.society')->with('Datas',$data);
     }
 
+   
     /**
      * Remove the specified resource from storage.
      */
