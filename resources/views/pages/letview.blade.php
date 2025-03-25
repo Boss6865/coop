@@ -1,4 +1,14 @@
 <x-layout>
+  <style>
+    div.dt-container {
+        width: 1550px;
+        margin: 0 auto;
+    }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
     <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Capitals" />
        <!--begin::App Main-->
       <main class="app-main">
@@ -35,43 +45,52 @@
                     </div>
                   </div>
 
+                 
 
                   <div class="flex flex-col">
                     <div class=" overflow-x-auto pb-4">
                         <div class="min-w-full inline-block align-middle">
-                            <div class="overflow-hidden  border rounded-lg border-gray-300">
-                                <table class="table-auto min-w-full rounded-xl">
+                            <div class="border rounded-lg border-gray-300 dt-container">
+                              
+                                <table class="display nowrap" style="width:100%" id="myTable">
                                     <thead>
-                                        <tr class="bg-gray-50">
-                                            <th class="">
-                                                <div class="flex items-center py-5 px-5 ">
-                                                    <input type="checkbox" value="" class="w-5 h-5 appearance-none border border-gray-300  rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100">
-                                                </div>
-                                            </th>
+                                        <tr>
+                                            
                                            
-                                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Society Name </th>
-                                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> District </th>
-                                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Block</th>
-                                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Status </th>
-                                            <th scope="col" class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"> Actions </th>
+                                            <th>Society Name</th>
+                                            <th>Registration</th>
+                                            <th>Registration Date</th>
+                                            <th> District </th>
+                                            <th> Block</th>
+                                            <th> Address</th>
+                                            <th>Total Members</th>
+                                            <th> Status </th>
+                                            <th>Last Updated</th>
+                                            <th> Actions </th>
+                                            
+                                           
                                         </tr>
                                     </thead>
-                                    <tbody class="divide-y divide-gray-300 ">
+                                    <tbody>
                                          @foreach($Societies as $Society) 
-                                        
-
-                                        <tr class="bg-white transition-all duration-500 hover:bg-gray-50">
-                                            <td class="">
-                                                <div class="flex items-center py-5 px-5 ">
-                                                    <input type="checkbox" value="" class="w-5 h-5 appearance-none border border-gray-300  rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100">
-                                                </div>
-                                            </td>
+                                        <tr>
                                             
-                                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{$Society->Name_of_the_Society;}}</td>
-                                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{$Society->District;}}</td>
-                                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"> {{$Society->Block;}}</td>
-                                            <td class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{{$Society->Status;}}</td>
-                                            <td class="flex p-5 items-center gap-0.5">
+                                            
+                                            <td> {{$Society->Name_of_the_Society;}}</td>
+                                            <td> {{$Society->Registration_No;}}</td>
+                                            <td> {{$Society->Date_of_registration;}}</td>
+                                            <td> {{$Society->District;}}</td>
+                                            <td> {{$Society->Block;}}</td>
+                                            <td> {{$Society->Village;}} - {{$Society->Pincode;}} </td>
+                                            @foreach($Society->membersociety as $data)
+                                            <td>
+                                            {{$data->ST_Male + $data->ST_Female + $data->SC_Male + $data->SC_Female + $data->Gen_Male + $data->Gen_Female}}
+                                          </td>
+                                            @endforeach
+                                            <td>{{$Society->Status;}}</td>
+                                            <td>{{$Society->updated_at;}}</td>
+                                            
+                                            <td>
                                                 <button class="p-2  rounded-full bg-white group transition-all duration-500 ">
                                                   <a href="/society/{{$Society->id;}}">
                                                     <svg class="cursor-pointer" width="20" height="20" viewBox="0 0 20 20" fill="none" >
@@ -86,18 +105,20 @@
                                                     </svg>
                                                     </a>
                                                 </button>
-                                                <button class="p-2 rounded-full bg-white group transition-all duration-500 hover:bg-blue flex item-center">
+                                                {{-- <button class="p-2 rounded-full bg-white group transition-all duration-500 hover:bg-blue flex item-center">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path class="stroke-black group-hover:stroke-white" d="M10.0161 14.9897V15.0397M10.0161 9.97598V10.026M10.0161 4.96231V5.01231" stroke="black" stroke-width="2.5" stroke-linecap="round"></path>
                                                     </svg>
-                                                </button>
+                                                </button> --}}
                                             </td>
+                                            
                                         </tr>
                                         @endforeach
                                       
                                         
                                     </tbody>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
@@ -118,3 +139,11 @@
       <!--end::App Main-->
 
 </x-layout>
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable({
+      scrollX: true
+    });
+} );
+
+</script>

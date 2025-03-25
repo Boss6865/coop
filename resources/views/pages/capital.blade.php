@@ -1,6 +1,9 @@
 <x-layout>
 <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Capitals" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
+  <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <div class="card card-info card-outline mb-4">
                   
 
@@ -47,7 +50,7 @@
                                   <div class="row g-2">
                                      
                                     <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3"/>
                                       
                                       <!--begin::Col-->
                                       <div class="col-md-3">
@@ -124,11 +127,11 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                     <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Year" Name="Grant_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2"/>
 
                                   </div>
                           </div>
@@ -138,7 +141,7 @@
                                   <div class="row g-2">
 
                                     <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Year" Name="Aid_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
@@ -161,7 +164,7 @@
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4"/>
                                     <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
                                       
                                       
@@ -215,11 +218,14 @@ $( "#selectid" ).on( "change", function() {
                 '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>' +
                 '<input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required> </div>'+
                 '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>' +
-                '<input type="text" Name="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required> </div>';
+                '<input type="text" Name="Yes_Dividen_Challan_date" id="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required> </div>';
 
             $('#newinput1').append(newRowAdd);
 
-      
+            $('#Yes_Dividen_Challan_date').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
 
 
   }
@@ -236,12 +242,15 @@ $( ".target2" ).on( "change", function() {
                 '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>' +
                 '<input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required> </div>'+
                 '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>' +
-                '<input type="text" Name="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required> </div>';
+                '<input type="text" Name="CDf_Yes_paidDate" id="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required> </div>';
 
             $('#newinput2').append(newRowAdd);
 
 
-
+            $('#CDf_Yes_paidDate').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
 
   }
   else if(singleValues=='No'){
@@ -256,3 +265,36 @@ $( ".target2" ).on( "change", function() {
       
 
 </x-layout>
+
+<script>
+  $('#Latest_Audit_complete').datepicker({
+      uiLibrary: 'bootstrap5',
+      format: 'yyyy-mm-dd'
+  });
+  $('#Grant_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#Aid_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#Date_release').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#MANAGERIAL_SUBSIDY_RECEIVED_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
+      $('#Yes_Dividen_Challan_date').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
+      $('#CDf_Yes_paidDate').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+  </script>

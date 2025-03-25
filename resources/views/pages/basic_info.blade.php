@@ -2,6 +2,8 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   <x-navigation Nav="information" />
    <!--begin::Form Validation-->
    <div class="card card-info card-outline mb-4">
@@ -55,7 +57,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              id="validationCustom01"
+                              id="Date_of_registration"
                               value=""
                                name="Date_of_registration"
                               required
@@ -682,3 +684,9 @@
   
   
   </script>
+  <script>
+    $('#Date_of_registration').datepicker({
+        uiLibrary: 'bootstrap5',
+        format: 'yyyy-mm-dd'
+    });
+</script>

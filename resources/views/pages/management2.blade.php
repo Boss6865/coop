@@ -1,6 +1,9 @@
 <x-layout>
    <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Management II"/>
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
    <div class="card card-info card-outline mb-4">
                   
 
@@ -15,7 +18,7 @@
                             <div class="row g-2">
                                
                               <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Date of Birth" Name="President_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
+                              <x-column_-input  title="Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3"/>
                               <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
                               <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
 
@@ -25,7 +28,7 @@
                     <div class="card-body">
                             <div class="row g-2">
                               <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3"/>
+                              <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3"/>
                               <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
                               <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
                                 
@@ -93,3 +96,14 @@
                   <!--end::JavaScript-->
 </div>
 </x-layout>
+<script>
+  $('#President_DOB').datepicker({
+      uiLibrary: 'bootstrap5',
+      format: 'yyyy-mm-dd'
+  });
+  $('#Secretary_DOB').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+  </script>
+    

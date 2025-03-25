@@ -1,6 +1,8 @@
 <x-layout>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-git.js"></script>
+  {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
+  <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <x-navigation title="{{ $Datas->Name_of_the_Society }}" Nav="Edit Society" />
@@ -43,7 +45,7 @@
                                   <div class="row g-2">
                                     <x-column_-input  title="Name Of The Cooperative Society" Name="Name_of_the_Society" val="{{$Datas->Name_of_the_Society}}" div_class="col-md-4"/>
                                     <x-column_-input  title="Registration No." Name="Registration_No"  val="{{$Datas->Registration_No}}" div_class="col-md-4"/>
-                                    <x-column_-input  title="Date Of Registration" Name="Date_of_registration"  val="{{$Datas->Date_of_registration}}" div_class="col-md-4"/>
+                                    <x-column_-input  title="Date Of Registration" Name="Date_of_registration" id="Date_of_registration" val="{{$Datas->Date_of_registration}}" div_class="col-md-4"/>
                                     
                                       
                                   </div>
@@ -420,7 +422,7 @@
                         <!--end::Col-->
                          
                 <!--begin::Col-->
-                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="validationCustom05" placeholder='eg.2/02/2025' div_class="col-md-4" val="{{$data->Date_of_LastAGM}}"/>
+                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="Date_of_LastAGM" placeholder='eg.2/02/2025' div_class="col-md-4" val="{{$data->Date_of_LastAGM}}"/>
                 
                         <!--end::Col-->
                       
@@ -522,7 +524,7 @@
                                   <div class="row g-2">
                                      
                                     <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->President_Name}}"/>
-                                    <x-column_-input  title="Date of Birth" Name="President_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->President_DOB}}"/>
+                                    <x-column_-input  title="Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->President_DOB}}"/>
                                     <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->President_Contact}}"/>
                                     <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->President_Email}}"/>
       
@@ -532,7 +534,7 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                     <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->Secretary_Name}}"/>
-                                    <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="validationCustom09" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->Secretary_DOB}}"/>
+                                    <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->Secretary_DOB}}"/>
                                     <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->Secretary_Contact}}"/>
                                     <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->Secretary_Email}}"/>
                                       
@@ -624,7 +626,7 @@
                                   <div class="row g-2">
                                      
                                     <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Society_Fair_Price_Shop"/>
-                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/>
+                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/>
                                       
                                       <!--begin::Col-->
                                       <div class="col-md-3">
@@ -681,7 +683,7 @@
                                           <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>
                                           <input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required value="{{$data->Yes_Dividen_Amount_topaid_Govt}}"> </div>
                                           <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>
-                                          <input type="text" Name="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required value="{{$data->Yes_Dividen_Challan_date}}"> </div>
+                                          <input type="text" Name="Yes_Dividen_Challan_date" id="Yes_Dividen_Challan_date" class="form-control mydate" placeholder="Eg-122" required value="{{$data->Yes_Dividen_Challan_date}}"> </div>
                                           @endif
                                         <!--end::Col-->
                                   </div>
@@ -705,7 +707,7 @@
                                         <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>
                                           <input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required value="{{$data->CDf_Yes_paidamount}}"> </div>
                                           <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>
-                                          <input type="text" Name="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required value="{{$data->CDf_Yes_paidDate}}"> </div>
+                                          <input type="text" Name="CDf_Yes_paidDate" id="CDf_Yes_paidDate" class="form-control mydate" placeholder="Eg-12/12/2005" required value="{{$data->CDf_Yes_paidDate}}"> </div>
                                           @endif
                                   </div>
                           </div>
@@ -715,11 +717,11 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                     <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
-                                    <x-column_-input  title="Year" Name="Grant_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
+                                    <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
                                     <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
                                     <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
-                                    <x-column_-input  title="Grant Release" Name="Date_release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
-                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Releasecle"/>
+                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
 
                                   </div>
                           </div>
@@ -729,7 +731,7 @@
                                   <div class="row g-2">
 
                                     <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Type"/>
-                                    <x-column_-input  title="Year" Name="Aid_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Year"/>
+                                    <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Year"/>
                                     <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Agencies_Name"/>
                                     <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
                                     <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
@@ -752,7 +754,7 @@
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
                                     <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
                                       
                                       
@@ -1078,11 +1080,15 @@ $( "#Yes1" ).on( "change", function() {
                   '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>' +
                   '<input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required> </div>'+
                   '<div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>' +
-                  '<input type="text" Name="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required> </div>';
+                  '<input type="text" Name="Yes_Dividen_Challan_date" id="Yes_Dividen_Challan_date" class="form-control" placeholder="Eg-122" required> </div>';
   
               $('#newinput1').append(newRowAdd);
   
-        
+              $('#Yes_Dividen_Challan_date').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
   
   
     }
@@ -1099,11 +1105,15 @@ $( "#Yes1" ).on( "change", function() {
                   '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>' +
                   '<input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required> </div>'+
                   '<div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>' +
-                  '<input type="text" Name="CDf_Yes_paidDate" class="form-control" placeholder="Eg-12/12/2005" required> </div>';
+                  '<input type="text" Name="CDf_Yes_paidDate" id="CDf_Yes_paidDate" class="form-control mydate" placeholder="Eg-12/12/2005" required> </div>';
   
               $('#newinput2').append(newRowAdd);
   
-  
+              $('#CDf_Yes_paidDate').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
   
   
     }
@@ -1114,3 +1124,50 @@ $( "#Yes1" ).on( "change", function() {
   } );
          
       </script>
+
+<script>
+  $('#Date_of_registration').datepicker({
+      uiLibrary: 'bootstrap5',
+      format: 'yyyy-mm-dd'
+  });
+  $('#Date_of_LastAGM').datepicker({
+            uiLibrary: 'bootstrap5',
+            format: 'yyyy-mm-dd'
+        });
+
+        $('#President_DOB').datepicker({
+      uiLibrary: 'bootstrap5',
+      format: 'yyyy-mm-dd'
+  });
+  $('#Secretary_DOB').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
+
+      $('#Latest_Audit_complete').datepicker({
+      uiLibrary: 'bootstrap5',
+      format: 'yyyy-mm-dd'
+  });
+  $('#Grant_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#Aid_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#Date_release').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+      $('#MANAGERIAL_SUBSIDY_RECEIVED_Year').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+
+      $('.mydate').datepicker({
+          uiLibrary: 'bootstrap5',
+          format: 'yyyy-mm-dd'
+      });
+</script>

@@ -1,5 +1,8 @@
 <x-layout>
-<script src="https://code.jquery.com/jquery-git.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
    <x-navigation title="{{ Session()->get('Sooos'); }}"/>
  <!--begin::Form Validation-->
  <div class="card card-info card-outline mb-4">
@@ -65,7 +68,7 @@
                         <!--end::Col-->
                          
                 <!--begin::Col-->
-                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="validationCustom05" placeholder='eg.2/02/2025' div_class="col-md-4" />
+                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="Date_of_LastAGM" placeholder='eg.2/02/2025' div_class="col-md-4" />
                 
                         <!--end::Col-->
                       
@@ -184,3 +187,9 @@
          this.value = this.value.replace(/[^0-9\.]/g,'');
       });
    </script>
+      <script>
+        $('#Date_of_LastAGM').datepicker({
+            uiLibrary: 'bootstrap5',
+            format: 'yyyy-mm-dd'
+        });
+    </script>

@@ -1,7 +1,7 @@
 
 @props(['title'=>'Number Of Male',
 'div_class'=>'col-md-4',
-'id'=>'validationCustom01',
+'id'=>'',
 'val'=>'',
 'Name'=>'',
 'inclass'=>'',
