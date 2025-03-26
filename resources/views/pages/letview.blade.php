@@ -60,6 +60,7 @@
                                             <th>Society Name</th>
                                             <th>Registration</th>
                                             <th>Registration Date</th>
+                                            <th>Sector</th>
                                             <th> District </th>
                                             <th> Block</th>
                                             <th> Address</th>
@@ -79,6 +80,7 @@
                                             <td> {{$Society->Name_of_the_Society;}}</td>
                                             <td> {{$Society->Registration_No;}}</td>
                                             <td> {{$Society->Date_of_registration;}}</td>
+                                            <td> {{$Society->Sector_Type;}}</td>
                                             <td> {{$Society->District;}}</td>
                                             <td> {{$Society->Block;}}</td>
                                             <td> {{$Society->Village;}} - {{$Society->Pincode;}} </td>

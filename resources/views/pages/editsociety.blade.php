@@ -679,11 +679,11 @@
                                         </div>
                                         @if($data->Declear_Dividen=="Yes")
                                         <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Members</label>
-                                          <input type="text" Name="Yes_Dividen_Amount_topaid" class="form-control" placeholder="Eg-1000" required value="{{$data->Yes_Dividen_Amount_topaid}}"> </div>
+                                          <input type="text" Name="Yes_Dividen_Amount_topaid" class="form-control" placeholder="Eg-1000"  value="{{$data->Yes_Dividen_Amount_topaid}}"> </div>
                                           <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Amount Paid To Govt.</label>
-                                          <input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000" required value="{{$data->Yes_Dividen_Amount_topaid_Govt}}"> </div>
+                                          <input type="text" Name="Yes_Dividen_Amount_topaid_Govt" class="form-control" placeholder="Eg-1000"  value="{{$data->Yes_Dividen_Amount_topaid_Govt}}"> </div>
                                           <div class="col-md-3 toremove"><label for="validationCustom01" class="form-label">Challan No. & Date To Govt.</label>
-                                          <input type="text" Name="Yes_Dividen_Challan_date" id="Yes_Dividen_Challan_date" class="form-control mydate" placeholder="Eg-122" required value="{{$data->Yes_Dividen_Challan_date}}"> </div>
+                                          <input type="text" Name="Yes_Dividen_Challan_date" id="Yes_Dividen_Challan_date" class="form-control mydate" placeholder="Eg-122"  value="{{$data->Yes_Dividen_Challan_date}}"> </div>
                                           @endif
                                         <!--end::Col-->
                                   </div>
@@ -705,9 +705,9 @@
                                         <!--end::Col-->
                                         @if($data->CDF_Paid=="Yes")
                                         <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Amount Paid</label>
-                                          <input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000" required value="{{$data->CDf_Yes_paidamount}}"> </div>
+                                          <input type="text" Name="CDf_Yes_paidamount" class="form-control" placeholder="Eg-1000"  value="{{$data->CDf_Yes_paidamount}}"> </div>
                                           <div class="col-md-3 toremove2"><label for="validationCustom01" class="form-label">Date  Paid</label>
-                                          <input type="text" Name="CDf_Yes_paidDate" id="CDf_Yes_paidDate" class="form-control mydate" placeholder="Eg-12/12/2005" required value="{{$data->CDf_Yes_paidDate}}"> </div>
+                                          <input type="text" Name="CDf_Yes_paidDate" id="CDf_Yes_paidDate" class="form-control mydate" placeholder="Eg-12/12/2005"  value="{{$data->CDf_Yes_paidDate}}"> </div>
                                           @endif
                                   </div>
                           </div>
@@ -720,7 +720,7 @@
                                     <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
                                     <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
                                     <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
-                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Releasecle"/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Release"/>
                                     <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
 
                                   </div>

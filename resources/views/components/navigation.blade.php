@@ -1,4 +1,4 @@
-@props(['title'=>'Basic Information','Nav'=>'Management I'])
+@props(['title'=>'','Nav'=>'Management I'])
   <!--begin::App Content Header-->
   <div class="app-content-header">
           <!--begin::Container-->

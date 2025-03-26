@@ -34,6 +34,20 @@ class BasicController extends Controller
         // dd($users);
         return view('pages.letview', ['Societies' => $users]);
     }
+    public function View_1()
+    {
+        // $users = DB::table('_societydata')->get();
+        $users=Basic::all();
+        // dd($users);
+        return view('pages.view_1', ['Societies' => $users]);
+    }
+
+    public function Details_view(string $id)
+    {
+        $data=Basic::find($id);
+        // dd($data);
+        return view('pages.detailsview')->with('Datas',$data);
+    }
 
     /**
      * Store a newly created resource in storage.

@@ -23,4 +23,6 @@ Route::put('/basic/{id}',[HomeController::class,'update']);
 Route::put('/updatemange1/{id}',[BasicController::class,'updatemanagement_1']);
 Route::put('/updatemange2/{id}',[HomeController::class,'updatemanagement_2']);
 Route::put('/capital/{id}',[BasicController::class,'update']);
+Route::get('/View_1',[BasicController::class,'View_1']);
+Route::get('/details/{id}',[BasicController::class,'Details_view']);
 
