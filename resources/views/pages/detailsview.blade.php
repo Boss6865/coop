@@ -266,17 +266,47 @@
                     
                     <tbody>
                       <tr class="align-middle">
-                        <th>ADMISSION FEES</th>
-                        <td>Rs: {{$data->Admission_fee}}/-</td>
+                        <th style="width: 30%">ADMISSION FEES</th>
+                        <td>
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                
+                                <td>Rs: {{$data->Admission_fee}}/-</td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
                         </tr>
                       
                       <tr class="align-middle">
                         <th >FACE VALUE OF EACH SHARE</th>
-                        <td>Rs: {{$data->Share_face_value}} /-</td>
+                        <td>
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                
+                                <td>Rs: {{$data->Share_face_value}} /-</td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
                       </tr>
                       <tr class="align-middle">
                         <th>AUTHORIZED SHARE CAPITAL</th>
-                        <td>Rs: {{$data->Authorize_share_capital}} /-</td>
+                        <td>
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                
+                                <td>Rs: {{$data->Authorize_share_capital}} /-</td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
                         </tr>
                         <tr class="align-middle">
                             <th>SHARE CAPITAL CONTRIBUTION</th>
@@ -284,15 +314,15 @@
                                 <table class="table table-sm">
                                     <tbody>
                                         <tr>
-                                            <th>INDIVIDUAL</th>
+                                            <th style="width: 50%">Individual</th>
                                             <td>Rs: {{$data->Individual_share}}/-</td>
                                         </tr>
                                         <tr>
-                                            <th>GOVERNMENT</th>
+                                            <th>Government</th>
                                             <td>Rs: {{$data->Govt_share}}/-</td>
                                         </tr>
                                         <tr>
-                                            <th>OTHER COOP.</th>
+                                            <th>Othr Coop.</th>
                                             <td>Rs: {{$data->Other_coop_share}}/-</td>
                                         </tr>
                                         <tr>
@@ -309,305 +339,286 @@
                                 <table class="table table-sm">
                                     <tbody>
                                         <tr>
-                                            <th>PRIMARY ACTIVITIY</th>
+                                            <th style="width: 50%">Primary Activity</th>
                                             <td>{{$data->Primary_Activity}}</td>
                                         </tr>
                                         <tr>
-                                            <th>SECONDARY ACTIVITY</th>
+                                            <th>Secondary Activity</th>
                                             <td>{{$data->Secondary_Activity}}</td>
                                         </tr>
                                         <tr>
-                                            <th>TERTIARY ACTIVITIES</th>
+                                            <th>Tertiary Activity</th>
                                             <td>{{$data->Tertiary_Activity}}</td>
                                         </tr>
                                         <tr>
-                                            <th>OTHERS</th>
+                                            <th>Others Activity</th>
                                             <td>{{$data->Other_Activity}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </td>
                         </tr>
-
-                        <tr class="align-middle"><th>Sector Type:</th><td>{{$Datas->Sector_Type;}}</td></tr>
-                        <tr class="align-middle"><th>Email:</th><td>{{$Datas->Email;}}</td></tr>
-                        <tr class="align-middle"><th>Area:</th><td>{{$Datas->Location_Area;}}</td></tr>
-                        <tr class="align-middle"><th>District:</th><td>{{$Datas->District;}}</td></tr>
-                        <tr class="align-middle"><th>Block:</th><td>{{$Datas->Block;}}</td></tr>
-                        <tr class="align-middle"><th>Circle:</th><td>{{$Datas->Circle;}}</td></tr>
-                        <tr class="align-middle"><th>Village:</th><td>{{$Datas->Village;}}</td></tr>
-                        <tr class="align-middle"><th>Post Office:</th><td>{{$Datas->Post_office;}}</td></tr>
-                        <tr class="align-middle"><th>Police Station:</th><td>{{$Datas->Police_Station;}}</td></tr>
-                        <tr class="align-middle"><th>Pincode:</th><td>{{$Datas->Pincode;}}</td></tr>
-                        <tr class="align-middle"><th>Operation District:</th><td>{{$Datas->Operation_District;}}</td></tr>
-                        <tr class="align-middle"><th>Operation Villages:</th><td>{{$Datas->Operation_villages;}}</td></tr>
-                        <tr class="align-middle"><th>Affiliation:</th><td>{{$Datas->Affiliation;}}</td></tr>
-                        <tr class="align-middle"><th>Status:</th><td>{{$Datas->Status;}}</td></tr>
-                        @if($Datas->Status=="Non-function")
-                        <tr class="align-middle"><th>Year of Non Function:</th><td>{{$Datas->Years_of_Non_function;}}</td></tr>
-                        <tr class="align-middle"><th>Section Conducted:</th><td>{{$Datas->Section_Conducted;}}</td></tr>
-                        <tr class="align-middle"><th>Section Cancellation:</th><td>{{$Datas->Section_Cancellation;}}</td></tr>
-                        @endif
-                    </tbody>
-                  </table>
-              
-              <div class="card-body p-0">
-                
-                <table class="table table-bordered">
-                    
-                    <tbody>
-                      <tr>
-                        <th scope="row">SOCIETY UNDERTAKEN PDS (FAIR PRICE SHOP)</th>
-                        <td>{{$data->Society_Fair_Price_Shop}}</td>
-                        <th scope="row">YEAR OF LATEST AUDIT COMPLETED</th>
-                        <td>{{$data->Latest_Audit_complete}}</td>
+                        <tr class="align-middle">
+                          <th>SOCIETY UNDERTAKEN PDS (FAIR PRICE SHOP)</th>
+                          <td>
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr>
+                                  
+                                  <td>{{$data->Society_Fair_Price_Shop}}</td>
+                                  
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>AUDIT</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Latest Audit completed</th>
+                              <td>{{$data->Latest_Audit_complete}}</td>
+                              </tr>
+                              <tr>
+                                <th> Audit Class</th>
+                                <td>{{$data->Audit_Class}}</td>
+                              </tr>
+                              <tr>
+                                <th> Audit Score</th>
+                                <td>to be added</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>CAPITALS</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Working Capitals</th>
+                                <td>Rs: {{$data->Working_Capitals}}/-</td>
+                              </tr>
+                              <tr>
+                                <th>Businness Turn Over</th>
+                                <td>Rs: {{$data->Business_turnover}}/-</td>
+                              </tr>
+                              <tr>
+                                <th> Total Reserve</th>
+                                <td>Rs: {{$data->Total_reserve}}/-</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>PROFIT/LOSS</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Net Profit</th>
+                               <td>Rs: {{$data->Profit_loss}}/-</td>
+                              </tr>
+                              <tr>
+                                <th>Net Loss</th>
+                                <td>Rs: {{$data->Net_Profit_Loss}}/-</td>
+                              </tr>
+                              
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>ACCUMULATE</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Profit</th>
+                                <td>Rs: {{$data->Profit}}/-</td>
+                              </tr>
+                              <tr>
+                                <th>Loss</th>
+                                <td>Rs: {{$data->Loss}}/-</td>
+                              </tr>
+                              
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>WHETHER DIVIDEND DECLEARED BY THE SOCIETY</th>
+                          <td>
+                            @if($data->Declear_Dividen=="Yes")
+                            <table class="table table-sm">
+                              <thead>
+                                <th colspan="3">{{$data->Declear_Dividen}}</th>
+                              </thead>
+                              <tr>
+                                <th style="width: 50%">AMOUNT PAID TO MEMBERS</th>
+                                <td>{{$data->Yes_Dividen_Amount_topaid}}</td>
+                              </tr>
+                              <tr>
+                                <th> TO GOVT.</th>
+                                <td>{{$data->Yes_Dividen_Amount_topaid_Govt}}</td>
+                              </tr>
+                              <tr>
+                                <th> CHALLAN NO. & DATE</th>
+                                <td>{{$data->Yes_Dividen_Challan_date}}</td>
+                              </tr>
+                            </table>
+                            @else
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr>
+                                  
+                                  <td>{{$data->Declear_Dividen}}</td>
+                                  
+                                </tr>
+                              </tbody>
+                            </table>
+                            @endif
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>WHETHER  CDF PAID BY THE SOCIETY</th>
+                          <td>
+                            @if($data->CDF_Paid=="Yes")
+                            <table class="table table-sm">
+                              <thead>
+                                <th colspan="2">{{$data->CDF_Paid}}</th>
+                              </thead>
+                              <tr>
+                                <th style="width: 50%">AMOUNT PAID</th>
+                                <td>{{$data->CDf_Yes_paidamount}}</td>
+                              </tr>
+                              <tr>
+                                <th>DATE  PAID</th>
+                                <td>{{$data->CDf_Yes_paidDate}}</td>
+                              </tr>
+                            </table>
+                            @else
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr>
+                                  
+                                  <td>{{$data->CDF_Paid}}</td>
+                                  
+                                </tr>
+                              </tbody>
+                            </table>
+                            @endif
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>GOVERNMENT AID, IN THE FORM OF A GRANT</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Types Of Grant</th>
+                                <td>{{$data->Grant_Type}}</td>
+                              </tr>
+                              <tr>
+                                <th>Year</th>
+                                <td>{{$data->Grant_Year}}</td>
+                              </tr>
+                              <tr>
+                                <th>Name Of The Deptt.</th>
+                                <td>{{$data->Deptt_Name}}</td>
+                              </tr>
+                              <tr>
+                                <th>Total Grant Sanctioned</th>
+                                <td>{{$data->Grant_Sanctioned}}</td>
+                              </tr>
+                              <tr>
+                                <th>Grant Release</th>
+                                <td>{{$data->Grant_Release}}</td>
+                              </tr>
+                              <tr>
+                                <th>Date of Release</th>
+                                <td>{{$data->Date_release}}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Types of AID</th>
+                                <td>{{$data->Aid_Type}}</td>
+                              </tr>
+                              <tr>
+                                <th>Year</th>
+                                <td>{{$data->Aid_Year}}</td>
+                              </tr>
+                              <tr>
+                                <th>Name of the Agencies</th>
+                                <td>{{$data->Agencies_Name}}</td>
+                              </tr>
+                              <tr>
+                                <th>Total AID Sanctioned</th>
+                                <td>{{$data->Aid_Sanctioned}}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>GRANT RELEASE</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Loan</th>
+                                <td>{{$data->Aid_Grant_Release}}</td>
+                              </tr>
+                              <tr>
+                                <th>Subsidies</th>
+                                <td>{{$data->Grant_Subsidies}}</td>
+                              </tr>
+                              
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th>REFUND OF AID SANCTIONED AS  LOAN</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Loan Sanctioned</th>
+                                <td>{{$data->Loan_Sanctioned}}</td>
+                              </tr>
+                              <tr>
+                                <th>Loan Refunded</th>
+                                <td>{{$data->Loan_Refunded}}</td>
+                              </tr>
+                              <tr>
+                                <th>Loan Outstanding </th>
+                                <td>{{$data->Loan_Outstanding}}</td>
+                              </tr>
+                              
+                            </table>
+                          </td>
+                        </tr>
+                        <tr class="align-middle">
+                          <th >MANAGERIAL SUBSIDY RECEIVED</th>
+                          <td>
+                            <table class="table table-sm">
+                              <tr>
+                                <th style="width: 50%">Year</th>
+                                <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Year}}</td>
+                              </tr>
+                              <tr>
+                                <th>Amount</th>
+                                <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount}}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
                         
-                      </tr>
-                      <tr>
-                        <th scope="row">CATEGORY OF AUDIT / AUDIT CLASS</th>
-                        <td>{{$data->Audit_Class}}</td>
-                        <th scope="row">WORKING CAPITAL</th>
-                        <td>Rs: {{$data->Working_Capitals}}/-</td>
-                       
-                      </tr>
-                      <tr>
-                        <th scope="row">BUSINESS TURNOVER</th>
-                        <td>Rs: {{$data->Business_turnover}}/-</td>
-                        <th scope="row">TOTAL RESERVE</th>
-                        <td>Rs: {{$data->Total_reserve}}/-</td>
-                      </tr>
                     </tbody>
                   </table>
-              </div>
-              <div class="card-body p-0">
-                <table class="table table-bordered">
-                    <tbody>
-                      <tr>
-                        <th scope="row">WHETHER THE SOCIETY IS MAKING PROFIT / LOSS</th>
-                        <td>Rs: {{$data->Profit_loss}}/-</td>
-                        <th scope="row">NET PROFIT (+) / LOSS (-) OF THE SOCIETY (AMOUNT IN)</th>
-                        <td>Rs: {{$data->Net_Profit_Loss}}/-</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div class="card-body p-0">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="3" scope="col" class="text-center">ACCUMULATE</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <th scope="col">PROFIT</th>
-                        <th scope="col">LOSS</th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                     
-                      <tr>
-                        <th scope="row"></th>
-                        <td>Rs: {{$data->Profit}}/-</td>
-                        <td>Rs: {{$data->Loss}}/-</td>
-                        
-                     
-                    </tbody>
-                  </table>
-              </div>
-              <div class="card-body p-0">
-                <table class="table table-bordered">
-                    <tbody>
-                      <tr>
-                        <th scope="row">WHETHER DIVIDEND DECLEARED BY THE SOCIETY</th>
-                        <td>{{$data->Declear_Dividen}}</td>
-                        
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div class="card-body p-0">
-                
-                @if($data->Declear_Dividen=="Yes")
-                <div class="col-md-12">
-                  
-                  
-                 
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="4" scope="col" class="text-center"> DIVIDEND PAID BY THE SOCIETY</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <th scope="row">AMOUNT PAID TO MEMBERS</th>
-                        <th scope="row"> TO GOVT.</th>
-                        <th scope="row"> CHALLAN NO. & DATE</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <th scope="row"></th>
-                      <td>{{$data->Yes_Dividen_Amount_topaid}}</td>
-                      <td>{{$data->Yes_Dividen_Amount_topaid_Govt}}</td>
-                      <td>{{$data->Yes_Dividen_Challan_date}}</td>
-                      
-                      
-                    </tbody>
-                  </table>
-                  
-                 
-                </div>
-                @endif
-              </div>
-               
+             
   
-                <div class="card-body p-0">
-                  <table class="table table-bordered">
-                    <tbody>
-                      <tr>
-                        <th scope="row">WHETHER  CDF PAID BY THE SOCIETY</th>
-                        <td>{{$data->CDF_Paid}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-               
-                @if($data->CDF_Paid=="Yes")
-                <div class="col-md-12">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="row"></th>
-                        <th scope="row">AMOUNT PAID</th>
-                        <th scope="row"> DATE  PAID</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <th scope="row"></th>
-                      <td>{{$data->CDf_Yes_paidamount}}</td>
-                      <td>{{$data->CDf_Yes_paidDate}}</td>
-                    </tbody>
-                  </table>
-                </div>
-                @endif
                
               </div>
-              <div  class="card-body p-0">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="5" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A GRANT</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">TYPES OF GRANT</th>
-                        <td>{{$data->Grant_Type}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">YEAR</th>
-                        <td>{{$data->Grant_Year}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">NAME OF THE DEPTT.</th>
-                        <td>{{$data->Deptt_Name}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">TOTAL GRANT SANCTIONED</th>
-                        <td>{{$data->Grant_Sanctioned}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">GRANT RELEASE</th>
-                        <td>{{$data->Grant_Release}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">DATE OF RELEASE</th>
-                        <td>{{$data->Date_release}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div  class="card-body p-0">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="5" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</th>
-                      </tr>
-                     
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">TYPES OF AID</th>
-                        <td>{{$data->Aid_Type}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">YEAR</th>
-                        <td>{{$data->Aid_Year}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">NAME OF THE AGENCIES</th>
-                        <td>{{$data->Agencies_Name}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">TOTAL AID SANCTIONED</th>
-                        <td>{{$data->Aid_Sanctioned}}</td>
-                      </tr>
-                      <tr>
-                        <th colspan="2" scope="col" class="text-center">GRANT RELEASE</th>
-                      </tr>
-                      <tr>
-                        
-                        <th scope="row">LOAN</th>
-                        <th scope="col">SUBSIDIES</th>
-                      </tr>
-                      <tr>
-                        <td>{{$data->Aid_Grant_Release}}</td>
-                        <td>{{$data->Grant_Subsidies}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-              </div>
-              <div  class="card-body p-0">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="4" scope="col" class="text-center">REFUND OF AID SANCTIONED AS  LOAN</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <th scope="row">LOAN SANCTIONED</th>
-                        <th scope="col">LOAN REFUNDED</th>
-                        <th scope="col">LOAN OUTSTANDING </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <th scope="row"></th>
-                        <td>{{$data->Loan_Sanctioned}}</td>
-                        <td>{{$data->Loan_Refunded}}</td>
-                        <td>{{$data->Loan_Outstanding}}</td>
-                    </tbody>
-                  </table>
-              </div>
-              <div class="card-body p-0">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="4" scope="col" class="text-center">MANAGERIAL SUBSIDY RECEIVED</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <th scope="row">YEAR</th>
-                        <th scope="col">AMOUNT</th>
-                      
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <th scope="row"></th>
-                        <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Year}}</td>
-                        <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount}}</td>
-                    </tbody>
-                  </table>
-              </div>
+              
               @endforeach
               <!-- /.card-body -->
             </div>

@@ -25,13 +25,13 @@ return new class extends Migration
             $table->string('Tertiary_Activity')->nullable();
             $table->string('Other_Activity')->nullable();
             $table->string('Society_Fair_Price_Shop')->nullable();
-            $table->date('Latest_Audit_complete')->nullable();
+            $table->string('Latest_Audit_complete')->nullable();
             $table->string('Audit_Class')->nullable();
             $table->integer('Working_Capitals')->nullable();
             $table->integer('Business_turnover')->nullable();
             $table->integer('Total_reserve')->nullable();
-            $table->integer('Profit_loss')->nullable();
-            $table->integer('Net_Profit_Loss')->nullable();
+            $table->string('Profit_loss')->nullable();
+            $table->string('Net_Profit_Loss')->nullable();
             $table->integer('Profit');
             $table->integer('Loss');
             $table->string('Declear_Dividen');

@@ -687,6 +687,6 @@
   <script>
     $('#Date_of_registration').datepicker({
         uiLibrary: 'bootstrap5',
-        format: 'yyyy-mm-dd'
+        format: 'dd-mm-yyyy'
     });
 </script>
