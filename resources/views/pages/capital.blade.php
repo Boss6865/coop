@@ -267,34 +267,9 @@ $( ".target2" ).on( "change", function() {
 </x-layout>
 
 <script>
-  $('#Latest_Audit_complete').datepicker({
-      uiLibrary: 'bootstrap5',
-      format: 'yyyy-mm-dd'
-  });
-  $('#Grant_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#Aid_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#Date_release').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#MANAGERIAL_SUBSIDY_RECEIVED_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
+  // $('#Latest_Audit_complete').datepicker({
+  //     uiLibrary: 'bootstrap5',
+  //     format: 'yyyy-mm-dd'
+  // });
 
-      $('#Yes_Dividen_Challan_date').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-
-      $('#CDf_Yes_paidDate').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
   </script>

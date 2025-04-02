@@ -221,10 +221,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($Datas->committee as $data)
+
+                                    {{-- @foreach($Datas->committee as $data) --}}
                     
                     
-                      
+                                    @if(is_array(json_decode($data->Member_Name)))
                                     @foreach (json_decode($data->Member_Name) as $key => $crew) 
                                     <tr>
                                     
@@ -233,10 +234,30 @@
                                     
                                     <td>{{json_decode($data->Member_Contact)[$key]}}</td>
                                    
-                                  </tr>
-                                  @endforeach
-                                  @endforeach
-                                 
+                                    </tr>
+                                    @endforeach
+                                    @else
+                                    
+                                   <td>
+                                    @php $MemberName=explode(",", $data->Member_Name); $MemberContact=explode(",", $data->Member_Contact); @endphp
+                                    </td> 
+                                  
+                                    @foreach ($MemberName as $key => $crew) 
+                                    <tr>
+                                    
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$crew}}</td>
+                                    
+                                    @if(isset($MemberContact[$key])) <td>{{$MemberContact[$key]}}</td>@else <td>Not Given</td> @endif
+                                   {{-- <td>wait</td> --}}
+                                    </tr>
+                                    @endforeach
+                                   
+                                    
+                                   
+                                    @endif
+                                    {{-- @endforeach --}}
+                                    
                                 </tbody>
                             </table>
 

@@ -61,6 +61,7 @@ class HomeController extends Controller
             $Section_Conducted=$request->input('Section_Conducted');
             $Section_Cancellation=$request->input('Section_Cancellation');
             
+            
             $society=Basic::create([
                 'Name_of_the_Society'=> $Name_of_the_Society,
                 'Registration_No' => $Registration_No,

@@ -31,7 +31,7 @@ return new class extends Migration
             $table->Integer('Gen_SHG')->nullable();
             $table->Integer('Managing_Male');
             $table->Integer('Managing_Female');
-            $table->date('Date_of_LastAGM');
+            $table->string('Date_of_LastAGM');
             $table->Integer('Employee_Male');
             $table->Integer('Employee_Female');
             $table->Integer('Trained_Male');

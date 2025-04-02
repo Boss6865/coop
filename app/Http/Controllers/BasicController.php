@@ -68,7 +68,7 @@ class BasicController extends Controller
                     'Tertiary_Activity'=> 'nullable|string',
                     'Other_Activity'=> 'nullable|string',
                     'Society_Fair_Price_Shop'=> 'nullable|string',
-                    'Latest_Audit_complete'=> 'nullable|date',
+                    'Latest_Audit_complete'=> 'nullable|string',
                     'Audit_Class'=> 'nullable|string',
                     'Working_Capitals'=> 'nullable|integer',
                     'Business_turnover'=> 'nullable|integer',
@@ -80,18 +80,18 @@ class BasicController extends Controller
                     'Declear_Dividen'=> 'required|string',
                     'Yes_Dividen_Amount_topaid'=> 'nullable|integer',
                     'Yes_Dividen_Amount_topaid_Govt'=> 'nullable|integer',
-                    'Yes_Dividen_Challan_date'=> 'nullable|date',
+                    'Yes_Dividen_Challan_date'=> 'nullable|string',
                     'CDF_Paid'=> 'required|string',
                     'CDf_Yes_paidamount'=> 'nullable|integer',
-                    'CDf_Yes_paidDate'=> 'nullable|date',
+                    'CDf_Yes_paidDate'=> 'nullable|string',
                     'Grant_Type'=> 'nullable|string',
-                    'Grant_Year'=> 'nullable|date',
+                    'Grant_Year'=> 'nullable|string',
                     'Deptt_Name'=> 'nullable|string',
                     'Grant_Sanctioned'=> 'nullable|integer',
                     'Grant_Release'=> 'nullable|integer',
-                    'Date_release'=> 'nullable|date',
+                    'Date_release'=> 'nullable|string',
                     'Aid_Type'=> 'nullable|string',
-                    'Aid_Year'=> 'nullable|date',
+                    'Aid_Year'=> 'nullable|string',
                     'Agencies_Name'=> 'nullable|string',
                     'Aid_Sanctioned'=> 'nullable|integer',
                     'Aid_Grant_Release'=> 'nullable|integer',
@@ -99,7 +99,7 @@ class BasicController extends Controller
                     'Loan_Sanctioned'=> 'nullable|integer',
                     'Loan_Refunded'=> 'nullable|integer',
                     'Loan_Outstanding'=> 'nullable|integer',
-                    'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|date',
+                    'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|string',
                     'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
    
                 ]);
@@ -334,30 +334,30 @@ class BasicController extends Controller
             'Tertiary_Activity'=> 'nullable|string',
             'Other_Activity'=> 'nullable|string',
             'Society_Fair_Price_Shop'=> 'nullable|string',
-            'Latest_Audit_complete'=> 'nullable|date',
+            'Latest_Audit_complete'=> 'nullable|string',
             'Audit_Class'=> 'nullable|string',
             'Working_Capitals'=> 'nullable|integer',
             'Business_turnover'=> 'nullable|integer',
             'Total_reserve'=> 'nullable|integer',
-            'Profit_loss'=> 'nullable|integer',
-            'Net_Profit_Loss'=> 'nullable|integer',
+            'Profit_loss'=> 'nullable|string',
+            'Net_Profit_Loss'=> 'nullable|string',
             'Profit'=> 'required|integer',
             'Loss'=> 'required|integer',
             'Declear_Dividen'=> 'required|string',
             'Yes_Dividen_Amount_topaid'=> 'nullable|integer',
             'Yes_Dividen_Amount_topaid_Govt'=> 'nullable|integer',
-            'Yes_Dividen_Challan_date'=> 'nullable|date',
+            'Yes_Dividen_Challan_date'=> 'nullable|string',
             'CDF_Paid'=> 'required|string',
             'CDf_Yes_paidamount'=> 'nullable|integer',
-            'CDf_Yes_paidDate'=> 'nullable|date',
+            'CDf_Yes_paidDate'=> 'nullable|string',
             'Grant_Type'=> 'nullable|string',
             'Grant_Year'=> 'nullable|date',
             'Deptt_Name'=> 'nullable|string',
             'Grant_Sanctioned'=> 'nullable|integer',
             'Grant_Release'=> 'nullable|integer',
-            'Date_release'=> 'nullable|date',
+            'Date_release'=> 'nullable|string',
             'Aid_Type'=> 'nullable|string',
-            'Aid_Year'=> 'nullable|date',
+            'Aid_Year'=> 'nullable|string',
             'Agencies_Name'=> 'nullable|string',
             'Aid_Sanctioned'=> 'nullable|integer',
             'Aid_Grant_Release'=> 'nullable|integer',
@@ -365,17 +365,18 @@ class BasicController extends Controller
             'Loan_Sanctioned'=> 'nullable|integer',
             'Loan_Refunded'=> 'nullable|integer',
             'Loan_Outstanding'=> 'nullable|integer',
-            'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|date',
+            'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|string',
             'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
 
         ]);
 
-
+  
 
             $finddata= capital::where('Society_Id', $id);
            
             $finddata->update($validatedData);
 
+          
        
         $data=Basic::find($id);
         return view('pages.society')->with('Datas',$data);

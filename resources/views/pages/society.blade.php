@@ -457,7 +457,7 @@ overflow:scroll;
                       <th colspan="4" scope="col" class="text-center">NAME OF THE MANAGING COMMITTEE MEMBERS / BOARD OF DIRECTOR</th>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
+                     
                       <th scope="col">SL.NO</th>
                       <th scope="col">NAME</th>
                       <th scope="col">Contact NO.</th>
@@ -465,20 +465,39 @@ overflow:scroll;
                     </tr>
                   </thead>
                   <tbody>
+                    
                     @foreach($Datas->committee as $data)
                     
                     
-                      
-                      @foreach (json_decode($data->Member_Name) as $key => $crew) 
-                      <tr>
-                      <th scope="row"></th>
-                      <td>{{$key+1}}</td>
-                      <td>{{$crew}}</td>
-                      
-                      <td>{{json_decode($data->Member_Contact)[$key]}}</td>
-                     
+                    @if(is_array(json_decode($data->Member_Name)))
+                    @foreach (json_decode($data->Member_Name) as $key => $crew) 
+                    <tr>
+                    
+                    <td>{{$key+1}}</td>
+                    <td>{{$crew}}</td>
+                    
+                    <td>{{json_decode($data->Member_Contact)[$key]}}</td>
+                   
                     </tr>
                     @endforeach
+                    @else
+                    
+                  
+                    @php $MemberName=explode(",", $data->Member_Name); $MemberContact=explode(",", $data->Member_Contact); @endphp
+                   
+                  
+                    @foreach ($MemberName as $key => $crew) 
+                    <tr>
+                    
+                    <td>{{$key+1}}</td>
+                    <td>{{$crew}}</td>
+                    
+                    @if(isset($MemberContact[$key])) <td>{{$MemberContact[$key]}}</td>@else <td>Not Given</td> @endif
+                   {{-- <td>wait</td> --}}
+                    </tr>
+                    @endforeach
+                   
+                    @endif
 
                     @endforeach
                   </tbody>

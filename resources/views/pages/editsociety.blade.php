@@ -524,7 +524,7 @@
                                   <div class="row g-2">
                                      
                                     <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->President_Name}}"/>
-                                    <x-column_-input  title="Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->President_DOB}}"/>
+                                    <x-column_-input  title="Age/Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->President_DOB}}"/>
                                     <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->President_Contact}}"/>
                                     <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->President_Email}}"/>
       
@@ -534,7 +534,7 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                     <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->Secretary_Name}}"/>
-                                    <x-column_-input  title="Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->Secretary_DOB}}"/>
+                                    <x-column_-input  title="Age/Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->Secretary_DOB}}"/>
                                     <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->Secretary_Contact}}"/>
                                     <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->Secretary_Email}}"/>
                                       
@@ -543,24 +543,48 @@
                           <div class="card-header"><div class="card-title">NAME OF THE MANAGING COMMITTEE MEMBERS / BOARD OF DIRECTOR</div></div>
                           <div class="card-body">
                                   <div id="newinput" class="row g-2">
-                                      
-                                    @forEach(json_decode($data->Member_Name) as $key =>$name)
-                                      <div id="row" class="row g-2">
-                                       
-                                        <div class="col-md-4">
-                                          <input name="Member_Name[]" type="text" class="form-control" placeholder="Eg-John-Deo" required value="{{$name}}"> 
-                                        </div>
-                                          <div class="col-md-4">
-                                            <input name="Member_Contact[]" type="text" class="form-control" placeholder="Eg-9856678090" required value="{{json_decode($data->Member_Contact)[$key]}}"> 
-                                          </div>
-                                          @if($key==0)
-                                          <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
-                                          @else
-                                          <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button>
-                                          @endif
+                                    @if(is_array(json_decode($data->Member_Name)))
+                                          @forEach(json_decode($data->Member_Name) as $key =>$name)
+                                          <div id="row" class="row g-2">
                                           
+                                            <div class="col-md-4">
+                                              <input name="Member_Name[]" type="text" class="form-control" placeholder="Eg-John-Deo" required value="{{$name}}"> 
+                                            </div>
+                                              <div class="col-md-4">
+                                                <input name="Member_Contact[]" type="text" class="form-control" placeholder="Eg-9856678090" required value="{{json_decode($data->Member_Contact)[$key]}}"> 
+                                              </div>
+                                              @if($key==0)
+                                              <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                              @else
+                                              <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button>
+                                              @endif
+
+                                          </div>
+                                        @endforeach
+                                     @else
+                                     @php $MemberName=explode(",", $data->Member_Name); $MemberContact=explode(",", $data->Member_Contact); @endphp
+                   
+                                          
+                                     @foreach ($MemberName as $key => $name)
+                                     <div id="row" class="row g-2">
+                                          
+                                      <div class="col-md-4">
+                                        <input name="Member_Name[]" type="text" class="form-control" placeholder="Eg-John-Deo" required value="{{$name}}"> 
+                                      </div>
+                                        <div class="col-md-4">
+                                          <input name="Member_Contact[]" type="text" class="form-control" placeholder="Eg-9856678090" required value="@if(isset($MemberContact[$key])) {{$MemberContact[$key]}} @endif"> 
+                                        </div>
+                                        @if($key==0)
+                                        <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        @else
+                                        <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button>
+                                        @endif
+
                                     </div>
-                                    @endforeach
+                                     @endforeach
+
+                                    @endif
+                                    
                           </div>
                           </div>
                           <div class="card-footer">
@@ -1128,46 +1152,12 @@ $( "#Yes1" ).on( "change", function() {
 <script>
   $('#Date_of_registration').datepicker({
       uiLibrary: 'bootstrap5',
-      format: 'yyyy-mm-dd'
+      format: 'dd-mm-yyyy'
   });
-  $('#Date_of_LastAGM').datepicker({
-            uiLibrary: 'bootstrap5',
-            format: 'yyyy-mm-dd'
-        });
+  
 
-        $('#President_DOB').datepicker({
-      uiLibrary: 'bootstrap5',
-      format: 'yyyy-mm-dd'
-  });
-  $('#Secretary_DOB').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-
-
-      $('#Latest_Audit_complete').datepicker({
-      uiLibrary: 'bootstrap5',
-      format: 'yyyy-mm-dd'
-  });
-  $('#Grant_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#Aid_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#Date_release').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-      $('#MANAGERIAL_SUBSIDY_RECEIVED_Year').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
-
-      $('.mydate').datepicker({
-          uiLibrary: 'bootstrap5',
-          format: 'yyyy-mm-dd'
-      });
+      // $('.mydate').datepicker({
+      //     uiLibrary: 'bootstrap5',
+      //     format: 'yyyy-mm-dd'
+      // });
 </script>

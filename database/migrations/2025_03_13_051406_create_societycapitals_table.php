@@ -37,18 +37,18 @@ return new class extends Migration
             $table->string('Declear_Dividen');
             $table->integer('Yes_Dividen_Amount_topaid')->nullable();
             $table->integer('Yes_Dividen_Amount_topaid_Govt')->nullable();
-            $table->date('Yes_Dividen_Challan_date')->nullable();
+            $table->string('Yes_Dividen_Challan_date')->nullable();
             $table->string('CDF_Paid');
             $table->integer('CDf_Yes_paidamount')->nullable();
-            $table->date('CDf_Yes_paidDate')->nullable();
+            $table->string('CDf_Yes_paidDate')->nullable();
             $table->string('Grant_Type')->nullable();
-            $table->date('Grant_Year')->nullable();
+            $table->string('Grant_Year')->nullable();
             $table->string('Deptt_Name')->nullable();
             $table->integer('Grant_Sanctioned')->nullable();
             $table->integer('Grant_Release')->nullable();
-            $table->date('Date_release')->nullable();
+            $table->string('Date_release')->nullable();
             $table->string('Aid_Type')->nullable();
-            $table->date('Aid_Year')->nullable();
+            $table->string('Aid_Year')->nullable();
             $table->string('Agencies_Name')->nullable();
             $table->integer('Aid_Sanctioned')->nullable();
             $table->integer('Aid_Grant_Release')->nullable();
@@ -56,7 +56,7 @@ return new class extends Migration
             $table->integer('Loan_Sanctioned')->nullable();
             $table->integer('Loan_Refunded')->nullable();
             $table->integer('Loan_Outstanding')->nullable();
-            $table->date('MANAGERIAL_SUBSIDY_RECEIVED_Year')->nullable();
+            $table->string('MANAGERIAL_SUBSIDY_RECEIVED_Year')->nullable();
             $table->integer('MANAGERIAL_SUBSIDY_RECEIVED_Amount')->nullable();
 
             $table->timestamps();
