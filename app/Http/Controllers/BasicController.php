@@ -41,7 +41,40 @@ class BasicController extends Controller
         // dd($users);
         return view('pages.view_1', ['Societies' => $users]);
     }
+    public function View_2()
+    {
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+        $totmember=0;
+           foreach($Districts as $district){
+                $totmember=0;
+               $users[]=Basic::where('District', $district->Dist_Name )->count();
+               $users1[]=$district->Dist_Name;
+               $function[]=Basic::where('District', $district->Dist_Name )->where('Status', "Function")->count();
+               $Nonfunction[]=Basic::where('District', $district->Dist_Name )->where('Status', "Non-function")->count();
+               $underliquidation[]=Basic::where('District', $district->Dist_Name )->where('Status', "Under-Liquidation")->count();
 
+               $selectdist=Basic::where('District', $district->Dist_Name )->get();
+               
+               foreach($selectdist as $dis){
+                $totalMember=membersociety::where('Society_Id', $dis->id )->get();
+                foreach($totalMember as $tot){
+                    $totmember=$tot->ST_Male + $tot->ST_Female + $totmember;
+                    
+                }
+                
+               }
+            $finaltot[]=$totmember;
+
+           }
+        // dd( $finaltot);
+
+        //   dd($totalMember[]=membersociety::where('Society_Id', 694 )->get());
+
+        //  $users= Basic::where('District', 'West Jaintia Hills')->count();
+       
+        return view('pages.view_2', ['Data' => $users,'Data1' => $users1, "Fun"=>$function, "Nfun" => $Nonfunction, "nlqd" => $underliquidation,
+         "Member" => $finaltot]);
+    }
     public function Details_view(string $id)
     {
         $data=Basic::find($id);

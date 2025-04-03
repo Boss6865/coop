@@ -25,4 +25,5 @@ Route::put('/updatemange2/{id}',[HomeController::class,'updatemanagement_2']);
 Route::put('/capital/{id}',[BasicController::class,'update']);
 Route::get('/View_1',[BasicController::class,'View_1']);
 Route::get('/details/{id}',[BasicController::class,'Details_view']);
+Route::get('/District_View',[BasicController::class,'View_2']);
 
