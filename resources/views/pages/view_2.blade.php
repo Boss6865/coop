@@ -72,12 +72,12 @@
                                             <td>{{$Nfun[$key]}}</td>
                                             <td>{{$nlqd[$key]}}</td>
                                             <td>{{$Member[$key]}}</td>
-                                            <td>be patient</td>
-                                            <td>be patient</td>
-                                            <td>be patient</td>
-                                            <td>be patient</td>
-                                            <td>be patient</td>
-                                            <td>be patient</td>
+                                            <td>{{$Share[$key]}}</td>
+                                            <td>{{$Govt_Share[$key]}}</td>
+                                            <td>{{$Wcapital[$key]}}</td>
+                                            <td>{{$Bturnover[$key]}}</td>
+                                            <td>{{$Profit[$key]}}</td>
+                                            <td>{{$Loss[$key]}}</td>
                                             
                                         </tr>
                                       

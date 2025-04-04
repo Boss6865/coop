@@ -47,6 +47,12 @@ class BasicController extends Controller
         $totmember=0;
            foreach($Districts as $district){
                 $totmember=0;
+                $share=0;
+                $govtshare=0;
+                $workingcapital=0;
+                $Business_turnover=0;
+                $profit=0;
+                $loss=0;
                $users[]=Basic::where('District', $district->Dist_Name )->count();
                $users1[]=$district->Dist_Name;
                $function[]=Basic::where('District', $district->Dist_Name )->where('Status', "Function")->count();
@@ -61,9 +67,30 @@ class BasicController extends Controller
                     $totmember=$tot->ST_Male + $tot->ST_Female + $totmember;
                     
                 }
+                $Getcapital=capital::where('Society_Id', $dis->id )->get();
+                foreach($Getcapital as $capital){
+                    
+                    $share=$capital->Individual_share + $capital->Govt_share + $share+ $capital->Other_coop_share;
+                    $govtshare=$capital->Govt_share+$govtshare;
+                    $workingcapital= $workingcapital+$capital->Working_Capitals;
+                    $Business_turnover=$Business_turnover+$capital->Business_turnover;
+                    if($capital->Profit_loss=="Profit"){
+                        $profit++;
+                    }else{
+                        $loss++;
+                    }
+
+                }
                 
                }
             $finaltot[]=$totmember;
+            $finalshare[]=$share;
+            $totgovtshare[]=$govtshare;
+            $totalworkingcapital[]=$workingcapital;
+            $totBusiness_turnover[]=$Business_turnover;
+            $totprofit[]=$profit;
+            $totloss[]=$loss;
+
 
            }
         // dd( $finaltot);
@@ -73,7 +100,7 @@ class BasicController extends Controller
         //  $users= Basic::where('District', 'West Jaintia Hills')->count();
        
         return view('pages.view_2', ['Data' => $users,'Data1' => $users1, "Fun"=>$function, "Nfun" => $Nonfunction, "nlqd" => $underliquidation,
-         "Member" => $finaltot]);
+         "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss]);
     }
     public function Details_view(string $id)
     {
