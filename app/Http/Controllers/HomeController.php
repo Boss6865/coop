@@ -8,7 +8,6 @@ use App\Models\Basic;
 use App\Models\membersociety;
 use App\Models\committee;
 
-
 class HomeController extends Controller
 {
     public function index()
@@ -271,9 +270,6 @@ class HomeController extends Controller
                
 
             ]);
-        
-        
-
         $data=Basic::find($id);
         return view('pages.society')->with('Datas',$data);
     }
