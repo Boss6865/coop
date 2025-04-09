@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,4 +28,8 @@ Route::put('/capital/{id}',[BasicController::class,'update']);
 Route::get('/View_1',[BasicController::class,'View_1']);
 Route::get('/details/{id}',[BasicController::class,'Details_view']);
 Route::get('/District_View',[BasicController::class,'View_2']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::get('/login',[LoginController::class,'login']);
+Route::get('/auth',[LoginController::class,'authenticate']);
+Route::post('/register',[RegisterController::class,'store']);
 
