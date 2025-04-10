@@ -6,20 +6,21 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <x-navigation title="{{ $Datas->Name_of_the_Society }}" Nav="Edit Society" />
+     
     <div class="card card-info card-outline mb-4">
         <div class="card-body my-5">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">BASIC INFORMATION</button>
+                <button class="nav-link @if($val==444) active @endif " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">BASIC INFORMATION</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">MANAGEMENT - I</button>
+                <button class="nav-link @if($val==555)  active @endif" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">MANAGEMENT - I</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">MANAGEMENT - II</button>
+                <button class="nav-link @if($val==666)  active @endif" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">MANAGEMENT - II</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="capital-tab" data-bs-toggle="tab" data-bs-target="#capital" type="button" role="tab" aria-controls="capital" aria-selected="false">CAPITALS</button>
+                <button class="nav-link @if($val==777)  active @endif" id="capital-tab" data-bs-toggle="tab" data-bs-target="#capital" type="button" role="tab" aria-controls="capital" aria-selected="false">CAPITALS</button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">INVESTMENT ETC</button>
@@ -34,9 +35,9 @@
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">GOVT. LOAN</button>
               </li>
             </ul>
-          
+           
             <div class="tab-content mt-3" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-pane fade @if($val==444) show  active @endif " id="home" role="tabpanel" aria-labelledby="home-tab">
                 <form class="needs-validation" action="/basic/{{$Datas->id}}" method ="POST" novalidate>
                     @csrf
                     @method("PUT")
@@ -358,10 +359,10 @@
                 </form>
                
               </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="tab-pane fade @if($val==555) show  active @endif " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card card-info card-outline mb-4">
                   <!--begin::Header-->
-        <div class="card-header"><div class="card-title">NUMBER OF MEMBERS OF THE SOCIETY</div></div>
+                <div class="card-header"><div class="card-title">NUMBER OF MEMBERS OF THE SOCIETY</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
             <form class="needs-validation" action="/updatemange1/{{$Datas->id}}" method ="POST" novalidate>
@@ -510,7 +511,7 @@
 </div>
                 <!--end::Form Validation-->
               </div>
-              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <div class="tab-pane fade @if($val==666) show  active @endif " id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="card card-info card-outline mb-4">
                   
 
@@ -599,7 +600,7 @@
                 </div>
               </div>
               {{-- capitals tabs begin here --}}
-              <div class="tab-pane fade" id="capital" role="tabpanel" aria-labelledby="capital-tab">
+              <div class="tab-pane fade @if($val==777) show  active @endif " id="capital" role="tabpanel" aria-labelledby="capital-tab">
 
                 <!-- https://gijgo.com/datepicker/example/bootstrap-5 -->
                   

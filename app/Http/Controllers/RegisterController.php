@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -27,7 +26,8 @@ class RegisterController extends Controller
 
         $user=User::create( $validatedata);
 
-        return redirect()->route('pages.home');
+        // return redirect()->route('pages.home');
+        return redirect()->action([HomeController::class, 'index']);
 
     }
 }

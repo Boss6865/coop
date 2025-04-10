@@ -28,22 +28,35 @@
   <!--begin::Body-->
   <body class="login-page bg-body-secondary">
     <div class="login-box">
-      <div class="login-logo">
-        <a href="../index2.html"><b>Administrator</b></a>
-      </div>
+      
       <!-- /.login-logo -->
       <div class="card">
+        <div class="login-logo">
+          <a href="../index2.html"><b>Administrator</b></a>
+        </div>
         <div class="card-body login-card-body">
        
-          <form action="../index3.html" method="post">
+          <form  action="/auth" method="post" >
+            @csrf
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email"  required/>
+              <input type="email" name="email" class="form-control" placeholder="Email"  required value="{{old('email')}}"/>
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+              
+                
+
+                 
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" required/>
+              <input type="password" name="password" class="form-control" placeholder="Password" required/>
               <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
             </div>
+           
+            @error('email')
+            <div class="input-group mb-3">
+            <div style="color:red">{{$message}}</div>
+            </div>
+            @enderror
+               
             <!--begin::Row-->
             <div class="row">
               <div class="col-8">
@@ -82,9 +95,9 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../../../dist/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+ <!--begin::JavaScript-->
 
-    <!--end::OverlayScrollbars Configure-->
-    <!--end::Script-->
+<!--end::JavaScript-->
   </body>
   <!--end::Body-->
 </html>

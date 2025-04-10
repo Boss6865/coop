@@ -22,7 +22,7 @@
         <div class="valid-feedback">Looks good!</div>
         <div class="invalid-feedback">{{$e_msg}}</div>
         @error($Name)
-        <div class="invalid-feedback">{{$e_msg}}</div>
+        <div style="color:red">{{$message}}</div>
         @enderror
 </div>
 <!--end::Col-->

@@ -102,6 +102,14 @@ class BasicController extends Controller
         return view('pages.view_2', ['Data' => $users,'Data1' => $users1, "Fun"=>$function, "Nfun" => $Nonfunction, "nlqd" => $underliquidation,
          "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss]);
     }
+    public function View_3()
+    {
+        // $users = DB::table('_societydata')->get();
+        $selectdist=Basic::where('District', session('District_name') )->get();
+        // dd($users);
+        return view('pages.societylist', ['Societies' => $selectdist]);
+    }
+
     public function Details_view(string $id)
     {
         $data=Basic::find($id);
@@ -369,10 +377,10 @@ class BasicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id, string $id1)
     {
         $data=Basic::find($id);
-        return view('pages.editsociety')->with('Datas',$data);
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>$id1]);
     }
 
     /**

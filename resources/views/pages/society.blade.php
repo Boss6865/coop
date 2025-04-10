@@ -158,7 +158,7 @@ overflow:scroll;
             <!-- /.card-body -->
             <div class="card-footer">
               @foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/444">Edit</a>
               @endforeach
             </div>
             <!-- /.card-footer-->
@@ -350,7 +350,7 @@ overflow:scroll;
            
             <div class="card-footer">
               @foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/555">Edit</a>
               @endforeach
             </div>
             <!-- /.card-footer-->
@@ -511,7 +511,7 @@ overflow:scroll;
           
             <!-- /.card-body -->
             <div class="card-footer">@foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/666">Edit</a>
               @endforeach</div>
             <!-- /.card-footer-->
           </div>
@@ -1004,7 +1004,7 @@ overflow:scroll;
           
             <!-- /.card-body -->
             <div class="card-footer">@foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}">Edit</a>
+              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/777">Edit</a>
               @endforeach
             </div>
             <!-- /.card-footer-->
