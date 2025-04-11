@@ -63,8 +63,8 @@
                   <p>View Society</p>
                 </a>
               </li>
-              <li class="nav-item {{request()->is('basic_infos','management1','management2','capitals')?'menu-open':''}}">
-                <a href="#" class="nav-link {{request()->is('basic_infos','management1','management2','capitals')?'active':''}}">
+              <li class="nav-item {{request()->is('basic_infos','management1','management2','capitals','investment','borrow','asset','loan')?'menu-open':''}}">
+                <a href="#" class="nav-link {{request()->is('basic_infos','management1','management2','capitals','investment','borrow','asset','loan')?'active':''}}">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
                     ANNEXURE - I
@@ -97,27 +97,27 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="/capitals" class="nav-link">
+                    <a href="/investment" class="nav-link {{request()->is('investment')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>INVESTMENT ETC</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./widgets/cards.html" class="nav-link ">
+                    <a href="/borrow" class="nav-link {{request()->is('borrow')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>BORROWING</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./widgets/cards.html" class="nav-link">
+                    <a href="/asset" class="nav-link {{request()->is('asset')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>COMMON ASSET</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./widgets/cards.html" class="nav-link">
+                    <a href="/loan" class="nav-link {{request()->is('loan')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>BORROWING</p>
+                      <p>GOVT. LOAN</p>
                     </a>
                   </li>
                 </ul>

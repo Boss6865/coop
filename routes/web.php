@@ -5,6 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Investment;
+use App\Http\Controllers\BorrowingController;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\LoanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +39,7 @@ Route::post('/register',[RegisterController::class,'store']);
 Route::get('/district_homes',[LoginController::class,'index']);
 Route::get('/societylist',[BasicController::class,'View_3']);
 Route::post('/logout',[LoginController::class,'logout']);
+Route::get('/investment',[Investment::class,'index']);
+Route::get('/borrow',[BorrowingController::class,'index']);
+Route::get('/asset',[AssetController::class,'index']);
+Route::get('/loan',[LoanController::class,'index']);
