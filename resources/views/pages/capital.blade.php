@@ -36,10 +36,78 @@
                           <div class="card-header"><div class="card-title">ACTIVITIES OF THE SOCIETY (IF NIL, MENTION THE OBJECTIVE OF THE SOCIETY AS PER ITS BYE-LAW)</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                     
-                                    <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <div class="col-md-3">
+                                      <label for="validationCustom01" class="form-label">Primary Activitiy</label>
+                                      <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
+                                          <option selected disabled value="">Choose...</option>
+                                          <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
+                                          <option>Handloom</option>
+                                          <option>Handicraft</option>
+                                          <option>Consumer</option>
+                                          <option>Dairy</option>
+                                          <option>Farming / Plantation (Agriculture / Horticulture)</option>
+                                          <option>Fisheries</option>
+                                          <option>Marketing</option>
+                                          <option>Processing</option>
+                                          <option>Transport</option>
+                                          <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
+                                          <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
+                                          <option>Industrial</option>
+                                          <option>Thrift & Credit</option>
+                                         
+                                      </select>
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
+                                    <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
+                                        <option>Handloom</option>
+                                        <option>Handicraft</option>
+                                        <option>Consumer</option>
+                                        <option>Dairy</option>
+                                        <option>Farming / Plantation (Agriculture / Horticulture)</option>
+                                        <option>Fisheries</option>
+                                        <option>Marketing</option>
+                                        <option>Processing</option>
+                                        <option>Transport</option>
+                                        <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
+                                        <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
+                                        <option>Industrial</option>
+                                        <option>Thrift & Credit</option>
+                                    </select>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                </div>
+                                <div class="col-md-3">
+                                  <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
+                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
+                                          <option>Handloom</option>
+                                          <option>Handicraft</option>
+                                          <option>Consumer</option>
+                                          <option>Dairy</option>
+                                          <option>Farming / Plantation (Agriculture / Horticulture)</option>
+                                          <option>Fisheries</option>
+                                          <option>Marketing</option>
+                                          <option>Processing</option>
+                                          <option>Transport</option>
+                                          <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
+                                          <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
+                                          <option>Industrial</option>
+                                          <option>Thrift & Credit</option>
+                                          
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
+                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
                                     <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
+
                                     <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
 
                                   </div>
@@ -48,9 +116,29 @@
                           
                           <div class="card-body">
                                   <div class="row g-2">
-                                     
-                                    <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <div class="col-md-3">
+                                      <label for="validationCustom01" class="form-label">Society Undertaken Pds (Fair Price Shop)</label>
+                                      <select Name="Society_Fair_Price_Shop" class="form-select target" id="selectid3" required>
+                                          <option selected disabled value="">Choose...</option>
+                                          <option >Yes</option>
+                                          <option>No</option>
+                                         
+                                      </select>
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
+                                    <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        
+                                       
+                                    </select>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                </div>
+                                    {{-- <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
+                                    {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3"/> --}}
                                       
                                       <!--begin::Col-->
                                       <div class="col-md-3">
@@ -73,7 +161,18 @@
                                   <div class="row g-2">
                                     <x-column_-input  title="Business Turnover" Name="Business_turnover" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
                                     <x-column_-input  title="Total Reserve" Name="Total_reserve" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <div class="col-md-3">
+                                      <label for="validationCustom01" class="form-label">Whether The Society Is Making Profit/Loss</label>
+                                      <select Name="Profit_loss" class="form-select target" id="selectid3" required>
+                                          <option selected disabled value="">Choose...</option>
+                                          <option >Profit</option>
+                                          <option>Loss</option>
+                                          
+                                      </select>
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  </div>
+                                    {{-- <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
                                     <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
                                       
                                   </div>
@@ -267,9 +366,18 @@ $( ".target2" ).on( "change", function() {
 </x-layout>
 
 <script>
-  // $('#Latest_Audit_complete').datepicker({
-  //     uiLibrary: 'bootstrap5',
-  //     format: 'yyyy-mm-dd'
-  // });
 
-  </script>
+$( document ).ready(function() {
+
+
+var currentYear = new Date().getFullYear();
+for(var i = 0; i < 30; i++){
+  var next = currentYear+1;
+  var year = currentYear + '-' + next.toString().slice(-2);
+  $('#Latest_Audit_complete').append(new Option(year, year));
+  currentYear--;
+}
+    
+
+});
+</script>

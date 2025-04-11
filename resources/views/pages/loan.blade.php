@@ -13,217 +13,47 @@
                         <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
                         <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
                               <div class="card-header"><div class="card-title">GOVERNMENT LOAN (AMOUNT IN RUPEES) 
-                                <select Name="self_building" class="form-select target" id="selectid3" required>
+                                <select Name="Govt_loan" class="form-select target" id="selectid3" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option >Yes</option>
                                 <option>No</option>
                              
                             </select></div></div>
-                              
-                              <div class="card-header"><div class="card-title">GODOWN LOAN
-                                <select Name="godown_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >TRUCK LOAN</option>
-                                    <option>GODOWN LOAN</option>
-                                    <option value="">FURNITURE & FIXTURES</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="godown_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="godown_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="godown_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="godown_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
-                              </div>
-                              
-                              <div class="card-header"><div class="card-title">FURNITURE & FIXTURES
-                                <select Name="furniture_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="furniture_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="furniture_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="furniture_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="furniture_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
-                              </div>
 
-                              <div class="card-header"><div class="card-title">PLANT & MACHINERY
-                                <select Name="pmachinery_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="pmachinery_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="pmachinery_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="pmachinery_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="pmachinery_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
+                            <div class="card-body">
+                              <div class="row g-2" id="newinput">
+                                <div class="col-md-2">
+                                  <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
+                                  <select Name="anyloan[]" class="form-select target" id="selectid3" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option >GODOWN</option>
+                                      <option>FURNITURE & FIXTURES</option>
+                                      <option>PLANT & MACHINERY</option>
+                                      <option>SHARE CAPITAL</option>
+                                      <option>WORKING CAPITAL</option>
+                                      <option>TRUCK LOAN</option>
+                                      <option>MARKETING LOAN</option>
+                                      <option>DAIRY / LIVESTOCK</option>
+                                      <option>PROCESSING LOAN</option>
+                                      <option>STORAGE LOAN</option>
+                                      <option>CATTLE BREEDING LOAN</option>
+                                      <option>PIGGERY LOAN</option>
+                                      <option>OTHER LOAN </option>
+                                      
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
                               </div>
-
-
-                              <div class="card-header"><div class="card-title">SHARE CAPITAL
-                                <select Name="sharecapital_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="sharecapital_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="sharecapital_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="sharecapital_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="sharecapital_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
-                              </div>
+                                <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-2"/>
+                                <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="validationCustom09" placeholder="Eg-20000" div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Principal Amount" id="validationCustom10" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Interest Amount" id="validationCustom10" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers"/>
+                                <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                    
+                            </div>
+                      </div>
                               
-                              <div class="card-header"><div class="card-title">WORKING CAPITAL
-                                <select Name="wcapital_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="wcapital_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="wcapital_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="wcapital_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="wcapital_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
-                              </div>
-                              <div class="card-header"><div class="card-title">TRUCK LOAN
-                                <select Name="truck_loan" class="form-select target" id="selectid3" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option >Yes</option>
-                                    <option>No</option>
-                                 
-                                </select>
-                            </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <div>
-                                            <table class="table table-borderless text-center">
-                                               
-                                                <tbody>
-                                                  <tr>
-                                                    <th colspan="2">Loan Issued</th>
-                                                    <th colspan="2">Outstanding Amount</th>
-                                                    
-                                                  </tr>
-                                                  <tr>
-                                                
-                                                    <td><x-column_-input  title="Year" Name="truck_loan_year" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Amount Sanctioned" Name="truck_loan_sanctioned" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Principal" Name="truck_loan_principal" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                    <td><x-column_-input  title="Interest Sanctioned" Name="truck_loan_interest" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-12" inclass="numbers"/></td>
-                                                  </tr>
-                                                  
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                        
-                                    </div>
-                              </div>
+                             
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Next</button>
                           </div>
@@ -267,12 +97,32 @@
 
       $("#rowAdder").click(function () {
             newRowAdd =
-                '<div id="row" class="row g-2"><div class="col-md-2">' +
-                '<input name="item_name[]" type="text" class="form-control" placeholder="Eg-Chair" required> </div>'+
+                '<div id="row" class="row g-2">'+
+                  '<div class="col-md-2">' +
+                  '<select Name="anyloan[]" class="form-select target" id="selectid3" required>'+
+                        '<option selected disabled value="">Choose...</option>'+
+                        '<option >GODOWN</option>'+
+                        '<option>FURNITURE & FIXTURES</option>'+
+                        '<option>PLANT & MACHINERY</option>'+
+                        '<option>SHARE CAPITAL</option>'+
+                        '<option>WORKING CAPITAL</option>'+
+                        '<option>TRUCK LOAN</option>'+
+                        '<option>MARKETING LOAN</option>'+
+                        '<option>DAIRY / LIVESTOCK</option>'+
+                        '<option>PROCESSING LOAN</option>'+
+                        '<option>STORAGE LOAN</option>'+
+                        '<option>CATTLE BREEDING LOAN</option>'+
+                        '<option>PIGGERY LOAN</option>'+
+                        '<option>OTHER LOAN </option>'+
+                   ' </select></div>'+
                 '<div class="col-md-2">' +
-                '<input name="item_no[]" type="text" class="form-control" placeholder="Eg-10" required> </div>'+
+                '<input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required> </div>'+
                 '<div class="col-md-2">' +
-                '<input name="item_amount[]" type="text" class="form-control numbers" placeholder="Eg-1000" required> </div>'+
+                '<input name="Loan_sanctioned_amount[]" type="text" class="form-control" placeholder="Eg-20000" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="Outstanding_Principal_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<div class="col-md-2">' +
+                  '<input name="Outstanding_interest_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
                 '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
 
             $('#newinput').append(newRowAdd);

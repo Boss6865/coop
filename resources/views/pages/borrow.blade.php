@@ -12,54 +12,49 @@
                         @csrf
                         <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
                         <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
-                              <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <x-column_-input  title="Types (Specify)" Name="govt_Types" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3"/>
-                                        <x-column_-input  title="Amount" Name="govt_amount" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Refunded" Name="govt_refunded" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Outstanding" Name="govt_outstanding" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                       
-                                    </div>
-                              </div>
-                              <div class="card-header"><div class="card-title">BORROWINGS FROM MCAB LTD. </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <x-column_-input  title="Types (Specify)" Name="mcab_Types" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3"/>
-                                        <x-column_-input  title="Amount" Name="mcab_amount" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Refunded" Name="mcab_refunded" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Outstanding" Name="mcab_outstanding" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                       
-                                    </div>
-                              </div>
-                              <div class="card-header"><div class="card-title">BORROWINGS FROM OTHER FINANCIAL INSTITUTION </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <x-column_-input  title="Types (Specify)" Name="institution_Types" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3"/>
-                                        <x-column_-input  title="Amount" Name="institution_amount" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Refunded" Name="institution_refunded" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Outstanding" Name="institution_outstanding" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                       
-                                    </div>
-                              </div>
-                              <div class="card-header"><div class="card-title">BORROWINGS FROM OTHER(Mentioned)</div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <x-column_-input  title="Types (Specify)" Name="other_Types" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3"/>
-                                        <x-column_-input  title="Amount" Name="other_amount" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Refunded" Name="other_refunded" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="Outstanding" Name="other_outstanding" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                       
-                                    </div>
-                              </div>
+
+                        <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. 
+                          <select Name="Govt_loan" class="form-select target" id="selectid3" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option >Yes</option>
+                          <option>No</option>
+                       
+                      </select></div></div>
+
+                      <div class="card-body">
+                        <div class="row g-2" id="newinput">
+                          <div class="col-md-2">
+                            <label for="validationCustom01" class="form-label">Borrowing from</label>
+                            <select Name="anyloan[]" class="form-select target" id="selectid3" required>
+                                <option selected disabled value="">Choose...</option>
+                                '<option >GOVT.</option>'+
+                                '<option>MCAB LTD.</option>'+
+                                '<option>OTHER FINANCIAL INSTITUTION</option>'+
+                                '<option>OTHER(Mentioned)</option>'+
+                                
+                                
+                            </select>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                        </div>
+                        <x-column_-input  title="Types (Specify)" Name="govt_Types[]" id="validationCustom09" placeholder="Eg- Loan Name" div_class="col-md-2"/>
+                        <x-column_-input  title="Amount" Name="govt_amount[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Refunded" Name="govt_refunded[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Outstanding" Name="govt_outstanding[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                       
+                          <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+              
+                      </div>
+                </div>
                               <div class="card-header"><div class="card-title">TOTAL DEPOSIT</div></div>
                               <div class="card-body">
                                       <div class="row g-2">
-                                        <x-column_-input  title="Bank SB" Name="bank_sb" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Bank FD" Name="bank_fd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Bank CD" Name="bank_cd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Thrift" Name="thrift" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="others" Name="other" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank SB A/C" Name="bank_sb" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank FD A/C" Name="bank_fd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank RD A/C" Name="bank_rd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank CD A/C" Name="bank_cd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Thrift A/C" Name="thrift" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        
                                     </div>
                               </div>
                               <div class="card-footer">
@@ -101,6 +96,38 @@
       $('.numbers').keyup(function () {
          this.value = this.value.replace(/[^0-9\.]/g,'');
       });
+
+
+
+      $("#rowAdder").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                  '<div class="col-md-2">' +
+                  '<select Name="anyloan[]" class="form-select target" id="selectid3" required>'+
+                        '<option selected disabled value="">Choose...</option>'+
+                        '<option >GOVT.</option>'+
+                        '<option>MCAB LTD.</option>'+
+                        '<option>OTHER FINANCIAL INSTITUTION</option>'+
+                        '<option>OTHER(Mentioned)</option>'+
+                                
+                   ' </select></div>'+
+                '<div class="col-md-2">' +
+                '<input name="govt_Types[]" type="text" class="form-control" placeholder="Loan Name" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="govt_amount[]" type="text" class="form-control" placeholder="Eg-20000" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="govt_refunded[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<div class="col-md-2">' +
+                  '<input name="govt_outstanding[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#DeleteRow", function () {
+            $(this).parents("#row").remove();
+        });
    </script>
 
     </x-layout>
