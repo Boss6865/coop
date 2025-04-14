@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use Illuminate\Http\Request;
 
 class LoanController extends Controller
@@ -27,7 +28,22 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Name_of_the_Society=$request->input('Name_of_society');
+        $id_of_society=$request->input('Society_Id');
+        $validatedData=$request->validate([
+       
+            'Society_Id'=> 'required|integer',
+            'any_Govt_loan'=> 'required|string',
+        ]);
+        $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
+        $validatedData['Loan_issue_year']=json_encode($request->input('Loan_issue_year'));
+        $validatedData['Loan_sanctioned_amount']=json_encode($request->input('Loan_sanctioned_amount'));
+        $validatedData['Outstanding_Principal_amount']=json_encode($request->input('Outstanding_Principal_amount'));
+        $validatedData['Outstanding_interest_amount']=json_encode($request->input('Outstanding_interest_amount'));
+        
+        Loan::create($validatedData);
+
+        return redirect()->action([BasicController::class, 'View_1'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
     }
 
     /**

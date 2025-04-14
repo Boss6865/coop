@@ -43,3 +43,7 @@ Route::get('/investment',[Investment::class,'index']);
 Route::get('/borrow',[BorrowingController::class,'index']);
 Route::get('/asset',[AssetController::class,'index']);
 Route::get('/loan',[LoanController::class,'index']);
+Route::post('/investment',[Investment::class,'store']);
+Route::post('/borrow',[BorrowingController::class,'store']);
+Route::post('/asset',[AssetController::class,'store']);
+Route::post('/loan',[LoanController::class,'store']);

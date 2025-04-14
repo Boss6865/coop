@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Investement;
 
 class Investment extends Controller
 {
@@ -27,7 +28,19 @@ class Investment extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Name_of_the_Society=$request->input('Name_of_society');
+            $id_of_society=$request->input('Society_Id');
+        $validatedData=$request->validate([
+           
+            'Society_Id'=> 'required|integer',
+            'investment_Status'=> 'required|String',
+        ]);
+        
+        $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
+        $validatedData['loan_investment_amount']=json_encode($request->input('loan_investment_amount'));
+        investement::create($validatedData);
+
+        return redirect()->action([BorrowingController::class, 'index'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
     }
 
     /**

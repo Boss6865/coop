@@ -8,10 +8,13 @@
                       
     
                      
-                      <form class="needs-validation" action="" method ="" novalidate>
+                      <form class="needs-validation" action="/borrow" method ="POST" novalidate>
                         @csrf
-                        <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                        <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+                        {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
+                        <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
+
+                        <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.}}">
+                        <input type="hidden" name="Society_Id" value="51">
 
                         <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. 
                           <select Name="Govt_loan" class="form-select target" id="selectid3" required>
@@ -20,12 +23,15 @@
                           <option>No</option>
                        
                       </select></div></div>
+                      @error('Govt_loan')
+                      <div style="color:red">{{$message}}</div>
+                      @enderror
 
                       <div class="card-body">
                         <div class="row g-2" id="newinput">
                           <div class="col-md-2">
                             <label for="validationCustom01" class="form-label">Borrowing from</label>
-                            <select Name="anyloan[]" class="form-select target" id="selectid3" required>
+                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
                                 <option selected disabled value="">Choose...</option>
                                 '<option >GOVT.</option>'+
                                 '<option>MCAB LTD.</option>'+
@@ -34,13 +40,16 @@
                                 
                                 
                             </select>
+                            @error('borrowing_from')
+                            <div style="color:red">{{$message}}</div>
+                            @enderror
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                         </div>
-                        <x-column_-input  title="Types (Specify)" Name="govt_Types[]" id="validationCustom09" placeholder="Eg- Loan Name" div_class="col-md-2"/>
-                        <x-column_-input  title="Amount" Name="govt_amount[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                        <x-column_-input  title="Refunded" Name="govt_refunded[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                        <x-column_-input  title="Outstanding" Name="govt_outstanding[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Types (Specify)" Name="borrowing_type[]" id="validationCustom09" placeholder="Eg- Loan Name" div_class="col-md-2"/>
+                        <x-column_-input  title="Amount" Name="borrowing_amount[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Refunded" Name="borrowing_refunded[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Outstanding" Name="borrowing_outstanding[]" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
                        
                           <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
               
@@ -49,11 +58,11 @@
                               <div class="card-header"><div class="card-title">TOTAL DEPOSIT</div></div>
                               <div class="card-body">
                                       <div class="row g-2">
-                                        <x-column_-input  title="Bank SB A/C" Name="bank_sb" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Bank FD A/C" Name="bank_fd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Bank RD A/C" Name="bank_rd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Bank CD A/C" Name="bank_cd" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Thrift A/C" Name="thrift" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank SB A/C" Name="bank_sb_ac" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank FD A/C" Name="bank_fd_ac" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank RD A/C" Name="bank_rd_ac" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Bank CD A/C" Name="bank_cd_ac" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Thrift A/C" Name="bank_thrift_ac" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
                                         
                                     </div>
                               </div>

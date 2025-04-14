@@ -8,23 +8,28 @@
                       
     
                      
-                      <form class="needs-validation" action="" method ="" novalidate>
+                      <form class="needs-validation" action="/loan" method ="POST" novalidate>
                         @csrf
-                        <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                        <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+                         {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
+                        <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
+
+                        <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.}}">
+                        <input type="hidden" name="Society_Id" value="51">
                               <div class="card-header"><div class="card-title">GOVERNMENT LOAN (AMOUNT IN RUPEES) 
-                                <select Name="Govt_loan" class="form-select target" id="selectid3" required>
+                                <select Name="any_Govt_loan" class="form-select target" id="selectid3" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option >Yes</option>
                                 <option>No</option>
                              
                             </select></div></div>
-
+                            @error('Govt_loan')
+                            <div style="color:red">{{$message}}</div>
+                            @enderror
                             <div class="card-body">
                               <div class="row g-2" id="newinput">
                                 <div class="col-md-2">
                                   <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="anyloan[]" class="form-select target" id="selectid3" required>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
                                       <option>FURNITURE & FIXTURES</option>
@@ -41,6 +46,9 @@
                                       <option>OTHER LOAN </option>
                                       
                                   </select>
+                                  @error('type_of_govt_loan')
+                                  <div style="color:red">{{$message}}</div>
+                                  @enderror
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                               </div>

@@ -8,10 +8,13 @@
                       
     
                      
-                      <form class="needs-validation" action="" method ="" novalidate>
+                      <form class="needs-validation" action="/asset" method ="POST" novalidate>
                         @csrf
-                        <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                        <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+                         {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
+                        <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
+
+                        <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.}}">
+                        <input type="hidden" name="Society_Id" value="51">
                               <div class="card-header"><div class="card-title">OFFICE BUILDINGS </div></div>
                               <div class="card-body">
                                       <div class="row g-2">
@@ -23,6 +26,9 @@
                                                 <option>No</option>
                                              
                                             </select>
+                                            @error('self_building')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -34,6 +40,9 @@
                                                 <option>No</option>
                                              
                                             </select>
+                                            @error('rented_building')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -53,6 +62,9 @@
                                                 <option>No</option>
                                              
                                             </select>
+                                            @error('godown')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -66,6 +78,9 @@
                                                 <option>Lease</option>
                                                 <option>Rented</option>
                                             </select>
+                                            @error('godown_types')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -80,12 +95,15 @@
                                                 <option >Yes</option>
                                                 <option>No</option>
                                             </select>
+                                            @error('storage')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Cold" Name="storage_cold" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
-                                        <x-column_-input  title="Dry" Name="storage_dry" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
+                                        <x-column_-input  title="Cold" Name="storage_cold" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" />
+                                        <x-column_-input  title="Dry" Name="storage_dry" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" />
                                        
                                         <div class="col-md-4">
                                             <label for="validationCustom01" class="form-label">Land</label>
@@ -94,6 +112,9 @@
                                                 <option >Yes</option>
                                                 <option>No</option>
                                             </select>
+                                            @error('land')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -107,6 +128,9 @@
                                                 <option >Yes</option>
                                                 <option>No</option>
                                             </select>
+                                            @error('furniture')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
@@ -120,6 +144,9 @@
                                                 <option >Yes</option>
                                                 <option>No</option>
                                             </select>
+                                            @error('computers')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>

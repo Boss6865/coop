@@ -283,7 +283,8 @@ class BasicController extends Controller
             ]);
             
             //return redirect()->route('pages.management1');
-            return redirect()->action([BasicController::class, 'Viewsociety'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+            // return redirect()->action([BasicController::class, 'Viewsociety'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+            return redirect()->action([Investment::class, 'index'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
             //return "success";
             
     }

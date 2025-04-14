@@ -91,7 +91,8 @@
                                       </thead>
                                       <tbody>
                                            @foreach($Societies as $Society) 
-                                          <tr>
+                                           
+                                          <tr class='clickable-row' data-href="/details/{{$Society->id;}}">
                                               
                                               
                                               <td> {{$Society->Name_of_the_Society;}}</td>
@@ -200,6 +201,7 @@
                                               </td>
                                               
                                           </tr>
+                                       
                                           @endforeach
                                         
                                           
@@ -234,4 +236,9 @@
       });
   } );
   
+  jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+})
   </script>
