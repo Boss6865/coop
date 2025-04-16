@@ -638,9 +638,50 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
+                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
                                     <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Secondary_Activity"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/>
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/> --}}
+                                    
+                                        <div class="col-md-3">
+                                          <label for="validationCustom01" class="form-label">Primary Activitiy</label>
+                                          <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                              <option @if($data->Primary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                              
+                                             @endforeach
+                                          </select>
+                                          <div class="valid-feedback">Looks good!</div>
+                                          <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                      </div>
+                                      <div class="col-md-3">
+                                        <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
+                                        <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                            <option @if($data->Secondary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                            
+                                           @endforeach
+                                        </select>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                      <div class="col-md-3">
+                                  <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
+                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                      <option @if($data->Tertiary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                      
+                                     @endforeach
+                                          
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
                                     <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Other_Activity"/>
 
                                   </div>
@@ -651,8 +692,17 @@
                                   <div class="row g-2">
                                      
                                     <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Society_Fair_Price_Shop"/>
-                                    <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/>
-                                      
+                                    {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/> --}}
+                                      <div class="col-md-3">
+                                        <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
+                                        <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            
+                                           
+                                        </select>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
                                       <!--begin::Col-->
                                       <div class="col-md-3">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
@@ -1162,3 +1212,20 @@ $( "#Yes1" ).on( "change", function() {
       //     format: 'yyyy-mm-dd'
       // });
 </script>
+{{-- financial year --}}
+<script>
+
+  $( document ).ready(function() {
+  
+  
+  var currentYear = new Date().getFullYear();
+  for(var i = 0; i < 30; i++){
+    var next = currentYear+1;
+    var year = currentYear + '-' + next.toString().slice(-2);
+    $('#Latest_Audit_complete').append(new Option(year, year));
+    currentYear--;
+  }
+      
+  
+  });
+  </script>

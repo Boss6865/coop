@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basic;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,9 @@ class LoanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data=Basic::find($id);
+        // dd($data);
+        return view('pages.sector')->with('Datas',$data);
     }
 
     /**

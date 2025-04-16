@@ -47,3 +47,4 @@ Route::post('/investment',[Investment::class,'store']);
 Route::post('/borrow',[BorrowingController::class,'store']);
 Route::post('/asset',[AssetController::class,'store']);
 Route::post('/loan',[LoanController::class,'store']);
+Route::get('/sector/{id}',[LoanController::class,'show']);

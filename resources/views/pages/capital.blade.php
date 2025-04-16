@@ -40,20 +40,12 @@
                                       <label for="validationCustom01" class="form-label">Primary Activitiy</label>
                                       <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
                                           <option selected disabled value="">Choose...</option>
-                                          <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
-                                          <option>Handloom</option>
-                                          <option>Handicraft</option>
-                                          <option>Consumer</option>
-                                          <option>Dairy</option>
-                                          <option>Farming / Plantation (Agriculture / Horticulture)</option>
-                                          <option>Fisheries</option>
-                                          <option>Marketing</option>
-                                          <option>Processing</option>
-                                          <option>Transport</option>
-                                          <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
-                                          <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
-                                          <option>Industrial</option>
-                                          <option>Thrift & Credit</option>
+                                          @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                          <option>{{$activity->Activity}}</option>
+                                          
+                                          @endforeach
+                                       
                                          
                                       </select>
                                       <div class="valid-feedback">Looks good!</div>
@@ -63,20 +55,12 @@
                                     <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
                                     <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
                                         <option selected disabled value="">Choose...</option>
-                                        <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
-                                        <option>Handloom</option>
-                                        <option>Handicraft</option>
-                                        <option>Consumer</option>
-                                        <option>Dairy</option>
-                                        <option>Farming / Plantation (Agriculture / Horticulture)</option>
-                                        <option>Fisheries</option>
-                                        <option>Marketing</option>
-                                        <option>Processing</option>
-                                        <option>Transport</option>
-                                        <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
-                                        <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
-                                        <option>Industrial</option>
-                                        <option>Thrift & Credit</option>
+                                        @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                        <option>{{$activity->Activity}}</option>
+                                        
+                                        @endforeach
+                                     
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -86,19 +70,12 @@
                                   <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
-                                          <option>Handloom</option>
-                                          <option>Handicraft</option>
-                                          <option>Consumer</option>
-                                          <option>Dairy</option>
-                                          <option>Farming / Plantation (Agriculture / Horticulture)</option>
-                                          <option>Fisheries</option>
-                                          <option>Marketing</option>
-                                          <option>Processing</option>
-                                          <option>Transport</option>
-                                          <option>Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)</option>
-                                          <option>Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)</option>
-                                          <option>Industrial</option>
-                                          <option>Thrift & Credit</option>
+                                      @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                           
+                                      <option>{{$activity->Activity}}</option>
+                                      
+                                      @endforeach
+                                   
                                           
                                   </select>
                                   <div class="valid-feedback">Looks good!</div>
