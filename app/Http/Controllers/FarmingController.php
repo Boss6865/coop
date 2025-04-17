@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Basic;
+use App\Models\Farming;
 use Illuminate\Http\Request;
 
 class FarmingController extends Controller
@@ -43,7 +44,7 @@ class FarmingController extends Controller
             'produce_quantity'=>'nullable|integer',
             'produce_amount'=>'nullable|integer',
         ]);
-        FarmingController::create($validatedData);
+        Farming::create($validatedData);
         return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'FARMING']);
     }
 
