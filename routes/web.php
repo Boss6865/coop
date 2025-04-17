@@ -8,7 +8,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Investment;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\ConsumerController;
+use App\Http\Controllers\DairyController;
+use App\Http\Controllers\FarmingController;
+use App\Http\Controllers\HandicraftController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\HandloomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,3 +53,13 @@ Route::post('/borrow',[BorrowingController::class,'store']);
 Route::post('/asset',[AssetController::class,'store']);
 Route::post('/loan',[LoanController::class,'store']);
 Route::get('/sector/{id}',[LoanController::class,'show']);
+Route::get('/handloom/{id}',[HandloomController::class,'show']);
+Route::post('/handloom',[HandloomController::class,'store']);
+Route::get('/handicraft/{id}',[HandicraftController::class,'show']);
+Route::post('/handicraft',[HandicraftController::class,'store']);
+Route::get('/consumer/{id}',[ConsumerController::class,'show']);
+Route::post('/consumer',[ConsumerController::class,'store']);
+Route::get('/dairy/{id}',[DairyController::class,'show']);
+Route::post('/dairy',[DairyController::class,'store']);
+Route::get('/farming/{id}',[FarmingController::class,'show']);
+Route::post('/farming',[FarmingController::class,'store']);

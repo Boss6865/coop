@@ -1,4 +1,5 @@
 <x-layout>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,21 +19,21 @@
                                     <select name="CDF_Paid" class="form-select target2" id="Select1" required>
                                         <option selected disabled value="">Choose...</option>
                                         
-                                        <option> HANDLOOM</option>
-                                        <option> HANDICRAFT</option>
-                                        <option> CONSUMER</option>
-                                        <option> DAIRY</option>
-                                        <option> FARMING</option>
-                                        <option> FISHERIES</option>
-                                        <option> MARKETING</option>
-                                        <option> PROCESSING</option>
-                                        <option> TRANSPORT</option>
-                                        <option> LIVESTOCK</option>
-                                        <option value="TOURISMANDLRB"> TOURISM AND LRB</option>
-                                        <option> INDUSTRIAL</option>
-                                        <option value="THRIFTANDCREDIT"> THRIFT AND CREDIT</option>
-                                        <option value="LABOURCONTRACT"> LABOUR CONTRACT</option>
-                                        <option> HOUSING</option>
+                                        <option value="/handloom/{{$Datas->id;}}" @if(Session()->get('sector')=="HANDLOOM") selected @endif>HANDLOOM</option>
+                                        <option value="/handicraft/{{$Datas->id;}}" @if(Session()->get('sector')=="HANDICRAFT") selected @endif>HANDICRAFT</option>
+                                        <option value="/consumer/{{$Datas->id;}}" @if(Session()->get('sector')=="CONSUMER") selected @endif>CONSUMER</option>
+                                        <option value="/dairy/{{$Datas->id;}}" @if(Session()->get('sector')=="DAIRY") selected @endif>DAIRY</option>
+                                        <option value="/farming/{{$Datas->id;}}" @if(Session()->get('sector')=="FARMING") selected @endif>FARMING</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> FISHERIES</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> MARKETING</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> PROCESSING</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> TRANSPORT</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> LIVESTOCK</option>
+                                        <option value="/handloom/{{$Datas->id;}}" value="TOURISMANDLRB"> TOURISM AND LRB</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> INDUSTRIAL</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> THRIFT AND CREDIT</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> LABOUR CONTRACT</option>
+                                        <option value="/handloom/{{$Datas->id;}}"> HOUSING</option>
                                         <option value="OTHERSTYPES"> OTHERS TYPES</option>
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
@@ -166,6 +167,10 @@
 
                             </div>
                     </div>
+                    <div class="modal-footer">
+                    
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
                    
             </form>
         </div>
@@ -265,14 +270,16 @@
                         </div>
 
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
             </div>
+            
           </form>
         </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
-        </div>
+       
       </div>
     </div>
   </div>
@@ -1177,53 +1184,46 @@
 </x-layout>
 <script>
 $("#Select1").change(function(){
-   var sect= $('#Select1').find(":selected").val()
-     $('#'+sect).modal('show');
+  //  var sect= $('#Select1').find(":selected").val()
+  //    $('#'+sect).modal('show');
+  var id = $(this).val(); // get selected value
+   if (id) { 
+       window.location = id; 
+   }
+    return false;
     
 });
 
 </script>
 <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-      'use strict';
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (() => {
+    'use strict';
 
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      const forms = document.querySelectorAll('.needs-validation');
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation');
 
-      // Loop over them and prevent submission
-      Array.from(forms).forEach((form) => {
-        form.addEventListener(
-          'submit',
-          (event) => {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        'submit',
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
 
-            form.classList.add('was-validated');
-          },
-          false,
-        );
-      });
-    })();
+          form.classList.add('was-validated');
+        },
+        false,
+      );
+    });
+  })();
+  
+</script>
+<script>
    
-    $("#rowAdder").click(function () {
-            newRowAdd =
-                '<div id="row" class="row g-2"><div class="col-md-8">' +
-                '<input name="Equipments_Name[]" type="text" class="form-control" placeholder="Eg-Spinning Machine, Jacquard,Knitting Machine,Sewing Machine and others" required> </div>'+
-                '<div class="col-md-2">' +
-                '<input name="Equipments_Nos[]" type="text" class="form-control" placeholder="Eg- 2" required> </div>'+
-                '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
-
-            $('#newinput').append(newRowAdd);
-            
-        });
-
-        $("body").on("click", "#DeleteRow", function () {
-            $(this).parents("#row").remove();
-        });
-
+   
         $("#rowAdder2").click(function () {
             newRowAdd =
                 '<div id="row2" class="row g-2"><div class="col-md-3">' +

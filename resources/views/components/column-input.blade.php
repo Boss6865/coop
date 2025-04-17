@@ -14,7 +14,7 @@
             type="text"
             class="form-control {{$inclass}}"
             id="{{$id}}"
-            value="{{$val}}"
+            value="{{old($val)}}"
             name="{{$Name}}"
             required
             placeholder="{{$placeholder}}"
