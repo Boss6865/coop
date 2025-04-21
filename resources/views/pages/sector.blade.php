@@ -24,17 +24,17 @@
                                         <option value="/consumer/{{$Datas->id;}}" @if(Session()->get('sector')=="CONSUMER") selected @endif>CONSUMER</option>
                                         <option value="/dairy/{{$Datas->id;}}" @if(Session()->get('sector')=="DAIRY") selected @endif>DAIRY</option>
                                         <option value="/farming/{{$Datas->id;}}" @if(Session()->get('sector')=="FARMING") selected @endif>FARMING</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> FISHERIES</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> MARKETING</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> PROCESSING</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> TRANSPORT</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> LIVESTOCK</option>
-                                        <option value="/handloom/{{$Datas->id;}}" value="TOURISMANDLRB"> TOURISM AND LRB</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> INDUSTRIAL</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> THRIFT AND CREDIT</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> LABOUR CONTRACT</option>
-                                        <option value="/handloom/{{$Datas->id;}}"> HOUSING</option>
-                                        <option value="OTHERSTYPES"> OTHERS TYPES</option>
+                                        <option value="/fishery/{{$Datas->id;}}" @if(Session()->get('sector')=="FISHERIES") selected @endif>FISHERIES</option>
+                                        <option value="/market/{{$Datas->id;}}" @if(Session()->get('sector')=="MARKETING") selected @endif>MARKETING</option>
+                                        <option value="/processing/{{$Datas->id;}}" @if(Session()->get('sector')=="PROCESSING") selected @endif>PROCESSING</option>
+                                        <option value="/transport/{{$Datas->id;}}" @if(Session()->get('sector')=="TRANSPORT") selected @endif>TRANSPORT</option>
+                                        <option value="/livestock/{{$Datas->id;}}" @if(Session()->get('sector')=="LIVESTOCK") selected @endif>LIVESTOCK</option>
+                                        <option value="/tourism/{{$Datas->id;}}" @if(Session()->get('sector')=="tourism") selected @endif>TOURISM AND LRB</option>
+                                        <option value="/industry/{{$Datas->id;}}" @if(Session()->get('sector')=="INDUSTRIAL") selected @endif>INDUSTRIAL</option>
+                                        <option value="/tandc/{{$Datas->id;}}" @if(Session()->get('sector')=="ThrifnCredit") selected @endif>THRIFT AND CREDIT</option>
+                                        <option value="/labour/{{$Datas->id;}}" @if(Session()->get('sector')=="labour") selected @endif>LABOUR CONTRACT</option>
+                                        <option value="/housing/{{$Datas->id;}}" @if(Session()->get('sector')=="HOUSING") selected @endif>HOUSING</option>
+                                        <option value="OTHERSTYPES" @if(Session()->get('sector')=="FISHERIES") selected @endif> OTHERS TYPES</option>
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">This field is required. Can't be empty</div>
