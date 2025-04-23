@@ -47,7 +47,7 @@ class IndustryController extends Controller
        
 
         Industry::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'INDUSTRIAL']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'industry']);
     }
 
     /**

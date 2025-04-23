@@ -42,7 +42,7 @@ class HandicraftController extends Controller
             'other_sales_turnover'=>'nullable|integer'
         ]);
         Handicraft::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'HANDICRAFT']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'handicraft']);
     }
 
     /**

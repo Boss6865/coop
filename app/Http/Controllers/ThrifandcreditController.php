@@ -56,7 +56,7 @@ class ThrifandcreditController extends Controller
         $validatedData['outstanding_laon_issues_defaulters_amount']=json_encode($request->input('outstanding_laon_issues_defaulters_amount'));
 
         Thrifncredit::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'ThrifnCredit']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'tandc']);
     }
 
     /**

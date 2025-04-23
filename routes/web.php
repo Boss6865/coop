@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Activitycontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasicController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\LabourcontractController;
 use App\Http\Controllers\LivestockController;
 use App\Http\Controllers\MarketingController;
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\ProcessingController;
 use App\Http\Controllers\ThrifandcreditController;
 use App\Http\Controllers\TourismController;
@@ -93,3 +95,6 @@ Route::get('/labour/{id}',[LabourcontractController::class,'show']);
 Route::post('/labour',[LabourcontractController::class,'store']);
 Route::get('/housing/{id}',[HousingController::class,'show']);
 Route::post('/housing',[HousingController::class,'store']);
+Route::get('/other/{id}',[OtherController::class,'show']);
+Route::post('/other',[OtherController::class,'store']);
+Route::post('/activity',[Activitycontroller::class,'store']);

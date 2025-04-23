@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
 use App\Models\Basic;
-use App\Models\Loan;
+use App\Models\Other;
 use Illuminate\Http\Request;
 
-class LoanController extends Controller
+class OtherController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.loan');
+        //
     }
 
     /**
@@ -30,22 +29,23 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        $Name_of_the_Society=$request->input('Name_of_society');
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-       
             'Society_Id'=> 'required|integer',
-            'any_Govt_loan'=> 'required|string',
+            'course_offered'=>'nullable|string',
+            'nos_of_student'=>'nullable|integer',
+            'course_fee'=>'nullable|integer',
+            'no_of_teaching_staff'=>'nullable|integer',
+            'no_of_non_teaching_staff'=>'nullable|integer',
+            'salary_to_staff'=>'nullable|integer',
+            'service_provided'=>'nullable|string',
+            'employee'=>'nullable|integer',
+            'wage_paid'=>'nullable|integer',
+             'turn_over'=>'nullable|integer',
+            
         ]);
-        $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
-        $validatedData['Loan_issue_year']=json_encode($request->input('Loan_issue_year'));
-        $validatedData['Loan_sanctioned_amount']=json_encode($request->input('Loan_sanctioned_amount'));
-        $validatedData['Outstanding_Principal_amount']=json_encode($request->input('Outstanding_Principal_amount'));
-        $validatedData['Outstanding_interest_amount']=json_encode($request->input('Outstanding_interest_amount'));
-        
-        Loan::create($validatedData);
-
-        return redirect()->action([BasicController::class, 'View_1'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+        Other::create($validatedData);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'other']);
     }
 
     /**
@@ -54,10 +54,8 @@ class LoanController extends Controller
     public function show(string $id)
     {
         $data=Basic::find($id);
-        $activity=Activity::where('Society_Id', $id )->first();
-        // dd($activity);
-       
-        return view('pages.sector')->with(['Datas'=>$data,'activity'=>$activity]);
+        // dd($data);
+        return view('pages.other')->with('Datas',$data);
     }
 
     /**

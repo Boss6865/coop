@@ -45,7 +45,7 @@ class ConsumerController extends Controller
             'uncontroll_retail'=>'nullable|integer'
         ]);
         Consumer::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'CONSUMER']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'consumer']);
     }
 
     /**

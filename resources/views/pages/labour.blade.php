@@ -29,8 +29,25 @@
                     <div class="card-header"><div class="card-title">MEMBERSHIP INVOLVED IN CONTRACT WORKS</div></div>
                     <div class="card-body">
                             <div class="row g-2" >
-                              <x-column_-input  title="Types of Loan Members Borrowing " Name="borrowing_loan[]" id="validationCustom09" placeholder="Eg-DCA, Graphic Designer" div_class="col-md-2"/>
-                              <x-column_-input  title="Total No. of ST Members Borrowing " Name="borrowing_loan_st[]" id="validationCustom09" placeholder="Eg-DCA, Graphic Designer" div_class="col-md-2"/>
+                              <x-column_-input  title="ST" Name="borrowing_loan[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="SC" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="Total" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="Of which is labourer" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="Other Specify" Name="borrowing_loan[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="No of Workers" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                            </div>
+                    </div>
+                    <div class="card-header"><div class="card-title">VALUE OF CONTRACTS EXECUTED DURING THE YEAR (WORK AWARDING AGENCIES)</div></div>
+                    <div class="card-body">
+                            <div class="row g-2" >
+                              <x-column_-input  title="Government Body" Name="borrowing_loan[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="Local Body" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              <x-column_-input  title="Other" Name="borrowing_loan_st[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              
+                            </div>
+                            <div class="row g-2" >
+                              <x-column_-input  title="Income Earned" Name="borrowing_loan[]" id="" placeholder="Eg-" div_class="col-md-2"/>
+                              
                               
                             </div>
                     </div>

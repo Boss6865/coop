@@ -50,7 +50,7 @@ class DairyController extends Controller
             'sale_of_feed_medicine_value'=>'nullable|integer',
         ]);
         Dairy::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'DAIRY']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'dairy']);
     }
 
     /**

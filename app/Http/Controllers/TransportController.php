@@ -49,7 +49,7 @@ class TransportController extends Controller
             'others_wages_total'=>'nullable|integer',
         ]);
         Transport::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'TRANSPORT']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'transport']);
     }
 
     /**

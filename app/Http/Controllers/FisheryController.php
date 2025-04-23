@@ -48,7 +48,7 @@ class FisheryController extends Controller
             'fishing_material_other'=>'nullable|integer',
         ]);
         Fishery::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'FISHERIES']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'fishery']);
     }
 
     /**

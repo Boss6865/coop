@@ -44,7 +44,7 @@ class ProcessingController extends Controller
             'packaging_type'=>'nullable|string',
         ]);
         Processing::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'PROCESSING']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'processing']);
     }
 
     /**

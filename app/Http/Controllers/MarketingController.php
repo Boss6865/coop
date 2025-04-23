@@ -40,7 +40,7 @@ class MarketingController extends Controller
         $validatedData['product_quantity']=json_encode($request->input('product_quantity'));
         $validatedData['product_value']=json_encode($request->input('product_value'));
         Market::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'MARKETING']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'market']);
     }
 
     /**

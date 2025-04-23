@@ -62,7 +62,7 @@ class HandloomController extends Controller
 
         Handloom::create($validatedData);
 
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'HANDLOOM']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'handloom']);
     }
 
     /**

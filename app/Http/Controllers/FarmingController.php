@@ -45,7 +45,7 @@ class FarmingController extends Controller
             'produce_amount'=>'nullable|integer',
         ]);
         Farming::create($validatedData);
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'FARMING']);
+        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'farming']);
     }
 
     /**
