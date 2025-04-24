@@ -31,7 +31,7 @@ class FisheryController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:fisheries',
             'male_fisher'=>'nullable|integer',
             'female_fisher'=>'nullable|integer',
             'total_pond'=>'nullable|integer',

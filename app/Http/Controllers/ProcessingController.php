@@ -31,7 +31,7 @@ class ProcessingController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:processings',
             'item_name'=>'nullable|string',
             'item_value'=>'nullable|integer',
             'process_machine_name'=>'nullable|string',

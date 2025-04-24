@@ -31,7 +31,7 @@ class MarketingController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:markets',
             'agriculture_input_type'=>'nullable|string',
             'agriculture_input_quantity'=>'nullable|integer',
             'agriculture_input_value'=>'nullable|integer',

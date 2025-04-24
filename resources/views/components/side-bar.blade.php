@@ -122,32 +122,32 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-clipboard-fill"></i>
+              <li class="nav-item {{request()->is('View_1','Sector_view','District_View')?'menu-open':''}}">
+                <a href="#" class="nav-link {{request()->is('View_1','Sector_view','District_View')?'active':''}}">
+                  <i class="nav-icon bi bi-view-list"></i>
                   <p>
-                    Layout Options
+                    Society Details View 
                     <span class="nav-badge badge text-bg-secondary me-3">6</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/View_1" class="nav-link">
+                    <a href="/View_1" class="nav-link {{request()->is('View_1')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Default View</p>
+                      <p>All Society</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./layout/fixed-sidebar.html" class="nav-link">
+                    <a href="/District_View" class="nav-link {{request()->is('District_View')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Sidebar</p>
+                      <p>District Wise</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./layout/layout-custom-area.html" class="nav-link">
+                    <a href="/Sector_view" class="nav-link {{request()->is('Sector_view')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout <small>+ Custom Area </small></p>
+                      <p>Sector</p>
                     </a>
                   </li>
                   <li class="nav-item">

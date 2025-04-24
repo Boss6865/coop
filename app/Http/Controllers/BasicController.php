@@ -41,6 +41,13 @@ class BasicController extends Controller
         // dd($users);
         return view('pages.view_1', ['Societies' => $users]);
     }
+    public function Sector_view()
+    {
+        // $users = DB::table('_societydata')->get();
+        $users=Basic::all();
+        //  dd($users);
+        return view('pages.sectorview', ['Societies' => $users]);
+    }
     public function View_2()
     {
         $Districts=json_decode(file_get_contents('assets/District.json'));

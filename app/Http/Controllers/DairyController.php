@@ -31,7 +31,7 @@ class DairyController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:dairy',
             'Nos_of_milch_cow'=>'nullable|integer',
             'total_value_of_Milch_cow'=>'nullable|integer',
             'no_of_cowshed'=>'nullable|integer',

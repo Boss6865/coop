@@ -33,7 +33,7 @@ class BorrowingController extends Controller
         $id_of_society=$request->input('Society_Id');
     $validatedData=$request->validate([
        
-        'Society_Id'=> 'required|integer',
+        'Society_Id'=> 'required|string|unique:borowing',
         'Govt_loan'=> 'required|string',
         'bank_sb_ac'=> 'nullable|integer',
         'bank_fd_ac'=> 'nullable|integer',

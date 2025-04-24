@@ -19,5 +19,8 @@ class Basic extends Model
     public function capital():HasMany {
         return $this->hasMany(capital::class,'Society_Id');
     }
+    public function Activity():HasMany {
+        return $this->hasMany(Activity::class,'Society_Id');
+    }
 
 }

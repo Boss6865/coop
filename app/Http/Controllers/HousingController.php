@@ -31,7 +31,7 @@ class HousingController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:housings',
             'borrowing_government'=>'nullable|integer',
             'central_finance_agency'=>'nullable|integer',
             'housing_urban_development_cor'=>'nullable|integer',

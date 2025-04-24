@@ -31,7 +31,7 @@ class ThrifandcreditController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:thrifncredits',
             'year_contribution'=>'nullable|string',
             'member_contributed'=>'nullable|string',
         ]);

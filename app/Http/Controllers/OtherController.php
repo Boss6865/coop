@@ -31,7 +31,7 @@ class OtherController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:others',
             'course_offered'=>'nullable|string',
             'nos_of_student'=>'nullable|integer',
             'course_fee'=>'nullable|integer',

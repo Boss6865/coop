@@ -31,7 +31,7 @@ class TourismController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:tourisms',
             'deomestic_tourist'=>'nullable|integer',
             'foreign_tourist'=>'nullable|integer',
             'entry_fee_annually'=>'nullable|integer',

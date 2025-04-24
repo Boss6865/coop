@@ -31,7 +31,7 @@ class TransportController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:transports',
             'nos_of_Goods_vehicle'=>'nullable|integer',
             'no_of_passenger_vehichle'=>'nullable|integer',
             'vehicle_type'=>'nullable|string',

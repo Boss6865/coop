@@ -57,7 +57,7 @@ class LoanController extends Controller
         $activity=Activity::where('Society_Id', $id )->first();
         // dd($activity);
        
-        return view('pages.sector')->with(['Datas'=>$data,'activity'=>$activity]);
+        return view('pages.sector')->with(['Datas'=>$data,'activity'=>$activity, 'id'=> $id]);
     }
 
     /**

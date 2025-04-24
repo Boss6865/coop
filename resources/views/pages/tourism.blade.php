@@ -3,7 +3,11 @@
     <x-navigation  title="{{ $Datas->Name_of_the_Society }}" Nav="Tourism Sector" />
         <div class="card card-info card-outline mb-4">
             <!--begin::Header-->
-            <div class="card-header"><div class="card-title">TOURISM AND LRB</div></div>
+            <div class="card-header"><div class="card-title">TOURISM AND LRB
+              @error('Society_Id')
+                      <div style="color:red">Itz Seem Data is already Save. Please Update to Continue</div>
+                      @enderror
+            </div></div>
             <form class="needs-validation" action="/tourism" method="POST" novalidate>
                 @csrf
                 {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">

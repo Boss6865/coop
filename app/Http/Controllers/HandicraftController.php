@@ -31,7 +31,7 @@ class HandicraftController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:handicraft',
             'item_produce'=>'nullable|string',
             'nos_of_craftsmen'=>'nullable|integer',
             'wages_paid'=>'nullable|integer',

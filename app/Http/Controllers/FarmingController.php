@@ -31,7 +31,7 @@ class FarmingController extends Controller
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:farming',
             'st_male'=>'nullable|integer',
             'st_female'=>'nullable|integer',
             'sc_male'=>'nullable|integer',

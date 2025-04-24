@@ -32,7 +32,7 @@ class HandloomController extends Controller
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
        
-            'Society_Id'=> 'required|integer',
+            'Society_Id'=> 'required|string|unique:handloom',
             'no_of_looms_own'=>'nullable|integer',
             'natural_dykes'=>'nullable|string',
             'dyeing_house_own'=>'nullable|integer',

@@ -126,7 +126,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon bi bi-clipboard-fill"></i>
               <p>
-                Layout Options
+                Society Details View 
                 <span class="nav-badge badge text-bg-secondary me-3">6</span>
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>
