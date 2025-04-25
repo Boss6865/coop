@@ -71,6 +71,7 @@
                                               <td> {{$Society->Name_of_the_Society;}}</td>
                                               <td>
                                                 @if (count($Society->Activity) === 1)
+                                                <i class="bi bi-check2-all"></i>
                                                 @foreach($Society->Activity as $data)
                                                
                                                 <a href="/{{$data->activity_1}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_1}}</button></a>    
@@ -79,7 +80,7 @@
                                                @if($data->activity_4 !=null) <a href="/{{$data->activity_4}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_4}}</button></a>   @endif
                                                @if($data->activity_5 !=null) <a href="/{{$data->activity_5}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_5}}</button></a> @endif
                                                @if($data->activity_other !=null) <a href="/{{$data->activity_other}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_other}}</button></a>@endif
-                                               
+                                               <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">Add</button>
                                                 @endforeach
                                                 @else
                                                 <i class="bi bi-building-fill-add"></i>

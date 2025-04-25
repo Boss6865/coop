@@ -57,8 +57,8 @@ class FisheryController extends Controller
     public function show(string $id)
     {
         $data=Basic::find($id);
-        // dd($data);
-        return view('pages.fishery')->with('Datas',$data);
+        $activity=Fishery::where('Society_Id', $id )->first();
+        return view('pages.fishery')->with(['Datas'=>$data,'activities'=>$activity]);
     }
 
     /**
@@ -74,7 +74,29 @@ class FisheryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $id_of_society=$request->input('Society_Id');
+        $validatedData=$request->validate([
+            'Society_Id'=> 'required|string',
+            'male_fisher'=>'nullable|integer',
+            'female_fisher'=>'nullable|integer',
+            'total_pond'=>'nullable|integer',
+            'area_of_pond'=>'nullable|integer',
+            'value_of_fish_pond'=>'nullable|integer',
+            'nursery_pond'=>'nullable|integer',
+            'area_of_nursery_pond'=>'nullable|integer',
+            'value_of_nursery_pond'=>'nullable|integer',
+             'type_of_fish_reared'=>'nullable|string',
+            'fish_quantity'=>'nullable|integer',
+            'sales_of_fresh_fish'=>'nullable|integer',
+            'dry_fish'=>'nullable|integer',
+            'smoke_fish'=>'nullable|integer',
+            'fishing_material_other'=>'nullable|integer',
+        ]);
+        $finddata= Fishery::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $activity=Fishery::where('Society_Id', $id )->first();
+        return view('pages.fishery')->with(['Datas'=>$data,'activities'=>$activity,'msg'=>"Sucessfully Update!!"]);
     }
 
     /**

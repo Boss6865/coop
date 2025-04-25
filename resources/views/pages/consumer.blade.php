@@ -5,11 +5,12 @@
             <!--begin::Header-->
             <div class="card-header"><div class="card-title">CONSUMER
               @if(($msg ?? '')!="")
-              <i class="bi bi-check-circle-fill"></i><h3 style="color:green"> {{$msg}}</h3>
+              <div style="color:green"><h3> <i class="bi bi-check-circle-fill"></i>{{$msg}}</h3></div>
               @endif
               @error('Society_Id')
-                      <div style="color:red">Itz Seem Data is alreday Save. Please Update to Continue</div>
-                      @enderror
+              <i class="bi bi-x-lg"></i>
+              <div style="color:red">Itz Seem Data is alreday Save. Please Update to Continue</div>
+              @enderror
             </div></div>
             @if($activities->departmental_store=="Yes" || $activities->departmental_store=="No" )
             <form class="needs-validation" action="/consumer/{{$Datas->id}}" method="POST" novalidate>
