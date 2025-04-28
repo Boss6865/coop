@@ -49,8 +49,8 @@ class MarketingController extends Controller
     public function show(string $id)
     {
         $data=Basic::find($id);
-        // dd($data);
-        return view('pages.market')->with('Datas',$data);
+        $activity=Market::where('Society_Id', $id )->first();
+        return view('pages.market')->with(['Datas'=>$data,'activities'=>$activity]);
     }
 
     /**
@@ -66,7 +66,21 @@ class MarketingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $id_of_society=$request->input('Society_Id');
+        $validatedData=$request->validate([
+            'Society_Id'=> 'required|string',
+            'agriculture_input_type'=>'required|string',
+            'agriculture_input_quantity'=>'nullable|integer',
+            'agriculture_input_value'=>'nullable|integer',
+        ]);
+        $validatedData['product_produce']=json_encode($request->input('product_produce'));
+        $validatedData['product_quantity']=json_encode($request->input('product_quantity'));
+        $validatedData['product_value']=json_encode($request->input('product_value'));
+        $finddata= Market::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $activity=Market::where('Society_Id', $id )->first();
+        return view('pages.market')->with(['Datas'=>$data,'activities'=>$activity,'msg'=>"Sucessfully Update!!"]);
     }
 
     /**

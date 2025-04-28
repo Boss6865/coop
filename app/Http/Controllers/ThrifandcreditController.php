@@ -65,8 +65,8 @@ class ThrifandcreditController extends Controller
     public function show(string $id)
     {
         $data=Basic::find($id);
-        // dd($data);
-        return view('pages.thrifncredit')->with('Datas',$data);
+        $activity=Thrifncredit::where('Society_Id', $id )->first();
+        return view('pages.thrifncredit')->with(['Datas'=>$data,'activities'=>$activity]);
     }
 
     /**
@@ -82,9 +82,38 @@ class ThrifandcreditController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $validatedData=$request->validate([
+            'Society_Id'=> 'required|string',
+            'year_contribution'=>'nullable|string',
+            'member_contributed'=>'nullable|string',
+        ]);
+        $validatedData['borrowing_loan']=json_encode($request->input('borrowing_loan'));
+        $validatedData['borrowing_loan_st']=json_encode($request->input('borrowing_loan_st'));
+        $validatedData['borrowing_loan_sc']=json_encode($request->input('borrowing_loan_sc'));
+        $validatedData['borrowing_loan_GO']=json_encode($request->input('borrowing_loan_GO'));
+        $validatedData['borrowing_loan_issues']=json_encode($request->input('borrowing_loan_issues'));
+        $validatedData['recover_loan']=json_encode($request->input('recover_loan'));
+        $validatedData['recover_loan_st']=json_encode($request->input('recover_loan_st'));
+        $validatedData['recover_loan_sc']=json_encode($request->input('recover_loan_sc'));
+        $validatedData['recover_loan_GO']=json_encode($request->input('recover_loan_GO'));
+        $validatedData['recover_loan_principal']=json_encode($request->input('recover_loan_principal'));
+        $validatedData['recover_loan_interest']=json_encode($request->input('recover_loan_interest'));
+        $validatedData['outstanding_loan']=json_encode($request->input('outstanding_loan'));
+        $validatedData['outstanding_loan_st']=json_encode($request->input('outstanding_loan_st'));
+        $validatedData['outstanding_loan_sc']=json_encode($request->input('outstanding_loan_sc'));
+        $validatedData['outstanding_loan_GO']=json_encode($request->input('outstanding_loan_GO'));
+        $validatedData['outstanding_loan_principal']=json_encode($request->input('outstanding_loan_principal'));
+        $validatedData['outstanding_loan_interest']=json_encode($request->input('outstanding_loan_interest'));
+        $validatedData['outstanding_loan_defaulters_no']=json_encode($request->input('outstanding_loan_defaulters_no'));
+        $validatedData['outstanding_laon_issues_defaulters_amount']=json_encode($request->input('outstanding_laon_issues_defaulters_amount'));
 
+        $finddata= Thrifncredit::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $activity=Thrifncredit::where('Society_Id', $id )->first();
+        return view('pages.thrifncredit')->with(['Datas'=>$data,'activities'=>$activity,'msg'=>"Sucessfully Update!!"]);
+    }
+    
     /**
      * Remove the specified resource from storage.
      */

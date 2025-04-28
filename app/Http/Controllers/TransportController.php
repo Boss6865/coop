@@ -58,8 +58,8 @@ class TransportController extends Controller
     public function show(string $id)
     {
         $data=Basic::find($id);
-        // dd($data);
-        return view('pages.transport')->with('Datas',$data);
+        $activity=Transport::where('Society_Id', $id )->first();
+        return view('pages.transport')->with(['Datas'=>$data,'activities'=>$activity]);
     }
 
     /**
@@ -75,7 +75,29 @@ class TransportController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData=$request->validate([
+            'Society_Id'=> 'required|string',
+            'nos_of_Goods_vehicle'=>'nullable|integer',
+            'no_of_passenger_vehichle'=>'nullable|integer',
+            'vehicle_type'=>'nullable|string',
+            'vehicle_nos'=>'nullable|integer',
+            'vehicle_value'=>'nullable|integer',
+            'other_asset_name'=>'nullable|string',
+            'other_asset_nos'=>'nullable|integer',
+            'other_asset_value'=>'nullable|integer',
+            'other_asset_income'=>'nullable|integer',
+            'total_driver'=>'nullable|integer',
+            'total_driver_wages'=>'nullable|integer',
+            'total_helper'=>'nullable|integer',
+            'total_helper_wages'=>'nullable|integer',
+            'other_total'=>'nullable|integer',
+            'others_wages_total'=>'nullable|integer',
+        ]);
+        $finddata= Transport::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $activity=Transport::where('Society_Id', $id )->first();
+        return view('pages.transport')->with(['Datas'=>$data,'activities'=>$activity,'msg'=>"Sucessfully Update!!"]);
     }
 
     /**

@@ -12,7 +12,8 @@
               <div style="color:red">Itz Seem Data is alreday Save. Please Update to Continue</div>
               @enderror
             </div></div>
-            @if($activities->departmental_store=="Yes" || $activities->departmental_store=="No" )
+            {{-- @if($activities->departmental_store=="Yes" || $activities->departmental_store=="No" ) --}}
+            @if(!empty($activities->departmental_store))
             <form class="needs-validation" action="/consumer/{{$Datas->id}}" method="POST" novalidate>
               @csrf
               @method("PUT")
@@ -79,7 +80,7 @@
     
                     </div>
                     <div class="modal-footer">
-                      @if($activities->departmental_store=="Yes" || $activities->departmental_store=="No" )
+                      @if(!empty($activities->departmental_store))
                       <a href="/Sector_view"><button type="button" class="btn btn-secondary">Back</button></a> 
                       <button type="submit" class="btn btn-primary">Update</button>
                       @else

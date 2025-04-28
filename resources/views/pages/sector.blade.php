@@ -5,9 +5,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <x-navigation  title="{{ $Datas->Name_of_the_Society }}" Nav="DetailsView" />
         <div class="card card-info card-outline mb-4">
-      
+          @if(!empty($activity->activity_1))
+            <form class="needs-validation" action="/activity/{{$Datas->id}}" method="POST" novalidate>
+              @csrf
+              @method("PUT")
+            @else
             <form class="needs-validation" action="/activity" method ="POST"  novalidate>
               @csrf
+            @endif
+            
               {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
             <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
 
@@ -16,7 +22,7 @@
                    
                     <div class="card-header"><div class="card-title">MULTI-PURPOSE  SECTOR :: 
                       @error('Society_Id')
-                      <div style="color:red">Itz Seem Data is already Save. Please Update to Continue</div>
+                      <div style="color:red"><h2><i class="bi bi-x-square"></i>Itz Seem Data is already Save. Please Update to Continue</h2></div>
                       @enderror
                     </div></div>
                  
@@ -185,8 +191,14 @@
                     </div>
                     </div>
                     <div class="card-footer">
-                    
-                      <button type="submit" class="btn btn-primary">Save</button>
+                      @if(!empty($activity->activity_1))
+                      <a href="/Sector_view"><button type="button" class="btn btn-secondary">Back</button></a> 
+                      <button type="submit" class="btn btn-primary">Update</button>
+                      @else
+                       <a href="/Sector_view"><button type="button" class="btn btn-secondary">Back</button></a> 
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        @endif
+                      {{-- <button type="submit" class="btn btn-primary">Save</button> --}}
                     </div>
                    
             </form>

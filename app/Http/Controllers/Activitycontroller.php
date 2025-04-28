@@ -72,7 +72,29 @@ class Activitycontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData=$request->validate([
+            'Society_Id'=> 'required|string',
+            'activity_1'=>'nullable|string',
+            'activity_2'=>'nullable|string',
+            'activity_3'=>'nullable|string',
+            'activity_4'=>'nullable|string',
+            'activity_5'=>'nullable|string',
+            'activity_other'=>'nullable|string',
+            
+        ]);
+        $validatedData['activity_1']=strtok(ltrim($request->input('activity_1'),1),"/");
+        if($request->input('activity_2')!=null){
+            $validatedData['activity_2']=strtok(ltrim($request->input('activity_2'),1),"/");
+        }
+        if($request->input('activity_3')!=null){ $validatedData['activity_3']=strtok(ltrim($request->input('activity_3'),1),"/");}
+        if($request->input('activity_4')!=null){$validatedData['activity_4']=strtok(ltrim($request->input('activity_4'),1),"/");}
+        if($request->input('activity_5')!=null){$validatedData['activity_5']=strtok(ltrim($request->input('activity_5'),1),"/");}
+        if($request->input('activity_other')!=null){$validatedData['activity_other']=strtok(ltrim($request->input('activity_other'),1),"/");}
+
+        $finddata= Activity::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        
+        return redirect()->action([BasicController::class,'Sector_view']);
     }
 
     /**
