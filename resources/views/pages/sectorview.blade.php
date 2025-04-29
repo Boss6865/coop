@@ -1,11 +1,11 @@
 <x-layout>
-    <style>
+    {{-- <style>
       div.dt-container {
           width: 1550px;
           margin: 0 auto;
           
       }
-    </style>
+    </style> --}}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
   <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
@@ -53,38 +53,39 @@
                           <div class="min-w-full inline-block align-middle">
                               <div class="border rounded-lg border-gray-300 dt-container">
                                 
-                                  <table class="display nowrap" style="width:100%" id="myTable">
+                                  <table class="display" style="width:100%" id="myTable">
                                       <thead>
                                           <tr>
-                                              
-                                             
                                               <th>Society Name</th>
                                               <th>Sector</th>
+                                              <th>Activity</th>
                                               <th> Actions </th>
-                                              
-                                             
                                           </tr>
                                       </thead>
                                       <tbody>
                                            @foreach($Societies as $Society) 
                                           <tr>
                                               <td> {{$Society->Name_of_the_Society;}}</td>
+                                              <td> @if($Society->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
+                                                <a href="pacs/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">PACS</button></a>
+                                                
+                                                @else {{$Society->Sector_Type;}} @endif</td>
                                               <td>
                                                 @if (count($Society->Activity) === 1)
                                                 <i class="bi bi-check2-all"></i>
                                                 @foreach($Society->Activity as $data)
                                                
-                                                <a href="/{{$data->activity_1}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_1}}</button></a>    
-                                               @if($data->activity_2 !=null) <a href="/{{$data->activity_2}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_2}}</button></a>   @endif
-                                               @if($data->activity_3 !=null) <a href="/{{$data->activity_3}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_3}}</button></a>   @endif
-                                               @if($data->activity_4 !=null) <a href="/{{$data->activity_4}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_4}}</button></a>   @endif
-                                               @if($data->activity_5 !=null) <a href="/{{$data->activity_5}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_5}}</button></a> @endif
-                                               @if($data->activity_other !=null) <a href="/{{$data->activity_other}}/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">{{$data->activity_other}}</button></a>@endif
+                                                <a href="/{{$data->activity_1}}/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">{{$data->activity_1}}</button></a>    
+                                               @if($data->activity_2 !=null) <a href="/{{$data->activity_2}}/{{$Society->id;}}/Act2"><button type="button" class="btn btn-outline-dark">{{$data->activity_2}}</button></a>   @endif
+                                               @if($data->activity_3 !=null) <a href="/{{$data->activity_3}}/{{$Society->id;}}/Act3"><button type="button" class="btn btn-outline-dark">{{$data->activity_3}}</button></a>   @endif
+                                               {{-- @if($data->activity_4 !=null) <a href="/{{$data->activity_4}}/{{$Society->id;}}/Act4"><button type="button" class="btn btn-outline-dark">{{$data->activity_4}}</button></a>   @endif
+                                               @if($data->activity_5 !=null) <a href="/{{$data->activity_5}}/{{$Society->id;}}/Act5"><button type="button" class="btn btn-outline-dark">{{$data->activity_5}}</button></a> @endif --}}
+                                               @if($data->activity_other !=null) <a href="/{{$data->activity_other}}/{{$Society->id;}}/ActOther"><button type="button" class="btn btn-outline-dark">{{$data->activity_other}}</button></a>@endif
                                                <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">Add</button>
                                                 @endforeach
                                                 @else
                                                 <i class="bi bi-building-fill-add"></i>
-                                                <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-secondary">Add Sector</button></a>
+                                                <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-secondary">Add Activity</button></a>
                                                 @endif
                                               </td>
                                               <td>

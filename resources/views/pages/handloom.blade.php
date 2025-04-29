@@ -21,8 +21,7 @@
             <form class="needs-validation" action="/handloom" method="POST" novalidate>
               @csrf
             @endif
-            <form class="needs-validation" action="/handloom" method="POST" novalidate>
-                @csrf
+            
                 {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
                <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
 

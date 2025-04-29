@@ -27,7 +27,7 @@ class HandloomController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $sign)
     {
         $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
@@ -60,8 +60,8 @@ class HandloomController extends Controller
         $validatedData['Equipments_Name']=json_encode($request->input('Equipments_Name'));
         $validatedData['Equipments_Nos']=json_encode($request->input('Equipments_Nos'));
 
-        Handloom::create($validatedData);
-
+         Handloom::create($validatedData);
+       
         return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'handloom']);
     }
 
