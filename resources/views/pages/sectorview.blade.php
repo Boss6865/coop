@@ -66,10 +66,19 @@
                                            @foreach($Societies as $Society) 
                                           <tr>
                                               <td> {{$Society->Name_of_the_Society;}}</td>
-                                              <td> @if($Society->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
+                                              <td>
+                                               @if($Society->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
                                                 <a href="pacs/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">PACS</button></a>
                                                 
                                                 @else {{$Society->Sector_Type;}} @endif</td>
+                                                <td>
+                                                  @foreach($Society->capital as $data)
+                                                <a href="/{{$data->Primary_Activity}}/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">{{ ucfirst($data->Primary_Activity)}}</button></a> 
+                                                <a href="/{{$data->Secondary_Activity}}/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">{{ucfirst($data->Secondary_Activity)}}</button></a> 
+                                                <a href="/{{$data->Tertiary_Activity}}/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">{{ucfirst($data->Tertiary_Activity)}}</button></a> 
+                                                @endforeach
+                                                </td>
+                                                {{-- 
                                               <td>
                                                 @if (count($Society->Activity) === 1)
                                                 <i class="bi bi-check2-all"></i>
@@ -78,15 +87,14 @@
                                                 <a href="/{{$data->activity_1}}/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">{{$data->activity_1}}</button></a>    
                                                @if($data->activity_2 !=null) <a href="/{{$data->activity_2}}/{{$Society->id;}}/Act2"><button type="button" class="btn btn-outline-dark">{{$data->activity_2}}</button></a>   @endif
                                                @if($data->activity_3 !=null) <a href="/{{$data->activity_3}}/{{$Society->id;}}/Act3"><button type="button" class="btn btn-outline-dark">{{$data->activity_3}}</button></a>   @endif
-                                               {{-- @if($data->activity_4 !=null) <a href="/{{$data->activity_4}}/{{$Society->id;}}/Act4"><button type="button" class="btn btn-outline-dark">{{$data->activity_4}}</button></a>   @endif
-                                               @if($data->activity_5 !=null) <a href="/{{$data->activity_5}}/{{$Society->id;}}/Act5"><button type="button" class="btn btn-outline-dark">{{$data->activity_5}}</button></a> @endif --}}
+                                               
                                                @if($data->activity_other !=null) <a href="/{{$data->activity_other}}/{{$Society->id;}}/ActOther"><button type="button" class="btn btn-outline-dark">{{$data->activity_other}}</button></a>@endif
                                                <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">Add</button>
                                                 @endforeach
                                                 @else
                                                 <i class="bi bi-building-fill-add"></i>
                                                 <a href="/sector/{{$Society->id;}}"><button type="button" class="btn btn-secondary">Add Activity</button></a>
-                                                @endif
+                                                @endif --}}
                                               </td>
                                               <td>
                                                   <button class="p-2  rounded-full bg-white group transition-all duration-500 ">

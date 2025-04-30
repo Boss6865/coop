@@ -40,12 +40,27 @@
                                       <label for="validationCustom01" class="form-label">Primary Activitiy</label>
                                       <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
                                           <option selected disabled value="">Choose...</option>
-                                          @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                          {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
                                           <option>{{$activity->Activity}}</option>
                                           
-                                          @endforeach
-                                       
+                                          @endforeach --}}
+                                          <option value="handloom">HANDLOOM</option>
+                                          <option value="handicraft">HANDICRAFT</option>
+                                          <option value="consumer">CONSUMER</option>
+                                          <option value="dairy">DAIRY</option>
+                                          <option value="farming">FARMING</option>
+                                          <option value="fishery">FISHERIES</option>
+                                          <option value="market">MARKETING</option>
+                                          <option value="processing">PROCESSING</option>
+                                          <option value="transport">TRANSPORT</option>
+                                          <option value="livestock">LIVESTOCK</option>
+                                          <option value="tourism">TOURISM AND LRB</option>
+                                          <option value="industry">INDUSTRIAL</option>
+                                          <option value="tandc">THRIFT AND CREDIT</option>
+                                          <option value="labour">LABOUR CONTRACT</option>
+                                          <option value="housing">HOUSING</option>
+                                          <option value="other">OTHERS TYPES</option>
                                          
                                       </select>
                                       <div class="valid-feedback">Looks good!</div>
@@ -55,11 +70,27 @@
                                     <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
                                     <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
                                         <option selected disabled value="">Choose...</option>
-                                        @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                        {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
                                         <option>{{$activity->Activity}}</option>
                                         
-                                        @endforeach
+                                        @endforeach --}}
+                                        <option value="handloom">HANDLOOM</option>
+                                      <option value="handicraft">HANDICRAFT</option>
+                                      <option value="consumer">CONSUMER</option>
+                                      <option value="dairy">DAIRY</option>
+                                      <option value="farming">FARMING</option>
+                                      <option value="fishery">FISHERIES</option>
+                                      <option value="market">MARKETING</option>
+                                      <option value="processing">PROCESSING</option>
+                                      <option value="transport">TRANSPORT</option>
+                                      <option value="livestock">LIVESTOCK</option>
+                                      <option value="tourism">TOURISM AND LRB</option>
+                                      <option value="industry">INDUSTRIAL</option>
+                                      <option value="tandc">THRIFT AND CREDIT</option>
+                                      <option value="labour">LABOUR CONTRACT</option>
+                                      <option value="housing">HOUSING</option>
+                                      <option value="other">OTHERS TYPES</option>
                                      
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
@@ -69,13 +100,28 @@
                                   <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
                                   <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
                                       <option selected disabled value="">Choose...</option>
-                                      <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
+                                      {{-- <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
                                       @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
                                       <option>{{$activity->Activity}}</option>
                                       
-                                      @endforeach
-                                   
+                                      @endforeach --}}
+                                      <option value="handloom">HANDLOOM</option>
+                                      <option value="handicraft">HANDICRAFT</option>
+                                      <option value="consumer">CONSUMER</option>
+                                      <option value="dairy">DAIRY</option>
+                                      <option value="farming">FARMING</option>
+                                      <option value="fishery">FISHERIES</option>
+                                      <option value="market">MARKETING</option>
+                                      <option value="processing">PROCESSING</option>
+                                      <option value="transport">TRANSPORT</option>
+                                      <option value="livestock">LIVESTOCK</option>
+                                      <option value="tourism">TOURISM AND LRB</option>
+                                      <option value="industry">INDUSTRIAL</option>
+                                      <option value="tandc">THRIFT AND CREDIT</option>
+                                      <option value="labour">LABOUR CONTRACT</option>
+                                      <option value="housing">HOUSING</option>
+                                      <option value="other">OTHERS TYPES</option>
                                           
                                   </select>
                                   <div class="valid-feedback">Looks good!</div>

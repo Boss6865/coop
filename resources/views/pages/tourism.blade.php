@@ -87,7 +87,18 @@
                               
                             </div>
                     </div>
-                    
+                    <div class="card-header"><div class="card-title">LIVING ROOT BRIDGE GRANT RECEIVE</div></div>
+                    <div class="card-body">
+                            <div class="row g-2">
+                              <x-column_-input  title="Source" Name="lrb_source" id="" placeholder="Eg-Boat,Kayak, Life Jacket" div_class="col-md-3"/>
+                              <x-column_-input  title="Amount Recieve" Name="lrb_amount_recieved" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                              <x-column_-input  title="Amount Utilized" Name="lrb_amount_utilized" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                              <x-column_-input  title="Amount Unutilized" Name="lrb_amount_utilized" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                              <x-column_-input  title="Specify the purpose for the grant recieved" Name="purpose_of_grant_recieve" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                              <x-column_-input  title="Shared Investment in SUBMJJCS" Name="shared_investment" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                              <x-column_-input  title="Collection of entry fee/parking fee/if any" Name="fee_collection" id="" placeholder="Eg-2" div_class="col-md-3"/>
+                            </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                   @if(!empty($activities->deomestic_tourist))
