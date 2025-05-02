@@ -70,6 +70,8 @@
                                                @if($Society->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
                                                 <a href="pacs/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">PACS</button></a>
                                                 
+                                                @elseif($Society->Sector_Type=="IVCS")
+                                                <a href="ivcs/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">IVCS</button></a>
                                                 @else {{$Society->Sector_Type;}} @endif</td>
                                                 <td>
                                                   @foreach($Society->capital as $data)

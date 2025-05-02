@@ -60,6 +60,7 @@
                                           <option value="tandc">THRIFT AND CREDIT</option>
                                           <option value="labour">LABOUR CONTRACT</option>
                                           <option value="housing">HOUSING</option>
+                                          <option value="lrb">Marinang Jingkieng Jri</option>
                                           <option value="other">OTHERS TYPES</option>
                                          
                                       </select>

@@ -1,6 +1,6 @@
 <x-layout>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <x-navigation  title="{{ $Datas->Name_of_the_Society }}" Nav="PACS" />
+    <x-navigation  title="{{ $Datas->Name_of_the_Society }}" Nav="IVCS" />
         <div class="card card-info card-outline mb-4">
             @if(!empty($activities->activity))
             <form class="needs-validation" action="/pacs/{{$Datas->id}}" method="POST" novalidate>
