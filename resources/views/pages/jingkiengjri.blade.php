@@ -33,10 +33,10 @@
                     <div class="card-body">
                             <div class="row g-2">
                               <x-column_-input  title="Source" Name="lrb_source" id="" placeholder="Eg-Boat,Kayak, Life Jacket" div_class="col-md-3" val="{{($activities->lrb_source ?? '')}}"/>
-                              <x-column_-input  title="Amount Recieve" Name="lrb_amount_recieved" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->lrb_amount_recieved ?? '')}}"/>
+                              <x-column_-input  title="Amount Received" Name="lrb_amount_recieved" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->lrb_amount_recieved ?? '')}}"/>
                               <x-column_-input  title="Amount Utilized" Name="lrb_amount_utilized" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->lrb_amount_utilized ?? '')}}"/>
                               <x-column_-input  title="Amount Unutilized" Name="lrb_amount_unutilized" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->lrb_amount_unutilized ?? '')}}"/>
-                              <x-column_-input  title="Specify the purpose for the grant recieved" Name="purpose_of_grant_recieve" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->purpose_of_grant_recieve ?? '')}}"/>
+                              <x-column_-input  title="Specify the purpose for the grant received" Name="purpose_of_grant_recieve" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->purpose_of_grant_recieve ?? '')}}"/>
                               <x-column_-input  title="Shared Investment in SUBMJJCS" Name="shared_investment" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->shared_investment ?? '')}}"/>
                               <x-column_-input  title="Collection of entry fee/parking fee/if any" Name="fee_collection" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->fee_collection ?? '')}}"/>
                             </div>

@@ -28,7 +28,7 @@
               <input type="hidden" name="Society_Id" value="{{ $Datas->id }}">
                 <div class="card-body">
                   
-                    <div class="card-header"><div class="card-title">FLOW OF TOURISTS  (PER ANNUM)</div></div>
+                    <div class="card-header"><div class="card-title">ACTIVITIES</div></div>
                     <div class="card-body">
                             <div class="row g-2" id="newinput5"> 
                               

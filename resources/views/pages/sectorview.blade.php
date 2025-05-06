@@ -72,6 +72,30 @@
                                                 
                                                 @elseif($Society->Sector_Type=="IVCS")
                                                 <a href="ivcs/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">IVCS</button></a>
+                                                @elseif($Society->Sector_Type=="TOURISM")
+                                                <a href="tourism/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">TOURISM</button></a>
+                                                @elseif($Society->Sector_Type=="CONSUMER")
+                                                <a href="consumer/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">CONSUMER</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="DAIRY")
+                                                <a href="dairy/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">DAIRY</button></a>
+                                                @elseif($Society->Sector_Type=="PROCESSING")
+                                                <a href="processing/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">PROCESSING</button></a>
+                                                @elseif($Society->Sector_Type=="INDUSTRIAL")
+                                                <a href="industry/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">INDUSTRIAL</button></a>
+                                                @elseif($Society->Sector_Type=="TRANSPORT")
+                                                <a href="transport/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">TRANSPORT</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="FARMING" || strtoupper($Society->Sector_Type)=="HORTICULTURE")
+                                                <a href="farming/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">FARMING</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="MARKETTING")
+                                                <a href="market/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">MARKETTING</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="PIGGERY POULTRY AND OTHER LIVESTOCK")
+                                                <a href="livestock/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Livestock</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="HOUSING")
+                                                <a href="housing/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">HOUSING</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="HANDICRAFT")
+                                                <a href="handicraft/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">HANDICRAFT</button></a>
+                                                @elseif(strtoupper($Society->Sector_Type)=="HANDLOOM WEAVERS")
+                                                <a href="handloom/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">HANDLOOM WEAVERS</button></a>
                                                 @else {{$Society->Sector_Type;}} @endif</td>
                                                 <td>
                                                   @foreach($Society->capital as $data)
