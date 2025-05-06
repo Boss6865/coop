@@ -41,7 +41,28 @@
                               @endphp
                               @forEach(json_decode($activities->type_of_Business) as $key => $data)
                               @if($key==0)
-                              <x-column_-input  title="Type of Business" Name="type_of_Business[]" id="" placeholder="Eg-Pottery, Carpentry" div_class="col-md-2" val="{{$data}}"/>
+                              {{-- <x-column_-input  title="Type of Business" Name="type_of_Business[]" id="" placeholder="Eg-Pottery, Carpentry" div_class="col-md-2" val="{{$data}}"/> --}}
+                              <div class="col-md-2">
+                                <label for="activity_1" class="form-label">Type of Business</label>
+                                <select name="type_of_Business[]" class="form-select target2" id="Select1" required>
+                                    <option selected disabled value="">Choose...</option>
+                                   
+                                    <option @if($data=="Pottery") selected @endif>Pottery</option>
+                                    <option @if($data=="Tailoring and Knitting") selected @endif>Tailoring and Knitting</option>
+                                    <option @if($data=="Steel And Fabrication") selected @endif>Steel And Fabrication</option>
+                                    <option @if($data=="Carpentry") selected @endif>Carpentry</option>
+                                    <option @if($data=="Hollow Block Making") selected @endif>Hollow Block Making</option>
+                                    <option @if($data=="Blacksmithing") selected @endif>Blacksmithing</option>
+                                    <option @if($data=="Automobile Service") selected @endif>Automobile Service</option>
+                                    <option @if($data=="Bee Keeping") selected @endif>Bee Keeping</option>
+                                    <option @if($data=="Candle Making") selected @endif>Candle Making</option>
+                                    <option @if($data=="Other Activities") selected @endif>Other Activities</option>
+                                   
+                                </select>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                
+                            </div>
                               <x-column_-input  title="Item Produced/Service" Name="name_of_item_produced[]" id="" placeholder="Eg-Poultry, Piggery" div_class="col-md-2" val="{{$jan1[$key]}}"/>
                               <x-column_-input  title="Nos. of Person Employed" Name="person_employed[]" id="" placeholder="Eg-2" div_class="col-md-2" val="{{$jan2[$key]}}"/>
                               <x-column_-input  title="Wages Paid" Name="wages_paid[]" id="" placeholder="Eg-200" div_class="col-md-2" val="{{$jan3[$key]}}"/>
@@ -49,7 +70,23 @@
                               <button type="button" id="rowAdder5" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                               @else
                               <div id="row5" class="row g-2"><div class="col-md-2">
-                                <input name="type_of_Business[]" type="text" class="form-control" placeholder="Eg-Pottery, Carpentry" required value="{{$data}}"> </div>
+                                {{-- <input name="type_of_Business[]" type="text" class="form-control" placeholder="Eg-Pottery, Carpentry" required value="{{$data}}">  --}}
+                                <select name="type_of_Business[]" class="form-select target2" id="Select1" required>
+                                    <option selected disabled value="">Choose...</option>
+                                   
+                                    <option @if($data=="Pottery") selected @endif>Pottery</option>
+                                    <option @if($data=="Tailoring and Knitting") selected @endif>Tailoring and Knitting</option>
+                                    <option @if($data=="Steel And Fabrication") selected @endif>Steel And Fabrication</option>
+                                    <option @if($data=="Carpentry") selected @endif>Carpentry</option>
+                                    <option @if($data=="Hollow Block Making") selected @endif>Hollow Block Making</option>
+                                    <option @if($data=="Blacksmithing") selected @endif>Blacksmithing</option>
+                                    <option @if($data=="Automobile Service") selected @endif>Automobile Service</option>
+                                    <option @if($data=="Bee Keeping") selected @endif>Bee Keeping</option>
+                                    <option @if($data=="Candle Making") selected @endif>Candle Making</option>
+                                    <option @if($data=="Other Activities") selected @endif>Other Activities</option>
+                                   
+                                </select>
+                              </div>
                                 <div class="col-md-2">
                                   <input name="name_of_item_produced[]" type="text" class="form-control" placeholder="Eg- 2" required value="{{$jan1[$key]}}"> </div>
                                   <div class="col-md-2">
@@ -64,7 +101,28 @@
                               @endforeach
 
                               @else
-                              <x-column_-input  title="Type of Business" Name="type_of_Business[]" id="" placeholder="Eg-Pottery, Carpentry" div_class="col-md-2" />
+                              <div class="col-md-2">
+                                <label for="activity_1" class="form-label">Type of Business</label>
+                                <select name="type_of_Business" class="form-select target2" id="Select1" required>
+                                    <option selected disabled value="">Choose...</option>
+                                   
+                                    <option>Pottery</option>
+                                    <option>Tailoring and Knitting</option>
+                                    <option>Steel And Fabrication</option>
+                                    <option>Carpentry</option>
+                                    <option>Hollow Block Making</option>
+                                    <option>Blacksmithing</option>
+                                    <option>Automobile Service</option>
+                                    <option>Bee Keeping</option>
+                                    <option>Candle Making</option>
+                                    <option>Other Activities</option>
+                                   
+                                </select>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                
+                            </div>
+                              {{-- <x-column_-input  title="Type of Business" Name="type_of_Business[]" id="" placeholder="Eg-Pottery, Carpentry" div_class="col-md-2" /> --}}
                               <x-column_-input  title="Item Produced/Service" Name="name_of_item_produced[]" id="" placeholder="Eg-Poultry, Piggery" div_class="col-md-2"/>
                               <x-column_-input  title="Nos. of Person Employed" Name="person_employed[]" id="" placeholder="Eg-2" div_class="col-md-2"/>
                               <x-column_-input  title="Wages Paid" Name="wages_paid[]" id="" placeholder="Eg-200" div_class="col-md-2"/>
@@ -128,7 +186,19 @@
   $("#rowAdder5").click(function () {
             newRowAdd =
                 '<div id="row5" class="row g-2"><div class="col-md-2">' +
-                '<input name="type_of_Business[]" type="text" class="form-control" placeholder="Eg-Pottery, Carpentry" required> </div>'+
+                  '<select name="type_of_Business[]" class="form-select target2" id="Select1" required>'+
+                  '<option selected disabled value="">Choose...</option>'+
+                  '<option>Pottery</option>'+
+                  '<option>Tailoring and Knitting</option>'+
+                  '<option>Steel And Fabrication</option>'+
+                  '<option>Carpentry</option>'+
+                  '<option>Hollow Block Making</option>'+
+                  '<option>Blacksmithing</option>'+
+                  '<option>Automobile Service</option>'+
+                  '<option>Bee Keeping</option>'+
+                  '<option>Candle Making</option>'+
+                  '<option>Other Activities</option>'+
+                  '</select> </div>'+
                 '<div class="col-md-2">' +
                   '<input name="name_of_item_produced[]" type="text" class="form-control" placeholder="Eg- 2" required> </div>'+
                   '<div class="col-md-2">' +
