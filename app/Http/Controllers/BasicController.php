@@ -41,13 +41,7 @@ class BasicController extends Controller
         // dd($users);
         return view('pages.view_1', ['Societies' => $users]);
     }
-    public function Sector_view()
-    {
-        // $users = DB::table('_societydata')->get();
-        $users=Basic::all();
-        //  dd($users);
-        return view('pages.sectorview', ['Societies' => $users]);
-    }
+
     public function View_2()
     {
         $Districts=json_decode(file_get_contents('assets/District.json'));
@@ -100,11 +94,6 @@ class BasicController extends Controller
 
 
            }
-        // dd( $finaltot);
-
-        //   dd($totalMember[]=membersociety::where('Society_Id', 694 )->get());
-
-        //  $users= Basic::where('District', 'West Jaintia Hills')->count();
        
         return view('pages.view_2', ['Data' => $users,'Data1' => $users1, "Fun"=>$function, "Nfun" => $Nonfunction, "nlqd" => $underliquidation,
          "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss]);

@@ -122,8 +122,8 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item {{request()->is('View_1','Sector_view','District_View')?'menu-open':''}}">
-                <a href="#" class="nav-link {{request()->is('View_1','Sector_view','District_View')?'active':''}}">
+              <li class="nav-item {{request()->is('View_1','Sector_activity','District_View','Sector_view')?'menu-open':''}}">
+                <a href="#" class="nav-link {{request()->is('View_1','Sector_activity','District_View','Sector_view')?'active':''}}">
                   <i class="nav-icon bi bi-view-list"></i>
                   <p>
                     Society Details View 
@@ -145,15 +145,15 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="/Sector_view" class="nav-link {{request()->is('Sector_view')?'active':''}}">
+                    <a href="/Sector_activity" class="nav-link {{request()->is('Sector_activity')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sector</p>
+                      <p>Sector and Activities</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./layout/sidebar-mini.html" class="nav-link">
+                    <a href="/Sector_view" class="nav-link {{request()->is('Sector_view')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini</p>
+                      <p>Sector</p>
                     </a>
                   </li>
                   <li class="nav-item">

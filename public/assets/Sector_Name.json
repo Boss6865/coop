@@ -3,6 +3,9 @@
         "Sector_Name": "PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)"
     },
     {
+        "Sector_Name": "IVCS"
+    },
+    {
         "Sector_Name": "URBAN COOPERATIVE BANK"
     },
     {
@@ -73,8 +76,5 @@
     },
     {
         "Sector_Name": "OTHER TYPES"
-    },
-    {
-        "Sector_Name": "IVCS"
     }
 ]
