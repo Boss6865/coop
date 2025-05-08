@@ -83,18 +83,19 @@
                                           <tr>
                                              
                                               <th>{{$sector->Sector_Name}}</th>
-                                              <td>{{$total_sectors[0][$key]}}</td>
-                                              <td>{{$total_sectors[1][$key]}}</td>
-                                              <td>{{$total_sectors[2][$key]}}</td>
-                                              <td>{{$total_sectors[3][$key]}}</td>
-                                              <td>{{$total_sectors[4][$key]}}</td>
-                                              <td>{{$total_sectors[5][$key]}}</td>
-                                              <td>{{$total_sectors[6][$key]}}</td>
-                                              <td>{{$total_sectors[7][$key]}}</td>
-                                              <td>{{$total_sectors[8][$key]}}</td>
-                                              <td>{{$total_sectors[9][$key]}}</td>
-                                              <td>{{$total_sectors[10][$key]}}</td>
-                                              <td>{{$total_sectors[11][$key]}}</td>
+                                              <td>@if($total_sectors[0][$key]!=0) <a href="/Sector_view/0/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"> <i class="bi bi-info-circle"></i> {{$total_sectors[0][$key]}}</button> </a>  @else  {{$total_sectors[0][$key]}} @endif</td>
+                                              <td>@if($total_sectors[1][$key]!=0) <a href="/Sector_view/1/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[1][$key]}}</button></a>  @else  {{$total_sectors[1][$key]}} @endif</td>
+                                              <td>@if($total_sectors[2][$key]!=0) <a href="/Sector_view/2/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[2][$key]}}</button></a>  @else  {{$total_sectors[2][$key]}} @endif</td>
+                                              <td>@if($total_sectors[3][$key]!=0) <a href="/Sector_view/3/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"> <i class="bi bi-info-circle"></i> {{$total_sectors[3][$key]}}</button> </a>  @else  {{$total_sectors[3][$key]}} @endif</td>
+                                              <td>@if($total_sectors[4][$key]!=0) <a href="/Sector_view/4/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[4][$key]}}</button></a>  @else  {{$total_sectors[4][$key]}} @endif</td>
+                                              <td>@if($total_sectors[5][$key]!=0) <a href="/Sector_view/5/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[5][$key]}}</button></a>  @else  {{$total_sectors[5][$key]}} @endif</td>
+                                              <td>@if($total_sectors[6][$key]!=0) <a href="/Sector_view/6/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"> <i class="bi bi-info-circle"></i> {{$total_sectors[6][$key]}}</button> </a>  @else  {{$total_sectors[6][$key]}} @endif</td>
+                                              <td>@if($total_sectors[7][$key]!=0) <a href="/Sector_view/7/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[7][$key]}}</button></a>  @else  {{$total_sectors[7][$key]}} @endif</td>
+                                              <td>@if($total_sectors[8][$key]!=0) <a href="/Sector_view/8/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[8][$key]}}</button></a>  @else  {{$total_sectors[8][$key]}} @endif</td>
+                                              <td>@if($total_sectors[9][$key]!=0) <a href="/Sector_view/9/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"> <i class="bi bi-info-circle"></i> {{$total_sectors[9][$key]}}</button> </a>  @else  {{$total_sectors[9][$key]}} @endif</td>
+                                              <td>@if($total_sectors[10][$key]!=0) <a href="/Sector_view/10/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[10][$key]}}</button></a>  @else  {{$total_sectors[10][$key]}} @endif</td>
+                                              <td>@if($total_sectors[11][$key]!=0) <a href="/Sector_view/11/{{$key}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Click to View"><i class="bi bi-info-circle"></i> {{$total_sectors[11][$key]}}</button></a>  @else  {{$total_sectors[11][$key]}} @endif</td>
+                                             
                                               <td>
                                                   <button class="p-2  rounded-full bg-white group transition-all duration-500 ">
                                                     <a href="/sector">
@@ -137,7 +138,8 @@
         fixedColumns: {
         start: 1
     },
-    scrollX: true
+    scrollX: true,
+    order: [[3, 'desc']]
       });
   } );
 

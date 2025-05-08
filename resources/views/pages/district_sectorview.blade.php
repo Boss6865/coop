@@ -8,9 +8,15 @@
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
-  <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.4/css/fixedColumns.dataTables.css" />
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/dataTables.fixedColumns.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/fixedColumns.dataTables.js"></script>
   
-      <x-navigation  Nav="All Society View" />
+      <x-navigation  Nav="District Sector" />
          <!--begin::App Main-->
         <main class="app-main">
           <!--begin::App Content Header-->
@@ -24,7 +30,7 @@
                   <!-- Default box -->
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">All Society With Details</h3>
+                      <h3 class="card-title">{{$Sector}} of {{strtoupper($District)}}</h3>
                       <div class="card-tools">
                         <button
                           type="button"
@@ -53,7 +59,7 @@
                           <div class="min-w-full inline-block align-middle">
                               <div class="border rounded-lg border-gray-300 dt-container">
                                 
-                                  <table class="display nowrap" style="width:100%" id="myTable">
+                                  <table class="stripe nowrap" style="width:100%" id="myTable">
                                       <thead>
                                           <tr>
                                               
@@ -229,10 +235,13 @@
   
   </x-layout>
   <script>
-    $(document).ready( function () {
+      $(document).ready( function () {
       $('#myTable').DataTable({
-        scrollX: true,
-        
+        fixedColumns: {
+        start: 1
+    },
+    scrollX: true,
+    order: [[3, 'desc']]
       });
   } );
   

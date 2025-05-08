@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Basic;
+use App\Models\capital;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
@@ -34,9 +35,15 @@ class SectorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, string $id2)
     {
-        //
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+        $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
+        
+        $district_name= array_column($Districts, 'Dist_Name');
+        $sector_name= array_column($Sectors, 'Sector_Name');
+        $get_district_sector=Basic::where('District', $district_name[$id] )->where('Sector_Type',  $sector_name[$id2])->get();
+        return view('pages.district_sectorview', ['Societies' =>  $get_district_sector, 'District'=> $district_name[$id], 'Sector'=>$sector_name[$id2]]);
     }
 
     /**
@@ -62,6 +69,33 @@ class SectorController extends Controller
     {
         //
     }
+    public function sector_with_details()
+    {
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+        $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
+        $totalsector=0;
+           foreach($Districts as $district){
+            $total_sectorfinal=0;
+            $plus_function=0;
+            $plus_non_function=0;
+                foreach($Sectors as $sector){
+                    $total_sector=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->count();
+                    $function=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->where('Status', "Function")->count();
+                    $Nonfunction=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->where('Status', "Non-function")->count();
+
+                    $total_sectorfinal=$total_sector+$total_sectorfinal;
+                    $plus_function=$function+ $plus_function;
+                    $plus_non_function=$Nonfunction+ $plus_non_function;
+                }
+                $total_district_sector[]= $total_sectorfinal;
+                $total_function[]=$plus_function;
+                $total_non_function[]=$plus_non_function;
+
+           }
+       dd($total_district_sector);
+        return view('pages.view_2', ['Data' => $total_district_sector]);
+    }
+    
     public function Sector_view()
     {
         // $users = DB::table('_societydata')->get();
