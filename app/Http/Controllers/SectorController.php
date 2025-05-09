@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Basic;
 use App\Models\capital;
+use App\Models\membersociety;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
@@ -69,31 +70,82 @@ class SectorController extends Controller
     {
         //
     }
-    public function sector_with_details()
+    public function sector_with_details(string $id)
     {
         $Districts=json_decode(file_get_contents('assets/District.json'));
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
-        $totalsector=0;
+        $sector_name= array_column($Sectors, 'Sector_Name');
+       
            foreach($Districts as $district){
             $total_sectorfinal=0;
             $plus_function=0;
             $plus_non_function=0;
-                foreach($Sectors as $sector){
-                    $total_sector=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->count();
-                    $function=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->where('Status', "Function")->count();
-                    $Nonfunction=Basic::where('District', $district->Dist_Name )->where('Sector_Type', $sector->Sector_Name)->where('Status', "Non-function")->count();
+            $totmember=0;
+            $share=0;
+            $govtshare=0;
+            $workingcapital=0;
+            $Business_turnover=0;
+            $profit=0;
+            $loss=0;
+            $a=0;$b=0;$c=0;$d=0;
+                
+            $total_sector=Basic::where('District', $district->Dist_Name )->where('Sector_Type',  $sector_name[$id])->count();
+            $function=Basic::where('District', $district->Dist_Name )->where('Sector_Type',  $sector_name[$id])->where('Status', "Function")->count();
+            $Nonfunction=Basic::where('District', $district->Dist_Name )->where('Sector_Type',  $sector_name[$id])->where('Status', "Non-function")->count();
 
-                    $total_sectorfinal=$total_sector+$total_sectorfinal;
-                    $plus_function=$function+ $plus_function;
-                    $plus_non_function=$Nonfunction+ $plus_non_function;
+            $total_sectorfinal=$total_sector+$total_sectorfinal;
+            $plus_function=$function+ $plus_function;
+            $plus_non_function=$Nonfunction+ $plus_non_function;
+               
+            $total_district_sector[]= $total_sectorfinal;
+            $total_function[]=$plus_function;
+            $total_non_function[]=$plus_non_function;
+
+            $selectdist=Basic::where('District', $district->Dist_Name)->where('Sector_Type',  $sector_name[$id])->get();
+               
+               foreach($selectdist as $dis){
+                $totalMember=membersociety::where('Society_Id', $dis->id )->get();
+                foreach($totalMember as $tot){
+                    $totmember=$tot->ST_Male + $tot->ST_Female + $totmember;
+                    
                 }
-                $total_district_sector[]= $total_sectorfinal;
-                $total_function[]=$plus_function;
-                $total_non_function[]=$plus_non_function;
+                $Getcapital=capital::where('Society_Id', $dis->id )->get();
+                foreach($Getcapital as $capital){
+                    
+                    $share=$capital->Individual_share + $capital->Govt_share + $share+ $capital->Other_coop_share;
+                    $govtshare=$capital->Govt_share+$govtshare;
+                    $workingcapital= $workingcapital+$capital->Working_Capitals;
+                    $Business_turnover=$Business_turnover+$capital->Business_turnover;
+                    if($capital->Profit_loss=="Profit"){
+                        $profit++;
+                    }else{
+                        $loss++;
+                    }
+                    if($capital->Audit_Class=="A"){
+                        $a++;
+                    }elseif($capital->Audit_Class=="B"){
+                        $b++;
+                    }elseif($capital->Audit_Class=="C"){
+                        $c++;
+                    }elseif($capital->Audit_Class=="D"){
+                        $d++;
+                    }
+
+                }
+            }
+            $finaltot[]=$totmember;
+            $finalshare[]=$share;
+            $totgovtshare[]=$govtshare;
+            $totalworkingcapital[]=$workingcapital;
+            $totBusiness_turnover[]=$Business_turnover;
+            $totprofit[]=$profit;
+            $totloss[]=$loss;
+            $final_a[]=$a; $final_b[]=$b; $final_c[]=$c; $final_d[]=$d;
 
            }
-       dd($total_district_sector);
-        return view('pages.view_2', ['Data' => $total_district_sector]);
+    //    dd($total_function);
+    return view('pages.sector_details_view', ['total_sector' => $total_district_sector,'sector' => $sector_name[$id], "Fun"=>$total_function, "Nfun" =>  $total_non_function, 
+    "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d]);
     }
     
     public function Sector_view()
