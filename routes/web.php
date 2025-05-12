@@ -55,6 +55,7 @@ Route::get('/Sector_view',[SectorController::class,'Sector_view']);
 Route::get('/Sector_view/{id}/{id2}',[SectorController::class,'show']);
 Route::get('/sector_with_details/{id}',[SectorController::class,'sector_with_details']);
 Route::get('/Sector_activity',[SectorController::class,'Sector_activity']);
+Route::get('/all_sector',[SectorController::class,'all_sector']);
 Route::get('/details/{id}',[BasicController::class,'Details_view']);
 Route::get('/District_View',[BasicController::class,'View_2']);
 Route::get('/register',[RegisterController::class,'index']);

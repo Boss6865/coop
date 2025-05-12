@@ -122,8 +122,8 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item {{request()->is('View_1','Sector_activity','District_View','Sector_view','sector_with_details')?'menu-open':''}}">
-                <a href="#" class="nav-link {{request()->is('View_1','Sector_activity','District_View','Sector_view','sector_with_details')?'active':''}}">
+              <li class="nav-item {{request()->is('View_1','Sector_activity','District_View','Sector_view','all_sector')?'menu-open':''}}">
+                <a href="#" class="nav-link {{request()->is('View_1','Sector_activity','District_View','Sector_view','all_sector')?'active':''}}">
                   <i class="nav-icon bi bi-view-list"></i>
                   <p>
                     Society Details View 
@@ -157,9 +157,9 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="/sector_with_details" class="nav-link {{request()->is('sector_with_details')?'active':''}}">
+                    <a href="/all_sector" class="nav-link {{request()->is('all_sector')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sector With Details</p>
+                      <p>All Sector Report</p>
                     </a>
                   </li>
                   <li class="nav-item">

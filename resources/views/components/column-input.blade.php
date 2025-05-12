@@ -6,6 +6,7 @@
 'Name'=>'',
 'inclass'=>'',
 'placeholder'=>'Eg.2',
+'required'=>'',
 'e_msg'=>'This field is required.'])
 <!--begin::Col-->
 <div class={{$div_class}}>
@@ -16,7 +17,7 @@
             id="{{$id}}"
             value="{{$val}}"
             name="{{$Name}}"
-            required
+            @if($required !="") required @endif 
             placeholder="{{$placeholder}}"
         />
         <div class="valid-feedback">Looks good!</div>
