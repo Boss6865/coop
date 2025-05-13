@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Basic;
 use App\Models\capital;
+use App\Models\Ivcs;
 use App\Models\membersociety;
+use App\Models\Pacs;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
@@ -172,6 +174,19 @@ class SectorController extends Controller
         //  dd($users);
         return view('pages.sector_activities', ['Societies' => $users]);
     }
+
+     public function View_sector_activity(string $id)
+    {
+        $Basic_info=Basic::find($id);
+        if($Basic_info->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)"){
+             $sector=Pacs::where('Society_Id', $id)->first();                                   
+        }elseif($Basic_info->Sector_Type=="IVCS"){
+            $sector=Ivcs::where('Society_Id', $id)->first();  
+        }
+        // dd($sector);
+        return view('pages.view_sector_activity', ['Datas' => $Basic_info, 'sector'=>$sector]);
+    }
+
     public function all_sector()
     {
         $total_sectorfinal=0;

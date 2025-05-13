@@ -22,5 +22,5 @@ class Basic extends Model
     public function Activity():HasMany {
         return $this->hasMany(Activity::class,'Society_Id');
     }
-
+   
 }

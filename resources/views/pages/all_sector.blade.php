@@ -58,6 +58,7 @@
                  
 
                   <div class="flex flex-col">
+                    
                     <div class=" overflow-x-auto pb-4">
                         <div class="min-w-full inline-block align-middle">
                             <div class="border rounded-lg border-gray-300 dt-container">
@@ -119,6 +120,91 @@
                         </div>
                     </div>
                     </div>
+
+                    <div class="flex flex-col">
+                      <div class="card-header">
+                    <h3 class="card-title font-weight-bold">GENERAL REPORTS</h3>
+                      </div>
+                    <div class=" overflow-x-auto pb-4">
+                        <div class="min-w-full inline-block align-middle">
+                            <div class="border rounded-lg border-gray-300 dt-container">
+                              
+                                        @php
+                                           $total_society=0;
+                                           $total_fun=0; $total_non_fun=0; $total_member=0; $total_share=0; $total_govt_share=0; $total_wcapital=0;
+                                           $total_bturnover=0; $total_profit=0; $total_loss=0; $total_A=0; $total_B=0;$total_C=0; $total_D=0;
+                                       @endphp
+                                   
+                                       @foreach (json_decode(file_get_contents('assets/Sector_Name.json')) as $key=> $data)
+                                        @php
+                                           $total_society=$total_sector[$key]+$total_society;
+                                            $total_fun= $total_fun+$Fun[$key];
+                                            $total_non_fun=$total_non_fun+$Nfun[$key];
+                                            $total_member=$total_member+$Member[$key];
+                                            $total_share=$total_share+$Share[$key];
+                                            $total_govt_share=$total_govt_share+$Govt_Share[$key];
+                                            $total_wcapital=$total_wcapital+$Wcapital[$key];
+                                            $total_bturnover= $total_bturnover+$Bturnover[$key];
+                                            $total_profit=$total_profit+$Profit[$key];
+                                            $total_loss=$Loss[$key]+$total_loss;
+                                            $total_A= $total_A+ $A[$key] ;
+                                            $total_B= $total_B + $B[$key];
+                                            $total_C= $total_C + $C[$key];
+                                             $total_D= $total_D + $D[$key];
+                                       @endphp
+                                       @endforeach
+
+                                <div class="overflow-auto">
+                                <table class="table">
+                                  <thead>
+                                       <tr>
+                                            <th>Total No. of Society</th>
+                                            <th>Total Function</th>
+                                            <th> Total Non Function </th>
+                                            {{-- <th> Total Under Liquidation</th> --}}
+                                            <th>Total Membership</th>
+                                            <th>Total Share</th>
+                                            <th>Govt. Share</th>
+                                            <th>Working Capitals</th>
+                                            <th>Business Turnover</th>
+                                            <th>Society In Profit</th>
+                                            <th>Society In loss</th>
+                                            <th>Total A Class</th>
+                                            <th>Total B Class</th>
+                                            <th>Total C Class</th>
+                                            <th>Total D Class</th>
+                                        </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                            <td>{{$total_society}}</td>
+                                            <td>{{$total_fun}}</td>
+                                            <td>{{$total_non_fun}}</td>
+                                            {{-- <td>{{$nlqd[$key]}}</td> --}}
+                                            <td>{{$total_member}}</td>
+                                            <td>{{$total_share}}</td>
+                                            <td>{{$total_govt_share}}</td>
+                                            <td>{{$total_wcapital}}</td>
+                                            <td>{{$total_bturnover}}</td>
+                                            <td>{{$total_profit}}</td>
+                                            <td>{{$total_loss}}</td>
+                                            <td>{{$total_A}}</td>
+                                            <td>{{$total_B}}</td>
+                                            <td>{{$total_C}}</td>
+                                            <td>{{$total_D}}</td>
+                                            
+                                        </tr>
+                                      
+                                   
+                                  </tbody>
+                                </table>
+                              </div>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                   
                   <div class="card-footer">Footer</div>
                   <!-- /.card-footer-->
@@ -144,4 +230,13 @@
       });
   } );
 
+      $(document).ready( function () {
+      $('#myTable2').DataTable({
+        fixedColumns: {
+        start: 1
+    },
+    scrollX: true,
+    
+      });
+  } );
   </script>
