@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Basic;
 use App\Models\capital;
+use App\Models\Fishery;
+use App\Models\Handicraft;
 use App\Models\Ivcs;
 use App\Models\membersociety;
+use App\Models\Other;
 use App\Models\Pacs;
+use App\Models\Processing;
+use App\Models\Tourism;
+use App\Models\Transport;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
@@ -178,13 +184,65 @@ class SectorController extends Controller
      public function View_sector_activity(string $id)
     {
         $Basic_info=Basic::find($id);
+        $activities=capital::where('Society_Id', $id)->first();
+        if($activities->Primary_Activity=="fishery"){
+            $activities1=Fishery::where('Society_Id', $id)->first();
+        } elseif($activities->Primary_Activity=="tourism"){
+             $activities1=Tourism::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="processing"){
+            $activities1=Processing::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="transport"){
+            $activities1=Transport::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="handicraft"){
+            $activities1=Handicraft::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="other"){
+            $activities1=Other::where('Society_Id', $id)->first();
+        }else{
+            $activities1="";
+        }
+
+        if($activities->Secondary_Activity=="fishery"){
+            $activities2=Fishery::where('Society_Id', $id)->first();
+        } elseif($activities->Secondary_Activity=="tourism"){
+             $activities2=Tourism::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="processing"){
+            $activities2=Processing::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="transport"){
+            $activities2=Transport::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="handicraft"){
+            $activities2=Handicraft::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="other"){
+            $activities2=Other::where('Society_Id', $id)->first();
+        }else{
+            $activities2="";
+        }
+
+
+        if($activities->Tertiary_Activity=="fishery"){
+            $activities3=Fishery::where('Society_Id', $id)->first();
+        } elseif($activities->Tertiary_Activity=="tourism"){
+             $activities3=Tourism::where('Society_Id', $id)->first();
+        } elseif($activities->Tertiary_Activity=="processing"){
+            $activities3=Processing::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="transport"){
+            $activities3=Transport::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="handicraft"){
+            $activities3=Handicraft::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="other"){
+            $activities3=Other::where('Society_Id', $id)->first();
+        }else{
+            $activities3="";
+        }
+
         if($Basic_info->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)"){
              $sector=Pacs::where('Society_Id', $id)->first();                                   
         }elseif($Basic_info->Sector_Type=="IVCS"){
             $sector=Ivcs::where('Society_Id', $id)->first();  
+        }else{
+            $sector="";
         }
-        // dd($sector);
-        return view('pages.view_sector_activity', ['Datas' => $Basic_info, 'sector'=>$sector]);
+        //  dd($activities1);
+        return view('pages.view_sector_activity', ['Datas' => $Basic_info, 'sector'=>$sector,'Activity'=>$activities,'Activity1'=>$activities1,'Activity2'=>$activities2,'Activity3'=>$activities3]);
     }
 
     public function all_sector()

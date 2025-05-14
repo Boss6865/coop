@@ -36,7 +36,7 @@
                             </div>
                     <div class="card-header"><div class="card-title">TYPES OF VEHICLES</div></div>
                     <div class="card-body">
-                            <div class="row g-2 val="{{($activities->Nos_of_milch_cow ?? '')}}"">
+                            <div class="row g-2">
                               <x-column_-input  title="Name" Name="vehicle_type" id="" placeholder="Eg-Bus, Truck" div_class="col-md-3" val="{{($activities->vehicle_type ?? '')}}"/>
                               <x-column_-input  title="Nos." Name="vehicle_nos" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->vehicle_nos ?? '')}}"/>
                               <x-column_-input  title="Value" Name="vehicle_value" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->vehicle_value ?? '')}}"/>
@@ -54,9 +54,10 @@
                     </div>
                     <div class="card-header"><div class="card-title">DRIVERS</div></div>
                     <div class="card-body">
-                            <div class="row g- val="{{($activities->Nos_of_milch_cow ?? '')}}">
-                              <x-column_-input  title="Nos." Name="total_driver" id="" placeholder="Eg- 10" div_class="col-md-3 val="{{($activities->total_driver ?? '')}}"/>
-                              <x-column_-input  title="Wages" Name="total_driver_wages" id="" placeholder="Eg-2000" div_class="col-md-3 val="{{($activities->total_driver_wages ?? '')}}"/>
+                            <div class="row g-2">
+                              <x-column_-input  title="Nos." Name="total_driver" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->total_driver ?? '')}}"/>
+                              <x-column_-input  title="Wages" Name="total_driver_wages" id="" placeholder="Eg-200" div_class="col-md-3" val="{{($activities->total_driver_wages ?? '')}}"/>
+                              
                             </div>
                     </div>
     

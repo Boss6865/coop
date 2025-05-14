@@ -44,7 +44,8 @@
                             <div class="row g-2">
                               <x-column_-input  title="Total Nos. Of Nursery Pond" Name="nursery_pond" id="" placeholder="Eg-5" div_class="col-md-3" val="{{($activities->nursery_pond ?? '')}}"/>
                               <x-column_-input  title="Area of Nursery Pond (Hectares)" Name="area_of_nursery_pond" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->area_of_nursery_pond ?? '')}}"/>
-                              <x-column_-input  title="Value of Nursery Pond" Name="value_of_nursery_pond" id="" placeholder="Eg-2000" div_class="col-md-3"val="{{($activities->value_of_nursery_pond ?? '')}}"/>
+                              <x-column_-input  title="Value of Nursery Pond" Name="value_of_nursery_pond" id="" placeholder="Eg-2000" div_class="col-md-3" val="{{($activities->value_of_nursery_pond ?? '')}}"/>
+                             
                               
                             </div>
     
