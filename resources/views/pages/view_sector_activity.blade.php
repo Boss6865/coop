@@ -177,11 +177,16 @@
                       
                   </tbody>
                 </table>
+                <div class="modal-footer">
+                    <a href="/pacs/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
                 @else
                 <h1>No information</h1>
                   <a href="/pacs/{{$Datas->id}}"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
                 @endif
                 @elseif($Datas->Sector_Type=="IVCS")
+                @if($sector!=null)
                   <div class="card-header">
                 <div class="card-header"><div class="card-title"><h3 class="card-title">INTEGRATED VILLAGE COOPERATIVE SOCIETIES </h3></div></div>
                   <div class="container">
@@ -339,36 +344,771 @@
                     <a href="/ivcs/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
-                
+                  @else
+                  <h1>No information</h1>
+                  <a href="/ivcs/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                @endif
               </div>
                 @else
-                <h3>No information Available</h3> 
-                @if($Datas->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
-                <a href="/pacs/{{$Datas->id}}"><button class="btn btn-outline-dark">Click here to add information</button></a>
-                @elseif($Datas->Sector_Type=="IVCS")
-                <a href="/ivcs/{{$Datas->id}}"><button class="btn btn-outline-dark">Click here to add information</button></a>
-                 @elseif($Datas->Sector_Type=="TOURISM")
-                <a href="/tourism/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+                @if($Datas->Sector_Type=="TOURISM")
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>FLOW OF TOURISTS (PER ANNUM)</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Domestic</th>
+                          <td>{{$sector->deomestic_tourist}}</td>
+                        </tr>
+                        <tr>
+                          <th>Foreign</th>
+                          <td>{{$sector->foreign_tourist}}</td>
+                        </tr>
+                        <tr>
+                          <th>Collection of Entry Fee (per Anum)</th>
+                          <td>{{$sector->entry_fee_annually}}</td>
+                        </tr>
+                        <tr>
+                          <th>Collection of Parking Fee (per Anum)</th>
+                          <td>{{$sector->parking_fee_annually}}</td>
+                        </tr>
+                        <tr>
+                          <th>Collection of Other Fee (per Anum)</th>
+                          <td>{{$sector->other_fee_annually}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Nos. of Guest House/Logde</th>
+                          <td>{{$sector->total_guest_house_or_lodge}}</td>
+                        </tr>
+                        <tr>
+                          <th>Income from Guest House/Logde</th>
+                          <td>{{$sector->income_from_guest_house_or_lodge}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>OTHER INCOME PER ANNUM</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Source</th>
+                          <td>{{$sector->other_source}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value</th>
+                          <td>{{$sector->other_value}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. of Male Guide</th>
+                          <td>{{$sector->male_guide}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. Female Guide</th>
+                          <td>{{$sector->female_guide}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-sm-6"><h5>PRODUCT PRODUCED FOR THE PROMOTIONAL ACTIVIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Types of Product</th>
+                          <td>{{$sector->product_promotion}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales Per Anum</th>
+                          <td>{{$sector->sale_of_product_annually}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>OTHER ASSETS RELATED TO THE ACTIVITY OF THE SOCIETY</h5>
+                      <table class="table">
+                        <thead>
+                          <th>Nos.</th>
+                          <th>Name</th>
+                          <th>Total Number</th>
+                        </thead>
+                      <tbody>
+                        @php
+                          $jan1=json_decode($sector->Equipments_Nos);
+                        @endphp
+                        @forEach(json_decode($sector->Equipments_Name) as $key => $data)
+                        <tr>
+                          <td>{{$key+1}}.</td>
+                          <td>{{$data}}</td>
+                          <td>{{$jan1[$key]}}</td>
+                        </tr>
+                        
+                       @endforeach
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                   @else
+                  <h1>No information</h1>
+                  <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
+
+
                 @elseif($Datas->Sector_Type=="CONSUMER")
-                <a href="/consumer/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>CONSUMER</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Departmental Store</th>
+                          <td>{{$sector->departmental_store}}</td>
+                        </tr>
+                        <tr>
+                          <th>Retails Units</th>
+                          <td>{{$sector->retails_unit}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. Of Branch</th>
+                          <td>{{$sector->no_of_branch}}</td>
+                        </tr>
+                        <tr>
+                          <th>Closing Stock Value</th>
+                          <td>{{$sector->closing_stock}}</td>
+                        </tr>
+                        <tr>
+                          <th>Purchase During a Year</th>
+                          <td>{{$sector->purchase_date}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>SALE OF  CONSUMER GOODS</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>item Name</th>
+                          <td>{{$sector->item}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Sale</th>
+                          <td>{{$sector->total_sale}}</td>
+                        </tr>
+                        <tr>
+                          <th>Controlled Wholesale</th>
+                          <td>{{$sector->Controll_wholesale}}</td>
+                        </tr>
+                        <tr>
+                          <th>Controlled Retail</th>
+                          <td>{{$sector->controll_retail}}</td>
+                        </tr>
+                        <tr>
+                          <th>Un-Controlled Wholesale</th>
+                          <td>{{$sector->uncontroll_wholesale}}</td>
+                        </tr>
+                        <tr>
+                          <th>Un-Controlled Retail</th>
+                          <td>{{$sector->uncontroll_retail}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/consumer/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                   @else
+                  <h1>No information</h1>
+                  <a href="/consumer/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
+
+
+                
+
+
                 @elseif(strtoupper($Datas->Sector_Type)=="DAIRY")
-                <a href="/dairy/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>TOTAL ASSETS RELATED WITH BUSINESS ACTIVITIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Nos. Of Milch Cows</th>
+                          <td>{{$sector->Nos_of_milch_cow}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Value of Milch Cow</th>
+                          <td>{{$sector->total_value_of_Milch_cow}}</td>
+                        </tr>
+                         <tr>
+                          <th>Nos. Of Cowshed</th>
+                          <td>{{$sector->no_of_cowshed}}</td>
+                        </tr>
+                        <tr>
+                          <th>Others Items</th>
+                          <td>{{$sector->other_item}}</td>
+                        </tr>
+                        <tr>
+                          <th>Other No.</th>
+                          <td>{{$sector->other_no}}</td>
+                        </tr>
+                        <tr>
+                          <th>Other Amount</th>
+                          <td>{{$sector->other_amount}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>MILK PROCURED</h5> 
+                    <table class="table">
+                      
+                      <tbody>
+                        <tr>
+                          <th>Quantity in Litres</th>
+                          <td>{{$sector->produce_in_litre}}</td>
+                        </tr>
+                        <tr>
+                          <th>Production Value</th>
+                          <td>{{$sector->produce_value}}</td>
+                        </tr>
+                        <tr>
+                          <th>Unsold Milk in Litre</th>
+                          <td>{{$sector->usold_litre}}</td>
+                        </tr>
+                         <tr>
+                          <th>Unsold Milk Value</th>
+                          <td>{{$sector->unsold_value}}</td>
+                        </tr>
+                         <tr>
+                          <th>Milk collection Unit Facilities</th>
+                          <td>{{$sector->collection_facility}}</td>
+                        </tr>
+                        <tr>
+                          <th>Milk Testing Facilities</th>
+                          <td>{{$sector->testing_facility}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales of Feeds and Medicine (Per Anum)</th>
+                          <td>{{$sector->sale_of_feed_medicine}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales of Feeds and Medicine Value</th>
+                          <td>{{$sector->sale_of_feed_medicine_value}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                    <div class="col-sm-6"><h5>DAIRY PRODUCT SOLD</h5> 
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Item Produced</th>
+                          <td>{{$sector->dairy_product_item}}</td>
+                        </tr>
+                        <tr>
+                          <th>Produced Item Value</th>
+                          <td>{{$sector->dairy_product_value}}</td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                  </div>
+                   <div class="modal-footer">
+                    <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+                  
                 @elseif($Datas->Sector_Type=="PROCESSING")
-                <a href="/processing/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+
+
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>PROCESSING UNIT / FACTORY</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Name of Item</th>
+                          <td>{{$sector->item_name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Item Value</th>
+                          <td>{{$sector->item_value}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>PROCESSING MACHINE </h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Name of the Item</th>
+                          <td>{{$sector->process_machine_name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. of the Item</th>
+                          <td>{{$sector->process_item_Nos}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value of the Item</th>
+                          <td>{{$sector->process_item_value}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-sm-6"><h5>SALE OF PRODUCT</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Item</th>
+                          <td>{{$sector->sale_of_item_name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Quantity</th>
+                          <td>{{$sector->sale_of_item_quantity}}</td>
+                        </tr>
+                        <tr>
+                          <th>Amount</th>
+                          <td>{{$sector->sale_of_item_amount}}</td>
+                        </tr>
+                        
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>PACKAGING</h5>
+                      <table class="table">
+                        
+                      <tbody>
+                        <tr>
+                          <th>Packaging</th>
+                          <td>{{$sector->packing}}</td>
+                        </tr>
+                        <tr>
+                          <th>Types of Packaging</th>
+                          <td>{{$sector->packaging_type}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
+                
+
+
+
+
                 @elseif($Datas->Sector_Type=="INDUSTRIAL")
+
+
+                
                 <a href="/industry/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
                 @elseif($Datas->Sector_Type=="TRANSPORT")
-                <a href="/transport/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>TRANSPORT FACILITIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Nos. of Goods Vehicles</th>
+                          <td>{{$sector->nos_of_Goods_vehicle}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. of Passenger Vehicles</th>
+                          <td>{{$sector->no_of_passenger_vehichle}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>TYPES OF VEHICLES</h5> 
+                    <table class="table">
+                      
+                      <tbody>
+                        <tr>
+                          <th>Vehicle Type</th>
+                          <td>{{$sector->vehicle_type}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Number of Vehicle</th>
+                          <td>{{$sector->vehicle_nos}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value of the Vehicle</th>
+                          <td>{{$sector->vehicle_value}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                    <div class="col-sm-6"><h5>OTHERS TYPES OF ASSETS RELATED WITH ACTIVITIES</h5> 
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Other Assets Name</th>
+                          <td>{{$sector->other_asset_name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Number of Other Assets</th>
+                          <td>{{$sector->other_asset_nos}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value of the other Assets</th>
+                          <td>{{$sector->other_asset_value}}</td>
+                        </tr>
+                        <tr>
+                          <th>income from services providers</th>
+                          <td>{{$sector->other_asset_income}}</td>
+                        </tr>
+                        <tr>
+                          <th>Others Total</th>
+                          <td>{{$sector->other_total}}</td>
+                        </tr>
+                        <tr>
+                          <th>Other Total Wages</th>
+                          <td>{{$sector->others_wages_total}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                    <div class="col-sm-6"><h5>DRIVERS</h5> 
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Total Number of Driver</th>
+                          <td>{{$sector->total_driver}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Wages Paid to Driver</th>
+                          <td>{{$sector->total_driver_wages}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Helper</th>
+                          <td>{{$sector->total_helper}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Helper Wages</th>
+                          <td>{{$sector->total_helper_wages}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+
+                  </div>
+                  </div>
+                   <div class="modal-footer">
+                    <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
+                
+
+
+
                 @elseif(strtoupper($Datas->Sector_Type)=="FARMING" || strtoupper($Datas->Sector_Type)=="HORTICULTURE")
-                <a href="/farming/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+                
+                    @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>MEMBERSHIP</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>ST Male</th>
+                          <td>{{$sector->st_male}}</td>
+                        </tr>
+                        <tr>
+                          <th>ST Female</th>
+                          <td>{{$sector->st_female}}</td>
+                        </tr>
+                        <tr>
+                          <th>SC Male</th>
+                          <td>{{$sector->sc_male}}</td>
+                        </tr>
+                        <tr>
+                          <th>SC Female</th>
+                          <td>{{$sector->sc_female}}</td>
+                        </tr>
+                        <tr>
+                          <th>Of Which Landholders</th>
+                          <td>{{$sector->which_landholder}}</td>
+                        </tr>
+                        <tr>
+                          <th>Of Which Argriculture Labourers </th>
+                          <td>{{$sector->which_agriculture}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>FARMING ACTIVITIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Types of Agri/Horti Produce</th>
+                          <td>{{$sector->type_produce_agriorhorti}}</td>
+                        </tr>
+                        <tr>
+                          <th>Production In Quantity</th>
+                          <td>{{$sector->production_quantity}}</td>
+                        </tr>
+                        <tr>
+                          <th>Amount</th>
+                          <td>{{$sector->farming_activities_amount}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sale  Amount in Quantity</th>
+                          <td>{{$sector->produce_quantity}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sale Amount</th>
+                          <td>{{$sector->produce_amount}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                   </div>
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
+                
+
+
+
+
+
                 @elseif(strtoupper($Datas->Sector_Type)=="MARKETTING")
                 <a href="/market/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
                 @elseif(strtoupper($Datas->Sector_Type)=="PIGGERY POULTRY AND OTHER LIVESTOCK")
                 <a href="/livestock/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
                 @elseif(strtoupper($Datas->Sector_Type)=="HOUSING")
+
                 <a href="/housing/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+                @elseif(strtoupper($Datas->Sector_Type)=="FISHERY")
+
+                @if($sector!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>Nos. of Fisherman</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Male</th>
+                          <td>{{$sector->male_fisher}}</td>
+                        </tr>
+                        <tr>
+                          <th>Female</th>
+                          <td>{{$sector->female_fisher}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>Asset</h5> 
+                    <table class="table">
+                      
+                      <tbody>
+                        <tr>
+                          <th>Total Nos. Of Fish Pond</th>
+                          <td>{{$sector->total_pond}}</td>
+                        </tr>
+                        <tr>
+                          <th>Area of Fish Pond (Hectares)</th>
+                          <td>{{$sector->area_of_pond}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value of Fish Pond</th>
+                          <td>{{$sector->value_of_fish_pond}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Nos. Of Nursery Pond</th>
+                          <td>{{$sector->nursery_pond}}</td>
+                        </tr>
+                        <tr>
+                          <th>Area of Nursery Pond (Hectares)</th>
+                          <td>{{$sector->area_of_nursery_pond}}</td>
+                        </tr>
+                        <tr>
+                          <th>Value of Nursery Pond</th>
+                          <td>{{$sector->value_of_nursery_pond}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>FISH CATCHED/REARED & SALES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Types of Fish Reared</th>
+                          <td>{{$sector->type_of_fish_reared}}</td>
+                        </tr>
+                        <tr>
+                          <th>Quantity in Kg</th>
+                          <td>{{$sector->fish_quantity}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales of Fresh Fish and Others</th>
+                          <td>{{$sector->sales_of_fresh_fish}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                     <div class="col-sm-6"><h5>FISH CATCHED/REARED & SALES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Dry Fish Value</th>
+                          <td>{{$sector->dry_fish}}</td>
+                        </tr>
+                        <tr>
+                          <th>Smoke Fish Value</th>
+                          <td>{{$sector->smoke_fish}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sale of Fishing Material and Others</th>
+                          <td>{{$sector->fishing_material_other}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                  </div>
+                   <div class="modal-footer">
+                    <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                   @else
+                  <h1>No information</h1>
+                  <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
+                
+                
                 @elseif(strtoupper($Datas->Sector_Type)=="HANDICRAFT")
-                <a href="/handicraft/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information</button></a>
+
+
+                @if($sector!=null)
+                      <div class="container">
+                      <div class="row">
+                      <div class="col-sm-6"><h5>CANE & BAMBOO  WORK</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Specify Items Produced</th>
+                          <td>{{$sector->item_produce}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. of Craftsmen Employed</th>
+                          <td>{{$sector->nos_of_craftsmen}}</td>
+                        </tr>
+                        <tr>
+                          <th>Wages Paid</th>
+                          <td>{{$sector->wages_paid}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales Turn Over</th>
+                          <td>{{$sector->sales_turnover}}</td>
+                        </tr>
+                      
+                        </tbody>
+                      </table>
+                      </div>
+                   
+
+                      <div class="col-sm-6"><h5>OTHER ACTIVITIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Speify Items Produced</th>
+                          <td>{{$sector->other_item_produce}}</td>
+                        </tr>
+                        <tr>
+                          <th>Nos. of Craftsmen Employed</th>
+                          <td>{{$sector->other_nos_of_craftsmen}}</td>
+                        </tr>
+                        <tr>
+                          <th>Others Wages Paid</th>
+                          <td>{{$sector->other_wages_paid}}</td>
+                        </tr>
+                        <tr>
+                          <th>Others Sales Turn Over</th>
+                          <td>{{$sector->other_sales_turnover}}</td>
+                        </tr>
+                      
+                        </tbody>
+                      </table>
+                      </div>
+
+
+                    </div>
+                   
+                    </div>
+                    
+                  <div class="modal-footer">
+                    <a href="/handicraft/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/handicraft/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
+
+
+
+                
+                
                 @elseif(strtoupper($Datas->Sector_Type)=="HANDLOOM WEAVERS")
                 <a href="/handloom/{{$Datas->id;}}/Act1"><button type="button" class="btn btn-outline-dark">Click here to add information/button></a>
                 
@@ -381,6 +1121,7 @@
                 
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-I: {{strtoupper($Activity->Primary_Activity)}}</h3></div></div>
                 @if($Activity->Primary_Activity=="fishery")
+                @if($Activity1!=null)
                   <div class="container">
                    <div class="row">
                     <div class="col-sm-6"><h5>Nos. of Fisherman</h5>
@@ -470,9 +1211,13 @@
                     <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
+                   @else
+                  <h1>No information</h1>
+                  <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
                   @elseif($Activity->Primary_Activity=="transport")
 
-
+                  @if($Activity1!=null)
                   <div class="container">
                    <div class="row">
                     <div class="col-sm-6"><h5>TRANSPORT FACILITIES</h5>
@@ -570,6 +1315,116 @@
                     <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
+                  @elseif($Activity->Primary_Activity=="dairy")
+
+
+                  @if($Activity1!=null)
+                  <div class="container">
+                   <div class="row">
+                    <div class="col-sm-6"><h5>TOTAL ASSETS RELATED WITH BUSINESS ACTIVITIES</h5>
+                      <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Nos. Of Milch Cows</th>
+                          <td>{{$Activity1->Nos_of_milch_cow}}</td>
+                        </tr>
+                        <tr>
+                          <th>Total Value of Milch Cow</th>
+                          <td>{{$Activity1->total_value_of_Milch_cow}}</td>
+                        </tr>
+                         <tr>
+                          <th>Nos. Of Cowshed</th>
+                          <td>{{$Activity1->no_of_cowshed}}</td>
+                        </tr>
+                        <tr>
+                          <th>Others Items</th>
+                          <td>{{$Activity1->other_item}}</td>
+                        </tr>
+                        <tr>
+                          <th>Other No.</th>
+                          <td>{{$Activity1->other_no}}</td>
+                        </tr>
+                        <tr>
+                          <th>Other Amount</th>
+                          <td>{{$Activity1->other_amount}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <div class="col-sm-6"><h5>MILK PROCURED</h5> 
+                    <table class="table">
+                      
+                      <tbody>
+                        <tr>
+                          <th>Quantity in Litres</th>
+                          <td>{{$Activity1->produce_in_litre}}</td>
+                        </tr>
+                        <tr>
+                          <th>Production Value</th>
+                          <td>{{$Activity1->produce_value}}</td>
+                        </tr>
+                        <tr>
+                          <th>Unsold Milk in Litre</th>
+                          <td>{{$Activity1->usold_litre}}</td>
+                        </tr>
+                         <tr>
+                          <th>Unsold Milk Value</th>
+                          <td>{{$Activity1->unsold_value}}</td>
+                        </tr>
+                         <tr>
+                          <th>Milk collection Unit Facilities</th>
+                          <td>{{$Activity1->collection_facility}}</td>
+                        </tr>
+                        <tr>
+                          <th>Milk Testing Facilities</th>
+                          <td>{{$Activity1->testing_facility}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales of Feeds and Medicine (Per Anum)</th>
+                          <td>{{$Activity1->sale_of_feed_medicine}}</td>
+                        </tr>
+                        <tr>
+                          <th>Sales of Feeds and Medicine Value</th>
+                          <td>{{$Activity1->sale_of_feed_medicine_value}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                    <div class="col-sm-6"><h5>DAIRY PRODUCT SOLD</h5> 
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Item Produced</th>
+                          <td>{{$Activity1->dairy_product_item}}</td>
+                        </tr>
+                        <tr>
+                          <th>Produced Item Value</th>
+                          <td>{{$Activity1->dairy_product_value}}</td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                    </div>
+
+
+
+                  </div>
+                  </div>
+                   <div class="modal-footer">
+                    <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                  
+                  </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
 
 
 
@@ -580,6 +1435,7 @@
               <div class="card-header">
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-II: {{strtoupper($Activity->Secondary_Activity)}}</h3></div></div>
                 @if($Activity->Secondary_Activity=="tourism")
+                @if($Activity2!=null)
                   <div class="container">
                    <div class="row">
                     <div class="col-sm-6"><h5>FLOW OF TOURISTS (PER ANNUM)</h5>
@@ -685,6 +1541,10 @@
                     <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
+                   @else
+                  <h1>No information</h1>
+                  <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
                   @elseif($Activity->Secondary_Activity=="handicraft")
                   @if($Activity2!=null)
                       <div class="container">
@@ -758,6 +1618,7 @@
               <div class="card-header">
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-III: {{strtoupper($Activity->Tertiary_Activity)}}</h3></div></div>
                 @if($Activity->Tertiary_Activity=="processing")
+                @if($Activity3!=null)
                   <div class="container">
                    <div class="row">
                     <div class="col-sm-6"><h5>PROCESSING UNIT / FACTORY</h5>
@@ -836,6 +1697,10 @@
                     <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
                   @elseif($Activity->Tertiary_Activity=="other")
                   @if($Activity3!=null)
                     <div class="container">
@@ -903,7 +1768,7 @@
                   <div class="modal-footer">
                     <a href="/other/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
-                  </div>
+                  
                   @else
                    <h1>No information</h1>
                   <a href="/other/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
