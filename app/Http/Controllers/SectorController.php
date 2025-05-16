@@ -210,6 +210,12 @@ class SectorController extends Controller
             $activities1=Dairy::where('Society_Id', $id)->first();
         }elseif($activities->Primary_Activity=="market"){
             $activities1=Market::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="handloom"){
+            $activities1=Handloom::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="industry"){
+            $activities1=Industry::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="labour"){
+            $activities1=Labour::where('Society_Id', $id)->first();
         }else{
             $activities1="";
         }
@@ -230,6 +236,12 @@ class SectorController extends Controller
             $activities2=Dairy::where('Society_Id', $id)->first();
         }elseif($activities->Secondary_Activity=="market"){
             $activities2=Market::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="handloom"){
+            $activities2=Handloom::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="industry"){
+            $activities2=Industry::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="labour"){
+            $activities2=Labour::where('Society_Id', $id)->first();
         }else{
             $activities2="";
         }
@@ -251,6 +263,12 @@ class SectorController extends Controller
             $activities3=Dairy::where('Society_Id', $id)->first();
         }elseif($activities->Tertiary_Activity=="market"){
             $activities3=Market::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="handloom"){
+            $activities3=Handloom::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="industry"){
+            $activities3=Industry::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="labour"){
+            $activities3=Labour::where('Society_Id', $id)->first();
         }else{
             $activities3="";
         }
