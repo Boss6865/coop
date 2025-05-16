@@ -9,11 +9,17 @@ use App\Models\Dairy;
 use App\Models\Farming;
 use App\Models\Fishery;
 use App\Models\Handicraft;
+use App\Models\Handloom;
+use App\Models\Housing;
+use App\Models\Industry;
 use App\Models\Ivcs;
+use App\Models\Labour;
+use App\Models\Market;
 use App\Models\membersociety;
 use App\Models\Other;
 use App\Models\Pacs;
 use App\Models\Processing;
+use App\Models\Thrifncredit;
 use App\Models\Tourism;
 use App\Models\Transport;
 use Illuminate\Http\Request;
@@ -202,6 +208,8 @@ class SectorController extends Controller
             $activities1=Other::where('Society_Id', $id)->first();
         }elseif($activities->Primary_Activity=="dairy"){
             $activities1=Dairy::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="market"){
+            $activities1=Market::where('Society_Id', $id)->first();
         }else{
             $activities1="";
         }
@@ -220,6 +228,8 @@ class SectorController extends Controller
             $activities2=Other::where('Society_Id', $id)->first();
         }elseif($activities->Secondary_Activity=="dairy"){
             $activities2=Dairy::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="market"){
+            $activities2=Market::where('Society_Id', $id)->first();
         }else{
             $activities2="";
         }
@@ -239,6 +249,8 @@ class SectorController extends Controller
             $activities3=Other::where('Society_Id', $id)->first();
         }elseif($activities->Tertiary_Activity=="dairy"){
             $activities3=Dairy::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="market"){
+            $activities3=Market::where('Society_Id', $id)->first();
         }else{
             $activities3="";
         }
@@ -263,6 +275,18 @@ class SectorController extends Controller
             $sector=Fishery::where('Society_Id', $id)->first();  
         }elseif($Basic_info->Sector_Type=="FARMING" || $Basic_info->Sector_Type=="HORTICULTURE"){
             $sector=Farming::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="MARKETTING"){
+            $sector=Market::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="HANDLOOM WEAVERS"){
+            $sector=Handloom::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="HOUSING"){
+            $sector=Housing::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="LABOUR CONTRACT"){
+            $sector=Labour::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="CREDIT AND THRIFT"){
+            $sector=Thrifncredit::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="INDUSTRIAL"){
+            $sector=Industry::where('Society_Id', $id)->first();  
         }else{
             $sector="";
         }

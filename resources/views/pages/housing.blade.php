@@ -72,7 +72,7 @@
                             </div>
                     </div>
     
-                    <div class="card-header"><div class="card-title">INDEPENDENT HOUSE CON- SRUCTED UPTO THE END OF THE  YEAR</div></div>
+                    <div class="card-header"><div class="card-title">INDEPENDENT HOUSE CONSTRUCTED UPTO THE END OF THE  YEAR</div></div>
                     <div class="card-body">
                             <div class="row g-2">
                               <x-column_-input  title="Number" Name="independent_house_construct_no" id="" placeholder="Eg-2" div_class="col-md-3" val="{{($activities->independent_house_construct_no ?? '')}}"/>
