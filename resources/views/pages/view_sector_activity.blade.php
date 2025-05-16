@@ -14,7 +14,7 @@
             <!-- /.card -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5 class="card-title">SECTOR</h5>
+                <h2 class="card-title">SECTOR {{strtoupper($Datas->Sector_Type)}}</h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">

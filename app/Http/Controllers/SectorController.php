@@ -216,6 +216,12 @@ class SectorController extends Controller
             $activities1=Industry::where('Society_Id', $id)->first();
         }elseif($activities->Primary_Activity=="labour"){
             $activities1=Labour::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="tandc"){
+            $activities1=Thrifncredit::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="farming"){
+            $activities1=Farming::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="consumer"){
+            $activities1=Consumer::where('Society_Id', $id)->first();
         }else{
             $activities1="";
         }
@@ -242,6 +248,12 @@ class SectorController extends Controller
             $activities2=Industry::where('Society_Id', $id)->first();
         }elseif($activities->Secondary_Activity=="labour"){
             $activities2=Labour::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="tandc"){
+            $activities2=Thrifncredit::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="farming"){
+            $activities2=Farming::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="consumer"){
+            $activities2=Consumer::where('Society_Id', $id)->first();
         }else{
             $activities2="";
         }
@@ -269,6 +281,12 @@ class SectorController extends Controller
             $activities3=Industry::where('Society_Id', $id)->first();
         }elseif($activities->Tertiary_Activity=="labour"){
             $activities3=Labour::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="tandc"){
+            $activities3=Thrifncredit::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="farming"){
+            $activities3=Farming::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="consumer"){
+            $activities3=Consumer::where('Society_Id', $id)->first();
         }else{
             $activities3="";
         }
