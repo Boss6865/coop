@@ -104,6 +104,7 @@ Route::post('/transport',[TransportController::class,'store']);
 Route::put('/transport/{id}',[TransportController::class,'update']);
 Route::get('/livestock/{id}/{sign}',[LivestockController::class,'show']);
 Route::post('/livestock',[LivestockController::class,'store']);
+Route::put('/livestock/{id}',[LivestockController::class,'update']);
 Route::get('/tourism/{id}/{sign}',[TourismController::class,'show']);
 Route::post('/tourism',[TourismController::class,'store']);
 Route::put('/tourism/{id}',[TourismController::class,'update']);

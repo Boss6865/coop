@@ -14,6 +14,7 @@ use App\Models\Housing;
 use App\Models\Industry;
 use App\Models\Ivcs;
 use App\Models\Labour;
+use App\Models\Livestock;
 use App\Models\Market;
 use App\Models\membersociety;
 use App\Models\Other;
@@ -222,6 +223,8 @@ class SectorController extends Controller
             $activities1=Farming::where('Society_Id', $id)->first();
         }elseif($activities->Primary_Activity=="consumer"){
             $activities1=Consumer::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="livestock"){
+            $activities1=Livestock::where('Society_Id', $id)->first();
         }else{
             $activities1="";
         }
@@ -254,6 +257,8 @@ class SectorController extends Controller
             $activities2=Farming::where('Society_Id', $id)->first();
         }elseif($activities->Secondary_Activity=="consumer"){
             $activities2=Consumer::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="livestock"){
+            $activities2=Livestock::where('Society_Id', $id)->first();
         }else{
             $activities2="";
         }
@@ -287,6 +292,8 @@ class SectorController extends Controller
             $activities3=Farming::where('Society_Id', $id)->first();
         }elseif($activities->Tertiary_Activity=="consumer"){
             $activities3=Consumer::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="livestock"){
+            $activities3=Livestock::where('Society_Id', $id)->first();
         }else{
             $activities3="";
         }
@@ -323,6 +330,8 @@ class SectorController extends Controller
             $sector=Thrifncredit::where('Society_Id', $id)->first();  
         }elseif($Basic_info->Sector_Type=="INDUSTRIAL"){
             $sector=Industry::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="PIGGERY POULTRY AND OTHER LIVESTOCK"){
+            $sector=Livestock::where('Society_Id', $id)->first();  
         }else{
             $sector="";
         }

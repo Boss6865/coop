@@ -15,7 +15,7 @@
             <div class="card mb-4">
               <div class="card-header">
                 <h2 class="card-title">SECTOR {{strtoupper($Datas->Sector_Type)}}</h2>
-              </div>
+              
               <!-- /.card-header -->
               <div class="card-body p-0">
                 @if($Datas->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
@@ -162,6 +162,13 @@
                   <a href="/industry/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
                   @endif
 
+                @elseif(strtoupper($Datas->Sector_Type)=="PIGGERY POULTRY AND OTHER LIVESTOCK")
+                  @if($sector!=null)
+                     <x-livestock :sector="$sector" Datas="{{$Datas->id}}"/>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/livestock/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  @endif
                 
                 @elseif(strtoupper($Datas->Sector_Type)=="HANDICRAFT")
 
@@ -187,101 +194,21 @@
                 @endif
               </div>
               <!-- /.card-body -->
+            </div>
+            </div>
+          </div>
+        </div>
+         <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4">
+
               <div class="card-header">
                 
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-I: {{strtoupper($Activity->Primary_Activity)}}</h3></div></div>
                 @if($Activity->Primary_Activity=="fishery")
                 @if($Activity1!=null)
                   <x-fishery :sector="$Activity1" Datas="{{$Datas->id}}"/>
-                  {{-- <div class="container">
-                   <div class="row">
-                    <div class="col-sm-6"><h5>Nos. of Fisherman</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Male</th>
-                          <td>{{$Activity1->male_fisher}}</td>
-                        </tr>
-                        <tr>
-                          <th>Female</th>
-                          <td>{{$Activity1->female_fisher}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                    <div class="col-sm-6"><h5>Asset</h5> 
-                    <table class="table">
-                      
-                      <tbody>
-                        <tr>
-                          <th>Total Nos. Of Fish Pond</th>
-                          <td>{{$Activity1->total_pond}}</td>
-                        </tr>
-                        <tr>
-                          <th>Area of Fish Pond (Hectares)</th>
-                          <td>{{$Activity1->area_of_pond}}</td>
-                        </tr>
-                        <tr>
-                          <th>Value of Fish Pond</th>
-                          <td>{{$Activity1->value_of_fish_pond}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Nos. Of Nursery Pond</th>
-                          <td>{{$Activity1->nursery_pond}}</td>
-                        </tr>
-                        <tr>
-                          <th>Area of Nursery Pond (Hectares)</th>
-                          <td>{{$Activity1->area_of_nursery_pond}}</td>
-                        </tr>
-                        <tr>
-                          <th>Value of Nursery Pond</th>
-                          <td>{{$Activity1->value_of_nursery_pond}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                    <div class="col-sm-6"><h5>FISH CATCHED/REARED & SALES</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Types of Fish Reared</th>
-                          <td>{{$Activity1->type_of_fish_reared}}</td>
-                        </tr>
-                        <tr>
-                          <th>Quantity in Kg</th>
-                          <td>{{$Activity1->fish_quantity}}</td>
-                        </tr>
-                        <tr>
-                          <th>Sales of Fresh Fish and Others</th>
-                          <td>{{$Activity1->sales_of_fresh_fish}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                     <div class="col-sm-6"><h5>FISH CATCHED/REARED & SALES</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Dry Fish Value</th>
-                          <td>{{$Activity1->dry_fish}}</td>
-                        </tr>
-                        <tr>
-                          <th>Smoke Fish Value</th>
-                          <td>{{$Activity1->smoke_fish}}</td>
-                        </tr>
-                        <tr>
-                          <th>Sale of Fishing Material and Others</th>
-                          <td>{{$Activity1->fishing_material_other}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                  </div>
-                  </div>
-                   <div class="modal-footer">
-                    <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
-                  </div> --}}
                    @else
                   <h1>No information</h1>
                   <a href="/fishery/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
@@ -290,112 +217,23 @@
 
                   @if($Activity1!=null)
                    <x-transport :sector="$Activity1" Datas="{{$Datas->id}}"/>
-                  {{-- <div class="container">
-                   <div class="row">
-                    <div class="col-sm-6"><h5>TRANSPORT FACILITIES</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Nos. of Goods Vehicles</th>
-                          <td>{{$Activity1->nos_of_Goods_vehicle}}</td>
-                        </tr>
-                        <tr>
-                          <th>Nos. of Passenger Vehicles</th>
-                          <td>{{$Activity1->no_of_passenger_vehichle}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                    <div class="col-sm-6"><h5>TYPES OF VEHICLES</h5> 
-                    <table class="table">
-                      
-                      <tbody>
-                        <tr>
-                          <th>Vehicle Type</th>
-                          <td>{{$Activity1->vehicle_type}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Number of Vehicle</th>
-                          <td>{{$Activity1->vehicle_nos}}</td>
-                        </tr>
-                        <tr>
-                          <th>Value of the Vehicle</th>
-                          <td>{{$Activity1->vehicle_value}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-
-                    <div class="col-sm-6"><h5>OTHERS TYPES OF ASSETS RELATED WITH ACTIVITIES</h5> 
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Other Assets Name</th>
-                          <td>{{$Activity1->other_asset_name}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Number of Other Assets</th>
-                          <td>{{$Activity1->other_asset_nos}}</td>
-                        </tr>
-                        <tr>
-                          <th>Value of the other Assets</th>
-                          <td>{{$Activity1->other_asset_value}}</td>
-                        </tr>
-                        <tr>
-                          <th>income from services providers</th>
-                          <td>{{$Activity1->other_asset_income}}</td>
-                        </tr>
-                        <tr>
-                          <th>Others Total</th>
-                          <td>{{$Activity1->other_total}}</td>
-                        </tr>
-                        <tr>
-                          <th>Other Total Wages</th>
-                          <td>{{$Activity1->others_wages_total}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-
-                    <div class="col-sm-6"><h5>DRIVERS</h5> 
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Total Number of Driver</th>
-                          <td>{{$Activity1->total_driver}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Wages Paid to Driver</th>
-                          <td>{{$Activity1->total_driver_wages}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Helper</th>
-                          <td>{{$Activity1->total_helper}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Helper Wages</th>
-                          <td>{{$Activity1->total_helper_wages}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-
-
-                  </div>
-                  </div>
-                   <div class="modal-footer">
-                    <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
-                  
-                  </div> --}}
+                 
                   @else
                   <h1>No information</h1>
                   <a href="/transport/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
 
+                  @elseif($Activity->Primary_Activity=="livestock")
+                  @if($Activity1!=null)
+                  <x-livestock :sector="$Activity1" Datas="{{$Datas->id}}"/>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/livestock/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
                   @elseif($Activity->Primary_Activity=="dairy")
                   @if($Activity1!=null)
                   <x-dairy :sector="$Activity1" Datas="{{$Datas->id}}"/>
-                 
                   @else
                   <h1>No information</h1>
                   <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
@@ -495,7 +333,12 @@
                 @endif
                  
               </div>
-              
+            </div>
+          </div>
+         </div>
+          <div class="row">
+          <div class="col-md-12">
+              <div class="card mb-4">
               <div class="card-header">
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-II: {{strtoupper($Activity->Secondary_Activity)}}</h3></div></div>
                 @if($Activity->Secondary_Activity=="dairy")
@@ -507,6 +350,7 @@
                   <h1>No information</h1>
                   <a href="/dairy/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
+                  
                   @elseif($Activity->Secondary_Activity=="tourism")
                   @if($Activity2!=null)
                   <x-tourism :sector="$Activity2" Datas="{{$Datas->id}}"/>
@@ -514,6 +358,17 @@
                   <h1>No information</h1>
                   <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
+
+                   @elseif($Activity->Secondary_Activity=="livestock")
+                  @if($Activity2!=null)
+                  <x-livestock :sector="$Activity2" Datas="{{$Datas->id}}"/>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/livestock/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
+
+
                   @elseif($Activity->Secondary_Activity=="consumer")
                   @if($Activity2!=null)
                   <x-consumer :sector="$Activity2" Datas="{{$Datas->id}}"/>
@@ -600,188 +455,15 @@
                   @endif
 
 
-
-
-                {{-- @if($Activity2!=null)
-                  <div class="container">
-                   <div class="row">
-                    <div class="col-sm-6"><h5>FLOW OF TOURISTS (PER ANNUM)</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Domestic</th>
-                          <td>{{$Activity2->deomestic_tourist}}</td>
-                        </tr>
-                        <tr>
-                          <th>Foreign</th>
-                          <td>{{$Activity2->foreign_tourist}}</td>
-                        </tr>
-                        <tr>
-                          <th>Collection of Entry Fee (per Anum)</th>
-                          <td>{{$Activity2->entry_fee_annually}}</td>
-                        </tr>
-                        <tr>
-                          <th>Collection of Parking Fee (per Anum)</th>
-                          <td>{{$Activity2->parking_fee_annually}}</td>
-                        </tr>
-                        <tr>
-                          <th>Collection of Other Fee (per Anum)</th>
-                          <td>{{$Activity2->other_fee_annually}}</td>
-                        </tr>
-                        <tr>
-                          <th>Total Nos. of Guest House/Logde</th>
-                          <td>{{$Activity2->total_guest_house_or_lodge}}</td>
-                        </tr>
-                        <tr>
-                          <th>Income from Guest House/Logde</th>
-                          <td>{{$Activity2->income_from_guest_house_or_lodge}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                    <div class="col-sm-6"><h5>OTHER INCOME PER ANNUM</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Source</th>
-                          <td>{{$Activity2->other_source}}</td>
-                        </tr>
-                        <tr>
-                          <th>Value</th>
-                          <td>{{$Activity2->other_value}}</td>
-                        </tr>
-                        <tr>
-                          <th>Nos. of Male Guide</th>
-                          <td>{{$Activity2->male_guide}}</td>
-                        </tr>
-                        <tr>
-                          <th>Nos. Female Guide</th>
-                          <td>{{$Activity2->female_guide}}</td>
-                        </tr>
-                        
-                      </tbody>
-                    </table>
-                    </div>
-                   </div>
-                   <div class="row">
-                    <div class="col-sm-6"><h5>PRODUCT PRODUCED FOR THE PROMOTIONAL ACTIVIES</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Types of Product</th>
-                          <td>{{$Activity2->product_promotion}}</td>
-                        </tr>
-                        <tr>
-                          <th>Sales Per Anum</th>
-                          <td>{{$Activity2->sale_of_product_annually}}</td>
-                        </tr>
-                        
-                      </tbody>
-                    </table>
-                    </div>
-                    <div class="col-sm-6"><h5>OTHER ASSETS RELATED TO THE ACTIVITY OF THE SOCIETY</h5>
-                      <table class="table">
-                        <thead>
-                          <th>Nos.</th>
-                          <th>Name</th>
-                          <th>Total Number</th>
-                        </thead>
-                      <tbody>
-                        @php
-                          $jan1=json_decode($Activity2->Equipments_Nos);
-                        @endphp
-                        @forEach(json_decode($Activity2->Equipments_Name) as $key => $data)
-                        <tr>
-                          <td>{{$key+1}}.</td>
-                          <td>{{$data}}</td>
-                          <td>{{$jan1[$key]}}</td>
-                        </tr>
-                        
-                       @endforeach
-                        
-                      </tbody>
-                    </table>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
-                  
-                  </div>
-                   @else
-                  <h1>No information</h1>
-                  <a href="/tourism/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
-                  @endif
-                  @elseif($Activity->Secondary_Activity=="handicraft")
-                  @if($Activity2!=null)
-                      <div class="container">
-                      <div class="row">
-                      <div class="col-sm-6"><h5>CANE & BAMBOO  WORK</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Specify Items Produced</th>
-                          <td>{{$Activity2->item_produce}}</td>
-                        </tr>
-                        <tr>
-                          <th>Nos. of Craftsmen Employed</th>
-                          <td>{{$Activity2->nos_of_craftsmen}}</td>
-                        </tr>
-                        <tr>
-                          <th>Wages Paid</th>
-                          <td>{{$Activity2->wages_paid}}</td>
-                        </tr>
-                        <tr>
-                          <th>Sales Turn Over</th>
-                          <td>{{$Activity2->sales_turnover}}</td>
-                        </tr>
-                      
-                        </tbody>
-                      </table>
-                      </div>
-                   
-
-                      <div class="col-sm-6"><h5>OTHER ACTIVITIES</h5>
-                      <table class="table">
-                      <tbody>
-                        <tr>
-                          <th>Speify Items Produced</th>
-                          <td>{{$Activity2->other_item_produce}}</td>
-                        </tr>
-                        <tr>
-                          <th>Nos. of Craftsmen Employed</th>
-                          <td>{{$Activity2->other_nos_of_craftsmen}}</td>
-                        </tr>
-                        <tr>
-                          <th>Others Wages Paid</th>
-                          <td>{{$Activity2->other_wages_paid}}</td>
-                        </tr>
-                        <tr>
-                          <th>Others Sales Turn Over</th>
-                          <td>{{$Activity2->other_sales_turnover}}</td>
-                        </tr>
-                      
-                        </tbody>
-                      </table>
-                      </div>
-
-
-                    </div>
-                   
-                    </div>
-                    </div>
-                  <div class="modal-footer">
-                    <a href="/handicraft/{{$Datas->id}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
-                  
-                  </div>
-                  @else
-                  <h1>No information</h1>
-                  <a href="/handicraft/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
-                  @endif --}}
-
                 @endif
                 
               </div>
+              </div>
+          </div>
+          </div>
+           <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4">
               <div class="card-header">
                 <div class="card-header"><div class="card-title"><h3 class="card-title">ACTIVITIES-III: {{strtoupper($Activity->Tertiary_Activity)}}</h3></div></div>
                 @if($Activity->Tertiary_Activity=="processing")
@@ -806,6 +488,18 @@
                   <h1>No information</h1>
                   <a href="/consumer/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
+
+
+                  @elseif($Activity->Tertiary_Activity=="livestock")
+                  @if($Activity3!=null)
+                  <x-livestock :sector="$Activity3" Datas="{{$Datas->id}}"/>
+                  @else
+                  <h1>No information</h1>
+                  <a href="/livestock/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  @endif
+
+
+
                    @elseif($Activity->Tertiary_Activity=="processing")
                   @if($Activity3!=null)
                   <x-processing :sector="$Activity3" Datas="{{$Datas->id}}"/>
@@ -960,13 +654,14 @@
                 
               </div>
             </div>
+            </div>
             <!-- /.card -->
+        
           </div>
-         
-        </div>
-        <!--end::Row-->
-      </div>
+           </div>
+        
       <!--end::Container-->
+    </div>
     </div>
     <!--end::App Content-->
   </main>
