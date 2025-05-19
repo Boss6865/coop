@@ -98,6 +98,10 @@
                                                 <a href="handloom/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">HANDLOOM WEAVERS</button></a>
                                                 @elseif(strtoupper($Society->Sector_Type)=="FISHERY")
                                                  <a href="fishery/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">FISHERY</button></a>
+                                                  @elseif(strtoupper($Society->Sector_Type)=="MARIANG JINGKIENG JRI (LIVING ROOT BRIDGES)")
+                                                 <a href="jingkiengjri/{{$Society->id;}}/Act1"><button type="button" class="btn btn-outline-dark">JINGKIENG JRI</button></a>
+                                                 @elseif(strtoupper($Society->Sector_Type)=="MULTIPURPOSE")
+                                                 <a href="sector/{{$Society->id;}}"><button type="button" class="btn btn-outline-dark">MULTIPURPOSE</button></a>
                                                 @else {{$Society->Sector_Type;}} @endif</td>
                                                 <td>
                                                   @foreach($Society->capital as $data)

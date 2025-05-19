@@ -48,6 +48,6 @@
                    
                   </div>
                   <div class="modal-footer">
-                    <a href="/lrb/{{$Datas}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                    <a href="/jingkiengjri/{{$Datas}}/Act1"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>

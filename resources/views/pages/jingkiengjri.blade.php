@@ -14,11 +14,11 @@
               @enderror
             </div></div>
             @if(!empty($activities->lrb_source))
-            <form class="needs-validation" action="/lrb/{{$Datas->id}}" method="POST" novalidate>
+            <form class="needs-validation" action="/jingkiengjri/{{$Datas->id}}" method="POST" novalidate>
               @csrf
               @method("PUT")
             @else
-            <form class="needs-validation" action="/lrb" method="POST" novalidate>
+            <form class="needs-validation" action="/jingkiengjri" method="POST" novalidate>
               @csrf
             @endif
             

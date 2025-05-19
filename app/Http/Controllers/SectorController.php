@@ -15,6 +15,7 @@ use App\Models\Industry;
 use App\Models\Ivcs;
 use App\Models\Labour;
 use App\Models\Livestock;
+use App\Models\Mariangjingkienjri;
 use App\Models\Market;
 use App\Models\membersociety;
 use App\Models\Other;
@@ -225,6 +226,8 @@ class SectorController extends Controller
             $activities1=Consumer::where('Society_Id', $id)->first();
         }elseif($activities->Primary_Activity=="livestock"){
             $activities1=Livestock::where('Society_Id', $id)->first();
+        }elseif($activities->Primary_Activity=="jingkiengjri"){
+            $activities1=Mariangjingkienjri::where('Society_Id', $id)->first();
         }else{
             $activities1="";
         }
@@ -259,6 +262,8 @@ class SectorController extends Controller
             $activities2=Consumer::where('Society_Id', $id)->first();
         }elseif($activities->Secondary_Activity=="livestock"){
             $activities2=Livestock::where('Society_Id', $id)->first();
+        }elseif($activities->Secondary_Activity=="jingkiengjri"){
+            $activities2=Mariangjingkienjri::where('Society_Id', $id)->first();
         }else{
             $activities2="";
         }
@@ -294,6 +299,8 @@ class SectorController extends Controller
             $activities3=Consumer::where('Society_Id', $id)->first();
         }elseif($activities->Tertiary_Activity=="livestock"){
             $activities3=Livestock::where('Society_Id', $id)->first();
+        }elseif($activities->Tertiary_Activity=="jingkiengjri"){
+            $activities3=Mariangjingkienjri::where('Society_Id', $id)->first();
         }else{
             $activities3="";
         }
@@ -332,6 +339,8 @@ class SectorController extends Controller
             $sector=Industry::where('Society_Id', $id)->first();  
         }elseif($Basic_info->Sector_Type=="PIGGERY POULTRY AND OTHER LIVESTOCK"){
             $sector=Livestock::where('Society_Id', $id)->first();  
+        }elseif($Basic_info->Sector_Type=="MARIANG JINGKIENG JRI (LIVING ROOT BRIDGES)"){
+            $sector=Mariangjingkienjri::where('Society_Id', $id)->first();  
         }else{
             $sector="";
         }
@@ -341,10 +350,7 @@ class SectorController extends Controller
 
     public function all_sector()
     {
-        $total_sectorfinal=0;
-        $plus_function=0;
-        $plus_non_function=0;
-       
+
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
         
          foreach($Sectors as $sector){
@@ -404,6 +410,18 @@ class SectorController extends Controller
             // dd($finaltot);
             return view('pages.all_sector', ['total_sector' => $total_sector, "Fun"=>$function, "Nfun" =>  $Nonfunction, 
     "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d]);
+    
+    }
+    public function all_function_societies()
+    {
+         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
+        
+         
+            
+                $function=Basic::where('Status', "Function")->get();
+            
+        //   dd( $function);
+            return view('pages.all_function', ['Societies' => $function]);
     
     }
 }

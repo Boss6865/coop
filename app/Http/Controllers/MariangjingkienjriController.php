@@ -45,7 +45,7 @@ class MariangjingkienjriController extends Controller
 
          Mariangjingkienjri::create($validatedData);
        
-        return redirect()->action([LoanController::class, 'show'],[$id_of_society])->with(['sector'=>'handloom']);
+        return redirect()->action([SectorController::class, 'Sector_activity'],[$id_of_society])->with(['sector'=>'handloom']);
     }
 
     /**

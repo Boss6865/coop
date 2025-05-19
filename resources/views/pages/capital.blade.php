@@ -55,7 +55,8 @@
                                           <option value="processing">PROCESSING</option>
                                           <option value="transport">TRANSPORT</option>
                                           <option value="livestock">LIVESTOCK</option>
-                                          <option value="tourism">TOURISM AND LRB</option>
+                                          <option value="tourism">TOURISM</option>
+                                          <option value="jingkiengjri">TOURISM</option>
                                           <option value="industry">INDUSTRIAL</option>
                                           <option value="tandc">THRIFT AND CREDIT</option>
                                           <option value="labour">LABOUR CONTRACT</option>
@@ -86,7 +87,8 @@
                                       <option value="processing">PROCESSING</option>
                                       <option value="transport">TRANSPORT</option>
                                       <option value="livestock">LIVESTOCK</option>
-                                      <option value="tourism">TOURISM AND LRB</option>
+                                      <option value="tourism">TOURISM</option>
+                                      <option value="jingkiengjri">TOURISM</option>
                                       <option value="industry">INDUSTRIAL</option>
                                       <option value="tandc">THRIFT AND CREDIT</option>
                                       <option value="labour">LABOUR CONTRACT</option>
@@ -117,7 +119,8 @@
                                       <option value="processing">PROCESSING</option>
                                       <option value="transport">TRANSPORT</option>
                                       <option value="livestock">LIVESTOCK</option>
-                                      <option value="tourism">TOURISM AND LRB</option>
+                                      <option value="tourism">TOURISM</option>
+                                      <option value="jingkiengjri">TOURISM</option>
                                       <option value="industry">INDUSTRIAL</option>
                                       <option value="tandc">THRIFT AND CREDIT</option>
                                       <option value="labour">LABOUR CONTRACT</option>

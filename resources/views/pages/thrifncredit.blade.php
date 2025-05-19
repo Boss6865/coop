@@ -1,4 +1,5 @@
 <x-layout>
+  {{-- note***** year_contribution could not be zero (0) *******--}}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <x-navigation  title="{{ $Datas->Name_of_the_Society }}" Nav="Thrift and Credit Sector" />
         <div class="card card-info card-outline mb-4">

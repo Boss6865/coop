@@ -178,7 +178,7 @@
                                   <tbody>
                                     <tr>
                                             <td>{{$total_society}}</td>
-                                            <td>{{$total_fun}}</td>
+                                            <td><a href="/_function"><button type="button" class="btn btn-outline-dark">{{$total_fun}}</button></a></td>
                                             <td>{{$total_non_fun}}</td>
                                             {{-- <td>{{$nlqd[$key]}}</td> --}}
                                             <td>{{$total_member}}</td>

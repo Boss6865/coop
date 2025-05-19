@@ -14,7 +14,8 @@
             <!-- /.card -->
             <div class="card mb-4">
               <div class="card-header">
-                <h2 class="card-title">SECTOR {{strtoupper($Datas->Sector_Type)}}</h2>
+                <div class="card-header"><div class="card-title"><h3 class="card-title">SECTOR {{strtoupper($Datas->Sector_Type)}}</h3></div></div>
+               
               
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -73,7 +74,6 @@
                   <h1>No information</h1>
                   <a href="/processing/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
                   @endif
-                
 
                 @elseif($Datas->Sector_Type=="TRANSPORT")
 
@@ -96,14 +96,14 @@
                   <a href="/farming/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
                   @endif
                 
-                @elseif(strtoupper($Datas->Sector_Type)=="JINGKIENG JRI")
+                @elseif(strtoupper($Datas->Sector_Type)=="MARIANG JINGKIENG JRI (LIVING ROOT BRIDGES)")
 
 
                 @if($sector!=null)
                   <x-jingkiengjri :sector="$sector" Datas="{{$Datas->id}}"/>
                   @else
                   <h1>No information</h1>
-                  <a href="/lrb/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
+                  <a href="/jingkiengjri/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a> 
                   @endif
 
                 @elseif(strtoupper($Datas->Sector_Type)=="MARKETTING")
@@ -271,7 +271,7 @@
                   <x-jingkiengjri :sector="$Activity1" Datas="{{$Datas->id}}"/>
                   @else
                   <h1>No information</h1>
-                  <a href="/lrb/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  <a href="/jingkiengjri/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
                   @elseif($Activity->Primary_Activity=="market")
                   @if($Activity1!=null)
@@ -395,7 +395,7 @@
                   <x-jingkiengjri :sector="$Activity2" Datas="{{$Datas->id}}"/>
                   @else
                   <h1>No information</h1>
-                  <a href="/lrb/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  <a href="/jingkiengjri/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
                   @elseif($Activity->Secondary_Activity=="market")
                   @if($Activity2!=null)
@@ -519,7 +519,7 @@
                   <x-jingkiengjri :sector="$Activity3" Datas="{{$Datas->id}}"/>
                   @else
                   <h1>No information</h1>
-                  <a href="/lrb/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
+                  <a href="/jingkiengjri/{{$Datas->id}}/Act1"><button type="button" class="btn btn-outline-dark">Click Here to Add</button></a>
                   @endif
                   @elseif($Activity->Tertiary_Activity=="market")
                   @if($Activity3!=null)

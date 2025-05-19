@@ -48,7 +48,7 @@ class Activitycontroller extends Controller
         if($request->input('activity_5')!=null){$validatedData['activity_5']=strtok(ltrim($request->input('activity_5'),1),"/");}
         if($request->input('activity_other')!=null){$validatedData['activity_other']=strtok(ltrim($request->input('activity_other'),1),"/");}
         Activity::create($validatedData);
-        return redirect()->action([BasicController::class,'Sector_view']);
+        return redirect()->action([SectorController::class,'Sector_activity']);
     }
 
     /**
@@ -94,7 +94,7 @@ class Activitycontroller extends Controller
         $finddata= Activity::where('Society_Id', $id);
         $finddata->update($validatedData);
         
-        return redirect()->action([BasicController::class,'Sector_view']);
+        return redirect()->action([SectorController::class,'Sector_activity']);
     }
 
     /**

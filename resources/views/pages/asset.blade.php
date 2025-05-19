@@ -47,7 +47,7 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
+                                        <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" id="" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
                                        
                                     </div>
                               </div>
@@ -68,8 +68,8 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4"/>
-                                        <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
+                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4"/>
+                                        <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
                                         <div class="col-md-4">
                                             <label for="validationCustom01" class="form-label">Types</label>
                                             <select Name="godown_types" class="form-select target" id="selectid3" required>
@@ -85,8 +85,8 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Terms Of Agreement" Name="godown_type_agreement" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
-                                        <x-column_-input  title="Amount Paid Per Annum" Name="godown_type_per_annum" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
+                                        <x-column_-input  title="Terms Of Agreement" Name="godown_type_agreement" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
+                                        <x-column_-input  title="Amount Paid Per Annum" Name="godown_type_per_annum" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
                                        
                                         <div class="col-md-4">
                                             <label for="validationCustom01" class="form-label">Storage</label>
@@ -102,8 +102,8 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Cold" Name="storage_cold" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" />
-                                        <x-column_-input  title="Dry" Name="storage_dry" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-4" />
+                                        <x-column_-input  title="Cold" Name="storage_cold" id="" placeholder="Eg- 1000" div_class="col-md-4" />
+                                        <x-column_-input  title="Dry" Name="storage_dry" id="" placeholder="Eg- 1000" div_class="col-md-4" />
                                        
                                         <div class="col-md-4">
                                             <label for="validationCustom01" class="form-label">Land</label>
@@ -119,8 +119,8 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
-                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
+                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
+                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
                                         <div class="col-md-2">
                                             <label for="validationCustom01" class="form-label">Furniture</label>
                                             <select Name="furniture" class="form-select target" id="selectid3" required>
@@ -135,8 +135,8 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Total Nos." Name="furniture_total" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Value" Name="furniture_amount" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Total Nos." Name="furniture_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Value" Name="furniture_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
                                         <div class="col-md-2">
                                             <label for="validationCustom01" class="form-label">Computers</label>
                                             <select Name="computers" class="form-select target" id="selectid3" required>
@@ -151,15 +151,15 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Total Nos." Name="computers_total" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
-                                        <x-column_-input  title="Value" Name="computers_amount" id="validationCustom09" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Total Nos." Name="computers_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="Value" Name="computers_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers"/>
                                        
                                     </div>
                               </div>
                               <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS )  </div></div>
                               <div class="card-body">
                                       <div class="row g-2" id="newinput">
-                                        <x-column_-input  title="Name of Item" Name="item_name[]" id="validationCustom09" placeholder="Eg-Chairs" div_class="col-md-2"/>
+                                        <x-column_-input  title="Name of Item" Name="item_name[]" id="" placeholder="Eg-Chairs" div_class="col-md-2"/>
                                         <x-column_-input title="Nos./Area" id="validationCustom10" Name="item_no[]"  placeholder="Eg- 10 " div_class="col-md-2"/>
                                         <x-column_-input title="Value" id="validationCustom10" Name="item_amount[]"  placeholder="Eg-1000" div_class="col-md-2" inclass="numbers"/>
                                         <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
