@@ -414,14 +414,58 @@ class SectorController extends Controller
     }
     public function all_function_societies()
     {
-         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
-        
-         
+  
             
                 $function=Basic::where('Status', "Function")->get();
             
         //   dd( $function);
             return view('pages.all_function', ['Societies' => $function]);
+    
+    }
+
+    public function all_non_function_societies()
+    {
+
+                $function=Basic::where('Status', "Non-function")->get();
+            
+        //   dd( $function);
+            return view('pages.all_function', ['Societies' => $function]);
+    
+    }
+    public function all_profit()
+    {
+
+        $Getcapital=capital::select('Society_Id')->where('Profit_loss',"Profit")->get();
+        
+            
+        foreach($Getcapital as $capital){
+            $function[]=Basic::where('id', $capital->Society_Id)->first();
+        }
+        return view('pages.all_function', ['Societies' => $function]);
+    
+    }
+    public function all_loss()
+    {
+
+        $Getcapital=capital::select('Society_Id')->where('Profit_loss',"Loss")->get();
+        
+            
+        foreach($Getcapital as $capital){
+            $function[]=Basic::where('id', $capital->Society_Id)->first();
+        }
+        return view('pages.all_function', ['Societies' => $function]);
+    
+    }
+    public function all_class(string $id)
+    {
+
+        $Getcapital=capital::select('Society_Id')->where('Audit_Class',$id)->get();
+        
+            
+        foreach($Getcapital as $capital){
+            $function[]=Basic::where('id', $capital->Society_Id)->first();
+        }
+        return view('pages.all_function', ['Societies' => $function]);
     
     }
 }

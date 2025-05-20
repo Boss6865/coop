@@ -179,20 +179,21 @@
                                     <tr>
                                             <td>{{$total_society}}</td>
                                             <td><a href="/_function"><button type="button" class="btn btn-outline-dark">{{$total_fun}}</button></a></td>
-                                            <td>{{$total_non_fun}}</td>
+                                            <td><a href="/_nonfunction"><button type="button" class="btn btn-outline-dark">{{$total_non_fun}}</button></a></td>
+                                           
                                             {{-- <td>{{$nlqd[$key]}}</td> --}}
                                             <td>{{$total_member}}</td>
                                             <td>{{$total_share}}</td>
                                             <td>{{$total_govt_share}}</td>
                                             <td>{{$total_wcapital}}</td>
                                             <td>{{$total_bturnover}}</td>
-                                            <td>{{$total_profit}}</td>
-                                            <td>{{$total_loss}}</td>
-                                            <td>{{$total_A}}</td>
-                                            <td>{{$total_B}}</td>
-                                            <td>{{$total_C}}</td>
-                                            <td>{{$total_D}}</td>
-                                            
+                                            <td><a href="/_profit"><button type="button" class="btn btn-outline-dark">{{$total_profit}}</button></a></td>
+                                            <td><a href="/_loss"><button type="button" class="btn btn-outline-dark">{{$total_loss}}</button></a></td>
+                                            <td><a href="/_societies_class/A"><button type="button" class="btn btn-outline-dark">{{$total_A}}</button></a></td>
+                                            <td><a href="/_societies_class/B"><button type="button" class="btn btn-outline-dark">{{$total_B}}</button></a></td>
+                                            <td><a href="/_societies_class/C"><button type="button" class="btn btn-outline-dark">{{$total_C}}</button></a></td>
+                                            <td><a href="/_societies_class/D"><button type="button" class="btn btn-outline-dark">{{$total_D}}</button></a></td>
+                                          
                                         </tr>
                                       
                                    

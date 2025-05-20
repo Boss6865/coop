@@ -1,7 +1,7 @@
 @props(['sector'=>"",
 'Datas'=>""
 ])
-<div class="card card-info card-outline mb-4">
+ <div class="container">
 <table class="table table-bordered table-sm">
                
                     
@@ -159,8 +159,9 @@
                       
                   </tbody>
                 </table>
-                <div class="modal-footer">
+               
+</div>
+ <div class="modal-footer">
                     <a href="/pacs/{{$Datas}}"><button type="button" class="btn btn-secondary">Edit</button></a> 
                   
                   </div>
-</div>
