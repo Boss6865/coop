@@ -1011,8 +1011,377 @@ overflow:scroll;
           </div>
           <!-- /.card -->
         </div>
+        <div class="col-6 card-outline mb-4">
+          <!-- Default box -->
+          <div class="card direct-chat direct-chat-warning">
+            <div class="card-header ">
+              <h3 class="card-title ">INVESTMENT</h3>
+              <div class="card-tools">
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-collapse"
+                  title="Collapse"
+                >
+                  <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                  <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-remove"
+                  title="Remove"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="col-md-12">
 
+                <table class="table">
+                  <tbody>
+                    <tr>
+                    <th>Investment of the Society</th>
+                    <td>{{$investment->investment_Status}}</td>
+                    </tr>
+                  </tbody>
+                 
+                </table>
+                <table class="table">
+                   <thead>
+                    <tr>
+                      <th>SL. No</th>
+                      <th>Type of Govt. Loan</th>
+                      <th>Investment Amount</th>
+                    </tr>
+                  </thead>
+                  @php
+                  $jan1=json_decode($investment->loan_investment_amount);
+                  @endphp
+
+                  @foreach(json_decode($investment->type_of_govt_loan) as $key => $data1)
+                  <tr>
+                    <th>{{$key+1}}</th>
+                    <td>{{$data1}}</td>
+                    <td>{{$jan1[$key]}}</td>
+                  </tr>
+                  @endforeach
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/888">Edit</a>
+             
+            </div>
+          </div>
+          
+        </div>
+        @if(!empty($borrowing_datas)) 
+        <div class="col-6 card-outline mb-4">
+          <!-- Default box -->
+          <div class="card direct-chat direct-chat-warning">
+            <div class="card-header ">
+              <h3 class="card-title ">BORROWING</h3>
+              <div class="card-tools">
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-collapse"
+                  title="Collapse"
+                >
+                  <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                  <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-remove"
+                  title="Remove"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="col-md-12">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                    <th>Borrowing From Govt.</th>
+                    <td>{{$borrowing_datas->Govt_loan}}</td>
+                    </tr>
+                  </tbody>
+                 
+                </table>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Sl. No.</th>
+                      <th>Borrowing From</th>
+                      <th>Types</th>
+                      <th>Amount</th>
+                      <th>Refunded</th>
+                      <th>Outstanding</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @php
+                  $jan1=json_decode($borrowing_datas->borrowing_type);
+                  $jan2=json_decode($borrowing_datas->borrowing_amount);
+                  $jan3=json_decode($borrowing_datas->borrowing_refunded);
+                  $jan4=json_decode($borrowing_datas->borrowing_outstanding);
+
+                  @endphp
+
+                  @foreach(json_decode($borrowing_datas->borrowing_from) as $key => $data1)
+                    <tr>
+                      <th>{{$key+1}}</th>
+                      <td>{{$data1}}</td>
+                      <td>{{$jan1[$key]}}</td>
+                      <td>{{$jan2[$key]}}</td>
+                      <td>{{$jan3[$key]}}</td>
+                      <td>{{$jan4[$key]}}</td>
+                     
+                    </tr>
+                  @endforeach
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <th>Bank SB A/C</th>
+                        <td>{{$borrowing_datas->bank_sb_ac}}</td>
+                      </tr>
+                       <tr>
+                        <th>Bank FD A/C</th>
+                        <td>{{$borrowing_datas->bank_fd_ac}}</td>
+                      </tr>
+                       <tr>
+                        <th>Bank RD A/C</th>
+                        <td>{{$borrowing_datas->bank_rd_ac}}</td>
+                      </tr>
+                       <tr>
+                        <th>Bank CD A/C</th>
+                        <td>{{$borrowing_datas->bank_cd_ac}}</td>
+                      </tr>
+                       <tr>
+                        <th>Thrift A/C</th>
+                        <td>{{$borrowing_datas->bank_thrift_ac}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/999">Edit</a>
+             
+            </div>
+          </div>
+        </div>
+        @endif
+        @if(!empty($asset_datas->self_building))
+        <div class="col-6 card-outline mb-4">
+          <!-- Default box -->
+          <div class="card direct-chat direct-chat-warning">
+            <div class="card-header ">
+              <h3 class="card-title ">COMMON ASSET</h3>
+              <div class="card-tools">
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-collapse"
+                  title="Collapse"
+                >
+                  <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                  <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-remove"
+                  title="Remove"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="col-md-12">
+                
+                <table class="table">
+                  <tbody>
+                    <tr>
+                    <th>Own Building</th>
+                    <td>{{$asset_datas->self_building}}</td>
+                    </tr>
+                    <tr>
+                    <th>Rented Building</th>
+                    <td>{{$asset_datas->rented_building}}</td>
+                    </tr>
+                    <tr>
+                    <th>Rent Paid Per Annum</th>
+                    <td>{{$asset_datas->rent_paid}}</td>
+                    </tr>
+                    <tr>
+                    <th>Do You Have Gowdown</th>
+                    <td>{{$asset_datas->godown}}</td>
+                    </tr>
+                    <tr>
+                    <th>Area Of The Godown In Sq.Ft. / Arce</th>
+                    <td>{{$asset_datas->godown_area}}</td>
+                    </tr>
+                    <tr>
+                    <th>Capacity In Mt</th>
+                    <td>{{$asset_datas->godown_capacity}}</td>
+                    </tr>
+                    <tr>
+                    <th>Types of Godown</th>
+                    <td>{{$asset_datas->godown_types}}</td>
+                    </tr>
+                    <tr>
+                    <th>Terms Of Agreement</th>
+                    <td>{{$asset_datas->godown_type_agreement}}</td>
+                    </tr>
+                    <tr>
+                    <th>Amount Paid Per Annum</th>
+                    <td>{{$asset_datas->godown_type_per_annum}}</td>
+                    </tr>
+                    <tr>
+                    <th>Storage Available</th>
+                    <td>{{$asset_datas->storage}}</td>
+                    </tr>
+                    <tr>
+                    <th>Cold Storage Available</th>
+                    <td>{{$asset_datas->storage_cold}}</td>
+                    </tr>
+                    <tr>
+                    <th>Dry Storage Available</th>
+                    <td>{{$asset_datas->storage_dry}}</td>
+                    </tr>
+                    <tr>
+                    <th>Land Available</th>
+                    <td>{{$asset_datas->land}}</td>
+                    </tr>
+                    <tr>
+                    <th>Land Area in Sq. Ft./Acre</th>
+                    <td>{{$asset_datas->Land_area}}</td>
+                    </tr>
+                    <tr>
+                    <th>If Lease Term Agreement and Area in Sq. Ft./Acre</th>
+                    <td>{{$asset_datas->land_area_lease}}</td>
+                    </tr>
+                    <tr>
+                    <th>Furniture Available</th>
+                    <td>{{$asset_datas->furniture}}</td>
+                    </tr>
+                    <tr>
+                    <th>Total Nos. of Furniture</th>
+                    <td>{{$asset_datas->furniture_total}}</td>
+                    </tr>
+                    <tr>
+                    <th>Furniture Value</th>
+                    <td>{{$asset_datas->furniture_amount}}</td>
+                    </tr>
+                    <tr>
+                    <th>Computers Available</th>
+                    <td>{{$asset_datas->computers}}</td>
+                    </tr>
+                    <tr>
+                    <th>Total Nos. of Computers</th>
+                    <td>{{$asset_datas->computers_total}}</td>
+                    </tr>
+                    <tr>
+                    <th>Computers Value</th>
+                    <td>{{$asset_datas->computers_amount}}</td>
+                    </tr>
+                    <tr>
+                    <th>Terms Of Agreement</th>
+                    <td>{{$asset_datas->godown_type_agreement}}</td>
+                    </tr>
+
+                  </tbody>
+                 
+                </table>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Sl. No.</th>
+                      <th>Name of Item</th>
+                      <th>Nos./ Area</th>
+                      <th>it's Value</th>
+                    </tr>
+
+                  </thead>
+                  <tbody>
+                    @php
+                  $jan1=json_decode($asset_datas->item_no);
+                  $jan2=json_decode($asset_datas->item_amount);
+                  
+                  @endphp
+
+                  @foreach(json_decode($asset_datas->item_name) as $key => $data1)
+
+                  <tr>
+                    <th>{{$key+1}}</th>
+                    <td>{{$data1}}</td>
+                    <td>{{$jan1[$key]}}</td>
+                    <td>{{$jan2[$key]}}</td>
+                  </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+                
+                
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/000">Edit</a>
+             
+            </div>
+          </div>
+        </div>
+        @endif
+        @if(!empty($asset_datas))
+        <div class="col-6 card-outline mb-4">
+          <!-- Default box -->
+          <div class="card direct-chat direct-chat-warning">
+            <div class="card-header ">
+              <h3 class="card-title ">BASIC INFORMATION OF THE SOCIETY</h3>
+              <div class="card-tools">
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-collapse"
+                  title="Collapse"
+                >
+                  <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                  <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-tool"
+                  data-lte-toggle="card-remove"
+                  title="Remove"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="col-md-12">
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/100/777">Edit</a>
+             
+            </div>
+          </div>
+        </div>
+        
       </div>
+      @endif
       <!--end::Row-->
 
 

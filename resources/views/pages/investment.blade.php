@@ -10,11 +10,19 @@
                      
                       <form class="needs-validation" action="/investment" method ="POST" novalidate>
                         @csrf
+                          @if(!empty($Datas->Name_of_the_Society))
+                          <input type="hidden" name="Name_of_the_Society" value="{{$Datas->Name_of_the_Society}}">
+                        <input type="hidden" name="Society_Id" value="{{$Datas->id}}">
+                          @else
+                          <input type="hidden" name="Name_of_the_Society" value="{{ Session()->get('Sooos'); }}">
+                          <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}">
+                          @endif
+
                         {{-- <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
                         <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}"> --}}
 
-                        <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.">
-                        <input type="hidden" name="Society_Id" value="51">
+                        {{-- <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.">
+                        <input type="hidden" name="Society_Id" value="51"> --}}
                               {{-- <div class="card-header"><div class="card-title">INVESTMENT OF THE SOCIETY (AMOUNT IN RUPEES) </div></div>
                               <div class="card-body">
                                       <div class="row g-2">
@@ -44,7 +52,7 @@
                             <div style="color:red">{{$message}}</div>
                             @enderror
                             <div class="card-body">
-                              <div class="row g-2" id="newinput">
+                              <div class="row g-2" id="newinput_investment">
                                 <div class="col-md-4">
                                   <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
                                   <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
@@ -69,11 +77,11 @@
                               </div>
                                 <x-column_-input  title="Investment Amount" Name="loan_investment_amount[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-4" inclass="numbers" />
                                
-                                <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                <button type="button" id="rowAdder_investment" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                     
                             </div>
                       </div>
-                              
+                             
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Next</button>
                           </div>
@@ -113,7 +121,7 @@
         });
 
 
-        $("#rowAdder").click(function () {
+        $("#rowAdder_investment").click(function () {
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-4">' +
@@ -136,7 +144,7 @@
                   '<input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
                 '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
 
-            $('#newinput').append(newRowAdd);
+            $('#newinput_investment').append(newRowAdd);
             
         });
 

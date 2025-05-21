@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\capital;
 use App\Models\Basic;
+use App\Models\Borrowing;
+use App\Models\Investement;
 use App\Models\membersociety;
 
 class BasicController extends Controller
@@ -367,8 +370,10 @@ class BasicController extends Controller
         //$data=membersociety::where('Society_Id', $id)->get();
         //$comments =$data->membersociety;
         $data=Basic::find($id);
-        // dd($data);
-        return view('pages.society')->with('Datas',$data);
+        $investment=Investement::where('Society_Id', $id)->first();
+        $borrowing_datas=Borrowing::where('Society_Id', $id)->first();
+        $asset_datas=Asset::where('Society_Id', $id)->first();
+        return view('pages.society')->with(['Datas'=>$data, 'investment'=>$investment, 'borrowing_datas'=>$borrowing_datas,'asset_datas'=>$asset_datas]);
     }
 
     /**
@@ -377,7 +382,11 @@ class BasicController extends Controller
     public function edit(string $id, string $id1)
     {
         $data=Basic::find($id);
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>$id1]);
+        $investment=Investement::where('Society_Id', $id)->first();
+        $borrowing_datas=Borrowing::where('Society_Id', $id)->first();
+        $asset_datas=Asset::where('Society_Id', $id)->first();
+        
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>$id1,'investment_data'=> $investment,'borrowing_datas'=>$borrowing_datas, 'asset_datas'=>$asset_datas]);
     }
 
     /**
@@ -441,8 +450,6 @@ class BasicController extends Controller
            
             $finddata->update($validatedData);
 
-          
-       
         $data=Basic::find($id);
         return view('pages.society')->with('Datas',$data);
     }

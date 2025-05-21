@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basic;
 use Illuminate\Http\Request;
 use App\Models\Investement;
 
@@ -28,7 +29,7 @@ class Investment extends Controller
      */
     public function store(Request $request)
     {
-        $Name_of_the_Society=$request->input('Name_of_society');
+        $Name_of_the_Society=$request->input('Name_of_the_Society');
             $id_of_society=$request->input('Society_Id');
         $validatedData=$request->validate([
            
@@ -39,6 +40,7 @@ class Investment extends Controller
         $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
         $validatedData['loan_investment_amount']=json_encode($request->input('loan_investment_amount'));
         investement::create($validatedData);
+        
 
         return redirect()->action([BorrowingController::class, 'index'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
     }
@@ -48,7 +50,9 @@ class Investment extends Controller
      */
     public function show(string $id)
     {
-        //
+         $data=Basic::find($id);
+        // dd($data);
+        return view('pages.investment')->with(['Datas'=>$data]);
     }
 
     /**
@@ -64,7 +68,23 @@ class Investment extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       
+        $validatedData=$request->validate([
+           
+            
+            'investment_Status'=> 'required|String',
+        ]);
+        
+        $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
+        $validatedData['loan_investment_amount']=json_encode($request->input('loan_investment_amount'));
+
+         $finddata=Investement::where('Society_Id', $id);
+           
+            $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $investment=Investement::where('Society_Id', $id)->first();
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"888",'investment_data'=> $investment,'msg'=>"Successfull Updated!!"]);
+       
     }
 
     /**

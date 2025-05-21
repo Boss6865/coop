@@ -23,13 +23,13 @@
                 <button class="nav-link @if($val==777)  active @endif" id="capital-tab" data-bs-toggle="tab" data-bs-target="#capital" type="button" role="tab" aria-controls="capital" aria-selected="false">CAPITALS</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">INVESTMENT ETC</button>
+                <button class="nav-link @if($val==888)  active @endif" id="investment-tab" data-bs-toggle="tab" data-bs-target="#investment" type="button" role="tab" aria-controls="investment" aria-selected="false">INVESTMENT ETC</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">BORROWING</button>
+                <button class="nav-link @if($val==999)  active @endif" id="borrowing-tab" data-bs-toggle="tab" data-bs-target="#borrowing" type="button" role="tab" aria-controls="borrowing" aria-selected="false">BORROWING</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">COMMON ASSETS</button>
+                <button class="nav-link @if($val==000)  active @endif" id="asset-tab" data-bs-toggle="tab" data-bs-target="#asset" type="button" role="tab" aria-controls="asset" aria-selected="false">COMMON ASSETS</button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">GOVT. LOAN</button>
@@ -888,6 +888,436 @@
           </div>
               </div>
             </div>
+
+                {{-- investment tab start --}}
+                <div class="tab-pane fade @if($val==888) show  active @endif " id="investment" role="tabpanel" aria-labelledby="investment-tab">
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  @if($investment_data!=null)
+                <form class="needs-validation" action="/investment/{{$data->Society_Id}}" method ="POST" novalidate>
+                            @csrf
+                    @method('PUT')
+                          <div class="card-header"><div class="card-title">INVESTMENT
+                           @if(($msg ?? '')!="")
+                          <div style="color:green"><h3> <i class="bi bi-check-circle-fill"></i>{{$msg}}</h3></div>
+                          @endif  
+                          </div></div>
+
+                              <div class="card-header"><div class="card-title">INVESTMENT OF THE SOCIETY 
+                                <select Name="investment_Status" class="form-select target" id="selectid3" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option @if($investment_data->investment_Status=="Yes") selected @endif>Yes</option>
+                                <option @if($investment_data->investment_Status=="No") selected @endif>No</option>
+                             
+                            </select></div></div>
+                            @error('investment_Status')
+                            <div style="color:red">{{$message}}</div>
+                            @enderror
+                            <div class="card-body">
+                              <div class="row g-2" id="newinput_investment">
+                                @if(!empty($investment_data->type_of_govt_loan))
+                                @php
+                                $jan1=json_decode($investment_data->loan_investment_amount);
+                                @endphp
+                                @forEach(json_decode($investment_data->type_of_govt_loan) as $key => $data1)
+                                @if($key==0)
+                                <div class="col-md-4">
+                                  <label for="type_of_govt_loan" class="form-label">Type of Govt. Loan</label>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option @if($data1=="MCAB") selected @endif>MCAB</option>
+                                      <option @if($data1=="MECOFED") selected @endif>MECOFED</option>
+                                      <option @if($data1=="MRTCF") selected @endif>MRTCF</option>
+                                      <option @if($data1=="MSHFCS") selected @endif>MSHFCS</option>
+                                      <option @if($data1=="MSFCF") selected @endif>MSFCF</option>
+                                      <option @if($data1=="MEGHALOOM") selected @endif>MEGHALOOM</option>
+                                      <option @if($data1=="MSD&LCF") selected @endif>MSD&LCF</option>
+                                      <option @if($data1=="MJJSF") selected @endif>MJJSF</option>
+                                      <option @if($data1=="SUB-AREA MARKETING") selected @endif>SUB-AREA MARKETING</option>
+                                      <option @if($data1=="OTHER") selected @endif>OTHER</option>
+                                      
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  @error('type_of_govt_loan')
+                                  <div style="color:red">{{$message}}</div>
+                                  @enderror
+                              </div>
+                                <x-column_-input  title="Investment Amount" Name="loan_investment_amount[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-4" inclass="numbers" val="{{$jan1[$key]}}"/>
+                               
+                                <button type="button" id="rowAdder_investment" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                @else
+                                <div id="row" class="row g-2">
+                                <div class="col-md-4">
+                                <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option @if($data1=="MCAB") selected @endif>MCAB</option>
+                                      <option @if($data1=="MECOFED") selected @endif>MECOFED</option>
+                                      <option @if($data1=="MRTCF") selected @endif>MRTCF</option>
+                                      <option @if($data1=="MSHFCS") selected @endif>MSHFCS</option>
+                                      <option @if($data1=="MSFCF") selected @endif>MSFCF</option>
+                                      <option @if($data1=="MEGHALOOM") selected @endif>MEGHALOOM</option>
+                                      <option @if($data1=="MSD&LCF") selected @endif>MSD&LCF</option>
+                                      <option @if($data1=="MJJSF") selected @endif>MJJSF</option>
+                                      <option @if($data1=="SUB-AREA MARKETING") selected @endif>SUB-AREA MARKETING</option>
+                                      <option @if($data1=="OTHER") selected @endif>OTHER</option>           
+                                  </select></div>
+                                <div class="col-md-4">
+                                <input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan1[$key]}}"> </div>
+                                <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                                @endif
+                                @endforeach
+                                @endif
+                            </div>
+                      </div>
+                              
+                              <div class="card-footer">
+                                <button class="btn btn-info" type="submit">Update</button> 
+                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                          </div>
+                      </form>
+                      @else
+                      <div style="color:red">
+                         <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
+                      <a href="/investment/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      </div>
+                     
+                      @endif
+                </div>
+                </div>
+                {{-- investment tab end --}}
+
+                {{-- borrowing tab start --}}
+                <div class="tab-pane fade @if($val==999) show  active @endif " id="borrowing" role="tabpanel" aria-labelledby="borrowing-tab">
+                <div class="card card-info card-outline mb-4"> 
+                  <!--begin::Header-->
+                  @if($borrowing_datas!=null)
+                     <form class="needs-validation" action="/borrow/{{$data->Society_Id}}" method ="POST" novalidate>
+                        @csrf
+                        @method('PUT')
+                          <div class="card-header"><div class="card-title">INVESTMENT
+                           @if(($msg ?? '')!="")
+                          <div style="color:green"><h3> <i class="bi bi-check-circle-fill"></i>{{$msg}}</h3></div>
+                          @endif  
+                          </div></div>
+
+                        <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. 
+                          <select Name="Govt_loan" class="form-select target" id="selectid3" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option @if($borrowing_datas->Govt_loan=="Yes") selected @endif>Yes</option>
+                          <option @if($borrowing_datas->Govt_loan=="No") selected @endif>No</option>
+                       
+                      </select></div></div>
+                      @error('Govt_loan')
+                      <div style="color:red">{{$message}}</div>
+                      @enderror
+
+                      <div class="card-body">
+                        <div class="row g-2" id="newinput_borrowing">
+                          @if(!empty($borrowing_datas->borrowing_from))
+                                @php
+                                $jan1=json_decode($borrowing_datas->borrowing_type);
+                                $jan2=json_decode($borrowing_datas->borrowing_amount);
+                                $jan3=json_decode($borrowing_datas->borrowing_refunded);
+                                $jan4=json_decode($borrowing_datas->borrowing_outstanding);
+                                @endphp
+                                @forEach(json_decode($borrowing_datas->borrowing_from) as $key => $data1)
+                                @if($key==0)
+                                <div class="col-md-2">
+                                   <label for="borrowing_from" class="form-label">Borrowing from</label>
+                                   <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option @if($data1=="GOVT.") selected @endif>GOVT.</option>
+                                       <option @if($data1=="MCAB LTD.") selected @endif>MCAB LTD.</option>
+                                       <option @if($data1=="OTHER FINANCIAL INSTITUTION") selected @endif>OTHER FINANCIAL INSTITUTION</option>
+                                       <option @if($data1=="OTHER(Mentioned)") selected @endif>OTHER(Mentioned)</option>
+                                   </select>
+                                   @error('borrowing_from')
+                                   <div style="color:red">{{$message}}</div>
+                                   @enderror
+                                   <div class="valid-feedback">Looks good!</div>
+                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
+                               </div>
+                               <x-column_-input  title="Types (Specify)" Name="borrowing_type[]" id="" placeholder="Eg- Loan Name" div_class="col-md-2" val="{{$jan1[$key]}}"/>
+                               <x-column_-input  title="Amount" Name="borrowing_amount[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$jan2[$key]}}"/>
+                               <x-column_-input  title="Refunded" Name="borrowing_refunded[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$jan3[$key]}}"/>
+                               <x-column_-input  title="Outstanding" Name="borrowing_outstanding[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$jan4[$key]}}"/>
+                             
+                                 <button type="button" id="rowAdder_borrowing" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                          @else
+                          <div id="row" class="row g-2">
+                              <div class="col-md-2">
+                              <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
+                                    <option selected disabled value="">Choose...</option>
+                                      <option @if($data1=="GOVT.") selected @endif>GOVT.</option>
+                                       <option @if($data1=="MCAB LTD.") selected @endif>MCAB LTD.</option>
+                                       <option @if($data1=="OTHER FINANCIAL INSTITUTION") selected @endif>OTHER FINANCIAL INSTITUTION</option>
+                                       <option @if($data1=="OTHER(Mentioned)") selected @endif>OTHER(Mentioned)</option>
+
+                                </select></div>
+                            <div class="col-md-2">
+                            <input name="borrowing_type[]" type="text" class="form-control" placeholder="Loan Name" required value="{{$jan1[$key]}}"> </div>
+                            <div class="col-md-2">
+                            <input name="borrowing_amount[]" type="text" class="form-control" placeholder="Eg-20000" required value="{{$jan2[$key]}}"> </div>
+                            <div class="col-md-2">
+                            <input name="borrowing_refunded[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan3[$key]}}"> </div>
+                            <div class="col-md-2">
+                            <input name="borrowing_outstanding[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan4[$key]}}"> </div>
+                            <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+
+                          @endif
+                          @endforeach
+                          @endif
+                      </div>
+                </div>
+                              <div class="card-header"><div class="card-title">TOTAL DEPOSIT</div></div>
+                              <div class="card-body">
+                                      <div class="row g-2">
+                                        <x-column_-input  title="Bank SB A/C" Name="bank_sb_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_sb_ac}}"/>
+                                        <x-column_-input  title="Bank FD A/C" Name="bank_fd_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_fd_ac}}"/>
+                                        <x-column_-input  title="Bank RD A/C" Name="bank_rd_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_rd_ac}}"/>
+                                        <x-column_-input  title="Bank CD A/C" Name="bank_cd_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_cd_ac}}"/>
+                                        <x-column_-input  title="Thrift A/C" Name="bank_thrift_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_thrift_ac}}"/>
+                                        
+                                    </div>
+                              </div>
+                              <div class="card-footer">
+                                <button class="btn btn-info" type="submit">Update</button> 
+                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                          </div>
+                      </form>
+                
+
+                  @else
+                  <div style="color:red">
+                     <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
+                  <a href="/borrow/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                  </div>
+                  @endif
+                </div>
+                </div>
+                {{-- borrowing tab end --}}
+
+
+                 {{-- borrowing tab start --}}
+                <div class="tab-pane fade @if($val==000) show  active @endif " id="asset" role="tabpanel" aria-labelledby="asset-tab">
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  @if($asset_datas!=null)
+
+                  <form class="needs-validation" action="/asset/{{$data->Society_Id}}" method ="POST" novalidate>
+                        @csrf
+                         @method('PUT')
+                         
+                              <div class="card-header"><div class="card-title">OFFICE BUILDINGS
+                                 @if(($msg ?? '')!="")
+                          <div style="color:green"><h3> <i class="bi bi-check-circle-fill"></i>{{$msg}}</h3></div>
+                          @endif 
+                              </div></div>
+                              <div class="card-body">
+                                      <div class="row g-2">
+                                        <div class="col-md-3">
+                                            <label for="" class="form-label">Own Building</label>
+                                            <select Name="self_building" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->self_building=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->self_building=="No") selected @endif>No</option>
+                                             
+                                            </select>
+                                            @error('self_building')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="" class="form-label">Rented Building</label>
+                                            <select Name="rented_building" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->rented_building=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->rented_building=="No") selected @endif>No</option>
+                                             
+                                            </select>
+                                            @error('rented_building')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" id="" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers" val="{{$asset_datas->rent_paid}}"/>
+                                       
+                                    </div>
+                              </div>
+                              <div class="card-header"><div class="card-title">GODOWN</div></div>
+                              <div class="card-body">
+                                      <div class="row g-2">
+                                        <div class="col-md-4">
+                                            <label for="" class="form-label">Do You Have Gowdown</label>
+                                            <select Name="godown" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->godown=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->godown=="No") selected @endif>No</option>
+                                             
+                                            </select>
+                                            @error('godown')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->godown_area}}"/>
+                                        <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_capacity}}"/>
+                                        <div class="col-md-4">
+                                            <label for="" class="form-label">Types</label>
+                                            <select Name="godown_types" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->godown_types=="Owned") selected @endif>Owned</option>
+                                                <option @if($asset_datas->godown_types=="Lease") selected @endif>Lease</option>
+                                                <option @if($asset_datas->godown_types=="Rented") selected @endif>Rented</option>
+                                            </select>
+                                            @error('godown_types')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Terms Of Agreement" Name="godown_type_agreement" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_agreement}}"/>
+                                        <x-column_-input  title="Amount Paid Per Annum" Name="godown_type_per_annum" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_per_annum}}"/>
+                                       
+                                        <div class="col-md-4">
+                                            <label for="" class="form-label">Storage</label>
+                                            <select Name="storage" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->storage=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->storage=="No") selected @endif>No</option>
+                                            </select>
+                                            @error('storage')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Cold" Name="storage_cold" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_cold}}"/>
+                                        <x-column_-input  title="Dry" Name="storage_dry" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_dry}}"/>
+                                       
+                                        <div class="col-md-4">
+                                            <label for="" class="form-label">Land</label>
+                                            <select Name="land" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->land=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->land=="No") selected @endif>No</option>
+                                            </select>
+                                            @error('land')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->Land_area}}"/>
+                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->land_area_lease}}"/>
+                                        <div class="col-md-2">
+                                            <label for="" class="form-label">Furniture</label>
+                                            <select Name="furniture" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->furniture=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->furniture=="No") selected @endif>No</option>
+                                            </select>
+                                            @error('furniture')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Total Nos." Name="furniture_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_total}}"/>
+                                        <x-column_-input  title="Value" Name="furniture_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_amount}}"/>
+                                        <div class="col-md-2">
+                                            <label for="" class="form-label">Computers</label>
+                                            <select Name="computers" class="form-select target" id="selectid3" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option @if($asset_datas->computers=="Yes") selected @endif>Yes</option>
+                                                <option @if($asset_datas->computers=="No") selected @endif>No</option>
+                                            </select>
+                                            @error('computers')
+                                            <div style="color:red">{{$message}}</div>
+                                            @enderror
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                        </div>
+                                        
+                                        <x-column_-input  title="Total Nos." Name="computers_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_total}}"/>
+                                        <x-column_-input  title="Value" Name="computers_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_amount}}"/>
+                                       
+                                    </div>
+                              </div>
+                              <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS )  </div></div>
+                              <div class="card-body">
+                                      <div class="row g-2" id="asset_newinput">
+                                        @if(!empty($asset_datas->item_no))
+                                        @php
+                                        $jan1=json_decode($asset_datas->item_no);
+                                        $jan2=json_decode($asset_datas->item_amount);
+                                       
+                                        @endphp
+                                        @forEach(json_decode($asset_datas->item_name) as $key => $data1)
+                                        @if($key==0)
+                                        <x-column_-input  title="Name of Item" Name="item_name[]" id="" placeholder="Eg-Chairs" div_class="col-md-2" val="{{$data1}}"/>
+                                        <x-column_-input title="Nos./Area" id="" Name="item_no[]"  placeholder="Eg- 10 " div_class="col-md-2" val="{{$jan1[$key]}}"/>
+                                        <x-column_-input title="Value" id="" Name="item_amount[]"  placeholder="Eg-1000" div_class="col-md-2" inclass="numbers" val="{{$jan2[$key]}}"/>
+                                        <button type="button" id="asset_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        @else
+                                        <div id="row" class="row g-2"><div class="col-md-2">
+                                          <input name="item_name[]" type="text" class="form-control" placeholder="Eg-Chair" required value="{{$data1}}"> </div>
+                                          <div class="col-md-2">
+                                          <input name="item_no[]" type="text" class="form-control" placeholder="Eg-10" required value="{{$jan1[$key]}}"> </div>
+                                          <div class="col-md-2">
+                                          <input name="item_amount[]" type="text" class="form-control numbers" placeholder="Eg-1000" required value="{{$jan2[$key]}}"> </div>
+                                          <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+
+                                        @endif
+                                        @endforeach
+                                        @endif
+                                    </div>
+                              </div>
+                              
+                              <div class="card-footer">
+                                <button class="btn btn-info" type="submit">Update</button> 
+                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                          </div>
+                      </form>
+                
+                  @else
+                  <div style="color:red">
+                    <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
+                    <a href="/investment/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                  </div>
+                     
+                  @endif
+                </div>
+                </div>
+                {{-- borrowing tab end --}}
+
+                 {{-- borrowing tab start --}}
+                <div class="tab-pane fade @if($val==888) show  active @endif " id="investment" role="tabpanel" aria-labelledby="investment-tab">
+                <div class="card card-info card-outline mb-4">
+                  <!--begin::Header-->
+                  @if($investment_data!=null)
+                
+                      @else
+                      <div style="color:red">
+                         <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
+                      <a href="/investment/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      </div>
+                     
+                      @endif
+                </div>
+                </div>
+                {{-- borrowing tab end --}}
+            </div>
           </div>
     </div>
 
@@ -1298,3 +1728,108 @@ $( "#Yes1" ).on( "change", function() {
   
   });
   </script>
+{{-- investment script --}}
+  <script>
+        $('.numbers').keyup(function () {
+           this.value = this.value.replace(/[^0-9\.]/g,'');
+        });
+
+
+        $("#rowAdder_investment").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                  '<div class="col-md-4">' +
+                  '<select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>'+
+                        '<option selected disabled value="">Choose...</option>'+
+                        '<option >MCAB</option>'+
+                         '<option>MECOFED</option>'+
+                         '<option>MRTCF</option>'+
+                         '<option>MSHFCS</option>'+
+                         '<option>MSFCF</option>'+
+                         '<option>MEGHALOOM</option>'+
+                         '<option>MSD&LCF</option>'+
+                         '<option>MJJSF</option>'+
+                         '<option>SUB-AREA MARKETING</option>'+
+                         '<option>OTHER</option>'+
+                                
+                   ' </select></div>'+
+               
+                '<div class="col-md-4">' +
+                  '<input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_investment').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#DeleteRow", function () {
+            $(this).parents("#row").remove();
+        });
+     </script>
+     
+     {{-- investment script end --}}
+
+     {{-- borrowing script start Here --}}
+     <script>
+      $('.numbers').keyup(function () {
+         this.value = this.value.replace(/[^0-9\.]/g,'');
+      });
+
+
+
+      $("#rowAdder_borrowing").click(function () {
+            newRowAdd =
+                 '<div id="row" class="row g-2">'+
+                  '<div class="col-md-2">' +
+                  '<select Name="borrowing_from[]" class="form-select target" id="selectid3" required>'+
+                        '<option selected disabled value="">Choose...</option>'+
+                        '<option >GOVT.</option>'+
+                        '<option>MCAB LTD.</option>'+
+                        '<option>OTHER FINANCIAL INSTITUTION</option>'+
+                        '<option>OTHER(Mentioned)</option>'+
+                                
+                   ' </select></div>'+
+                '<div class="col-md-2">' +
+                '<input name="borrowing_type[]" type="text" class="form-control" placeholder="Loan Name" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="borrowing_amount[]" type="text" class="form-control" placeholder="Eg-20000" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="borrowing_refunded[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<div class="col-md-2">' +
+                  '<input name="borrowing_outstanding[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_borrowing').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#DeleteRow", function () {
+            $(this).parents("#row").remove();
+        });
+
+
+
+        // asset script start here
+
+          $("#asset_rowAdder").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2"><div class="col-md-2">' +
+                '<input name="item_name[]" type="text" class="form-control" placeholder="Eg-Chair" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="item_no[]" type="text" class="form-control" placeholder="Eg-10" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="item_amount[]" type="text" class="form-control numbers" placeholder="Eg-1000" required> </div>'+
+                '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#asset_newinput').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#DeleteRow", function () {
+            $(this).parents("#row").remove();
+        });
+
+        // asset script end here
+   </script>
+
+     {{-- borrowing script end here --}}

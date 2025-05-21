@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basic;
 use App\Models\Borrowing;
+use App\Models\Investement;
 use Illuminate\Http\Request;
 
 
@@ -29,7 +31,7 @@ class BorrowingController extends Controller
      */
     public function store(Request $request)
     {
-        $Name_of_the_Society=$request->input('Name_of_society');
+        $Name_of_the_Society=$request->input('Name_of_the_Society');
         $id_of_society=$request->input('Society_Id');
     $validatedData=$request->validate([
        
@@ -65,7 +67,9 @@ class BorrowingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         $data=Basic::find($id);
+        // dd($data);
+        return view('pages.borrow')->with(['Datas'=>$data]);
     }
 
     /**
@@ -73,7 +77,28 @@ class BorrowingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData=$request->validate([
+       
+      
+        'Govt_loan'=> 'required|string',
+        'bank_sb_ac'=> 'nullable|integer',
+        'bank_fd_ac'=> 'nullable|integer',
+        'bank_rd_ac'=> 'nullable|integer',
+        'bank_cd_ac'=>'nullable|integer',
+        'bank_thrift_ac'=> 'nullable|integer',
+         ]);
+         $validatedData['borrowing_from']=json_encode($request->input('borrowing_from'));
+         $validatedData['borrowing_type']=json_encode($request->input('borrowing_type'));
+         $validatedData['borrowing_amount']=json_encode($request->input('borrowing_amount'));
+         $validatedData['borrowing_refunded']=json_encode($request->input('borrowing_refunded'));
+         $validatedData['borrowing_outstanding']=json_encode($request->input('borrowing_outstanding'));
+        $finddata=Borrowing::where('Society_Id', $id);
+        $finddata->update($validatedData);
+        $data=Basic::find($id);
+        $investment=Investement::where('Society_Id', $id)->first();
+        $borrowing=Borrowing::where('Society_Id', $id)->first();
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"999",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'msg'=>"Successfull Updated!!"]);
+
     }
 
     /**
