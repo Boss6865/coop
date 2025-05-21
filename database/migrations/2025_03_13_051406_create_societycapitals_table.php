@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('societycapitals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('Society_Id');
-            $table->integer('Admission_fee');
+            // $table->integer('Admission_fee');
+            $table->decimal('Admission_fee',6,2);
             $table->integer('Share_face_value');
             $table->integer('Authorize_share_capital');
-            $table->integer('Individual_share');
-            $table->integer('Govt_share')->nullable();
+            $table->decimal('Individual_share',20,2);
+            $table->decimal('Govt_share',20,2)->nullable();
             $table->integer('Other_coop_share')->nullable();
             $table->string('Primary_Activity');
             $table->string('Secondary_Activity')->nullable();
@@ -27,9 +28,9 @@ return new class extends Migration
             $table->string('Society_Fair_Price_Shop')->nullable();
             $table->string('Latest_Audit_complete')->nullable();
             $table->string('Audit_Class')->nullable();
-            $table->integer('Working_Capitals')->nullable();
-            $table->integer('Business_turnover')->nullable();
-            $table->integer('Total_reserve')->nullable();
+            $table->decimal('Working_Capitals',20,2)->nullable();
+            $table->decimal('Business_turnover',20,2)->nullable();
+            $table->decimal('Total_reserve',20,2)->nullable();
             $table->string('Profit_loss')->nullable();
             $table->string('Net_Profit_Loss')->nullable();
             $table->integer('Profit');

@@ -74,6 +74,9 @@
                                         </select>
                                         <div class="valid-feedback">Looks good!</div>
                                         <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                         @error('Sector_Type')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <x-column_-input  title="E-MAIL ID of the Society" Name="Email" val="{{$Datas->Email}}" div_class="col-md-4"/>
                                     <x-column_-input  title="PAN NO. of the Society" Name="Pan_of_Society"  val="{{$Datas->Pan_of_Society}}" div_class="col-md-4"/>
@@ -101,6 +104,9 @@
                                               </select>
                                               <div class="valid-feedback">Looks good!</div>
                                               <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                              @error('Location_Area')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           <div class="col-md-3">
                                               <label for="validationCustom02" class="form-label">District</label>
@@ -120,6 +126,9 @@
                                                 </select>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                                @error('District')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           <div class="col-md-3">
                                                 <label for="validationCustom01" class="form-label">C&RD Block</label>
@@ -145,6 +154,9 @@
                                                 </select>
                                                 <div class="valid-feedback">Looks good!</div>
                                               <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                               @error('Block')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           <div class="col-md-3">
                                                 <label for="validationCustom02" class="form-label">Circle</label>
@@ -167,6 +179,9 @@
                                                   </select>
                                                 <div class="valid-feedback">Looks good!</div>
                                                 <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                                 @error('Circle')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                       </div>
                                   </div>  
@@ -197,6 +212,9 @@
                                               </select>
                                               <div class="valid-feedback">Looks good!</div>
                                               <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                              @error('Village')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                          
                                             
@@ -209,34 +227,39 @@
                                       <div class="card-header"><div class="card-title">Area of Operation</div></div>
                                       <div class="card-body">
                                         <div class="row g-2">
-                                          <div class="col-md-5">
-                                            <select class="form-select"  name="Operation_District" id="Select_District1" required>
+                                          <div class="col-md-3">
+                                            <select class="form-select"  name="Operation_District" id="Select_District1" required >
                                               <option selected disabled value="">Choose District</option>
                                               @forEach(json_decode(file_get_contents('assets/District.json')) as $sector)
                                               
                                               <option value="{{ $sector->Dist_Name}}" 
                                                 @if($Datas->Operation_District==$sector->Dist_Name)
-                                                selected
+                                                selected="selected"
                                                 @endif
                                                 
                                                 >{{ $sector->Dist_Name}}</option>
                                               @endforeach
                                             </select>
+                                             @error('Operation_District')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           
-                                          <div class="col-md-6">
+                                          <div class="col-md-8">
                                             @php
                                             $stringArray = explode(",",$Datas->Operation_villages);
                                             @endphp
 
-                                            <select class="form-select js-example-basic-multiple"  name="Operation_villages1" id="js-example-basic-single">
-                                              <option selected disabled value="">Choose Villages</option>
+                                            <select class="form-select js-example-basic-multiple"  name="Operation_villages1" id="js-example-basic-single" multiple="multiple" tyle="width: 100%">
+                                             
                                              @forEach($stringArray as $key => $data)
                                              <option selected>{{ $data}}</option>
                                              @endforeach
                                               
                                             </select>
-                                            
+                                            @error('Operation_villages1')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                             <input type="hidden" name="Operation_villages" id="villageselected" value="{{$Datas->Operation_villages}}"/>
                                           </div>
                                           <div class="col-md-1">
@@ -252,21 +275,24 @@
                                         <div class="row g-2">
                                           <div class="col-md-6">
                                             <label for="validationCustom01" class="form-label">Affiliation</label>
-                                            <select class="form-select" name="Affiliation" id="Affiliation" required">
+                                            <select class="form-select" name="Affiliation" id="Affiliation">
                                               <option selected disabled value="">Choose...</option>
                                               @forEach(json_decode(file_get_contents('assets/affiliation.json')) as $sector)
                             
-                                                <option value="{{ $sector->Affiliation}}" 
-                                                @if($Datas->Affiliation==$sector->Affiliation)
+                                                <option value="{{$sector->Affiliation}}" 
+                                                @if($Datas->Affiliation === $sector->Affiliation)
                                                 selected
                                                 @endif
                                                 
-                                                >{{ $sector->Affiliation}}</option>
+                                                >{{$sector->Affiliation}}</option>
                                            
                                             @endforeach
                                             </select>
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                            @error('Affiliation')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           
                                           <div class="col-md-6">
@@ -280,6 +306,9 @@
                                               </select>
                                               <div class="valid-feedback">Looks good!</div>
                                               <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                               @error('Status')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                           </div>
                                           
                                         </div>
@@ -319,6 +348,9 @@
                                                        </label>
                                                        <div class="valid-feedback">Looks good!</div>
                                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                                       @error('Status')
+                                          <div style="color:red">{{$message}}</div>
+                                        @enderror
                                                    </div>
 
 
@@ -446,7 +478,7 @@
                         <!--end::Col-->
                          
                      <!--begin::Col-->
-                     <x-column_-input Name="Trained_Female" title="Trained Female" id="validationCustom09" placeholder="eg.2" div_class="col-md-3" inclass="numbers" val="{{$data->Trained_Female}}"/>
+                     <x-column_-input Name="Trained_Female" title="Trained Female" id="" placeholder="eg.2" div_class="col-md-3" inclass="numbers" val="{{$data->Trained_Female}}"/>
                      
                         <!--end::Col-->
                       
@@ -524,20 +556,20 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->President_Name}}"/>
+                                    <x-column_-input  title="Name" Name="President_Name" id="" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->President_Name}}"/>
                                     <x-column_-input  title="Age/Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->President_DOB}}"/>
-                                    <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->President_Contact}}"/>
-                                    <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->President_Email}}"/>
+                                    <x-column_-input  title="Contact No." Name="President_Contact" id="" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->President_Contact}}"/>
+                                    <x-column_-input  title="Email" Name="President_Email" id="" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->President_Email}}"/>
       
                                   </div>
                           </div>
                           <div class="card-header"><div class="card-title">DETAILS OF THE SECRETARY</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->Secretary_Name}}"/>
+                                    <x-column_-input  title="Name" Name="Secretary_Name" id="" placeholder="Eg-John-Deo" div_class="col-md-3" val="{{$data->Secretary_Name}}"/>
                                     <x-column_-input  title="Age/Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3" val="{{$data->Secretary_DOB}}"/>
-                                    <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->Secretary_Contact}}"/>
-                                    <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->Secretary_Email}}"/>
+                                    <x-column_-input  title="Contact No." Name="Secretary_Contact" id="" placeholder="Eg-9856678090" div_class="col-md-3" val="{{$data->Secretary_Contact}}"/>
+                                    <x-column_-input  title="Email" Name="Secretary_Email" id="" placeholder="Eg-johndeo@email.com" div_class="col-md-3" val="{{$data->Secretary_Email}}"/>
                                       
                                   </div>
                           </div>
@@ -615,9 +647,9 @@
                           
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Admission_fee',$data->Admission_fee)"/>
-                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Share_face_value',$data->Share_face_value)"/>
-                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Authorize_share_capital"/>
+                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="" placeholder="Eg-100" div_class="col-md-4" :val="old('Admission_fee',$data->Admission_fee)"/>
+                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="" placeholder="Eg-100" div_class="col-md-4" :val="old('Share_face_value',$data->Share_face_value)"/>
+                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Authorize_share_capital"/>
                                     
                                       
                                   </div>
@@ -627,9 +659,9 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Individual" Name="Individual_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="old('Individual_share',$data->Individual_share)"/>
-                                    <x-column_-input  title="Govt." Name="Govt_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Govt_share"/>
-                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Other_coop_share"/>
+                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4" :val="old('Individual_share',$data->Individual_share)"/>
+                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Govt_share"/>
+                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Other_coop_share"/>
                                     
                                   </div>
                           </div>
@@ -638,9 +670,9 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
-                                    <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Secondary_Activity"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/> --}}
+                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
+                                    <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Secondary_Activity"/>
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/> --}}
                                     
                                         <div class="col-md-3">
                                           <label for="validationCustom01" class="form-label">Primary Activitiy</label>
@@ -648,7 +680,7 @@
                                             <option selected disabled value="">Choose...</option>
                                             @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
-                                              <option @if($data->Primary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                              <option @if(ucfirst($data->Primary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
                                               
                                              @endforeach
                                           </select>
@@ -661,7 +693,7 @@
                                             <option selected disabled value="">Choose...</option>
                                             @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
-                                            <option @if($data->Secondary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                            <option @if(ucfirst($data->Secondary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
                                             
                                            @endforeach
                                         </select>
@@ -674,7 +706,7 @@
                                       <option selected disabled value="">Choose...</option>
                                       @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
-                                      <option @if($data->Tertiary_Activity==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
+                                      <option @if(ucfirst($data->Tertiary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
                                       
                                      @endforeach
                                           
@@ -682,7 +714,7 @@
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                               </div>
-                                    <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Other_Activity"/>
+                                    <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Other_Activity"/>
 
                                   </div>
                           </div>
@@ -691,12 +723,24 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Society_Fair_Price_Shop"/>
-                                    {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/> --}}
+                                    {{-- <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Society_Fair_Price_Shop"/> --}}
+                                    <div class="col-md-3">
+                                      <label for="" class="form-label">Society Undertaken Pds (Fair Price Shop)</label>
+                                      <select Name="Society_Fair_Price_Shop" class="form-select target" id="selectid3" required>
+                                          <option selected disabled value="">Choose...</option>
+                                          <option @if($data->Society_Fair_Price_Shop=="Yes") selected @endif>Yes</option>
+                                          <option @if($data->Society_Fair_Price_Shop=="No") selected @endif>No</option>
+                                         
+                                      </select>
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  </div>
+                                    
+                                      {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/> --}}
                                       <div class="col-md-3">
                                         <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
                                         <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
-                                            <option selected disabled value="">Choose...</option>
+                                            <option selected disabled value="{{$data->Latest_Audit_complete}}">{{$data->Latest_Audit_complete}}</option>
                                             
                                            
                                         </select>
@@ -716,16 +760,16 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Working_Capitals"/>
+                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Working_Capitals"/>
                                         <!--end::Col-->
                                       
                           </div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Business Turnover" Name="Business_turnover" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Business_turnover"/>
-                                    <x-column_-input  title="Total Reserve" Name="Total_reserve" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Total_reserve"/>
-                                    <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Profit_loss"/>
-                                    <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3" :val="$data->Net_Profit_Loss"/>
+                                    <x-column_-input  title="Business Turnover" Name="Business_turnover" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Business_turnover"/>
+                                    <x-column_-input  title="Total Reserve" Name="Total_reserve" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Total_reserve"/>
+                                    <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Profit_loss"/>
+                                    <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Net_Profit_Loss"/>
                                       
                                   </div>
                           </div>
@@ -733,8 +777,8 @@
                           <div class="card-header"><div class="card-title">ACCUMULATED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Profit" Name="Profit" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Profit"/>
-                                    <x-column_-input  title="Loss" Name="Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Loss"/>
+                                    <x-column_-input  title="Profit" Name="Profit" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Profit"/>
+                                    <x-column_-input  title="Loss" Name="Loss" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Loss"/>
                                       
                                   </div>
                           </div>
@@ -791,11 +835,11 @@
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A GRANT</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
+                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
                                     <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
-                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
-                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
-                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Release"/>
+                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
+                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Release"/>
                                     <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
 
                                   </div>
@@ -805,12 +849,12 @@
                           <div class="card-body">
                                   <div class="row g-2">
 
-                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Type"/>
+                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Type"/>
                                     <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Year"/>
-                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Agencies_Name"/>
-                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
-                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
-                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Subsidies"/>
+                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Agencies_Name"/>
+                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
+                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
+                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Subsidies"/>
 
                                   </div>
                           </div>
@@ -819,9 +863,9 @@
                           <div class="card-header"><div class="card-title">REFUND OF AID SANCTIONED AS  LOAN</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Sanctioned"/>
-                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Refunded"/>
-                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Outstanding"/>
+                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Sanctioned"/>
+                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Refunded"/>
+                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Outstanding"/>
 
                                   </div>
                           </div>
@@ -830,7 +874,7 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                     <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
                                       
                                       
                                   </div>
@@ -852,6 +896,31 @@
 
 
     <script type="text/javascript">
+    $(document).ready(function() { 
+    $("#js-example-basic-single").select2({ width: 'resolve' });  
+    
+    var Dist_name=$('#Select_District1').val();
+  
+      //console.log(Dist_name);
+      $.getJSON("/assets/Dist_block.json", function(data){
+        
+        var data_filter = data.filter(element => element.Dist_Name ==Dist_name);
+              
+              for(i=0;i<data_filter.length;i++)
+              {
+                //$('#js-example-basic-single').append($('<optgroup>').text(data_filter[i].Block_Name));
+                //console.log(data_filter[i].Block_Name);
+                var bname=data_filter[i].Block_Name;
+                
+                
+                multiply(bname);
+              }
+        
+          }).fail(function(){
+          console.log("Fail to load Rural District");
+      });
+
+});
       $("#rowAdder").click(function () {
           newRowAdd =
               '<div id="row" class="row g-2"><div class="col-md-4">' +
@@ -919,7 +988,7 @@
     $( "#Select_Area" ).on( "change", function() {
       var Area= $( "#Select_Area" ).val();
       if(Area=="Rural"){
-        $.getJSON("../assets/District.json", function(data){
+        $.getJSON("/assets/District.json", function(data){
           $("#Select_District").empty().append($('<option>', {
                   disabled: true,
                   value:"",
@@ -936,7 +1005,7 @@
         });
         
       } else if(Area=="Urban"){
-        $.getJSON("../assets/Urban_District.json", function(data){
+        $.getJSON("/assets/Urban_District.json", function(data){
                 $("#Select_District").empty().append($('<option>', {
                   disabled: true,
                   value:"",
@@ -964,7 +1033,7 @@
 $( "#Select_District" ).on( "change", function() {
       var Area= $( "#Select_District" ).val();
 
-        $.getJSON("../assets/Dist_block.json", function(data){
+        $.getJSON("/assets/Dist_block.json", function(data){
           var data_filter = data.filter(element => element.Dist_Name ==Area);
          
 
@@ -982,7 +1051,7 @@ $( "#Select_District" ).on( "change", function() {
             }).fail(function(){
             console.log("Fail to load Rural District");
         });
-        $.getJSON("../assets/Circle_Name.json", function(data){
+        $.getJSON("/assets/Circle_Name.json", function(data){
           
           var data_filter = data.filter(element => element.Dist_Name ==Area);
          
@@ -1018,7 +1087,7 @@ $( "#Select_District" ).on( "change", function() {
 $( "#Select_Block" ).on( "change", function() {
       var Area= $( "#Select_Block" ).val();
 
-        $.getJSON("../assets/Dist_Block_Vill.json", function(data){
+        $.getJSON("/assets/Dist_Block_Vill.json", function(data){
           var data_filter = data.filter(element => element.Block_Name ==Area);
          //console.log(data_filter);
             
@@ -1061,7 +1130,7 @@ $('#Select_District1').on("change",function() {
   $("#js-example-basic-single").empty();
   $("#GetTotal").val("");
       //console.log(Dist_name);
-      $.getJSON("../assets/Dist_block.json", function(data){
+      $.getJSON("/assets/Dist_block.json", function(data){
         
         var data_filter = data.filter(element => element.Dist_Name ==Dist_name);
               
@@ -1084,7 +1153,7 @@ $('#Select_District1').on("change",function() {
 
 
   function multiply(bname) {
-    $.getJSON("../assets/Dist_Block_Vill.json", function(data2){
+    $.getJSON("/assets/Dist_Block_Vill.json", function(data2){
                   //console.log(bname);
                         var $optGroup = '<optgroup label ='+bname+'>';
                         var data_filter2 = data2.filter(element => element.Block_Name ==bname);

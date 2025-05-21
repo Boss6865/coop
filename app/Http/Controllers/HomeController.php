@@ -226,7 +226,7 @@ class HomeController extends Controller
             'Pincode'=>'required|string',
             'Operation_District'=>'required|string',
             'Operation_villages'=> 'required|string',
-            'Affiliation'=>'required|string',
+            'Affiliation'=>'nullable|string',
             'Status'=>'required|string',
             'Years_of_Non_function'=>'nullable|string',
             'Section_Conducted'=> 'nullable|string',

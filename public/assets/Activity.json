@@ -15,7 +15,7 @@
         "Activity": "Dairy"
     },
     {
-        "Activity": "Farming / Plantation (Agriculture / Horticulture)"
+        "Activity": "Farming"
     },
     {
         "Activity": "Fisheries"
@@ -30,15 +30,21 @@
         "Activity": "Transport"
     },
     {
-        "Activity": "Livestock (Piggery / Poultry / Goatery / Cattle Farming / Duckery /  etc)"
+        "Activity": "Livestock"
     },
     {
-        "Activity": "Tourism/ Conservation Research & Development (Mariang Jingkieng Jri)"
+        "Activity": "Tourism"
     },
     {
         "Activity": "Industrial"
     },
     {
         "Activity": "Thrift & Credit"
+    },
+    {
+        "Activity": "Jingkiengjri"
+    },
+    {
+        "Activity": "Other"
     }
 ]
