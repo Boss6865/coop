@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Activitycontroller;
+use App\Http\Controllers\AdminloginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasicController;
@@ -67,6 +68,7 @@ Route::get('/_societies_class/{id}',[SectorController::class,'all_class']);
 Route::get('/details/{id}',[BasicController::class,'Details_view']);
 Route::get('/District_View',[BasicController::class,'View_2']);
 Route::get('/register',[RegisterController::class,'index']);
+Route::get('/admin',[AdminloginController::class,'login']);
 Route::get('/login',[LoginController::class,'login']);
 Route::post('/auth',[LoginController::class,'authenticate']);
 Route::post('/register',[RegisterController::class,'store']);
