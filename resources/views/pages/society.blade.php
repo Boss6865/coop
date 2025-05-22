@@ -1011,6 +1011,7 @@ overflow:scroll;
           </div>
           <!-- /.card -->
         </div>
+        @if(!empty($investment))
         <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
@@ -1077,6 +1078,7 @@ overflow:scroll;
           </div>
           
         </div>
+        @endif
         @if(!empty($borrowing_datas)) 
         <div class="col-6 card-outline mb-4">
           <!-- Default box -->
@@ -1343,7 +1345,7 @@ overflow:scroll;
           </div>
         </div>
         @endif
-        @if(!empty($asset_datas))
+        @if(!empty($loan_datas))
         <div class="col-6 card-outline mb-4">
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
@@ -1371,11 +1373,52 @@ overflow:scroll;
             </div>
             <div class="card-body">
               <div class="col-md-12">
+                <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Any Government Loan</th>
+                    <td>{{$loan_datas->any_Govt_loan}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table">
+                <thead>
+                  <tr>
+                  <th>Sl. Nos.</th>
+                  <th>Type of Govt. Loan</th>
+                  <th>Loan Issue Year</th>
+                  <th>Loan Sanctioned Amount</th>
+                  <th>Outstanding Principal Amount</th>
+                  <th>Outstanding Interest Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   @php
+                  $jan1=json_decode($loan_datas->Loan_issue_year);
+                  $jan2=json_decode($loan_datas->Loan_sanctioned_amount);
+                  $jan3=json_decode($loan_datas->Outstanding_Principal_amount);
+                  $jan4=json_decode($loan_datas->Outstanding_interest_amount);
+                  
+                  @endphp
+
+                  @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
+                  <tr>
+                    <th>{{$key+1}}</th>
+                    <td>{{$data1}}</td>
+                    <td>{{$jan1[$key]}}</td>
+                    <td>{{$jan2[$key]}}</td>
+                    <td>{{$jan3[$key]}}</td>
+                    <td>{{$jan4[$key]}}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+
+              </table>
               </div>
             </div>
             <div class="card-footer">
-              <a class="btn btn-primary btn-sm" href="/edit/100/777">Edit</a>
-             
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/111">Edit</a>
+              
             </div>
           </div>
         </div>

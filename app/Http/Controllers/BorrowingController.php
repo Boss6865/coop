@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\Basic;
 use App\Models\Borrowing;
 use App\Models\Investement;
+use App\Models\Loan;
 use Illuminate\Http\Request;
 
 
@@ -97,7 +99,9 @@ class BorrowingController extends Controller
         $data=Basic::find($id);
         $investment=Investement::where('Society_Id', $id)->first();
         $borrowing=Borrowing::where('Society_Id', $id)->first();
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"999",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'msg'=>"Successfull Updated!!"]);
+        $asset_datas=Asset::where('Society_Id', $id)->first();
+        $loan_datas=Loan::where('Society_Id', $id)->first();
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"000",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
 
     }
 

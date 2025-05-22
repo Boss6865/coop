@@ -10,6 +10,7 @@ use App\Models\capital;
 use App\Models\Basic;
 use App\Models\Borrowing;
 use App\Models\Investement;
+use App\Models\Loan;
 use App\Models\membersociety;
 
 class BasicController extends Controller
@@ -373,7 +374,8 @@ class BasicController extends Controller
         $investment=Investement::where('Society_Id', $id)->first();
         $borrowing_datas=Borrowing::where('Society_Id', $id)->first();
         $asset_datas=Asset::where('Society_Id', $id)->first();
-        return view('pages.society')->with(['Datas'=>$data, 'investment'=>$investment, 'borrowing_datas'=>$borrowing_datas,'asset_datas'=>$asset_datas]);
+         $loan_datas=Loan::where('Society_Id', $id)->first();
+        return view('pages.society')->with(['Datas'=>$data, 'investment'=>$investment, 'borrowing_datas'=>$borrowing_datas,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas]);
     }
 
     /**
@@ -385,8 +387,8 @@ class BasicController extends Controller
         $investment=Investement::where('Society_Id', $id)->first();
         $borrowing_datas=Borrowing::where('Society_Id', $id)->first();
         $asset_datas=Asset::where('Society_Id', $id)->first();
-        
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>$id1,'investment_data'=> $investment,'borrowing_datas'=>$borrowing_datas, 'asset_datas'=>$asset_datas]);
+        $loan_datas=Loan::where('Society_Id', $id)->first();
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>$id1,'investment_data'=> $investment,'borrowing_datas'=>$borrowing_datas, 'asset_datas'=>$asset_datas, 'loan_datas'=>$loan_datas]);
     }
 
     /**

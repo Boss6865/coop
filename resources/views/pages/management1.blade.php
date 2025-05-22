@@ -145,8 +145,8 @@
                 <!--End::Body--> 
                     <!--begin::Footer-->
                 <div class="card-footer">
-                      <button class="btn btn-info" type="submit">Previous</button>
-                      <button class="btn btn-info" type="submit">Next</button>
+                      
+                      <button class="btn btn-info" type="submit">Save</button>
                 </div>
                     <!--end::Footer-->
         </form>

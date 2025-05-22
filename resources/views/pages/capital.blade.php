@@ -10,8 +10,16 @@
                  
                   <form class="needs-validation" action="/letview" method ="POST" novalidate>
                     @csrf
-                    <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                    <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+
+                     @if(!empty($Datas->Name_of_the_Society))
+                          <input type="hidden" name="Society_Id" value="{{$Datas->Name_of_the_Society}}">
+                        <input type="hidden" name="id_of_society252" value="{{$Datas->id}}">
+                          @else
+                          <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
+                          <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}">
+                          @endif
+                    {{-- <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
+                    <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}"> --}}
                           <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
                           <div class="card-body">
                                   <div class="row g-2">

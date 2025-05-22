@@ -10,9 +10,15 @@
                  
             <form class="needs-validation" action="/capitals" method ="POST"  novalidate>
               @csrf
-                   
-                    <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
-                    <input type="hidden" name="id_of_society2525" value="{{ Session()->get('id_key'); }}">
+                   @if(!empty($Datas->Name_of_the_Society))
+                          <input type="hidden" name="Name_of_society2525" value="{{$Datas->Name_of_the_Society}}">
+                        <input type="hidden" name="id_of_society2525" value="{{$Datas->id}}">
+                          @else
+                          <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
+                          <input type="hidden" name="id_of_society2525" value="{{ Session()->get('id_key'); }}">
+                          @endif
+                    {{-- <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
+                    <input type="hidden" name="id_of_society2525" value="{{ Session()->get('id_key'); }}"> --}}
                     <div class="card-header"><div class="card-title">DETAILS OF THE CHAIRMAN/PRESIDENT</div></div>
                     <div class="card-body">
                             <div class="row g-2">
@@ -45,7 +51,7 @@
                             </div>
                     </div>
                     <div class="card-footer">
-                      <button class="btn btn-info" type="submit">Submit form</button>
+                      <button class="btn btn-info" type="submit">Save</button>
                 </div>
             </form>
                   <!--end::Form-->

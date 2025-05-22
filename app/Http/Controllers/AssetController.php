@@ -6,6 +6,7 @@ use App\Models\Asset;
 use App\Models\Basic;
 use App\Models\Borrowing;
 use App\Models\Investement;
+use App\Models\Loan;
 use Illuminate\Http\Request;
 
 class AssetController extends Controller
@@ -82,7 +83,9 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       $data=Basic::find($id);
+        // dd($data);
+        return view('pages.asset')->with(['Datas'=>$data]);
     }
 
     /**
@@ -122,10 +125,11 @@ class AssetController extends Controller
         $finddata=Asset::where('Society_Id', $id);
         $finddata->update($validatedData);
         $data=Basic::find($id);
-        $investment=Investement::where('Society_Id', $id)->first();
+         $investment=Investement::where('Society_Id', $id)->first();
         $borrowing=Borrowing::where('Society_Id', $id)->first();
         $asset_datas=Asset::where('Society_Id', $id)->first();
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"000",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'msg'=>"Successfull Updated!!"]);
+        $loan_datas=Loan::where('Society_Id', $id)->first();
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"000",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
     }
 
     /**

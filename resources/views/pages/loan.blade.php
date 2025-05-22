@@ -6,16 +6,18 @@
       <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <div class="card card-info card-outline mb-4">
                       
-    
+                        <div class="card-header"><div class="card-title">GOVERNMENT LOAN</div></div>
                      
                       <form class="needs-validation" action="/loan" method ="POST" novalidate>
                         @csrf
-                         {{-- <input type="hidden" name="Name_of_society" value="{{ Session()->get('Sooos'); }}">
-                        <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}"> --}}
-
-                        <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.}}">
-                        <input type="hidden" name="Society_Id" value="51">
-                              <div class="card-header"><div class="card-title">GOVERNMENT LOAN (AMOUNT IN RUPEES) 
+                         @if(!empty($Datas->Name_of_the_Society))
+                          <input type="hidden" name="Name_of_the_Society" value="{{$Datas->Name_of_the_Society}}">
+                        <input type="hidden" name="Society_Id" value="{{$Datas->id}}">
+                          @else
+                          <input type="hidden" name="Name_of_the_Society" value="{{ Session()->get('Sooos'); }}">
+                          <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}">
+                          @endif
+                              <div class="card-header"><div class="card-title">Any Govt. Loans
                                 <select Name="any_Govt_loan" class="form-select target" id="selectid3" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option >Yes</option>
@@ -26,9 +28,9 @@
                             <div style="color:red">{{$message}}</div>
                             @enderror
                             <div class="card-body">
-                              <div class="row g-2" id="newinput">
+                              <div class="row g-2" id="loan_newinput">
                                 <div class="col-md-2">
-                                  <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
+                                  <label for="" class="form-label">Type of Govt. Loan</label>
                                   <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
@@ -52,11 +54,11 @@
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                               </div>
-                                <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-2"/>
-                                <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="validationCustom09" placeholder="Eg-20000" div_class="col-md-2"/>
-                                <x-column_-input title="Outstanding Principal Amount" id="validationCustom10" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2"/>
-                                <x-column_-input title="Outstanding Interest Amount" id="validationCustom10" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers"/>
-                                <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="" placeholder="Eg-2025" div_class="col-md-2"/>
+                                <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="" placeholder="Eg-20000" div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Principal Amount" id="" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Interest Amount" id="" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers"/>
+                                <button type="button" id="loan_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                     
                             </div>
                       </div>
@@ -103,11 +105,11 @@
       });
 
 
-      $("#rowAdder").click(function () {
+      $("#loan_rowAdder").click(function () {
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-2">' +
-                  '<select Name="anyloan[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >GODOWN</option>'+
                         '<option>FURNITURE & FIXTURES</option>'+
@@ -133,7 +135,7 @@
                   '<input name="Outstanding_interest_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
                 '<button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
 
-            $('#newinput').append(newRowAdd);
+            $('#loan_newinput').append(newRowAdd);
             
         });
 

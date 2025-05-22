@@ -34,6 +34,19 @@ class HomeController extends Controller
     {
         return view('pages.capital');
     }
+    public function capital_show(string $id)
+    {
+         $data=Basic::find($id);
+        // dd($data);
+        return view('pages.capital')->with(['Datas'=>$data]);
+    }
+
+    public function management_2_edit(string $id)
+    {
+         $data=Basic::find($id);
+        // dd($data);
+        return view('pages.management2')->with(['Datas'=>$data]);
+    }
    
     public function store(Request $request): RedirectResponse
     {

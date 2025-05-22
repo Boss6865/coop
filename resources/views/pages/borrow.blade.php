@@ -10,7 +10,7 @@
                      
                       <form class="needs-validation" action="/borrow" method ="POST" novalidate>
                         @csrf
-                        @if(!empty($Datas->Name_of_the_Society))
+                         @if(!empty($Datas->Name_of_the_Society))
                           <input type="hidden" name="Name_of_the_Society" value="{{$Datas->Name_of_the_Society}}">
                         <input type="hidden" name="Society_Id" value="{{$Datas->id}}">
                           @else
