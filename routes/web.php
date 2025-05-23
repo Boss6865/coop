@@ -31,6 +31,7 @@ use App\Http\Controllers\SectorController;
 use App\Http\Controllers\ThrifandcreditController;
 use App\Http\Controllers\TourismController;
 use App\Http\Controllers\TransportController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -70,11 +71,13 @@ Route::get('/District_View',[BasicController::class,'View_2']);
 Route::get('/register',[RegisterController::class,'index']);
 Route::get('/admin',[AdminloginController::class,'login']);
 Route::get('/login',[LoginController::class,'login']);
-Route::post('/auth',[LoginController::class,'authenticate']);
+Route::post('/auth_district',[LoginController::class,'authenticate']);
+Route::post('/auth',[AdminloginController::class,'authenticate']);
 Route::post('/register',[RegisterController::class,'store']);
 Route::get('/district_homes',[LoginController::class,'index']);
 Route::get('/societylist',[BasicController::class,'View_3']);
 Route::post('/logout',[LoginController::class,'logout']);
+Route::post('/admin_logout',[AdminloginController::class,'logout']);
 Route::get('/investment',[Investment::class,'index']);
 Route::get('/investment/{id}',[Investment::class,'show']);
 Route::get('/borrow',[BorrowingController::class,'index']);

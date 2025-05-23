@@ -184,8 +184,14 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
+                  
+                  <form action="/admin_logout" method="POST">
+                    @csrf
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                  <button class="btn btn-default btn-flat float-end">
+                  Sign out
+                </button>
+                  </form>
                 </li>
                 <!--end::Menu Footer-->
               </ul>

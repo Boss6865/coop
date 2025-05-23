@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AdminloginController extends Controller
@@ -11,12 +14,36 @@ class AdminloginController extends Controller
      */
     public function index()
     {
-        //
+         return view('pages.home');
     }
 
     public function login(){
         return view('auth.admin');
     }
+     public function authenticate(Request $request):RedirectResponse {
+        $credentials=$request->validate([
+            'email'=>'required|string|max:100',
+            'password'=>'required|string',
+        ]);
+        // dd( $credentials);
+       
+        if(Auth::attempt($credentials)){
+            
+            $request->session()->regenerate();
+           
+            return redirect()->action([HomeController::class, 'index']);
+        }
+
+        return back()->withErrors(['email'=> 'The provided Credentials do not match our records'])->onlyInput('email');
+    }
+
+     public function logout(Request $request):RedirectResponse {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->action([AdminloginController::class, 'login']);
+    }
+
 
     /**
      * Show the form for creating a new resource.

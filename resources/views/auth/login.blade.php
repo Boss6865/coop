@@ -36,7 +36,7 @@
         </div>
         <div class="card-body login-card-body">
        
-          <form  action="/auth" method="post" >
+          <form  action="/auth_district" method="post" >
             @csrf
             <div class="input-group mb-3">
               <input type="email" name="email" class="form-control" placeholder="Email"  required value="{{old('email')}}"/>

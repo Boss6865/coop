@@ -8,10 +8,16 @@ use App\Models\Basic;
 use App\Models\membersociety;
 use App\Models\committee;
 
+
+
 class HomeController extends Controller
 {
     public function index()
     {
+        // if(!Auth::check()){
+        //    
+        //     return redirect()->action([AdminloginController::class, 'login']);
+        // }
         return view('pages.home');
     }
 

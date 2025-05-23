@@ -33,20 +33,24 @@
     <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image" style="width:7%">
    
    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-     <form class="form-signin w-110">
-   
+     <form class="form-signin w-110" action="/auth" method="post">
+      @csrf
       <h1 class="h3 mb-3 font-weight-normal text-center text-success-emphasis">ADMIN</h1>
-      <label for="inputEmail" class="sr-only">Username</label>
-      <input type="text" id="inputEmail" class="form-control mb-4 w-150" placeholder="Username" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        {{-- <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label> --}}
-        
+      <label for="email" class="sr-only">Username</label>
+      <input type="text" name="email" id="email" class="form-control mb-4 w-150" placeholder="Username" required autofocus>
+      
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password" required>
+     
+      <div class="checkbox mb-3 vertical-center">
+        @error('email')
+            <div class="input-group mb-3">
+            <div style="color:black"><h6>{{$message}}</h6></div>
+            </div>
+            @enderror
+        <button class="btn btn-lg btn-secondary" type="submit">Sign in</button>
       </div>
-      <button class="btn btn-lg btn-secondary" type="submit">Sign in</button>
+      
       <p class="mt-5 mb-3 text-center text-dark-emphasis">&copy; 2025-2026</p>
     </form>
    </div>
