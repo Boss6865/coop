@@ -25,6 +25,7 @@ use App\Models\Thrifncredit;
 use App\Models\Tourism;
 use App\Models\Transport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SectorController extends Controller
 {
@@ -57,6 +58,10 @@ class SectorController extends Controller
      */
     public function show(string $id, string $id2)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Districts=json_decode(file_get_contents('assets/District.json'));
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
         
@@ -91,6 +96,10 @@ class SectorController extends Controller
     }
     public function sector_with_details(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Districts=json_decode(file_get_contents('assets/District.json'));
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
         $sector_name= array_column($Sectors, 'Sector_Name');
@@ -169,6 +178,10 @@ class SectorController extends Controller
     
     public function Sector_view()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         // $users = DB::table('_societydata')->get();
         $Districts=json_decode(file_get_contents('assets/District.json'));
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
@@ -186,6 +199,10 @@ class SectorController extends Controller
     }
     public function Sector_activity()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         // $users = DB::table('_societydata')->get();
         $users=Basic::all();
         //  dd($users);
@@ -194,6 +211,10 @@ class SectorController extends Controller
 
      public function View_sector_activity(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Basic_info=Basic::find($id);
         $activities=capital::where('Society_Id', $id)->first();
         if($activities->Primary_Activity=="fishery"){
@@ -350,7 +371,10 @@ class SectorController extends Controller
 
     public function all_sector()
     {
-
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
         
          foreach($Sectors as $sector){
@@ -414,7 +438,10 @@ class SectorController extends Controller
     }
     public function all_function_societies()
     {
-  
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
             
                 $function=Basic::where('Status', "Function")->get();
             
@@ -425,7 +452,10 @@ class SectorController extends Controller
 
     public function all_non_function_societies()
     {
-
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
                 $function=Basic::where('Status', "Non-function")->get();
             
         //   dd( $function);
@@ -434,6 +464,10 @@ class SectorController extends Controller
     }
     public function all_profit()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
 
         $Getcapital=capital::select('Society_Id')->where('Profit_loss',"Profit")->get();
         
@@ -446,7 +480,10 @@ class SectorController extends Controller
     }
     public function all_loss()
     {
-
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Getcapital=capital::select('Society_Id')->where('Profit_loss',"Loss")->get();
         
             
@@ -458,6 +495,10 @@ class SectorController extends Controller
     }
     public function all_class(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
 
         $Getcapital=capital::select('Society_Id')->where('Audit_Class',$id)->get();
         

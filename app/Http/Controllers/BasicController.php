@@ -12,6 +12,7 @@ use App\Models\Borrowing;
 use App\Models\Investement;
 use App\Models\Loan;
 use App\Models\membersociety;
+use Illuminate\Support\Facades\Auth;
 
 class BasicController extends Controller
 {
@@ -33,6 +34,10 @@ class BasicController extends Controller
 
     public function Viewsociety()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         // $users = DB::table('_societydata')->get();
         $users=Basic::all();
         // dd($users);
@@ -40,6 +45,10 @@ class BasicController extends Controller
     }
     public function View_1()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         // $users = DB::table('_societydata')->get();
         $users=Basic::all();
         // dd($users);
@@ -48,6 +57,10 @@ class BasicController extends Controller
 
     public function View_2()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $Districts=json_decode(file_get_contents('assets/District.json'));
         $totmember=0;
            foreach($Districts as $district){
@@ -104,6 +117,10 @@ class BasicController extends Controller
     }
     public function View_3()
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         // $users = DB::table('_societydata')->get();
         $selectdist=Basic::where('District', session('District_name') )->get();
         // dd($users);
@@ -112,6 +129,10 @@ class BasicController extends Controller
 
     public function Details_view(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $data=Basic::find($id);
         // dd($data);
         return view('pages.detailsview')->with('Datas',$data);
@@ -366,6 +387,13 @@ class BasicController extends Controller
      */
     public function show(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
             // $data=Basic::find($id)->membersociety()
             // ->where('Society_Id',$id);
         //$data=membersociety::where('Society_Id', $id)->get();

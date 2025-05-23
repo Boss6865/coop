@@ -9,6 +9,7 @@ use App\Models\Borrowing;
 use App\Models\Investement;
 use App\Models\Loan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoanController extends Controller
 {
@@ -56,6 +57,10 @@ class LoanController extends Controller
      */
     public function show(string $id)
     {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         $data=Basic::find($id);
         $activity=Activity::where('Society_Id', $id )->first();
         // dd($activity);

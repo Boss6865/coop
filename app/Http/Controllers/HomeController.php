@@ -7,17 +7,17 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Basic;
 use App\Models\membersociety;
 use App\Models\committee;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // if(!Auth::check()){
-        //    
-        //     return redirect()->action([AdminloginController::class, 'login']);
-        // }
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
         return view('pages.home');
     }
 
