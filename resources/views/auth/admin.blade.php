@@ -22,7 +22,7 @@
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../../dist/css/adminlte.css" />
+    <link rel="stylesheet" href="/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
   </head>
   <!--end::Head-->
@@ -36,10 +36,10 @@
      <form class="form-signin w-110" action="/auth" method="post">
       @csrf
       <h1 class="h3 mb-3 font-weight-normal text-center text-success-emphasis">ADMIN</h1>
-      <label for="email" class="sr-only">Username</label>
-      <input type="text" name="email" id="email" class="form-control mb-4 w-150" placeholder="Username" required autofocus>
+      {{-- <label for="email" class="sr-only">Username</label> --}}
+      <input type="text" name="email" id="email" class="form-control mb-4 w-100" placeholder="Username" required autofocus>
       
-      <label for="password" class="sr-only">Password</label>
+      {{-- <label for="password" class="sr-only">Password</label> --}}
       <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password" required>
      
       <div class="checkbox mb-3 vertical-center">
@@ -64,7 +64,7 @@
       crossorigin="anonymous"
     ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../../../dist/js/adminlte.js"></script>
+    <script src="/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
  <!--begin::JavaScript-->
 
