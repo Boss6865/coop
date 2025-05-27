@@ -23,9 +23,9 @@
                           <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id" function='onkeyup=word_id.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id1" function='onkeyup=word_id1.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id2" function='onkeyup=word_id2.innerHTML=convertNumberToWords(this.value)'/>
                                     
                                       
                                   </div>
@@ -34,9 +34,9 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Individual" Name="Individual_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Govt." Name="Govt_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
                                     
                                   </div>
                           </div>
@@ -139,11 +139,11 @@
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                               </div>
-                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
+                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/> --}}
 
-                                    <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
 
                                   </div>
                           </div>
@@ -172,7 +172,7 @@
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">This field is required. Can't be empty</div>
                                 </div>
-                                    {{-- <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
+                                    {{-- <x-column_-input  title="Society Undertaken Pds (Fair Price Shop)" Name="Society_Fair_Price_Shop" id="" placeholder="Eg-100" div_class="col-md-3"/> --}}
                                     {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3"/> --}}
                                       
                                       <!--begin::Col-->
@@ -188,14 +188,14 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-3" word_id="word_id3" function='onkeyup=word_id3.innerHTML=convertNumberToWords(this.value)'/>
                                         <!--end::Col-->
                                       
                           </div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Business Turnover" Name="Business_turnover" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Total Reserve" Name="Total_reserve" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    <x-column_-input  title="Business Turnover" Name="Business_turnover" id="" placeholder="Eg-100" div_class="col-md-3" word_id="word_id4" function='onkeyup=word_id4.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Total Reserve" Name="Total_reserve" id="" placeholder="Eg-100" div_class="col-md-3" word_id="word_id15" function='onkeyup=word_id15.innerHTML=convertNumberToWords(this.value)'/>
                                     <div class="col-md-3">
                                       <label for="validationCustom01" class="form-label">Whether The Society Is Making Profit/Loss</label>
                                       <select Name="Profit_loss" class="form-select target" id="selectid3" required>
@@ -207,8 +207,8 @@
                                       <div class="valid-feedback">Looks good!</div>
                                       <div class="invalid-feedback">This field is required. Can't be empty</div>
                                   </div>
-                                    {{-- <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/> --}}
-                                    <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-3"/>
+                                    {{-- <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="" placeholder="Eg-100" div_class="col-md-3"/> --}}
+                                    <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="" placeholder="Eg-100" div_class="col-md-3"/>
                                       
                                   </div>
                           </div>
@@ -216,8 +216,8 @@
                           <div class="card-header"><div class="card-title">ACCUMULATED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Profit" Name="Profit" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Loss" Name="Loss" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Profit" Name="Profit" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Loss" Name="Loss" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                       
                                   </div>
                           </div>
@@ -260,11 +260,11 @@
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A GRANT</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id5" function='onkeyup=word_id5.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id6" function='onkeyup=word_id6.innerHTML=convertNumberToWords(this.value)'/>
                                     <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2"/>
 
                                   </div>
@@ -274,12 +274,12 @@
                           <div class="card-body">
                                   <div class="row g-2">
 
-                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="validationCustom09" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id7" function='onkeyup=word_id7.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id8" function='onkeyup=word_id8.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id14" function='onkeyup=word_id14.innerHTML=convertNumberToWords(this.value)'/>
 
                                   </div>
                           </div>
@@ -288,9 +288,9 @@
                           <div class="card-header"><div class="card-title">REFUND OF AID SANCTIONED AS  LOAN</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id9" function='onkeyup=word_id9.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id10" function='onkeyup=word_id10.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id11" function='onkeyup=word_id11.innerHTML=convertNumberToWords(this.value)'/>
 
                                   </div>
                           </div>
@@ -298,8 +298,8 @@
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="validationCustom09" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" word_id="word_id12" function='onkeyup=word_id12.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id13" function='onkeyup=word_id13.innerHTML=convertNumberToWords(this.value)'/>
                                       
                                       
                                   </div>
@@ -415,4 +415,88 @@ for(var i = 0; i < 30; i++){
     
 
 });
+
+
+function convertNumberToWords(amount) {
+
+    var words = new Array();
+    words[0] = '';
+    words[1] = 'One';
+    words[2] = 'Two';
+    words[3] = 'Three';
+    words[4] = 'Four';
+    words[5] = 'Five';
+    words[6] = 'Six';
+    words[7] = 'Seven';
+    words[8] = 'Eight';
+    words[9] = 'Nine';
+    words[10] = 'Ten';
+    words[11] = 'Eleven';
+    words[12] = 'Twelve';
+    words[13] = 'Thirteen';
+    words[14] = 'Fourteen';
+    words[15] = 'Fifteen';
+    words[16] = 'Sixteen';
+    words[17] = 'Seventeen';
+    words[18] = 'Eighteen';
+    words[19] = 'Nineteen';
+    words[20] = 'Twenty';
+    words[30] = 'Thirty';
+    words[40] = 'Forty';
+    words[50] = 'Fifty';
+    words[60] = 'Sixty';
+    words[70] = 'Seventy';
+    words[80] = 'Eighty';
+    words[90] = 'Ninety';
+    amount = amount.toString();
+    var atemp = amount.split(".");
+    var number = atemp[0].split(",").join("");
+    var n_length = number.length;
+    var words_string = "";
+    if (n_length <= 9) {
+        var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var received_n_array = new Array();
+        for (var i = 0; i < n_length; i++) {
+            received_n_array[i] = number.substr(i, 1);
+        }
+        for (var i = 9 - n_length, j = 0; i < 9; i++, j++) {
+            n_array[i] = received_n_array[j];
+        }
+        for (var i = 0, j = 1; i < 9; i++, j++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                if (n_array[i] == 1) {
+                    n_array[j] = 10 + parseInt(n_array[j]);
+                    n_array[i] = 0;
+                }
+            }
+        }
+        value = "";
+        for (var i = 0; i < 9; i++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                value = n_array[i] * 10;
+            } else {
+                value = n_array[i];
+            }
+            if (value != 0) {
+                words_string += words[value] + " ";
+            }
+            if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Crores ";
+            }
+            if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Lakhs ";
+            }
+            if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Thousand ";
+            }
+            if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+                words_string += "Hundred and ";
+            } else if (i == 6 && value != 0) {
+                words_string += "Hundred ";
+            }
+        }
+        words_string = words_string.split("  ").join(" ");
+    }
+    return words_string;
+}
 </script>

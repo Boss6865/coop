@@ -2,21 +2,24 @@
 @props(['title'=>'Number Of Male',
 'div_class'=>'col-md-4',
 'id'=>'',
+'word_id'=>'',
 'val'=>'',
 'Name'=>'',
 'inclass'=>'',
 'placeholder'=>'Eg.2',
 'required'=>'',
+'function'=>'',
 'e_msg'=>'This field is required.'])
 <!--begin::Col-->
 <div class={{$div_class}}>
-    <label for="validationCustom01" class="form-label">{{$title}}</label>
+    <label for="{{$id}}" class="form-label">{{$title}}</label>
         <input
             type="text"
             class="form-control {{$inclass}}"
             id="{{$id}}"
             value="{{old($Name,$val)}}"
             name="{{$Name}}"
+            {{$function}}            
             @if($required !="") required @endif 
             placeholder="{{$placeholder}}"
         />
@@ -25,5 +28,7 @@
         @error($Name)
         <div style="color:red">{{$message}}</div>
         @enderror
+        <div id="{{$word_id}}"></div>
+        
 </div>
 <!--end::Col-->
