@@ -165,7 +165,7 @@
                                   <div class="col-md-3">
                                     <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
                                     <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
-                                        <option selected disabled value="">Choose...</option>
+                                        <option selected >Not Yet Audited</option>
                                         
                                        
                                     </select>
@@ -179,7 +179,7 @@
                                       <div class="col-md-3">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
                                             <select Name="Audit_Class" class="form-select target" id="selectid3" required>
-                                                <option selected disabled value="">Choose...</option>
+                                                <option selected>Not Yet Audited</option>
                                                 <option >A</option>
                                                 <option>B</option>
                                                 <option>C</option>

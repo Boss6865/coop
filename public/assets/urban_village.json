@@ -1,0 +1,1150 @@
+[
+    {
+        "Local_Body_Name": "Khliehriat",
+        "Block_Name": "Wapung",
+        "Vill_Name": "Deinshynrum",
+        "Dist_Name": "East Jaintia Hills",
+        "Subdistrict_Name": "Wapung"
+    },
+    {
+        "Local_Body_Name": "Khliehriat",
+        "Block_Name": "Wapung",
+        "Vill_Name": "Dkhiah - East",
+        "Dist_Name": "East Jaintia Hills",
+        "Subdistrict_Name": "Wapung"
+    },
+    {
+        "Local_Body_Name": "Khliehriat",
+        "Block_Name": "Wapung",
+        "Vill_Name": "Dkhiah - West",
+        "Dist_Name": "East Jaintia Hills",
+        "Subdistrict_Name": "Wapung"
+    },
+    {
+        "Local_Body_Name": "Khliehriat",
+        "Block_Name": "Wapung",
+        "Vill_Name": "Khliehriat - East",
+        "Dist_Name": "East Jaintia Hills",
+        "Subdistrict_Name": "Wapung"
+    },
+    {
+        "Local_Body_Name": "Khliehriat",
+        "Block_Name": "Wapung",
+        "Vill_Name": "Khliehriat - West",
+        "Dist_Name": "East Jaintia Hills",
+        "Subdistrict_Name": "Wapung"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Mawkyrwat - Ward No.1",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Mawlangwir - Ward No.3",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Mawten - Ward No.2",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Nonglang - Ward No.4",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Pynden Sakwang - Ward No.5",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Mawkyrwat",
+        "Block_Name": "Mawkyrwat",
+        "Vill_Name": "Sohkhyllam - Ward No.6",
+        "Dist_Name": "South West Khasi Hills",
+        "Subdistrict_Name": "Mawkyrwat"
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 1",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 10",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 11",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 12",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 13",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 2",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 3",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 4",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 5",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 6",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 7",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 8",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Tura Municipal Board",
+        "Block_Name": "Rongram ",
+        "Vill_Name": "Ward No. 9",
+        "Dist_Name": "West Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Babukona - Ward No.4",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Bakrapara - Ward No.2",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Bangalmura - Ward No.6",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Chobagok - Ward No.3",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Darampara - Ward No.5",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Dekachang - Ward No.12",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Dilma A Pal - Ward No.7",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Gajingpara - Ward No.8",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Haluapara - Ward No.1",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Mendipathar - Ward No.10",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Nokcharpara - Ward No.13",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Resubelpara - Ward No.11",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Resubelpara",
+        "Block_Name": "Resubelpara",
+        "Vill_Name": "Salpara - Ward No.9",
+        "Dist_Name": "North Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.1",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.10",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.11",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.12",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.2",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.3",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.4",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.5",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.6",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.7",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.8",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Williamnagar",
+        "Block_Name": "Samanda",
+        "Vill_Name": "Williamnagar (MB) - Ward No.9",
+        "Dist_Name": "East Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Baghmara (MB) - Ward No.13",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Belsalgre - Ward No.11",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Dabitbibra - Ward No.10",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Dabitnalsagittim - Ward No.12",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Dabram - Ward No.3",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Deparang - Ward No.8",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Konagittim - Ward No.7",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Lower Jongkol - Ward No.2",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Malikona - Ward No.5",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Rangdokram - Ward No.9",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "R.C.Compound - Ward No.6",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Upper Jongkol - Ward No.4",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Baghmara",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Wagesik - Ward No.1",
+        "Dist_Name": "South Garo Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.1",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.10",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.11",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.12",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.13",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.14",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.15",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.16",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.17",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.18",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.2",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.3",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.4",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.5",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.6",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.7",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.8",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongstoin",
+        "Block_Name": "Baghmara",
+        "Vill_Name": "Nongstoin (TC) - Ward No.9",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Dongbir",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Donggate A",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Donggate B",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Langstiehrim A",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Langstiehrim B",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Langstiehrim C",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Lumiew A",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Lumiew B",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Lummaralong",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Lumsohkhlur",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Madan Bynther",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mairangbah",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mairang (TC) - Ward No.1",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mawlong",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mawsawa",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mission 1",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mission 2",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Mission 3",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Nongbah Bynther",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Sangshong",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Mairang",
+        "Block_Name": "Mairang",
+        "Vill_Name": "Umthied Bynther",
+        "Dist_Name": "West Khasi Hills",
+        "Subdistrict_Name": "Nongstoin"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Iewmawlong",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Mawdiangum",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Mawphrew",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Mawroh",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Mawtnum",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Nongkhrah",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Nongpoh Proper",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Nongpoh (TC) - Ward No.1",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahambirlum Lum",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahambirlum Them",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamlapong",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamrioh Lum",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamrioh Them",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamsohthri",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamsyiem",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Pahamumskun",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Saiden",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Shangbangla",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Umbuda",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Umjarasi",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Umlyngkdait",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Umrangksai",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Nongpoh",
+        "Block_Name": "Umling",
+        "Vill_Name": "Umshangling",
+        "Dist_Name": "Ri Bhoi",
+        "Subdistrict_Name": "Umling"
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Europeon Ward - Ward No.7",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Europeon Ward - Ward No.8",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Jaiaw - Ward No.14",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Jaiaw - Ward No.15",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Jaiaw - Ward No.16",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Jail Road - Ward No.10",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Jail Road - Ward No.11",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Kenches Trace - Ward No.22",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Kenches Trace - Ward No.23",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laban - Ward No.24",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laban - Ward No.25",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laitumkhrah - Ward No.1",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laitumkhrah - Ward No.2",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laitumkhrah - Ward No.3",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Laitumkhrah - Ward No.4",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Lumparing - Ward No.26",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Lumparing - Ward No.27",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Malki - Ward No.5",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Malki - Ward No.6",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Mawkhar - Ward No.12",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Mawkhar - Ward No.13",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Mawprem - Ward No.19",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Mawprem - Ward No.20",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Mawprem - Ward No.21",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "Police Bazar - Ward No.9",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "S.E. Mawkhar - Ward No.17",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Shillong",
+        "Block_Name": "Mylliem",
+        "Vill_Name": "S.E. Mawkhar - Ward No.18",
+        "Dist_Name": "East Khasi Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Chutwakhu - Ward No.5",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Iaw Musiang - Ward No.3",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Iongpiah - Ward No.11",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Khimmusniang - Ward No.6",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Ladthalaboh East - Ward No.1",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Ladthalaboh West - Ward No.2",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Lulong - Ward No.10",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Lumiongkjam - Ward No.13",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Mission Compound - Ward No.8",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Mynthong - Ward No.4",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Panaliar - Ward No.12",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Shiliang Raij Lumkyrwiang - Ward No.7",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    },
+    {
+        "Local_Body_Name": "Jowai",
+        "Block_Name": "Thadlaskein",
+        "Vill_Name": "Tpeppale - Ward No.9",
+        "Dist_Name": "West Jaintia Hills",
+        "Subdistrict_Name": ""
+    }
+]

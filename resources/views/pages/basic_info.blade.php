@@ -110,13 +110,10 @@
                           <div class="invalid-feedback">This field is required. Can't be empty</div>
                   </div>
                           <!--end::Col-->
-  
-                          
+                   
                       <!--end::Body-->
                       <div class="card-header"><div class="card-title">Location of the Society</div></div>
-                      <div class="card-body">
-                        <!--begin::Row-->
-                      <div class="row g-2">
+                     
                           <!--begin::Col-->
                           <div class="col-md-3">
                             <label for="validationCustom01" class="form-label">Area</label>
@@ -163,9 +160,7 @@
                           <!--end::Col-->
   
                           <div class="card-header"><div class="card-title">Address of the Society</div></div>
-                      <div class="card-body">
-                        <!--begin::Row-->
-                      <div class="row g-2">
+                  
                           <!--begin::Col-->
                           <div class="col-md-3">
                             <label for="validationCustom01" class="form-label">VILLAGE / LOCALITY / WARD</label>
@@ -226,7 +221,7 @@
                           <div class="invalid-feedback">This field is required. Can't be empty</div>
                   </div>
                           <!--end::Col-->
-              </div>
+              
   
                           <div class="card-header"><div class="card-title">Area of Operation</div></div>
                       <div class="card-body">
@@ -477,10 +472,11 @@
   //start to add block district wise
   
   $( "#Select_District" ).on( "change", function() {
-        var Area= $( "#Select_District" ).val();
-  
+    
+        var District= $( "#Select_District" ).val();
+       
           $.getJSON("assets/Dist_block.json", function(data){
-            var data_filter = data.filter(element => element.Dist_Name ==Area);
+            var data_filter = data.filter(element => element.Dist_Name ==District);
            
   
             $("#Select_Block").empty().append($('<option>', {
@@ -498,7 +494,7 @@
               console.log("Fail to load Rural District");
           });
           $.getJSON("assets/Circle_Name.json", function(data){
-            var data_filter = data.filter(element => element.Dist_Name ==Area);
+            var data_filter = data.filter(element => element.Dist_Name ==District);
            
   
             $("#Select_Circle").empty().append($('<option>', {
@@ -530,10 +526,11 @@
   //start to add Village
   
   $( "#Select_Block" ).on( "change", function() {
-        var Area= $( "#Select_Block" ).val();
-  
+        var Block= $( "#Select_Block" ).val();
+        var Area= $( "#Select_Area" ).val();
+        if(Area=="Rural"){
           $.getJSON("assets/Dist_Block_Vill.json", function(data){
-            var data_filter = data.filter(element => element.Block_Name ==Area);
+            var data_filter = data.filter(element => element.Block_Name ==Block);
            //console.log(data_filter);
               
             $("#Select_village").empty().append($('<option>', {
@@ -551,6 +548,28 @@
               }).fail(function(){
               console.log("Fail to load Rural District");
           });
+          }else if(Area=="Urban"){
+             $.getJSON("assets/urban_village.json", function(data){
+            var data_filter = data.filter(element => element.Block_Name ==Block);
+           //console.log(data_filter);
+              
+            $("#Select_village").empty().append($('<option>', {
+                    disabled: true,
+                    value:"",
+                    text: "Choose Village",
+                    Selected:true
+                  }));
+                  for(i=0;i<data_filter.length;i++)
+                  {
+                    $('#Select_village').append($('<option>').val(data_filter[i].Vill_Name).text(data_filter[i].Vill_Name));
+                  }
+                  
+            
+              }).fail(function(){
+              console.log("Fail to load Rural District");
+          });
+          }
+          
   
         
       });
@@ -601,7 +620,9 @@
   
   $('#Select_District1').on("change",function() {
     var Dist_name=$('#Select_District1').val();
-    $("#js-example-basic-single").empty();
+    var Area= $( "#Select_Area" ).val();
+        if(Area=="Rural"){
+           $("#js-example-basic-single").empty();
     $("#GetTotal").val("");
         //console.log(Dist_name);
         $.getJSON("assets/Dist_block.json", function(data){
@@ -621,13 +642,38 @@
             }).fail(function(){
             console.log("Fail to load Rural District");
         });
+        }else if(Area=="Urban"){
+          $("#js-example-basic-single").empty();
+    $("#GetTotal").val("");
+        //console.log(Dist_name);
+        $.getJSON("assets/Dist_block.json", function(data){
+          
+          var data_filter = data.filter(element => element.Dist_Name ==Dist_name);
+                
+                for(i=0;i<data_filter.length;i++)
+                {
+                  //$('#js-example-basic-single').append($('<optgroup>').text(data_filter[i].Block_Name));
+                  //console.log(data_filter[i].Block_Name);
+                  var bname=data_filter[i].Block_Name;
+                  
+                  
+                  multiply(bname);
+                }
+          
+            }).fail(function(){
+            console.log("Fail to load Rural District");
+        });
+        }
+   
   
       // console.log($('#Select_District1').find(':selected').data('custom-attribute'));
     });
   
   
     function multiply(bname) {
-      $.getJSON("assets/Dist_Block_Vill.json", function(data2){
+      var Area= $( "#Select_Area" ).val();
+        if(Area=="Rural"){
+          $.getJSON("assets/Dist_Block_Vill.json", function(data2){
                     //console.log(bname);
                           var $optGroup = '<optgroup label ='+bname+'>';
                           var data_filter2 = data2.filter(element => element.Block_Name ==bname);
@@ -644,6 +690,26 @@
                       
                       $('#js-example-basic-single').append($optGroup);
                         });
+        }else if(Area=="Urban"){
+          $.getJSON("assets/urban_village.json", function(data2){
+                    //console.log(bname);
+                          var $optGroup = '<optgroup label ='+bname+'>';
+                          var data_filter2 = data2.filter(element => element.Block_Name ==bname);
+                          //console.log(data_filter2);
+                          
+                          for(j=0;j<data_filter2.length;j++)
+                      {
+                        
+                        $optGroup+='<option>'+data_filter2[j].Vill_Name+'</option>';
+                          //$('#js-example-basic-single').append($('<option>').val(data_filter2[j].Vill_Name ).text(data_filter2[j].Vill_Name ));
+                          
+                      }
+                    
+                      
+                      $('#js-example-basic-single').append($optGroup);
+                        });
+        }
+      
                       
     //console.log(bname)
   }
