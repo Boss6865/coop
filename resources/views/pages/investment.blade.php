@@ -18,31 +18,10 @@
                           <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}">
                           @endif
 
-                        {{-- <input type="hidden" name="Society_Id" value="{{ Session()->get('Sooos'); }}">
-                        <input type="hidden" name="id_of_society252" value="{{ Session()->get('id_key'); }}"> --}}
-
-                        {{-- <input type="hidden" name="Name_of_society" value="Iakrehlang Saphai IVCS Ltd.">
-                        <input type="hidden" name="Society_Id" value="51"> --}}
-                              {{-- <div class="card-header"><div class="card-title">INVESTMENT OF THE SOCIETY (AMOUNT IN RUPEES) </div></div>
-                              <div class="card-body">
-                                      <div class="row g-2">
-                                        <x-column_-input  title="MCAB" Name="MCAB" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MECOFED" Name="MECOFED" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MRTCF" Name="MRTCF" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MSHFCS" Name="MSHFCS" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MSFCF" Name="MSFCF" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MEGHALOOM" Name="MEGHALOOM" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MSD&LCF" Name="MSD_LCF" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="MJJSF" Name="MJJSF" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="SUB-AREA MARKETING" Name="SUB_AREA_MARKETING" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="ETC" Name="ETC" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                        <x-column_-input  title="TOTAL" Name="TOTAL" id="validationCustom09" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers"/>
-                                    </div>
-                              </div> --}}
-
+                        
 
                               <div class="card-header"><div class="card-title">INVESTMENT OF THE SOCIETY 
-                                <select Name="investment_Status" class="form-select target" id="selectid3" required>
+                                <select Name="investment_Status" class="form-select target" id="investment_Status" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option >Yes</option>
                                 <option>No</option>
@@ -55,7 +34,7 @@
                               <div class="row g-2" id="newinput_investment">
                                 <div class="col-md-4">
                                   <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >MCAB</option>
                                       <option>MECOFED</option>
@@ -75,8 +54,22 @@
                                   <div style="color:red">{{$message}}</div>
                                   @enderror
                               </div>
-                                <x-column_-input  title="Investment Amount" Name="loan_investment_amount[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-4" inclass="numbers" />
+                                {{-- <x-column_-input  title="Investment Amount" Name="loan_investment_amount[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-4" inclass="numbers" /> --}}
                                
+                                <div class="col-md-4">
+                                        <label for="loan_investment_amount1" class="form-label">Investment Amount</label>
+                                        <input
+                                          type="text"
+                                          class="form-control numbers"
+                                          id="loan_investment_amount1"
+                                          value=""
+                                          name="loan_investment_amount[]"
+                                          placeholder="Investment Amount"
+                                          required
+                                        />
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
                                 <button type="button" id="rowAdder_investment" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                     
                             </div>
@@ -150,6 +143,14 @@
 
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
+        });
+         $("body").on("change", "#investment_Status", function () {
+          var investment_Status=$("#investment_Status").val();
+          if(investment_Status=="No"){
+            $("#type_of_govt_loan").prop("required", false);
+            $("#loan_investment_amount1").prop("required", false);
+          }
+            
         });
      </script>
 

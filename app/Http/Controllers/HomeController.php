@@ -53,7 +53,12 @@ class HomeController extends Controller
         // dd($data);
         return view('pages.management2')->with(['Datas'=>$data]);
     }
-   
+     public function management_1_edit(string $id)
+    {
+         $data=Basic::find($id);
+        // dd($data);
+        return view('pages.management1')->with(['Datas'=>$data]);
+    }
     public function store(Request $request): RedirectResponse
     {
             $Name_of_the_Society=$request->input('Name_of_the_Society');
@@ -115,7 +120,7 @@ class HomeController extends Controller
     public function store_Member(Request $request): RedirectResponse
     {
             $Name_of_the_Society=$request->input('Name_of_society2525');
-            $id_of_society=$request->input('id_of_society');
+            $id_of_society=$request->input('id_of_society2525');
             $ST_Male=$request->input('ST_Male');
             $ST_Female=$request->input('ST_Female');
             $ST_PG=$request->input('ST_PG');

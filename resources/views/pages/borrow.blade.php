@@ -33,7 +33,7 @@
                         <div class="row g-2" id="newinput_borrowing">
                           <div class="col-md-2">
                             <label for="validationCustom01" class="form-label">Borrowing from</label>
-                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
+                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" >
                                 <option selected disabled value="">Choose...</option>
                                 '<option >GOVT.</option>'+
                                 '<option>MCAB LTD.</option>'+

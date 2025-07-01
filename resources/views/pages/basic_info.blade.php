@@ -264,7 +264,8 @@
                             <label for="validationCustom01" class="form-label">Affiliation</label>
                             <select class="form-select" name="Affiliation" id="Affiliation" required">
                               <option selected disabled value="">Choose...</option>
-                              
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
                             </select>
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -578,10 +579,11 @@
   //end of village
   
   //Start: Affiliation
-  $(document).ready(function() {
-        
-  
-        $.getJSON("assets/affiliation.json", function(data){
+   $('#Affiliation').on("change",function() {
+      var value= $( "#Affiliation" ).val();
+        if(value=="Yes"){
+          $('#Affiliation').removeAttr('value');
+          $.getJSON("assets/affiliation.json", function(data){
                 //console.log(data);
                 for(i=0;i<data.length;i++)
                 {
@@ -591,7 +593,17 @@
             }).fail(function(){
             //console.log("Fail to load Rural District");
         });
-  
+        }else if(value=="No"){
+          $('#Affiliation').empty();
+          $('#Affiliation').append($('<option>').val("Yes").text("Yes"));
+            $('#Affiliation').append($('<option selected>').val("No").text("No"));
+        }
+      
+   });
+ 
+
+  $(document).ready(function() {
+
         $.getJSON("assets/District.json", function(data){
             
                   for(i=0;i<data.length;i++)

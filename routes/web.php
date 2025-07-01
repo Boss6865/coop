@@ -39,6 +39,7 @@ Route::get('/', function () {
 Route::get('/homes',[HomeController::class,'index']);
 Route::get('/basic_infos',[HomeController::class,'basic_info']);
 Route::get('/management1',[HomeController::class,'management_1']);
+Route::get('/management1/{id}',[HomeController::class,'management_1_edit']);
 Route::get('/management2',[HomeController::class,'management_2']);
 Route::get('/management2/{id}',[HomeController::class,'management_2_edit']);
 Route::get('/capitals',[HomeController::class,'capital']);

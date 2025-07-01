@@ -276,7 +276,11 @@
                                           <div class="col-md-6">
                                             <label for="validationCustom01" class="form-label">Affiliation</label>
                                             <select class="form-select" name="Affiliation" id="Affiliation">
-                                              <option selected disabled value="">Choose...</option>
+                                              
+                                              @if($Datas->Affiliation =="No")
+                                              <option value="Yes">Yes</option>
+                                              <option selected value="No">No</option>
+                                              @else
                                               @forEach(json_decode(file_get_contents('assets/affiliation.json')) as $sector)
                             
                                                 <option value="{{$sector->Affiliation}}" 
@@ -286,7 +290,9 @@
                                                 
                                                 >{{$sector->Affiliation}}</option>
                                            
-                                            @endforeach
+                                              @endforeach
+                                              @endif
+                                              
                                             </select>
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -394,10 +400,11 @@
               <div class="tab-pane fade @if($val==555) show  active @endif " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card card-info card-outline mb-4">
                   <!--begin::Header-->
-                <div class="card-header"><div class="card-title">NUMBER OF MEMBERS OF THE SOCIETY</div></div>
+                  @if(!empty($Datas->membersociety->count()))
+                        <div class="card-header"><div class="card-title">NUMBER OF MEMBERS OF THE SOCIETY</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-            <form class="needs-validation" action="/updatemange1/{{$Datas->id}}" method ="POST" novalidate>
+                  <form class="needs-validation" action="/updatemange1/{{$Datas->id}}" method ="POST" novalidate>
               @csrf
               @method("PUT")
                     <!--begin::Body-->
@@ -538,6 +545,14 @@
                     <!--end::Footer-->
                     @endforeach
         </form>
+                         @else
+                  <div style="color:red">
+                         <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
+                      <a href="/management1/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      </div>
+                  @endif
+                
+           
                   <!--end::Form-->
                
 </div>
@@ -632,7 +647,7 @@
                          @else
                   <div style="color:red">
                          <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                      <a href="/management2/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      <a href="/management2/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                       </div>
                   @endif
                 </div>
@@ -647,7 +662,7 @@
                  
                   @foreach($Datas->capital as $data)
                
-                  <form class="needs-validation" action="/capital/{{$data->Society_Id}}" method ="POST" novalidate>
+                  <form class="needs-validation" action="/capital/{{$Datas->id}}" method ="POST" novalidate>
                     @csrf
                     @method('PUT')
                           <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
@@ -684,38 +699,81 @@
                                         <div class="col-md-3">
                                           <label for="validationCustom01" class="form-label">Primary Activitiy</label>
                                           <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
-                                            <option selected disabled value="">Choose...</option>
-                                            @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                              <option @if(ucfirst($data->Primary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
-                                              
-                                             @endforeach
+                                            <option  @if($data->Primary_Activity=="credit") selected @endif>CREDIT</option>
+                                      <option   @if($data->Primary_Activity=="handloom") selected @endif>HANDLOOM</option>
+                                      <option   @if($data->Primary_Activity=="handicraft") selected @endif>HANDICRAFT</option>
+                                      <option  @if($data->Primary_Activity=="consumer") selected @endif>CONSUMER</option>
+                                      <option  @if($data->Primary_Activity=="dairy") selected @endif>DAIRY</option>
+                                      <option   @if($data->Primary_Activity=="farming") selected @endif>FARMING</option>
+                                      <option  @if($data->Primary_Activity=="fishery") selected @endif>FISHERIES</option>
+                                      <option   @if($data->Primary_Activity=="market") selected @endif>MARKETING</option>
+                                      <option   @if($data->Primary_Activity=="processing") selected @endif>PROCESSING</option>
+                                      <option   @if($data->Primary_Activity=="transport") selected @endif>TRANSPORT</option>
+                                      <option   @if($data->Primary_Activity=="livestock") selected @endif>LIVESTOCK</option>
+                                      <option   @if($data->Primary_Activity=="tourism") selected @endif>TOURISM</option>
+                                      <option   @if($data->Primary_Activity=="jingkiengjri") selected @endif>TOURISM</option>
+                                      <option  @if($data->Primary_Activity=="industry") selected @endif>INDUSTRIAL</option>
+                                      <option  @if($data->Primary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
+                                      <option @if($data->Primary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
+                                      <option  @if($data->Primary_Activity=="housing") selected @endif>HOUSING</option>
+                                      <option  @if($data->Primary_Activity=="other") selected @endif>OTHERS TYPES</option>
                                           </select>
                                           <div class="valid-feedback">Looks good!</div>
                                           <div class="invalid-feedback">This field is required. Can't be empty</div>
                                       </div>
                                       <div class="col-md-3">
                                         <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
-                                        <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
-                                            <option selected disabled value="">Choose...</option>
-                                            @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                            <option @if(ucfirst($data->Secondary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
-                                            
-                                           @endforeach
+                                        <select Name="Secondary_Activity" class="form-select target" id="selectid3">
+                                          <option selected disabled value="">Choose...</option>
+                                             <option value="credit"  @if($data->Secondary_Activity=="credit") selected @endif>CREDIT</option>
+                                      <option value="handloom"  @if($data->Secondary_Activity=="handloom") selected @endif>HANDLOOM</option>
+                                      <option value="handicraft"  @if($data->Secondary_Activity=="handicraft") selected @endif>HANDICRAFT</option>
+                                      <option value="consumer"  @if($data->Secondary_Activity=="consumer") selected @endif>CONSUMER</option>
+                                      <option value="dairy"  @if($data->Secondary_Activity=="dairy") selected @endif>DAIRY</option>
+                                      <option value="farming"  @if($data->Secondary_Activity=="farming") selected @endif>FARMING</option>
+                                      <option value="fishery" @if($data->Secondary_Activity=="fishery") selected @endif>FISHERIES</option>
+                                      <option value="market"  @if($data->Secondary_Activity=="market") selected @endif>MARKETING</option>
+                                      <option value="processing"  @if($data->Secondary_Activity=="processing") selected @endif>PROCESSING</option>
+                                      <option value="transport"  @if($data->Secondary_Activity=="transport") selected @endif>TRANSPORT</option>
+                                      <option value="livestock"  @if($data->Secondary_Activity=="livestock") selected @endif>LIVESTOCK</option>
+                                      <option value="tourism"  @if($data->Secondary_Activity=="tourism") selected @endif>TOURISM</option>
+                                      <option value="jingkiengjri"  @if($data->Secondary_Activity=="jingkiengjri") selected @endif>TOURISM</option>
+                                      <option value="industry"  @if($data->Secondary_Activity=="industry") selected @endif>INDUSTRIAL</option>
+                                      <option value="tandc"  @if($data->Secondary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
+                                      <option value="labour" @if($data->Secondary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
+                                      <option value="housing" @if($data->Secondary_Activity=="housing") selected @endif>HOUSING</option>
+                                      <option value="other" @if($data->Secondary_Activity=="other") selected @endif>OTHERS TYPES</option>
                                         </select>
                                         <div class="valid-feedback">Looks good!</div>
                                         <div class="invalid-feedback">This field is required. Can't be empty</div>
                                     </div>
                                       <div class="col-md-3">
                                   <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
-                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
-                                      <option selected disabled value="">Choose...</option>
-                                      @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
+                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3" >
+                                     <option selected disabled value="">Choose...</option>
+                                       <option value="credit"  @if($data->Tertiary_Activity=="credit") selected @endif>CREDIT</option>
+                                      <option value="handloom"  @if($data->Tertiary_Activity=="handloom") selected @endif>HANDLOOM</option>
+                                      <option value="handicraft"  @if($data->Tertiary_Activity=="handicraft") selected @endif>HANDICRAFT</option>
+                                      <option value="consumer"  @if($data->Tertiary_Activity=="consumer") selected @endif>CONSUMER</option>
+                                      <option value="dairy"  @if($data->Tertiary_Activity=="dairy") selected @endif>DAIRY</option>
+                                      <option value="farming"  @if($data->Tertiary_Activity=="farming") selected @endif>FARMING</option>
+                                      <option value="fishery" @if($data->Tertiary_Activity=="fishery") selected @endif>FISHERIES</option>
+                                      <option value="market"  @if($data->Tertiary_Activity=="market") selected @endif>MARKETING</option>
+                                      <option value="processing"  @if($data->Tertiary_Activity=="processing") selected @endif>PROCESSING</option>
+                                      <option value="transport"  @if($data->Tertiary_Activity=="transport") selected @endif>TRANSPORT</option>
+                                      <option value="livestock"  @if($data->Tertiary_Activity=="livestock") selected @endif>LIVESTOCK</option>
+                                      <option value="tourism"  @if($data->Tertiary_Activity=="tourism") selected @endif>TOURISM</option>
+                                      <option value="jingkiengjri"  @if($data->Tertiary_Activity=="jingkiengjri") selected @endif>TOURISM</option>
+                                      <option value="industry"  @if($data->Tertiary_Activity=="industry") selected @endif>INDUSTRIAL</option>
+                                      <option value="tandc"  @if($data->Tertiary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
+                                      <option value="labour" @if($data->Tertiary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
+                                      <option value="housing" @if($data->Tertiary_Activity=="housing") selected @endif>HOUSING</option>
+                                      <option value="other" @if($data->Tertiary_Activity=="other") selected @endif>OTHERS TYPES</option>
+                                      {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
                                       <option @if(ucfirst($data->Tertiary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
                                       
-                                     @endforeach
+                                     @endforeach --}}
                                           
                                   </select>
                                   <div class="valid-feedback">Looks good!</div>
@@ -747,6 +805,7 @@
                                       <div class="col-md-3">
                                         <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
                                         <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
+                                          <option @if($data->Audit_Class=="Not Yet Audited") selected @endif>Not Yet Audited</option>
                                             <option selected disabled value="{{$data->Latest_Audit_complete}}">{{$data->Latest_Audit_complete}}</option>
                                             
                                            
@@ -758,7 +817,8 @@
                                       <div class="col-md-3">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
                                             <select Name="Audit_Class" class="form-select target" id="selectid3" required>
-                                                <option selected disabled value="">Choose...</option>
+                                                
+                                                <option @if($data->Audit_Class=="Not Yet Audited") selected @endif>Not Yet Audited</option>
                                                 <option @if($data->Audit_Class=="A") selected @endif>A</option>
                                                 <option @if($data->Audit_Class=="B") selected @endif>B</option>
                                                 <option @if($data->Audit_Class=="C") selected @endif>C</option>
@@ -775,7 +835,19 @@
                                   <div class="row g-2">
                                     <x-column_-input  title="Business Turnover" Name="Business_turnover" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Business_turnover"/>
                                     <x-column_-input  title="Total Reserve" Name="Total_reserve" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Total_reserve"/>
-                                    <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Profit_loss"/>
+                                    {{-- <x-column_-input  title="Whether The Society Is Making Profit/Loss" Name="Profit_loss" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Profit_loss"/> --}}
+                                      <div class="col-md-3">
+                                      <label for="validationCustom01" class="form-label">Whether The Society Is Making Profit/Loss</label>
+                                      <select Name="Profit_loss" class="form-select target" id="selectid3" required>
+                                         
+                                          <option @if($data->Profit_loss=="Profit") selected @endif>Profit</option>
+                                          <option @if($data->Profit_loss=="Loss") selected @endif>Loss</option>
+                                          <option @if($data->Profit_loss=="Neither Profit/Loss") selected @endif>Neither Profit/Loss</option>
+                                          
+                                      </select>
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  </div>
                                     <x-column_-input  title="Net Profit(+)/Loss(-) Of The Society (Amount In)" Name="Net_Profit_Loss" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Net_Profit_Loss"/>
                                       
                                   </div>
@@ -895,7 +967,7 @@
                   @else
                   <div style="color:red">
                          <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                      <a href="/capitals/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      <a href="/capitals/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                       </div>
                   @endif
           </div>
@@ -907,7 +979,7 @@
                 <div class="card card-info card-outline mb-4">
                   <!--begin::Header-->
                   @if($investment_data!=null)
-                <form class="needs-validation" action="/investment/{{$data->Society_Id}}" method ="POST" novalidate>
+                <form class="needs-validation" action="/investment/{{$Datas->id}}" method ="POST" novalidate>
                             @csrf
                     @method('PUT')
                           <div class="card-header"><div class="card-title">INVESTMENT
@@ -932,6 +1004,7 @@
                                 @php
                                 $jan1=json_decode($investment_data->loan_investment_amount);
                                 @endphp
+                                
                                 @forEach(json_decode($investment_data->type_of_govt_loan) as $key => $data1)
                                 @if($key==0)
                                 <div class="col-md-4">
@@ -980,19 +1053,59 @@
                                 <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
                                 @endif
                                 @endforeach
+                                @else
+                                <div class="col-md-4">
+                                  <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option >MCAB</option>
+                                      <option>MECOFED</option>
+                                      <option>MRTCF</option>
+                                      <option>MSHFCS</option>
+                                      <option>MSFCF</option>
+                                      <option>MEGHALOOM</option>
+                                      <option>MSD&LCF</option>
+                                      <option>MJJSF</option>
+                                      <option>SUB-AREA MARKETING</option>
+                                      <option>OTHER</option>
+                                      
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  @error('type_of_govt_loan')
+                                  <div style="color:red">{{$message}}</div>
+                                  @enderror
+                              </div>
+                                {{-- <x-column_-input  title="Investment Amount" Name="loan_investment_amount[]" id="validationCustom09" placeholder="Eg-2025" div_class="col-md-4" inclass="numbers" /> --}}
+                               
+                                <div class="col-md-4">
+                                        <label for="loan_investment_amount1" class="form-label">Investment Amount</label>
+                                        <input
+                                          type="text"
+                                          class="form-control numbers"
+                                          id="loan_investment_amount1"
+                                          value=""
+                                          name="loan_investment_amount[]"
+                                          placeholder="Investment Amount"
+                                          required
+                                        />
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
+                              <button type="button" id="rowAdder_investment" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                                 @endif
                             </div>
                       </div>
                               
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
-                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                                <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
                           </div>
                       </form>
                       @else
                       <div style="color:red">
                          <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                      <a href="/investment/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      <a href="/investment/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                       </div>
                      
                       @endif
@@ -1005,7 +1118,7 @@
                 <div class="card card-info card-outline mb-4"> 
                   <!--begin::Header-->
                   @if($borrowing_datas!=null)
-                     <form class="needs-validation" action="/borrow/{{$data->Society_Id}}" method ="POST" novalidate>
+                     <form class="needs-validation" action="/borrow/{{$Datas->id}}" method ="POST" novalidate>
                         @csrf
                         @method('PUT')
                           <div class="card-header"><div class="card-title">INVESTMENT
@@ -1096,7 +1209,7 @@
                               </div>
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
-                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                                <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
                           </div>
                       </form>
                 
@@ -1104,7 +1217,7 @@
                   @else
                   <div style="color:red">
                      <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                  <a href="/borrow/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                  <a href="/borrow/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                   </div>
                   @endif
                 </div>
@@ -1118,7 +1231,7 @@
                   <!--begin::Header-->
                   @if($asset_datas!=null)
 
-                  <form class="needs-validation" action="/asset/{{$data->Society_Id}}" method ="POST" novalidate>
+                  <form class="needs-validation" action="/asset/{{$Datas->id}}" method ="POST" novalidate>
                         @csrf
                          @method('PUT')
                          
@@ -1299,14 +1412,14 @@
                               
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
-                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                                <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
                           </div>
                       </form>
                 
                   @else
                   <div style="color:red">
                     <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                    <a href="/asset/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                    <a href="/asset/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                   </div>
                      
                   @endif
@@ -1320,7 +1433,7 @@
                   <!--begin::Header-->
                   @if($loan_datas!=null)
                 
-                    <form class="needs-validation" action="/loan/{{$data->Society_Id}}" method ="POST" novalidate>
+                    <form class="needs-validation" action="/loan/{{$Datas->id}}" method ="POST" novalidate>
                         @csrf
                           @method('PUT')
                          
@@ -1417,14 +1530,14 @@
                              
                                <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
-                                <a href="/society/{{$data->Society_Id}}"><button type="button" class="btn btn-secondary">Back</button></a>
+                                <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
                           </div>
                       </form>
 
                       @else
                       <div style="color:red">
                          <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
-                      <a href="/loan/{{$data->Society_Id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
+                      <a href="/loan/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                       </div>
                      
                       @endif
@@ -1984,9 +2097,31 @@ $("#loan_rowAdder").click(function () {
             $(this).parents("#row").remove();
         });
 
-
+  $('#Affiliation').on("change",function() {
+      var value= $( "#Affiliation" ).val();
+        if(value=="Yes"){
+          $('#Affiliation').removeAttr('value');
+          $.getJSON("/assets/affiliation.json", function(data){
+                //console.log(data);
+                for(i=0;i<data.length;i++)
+                {
+                   $('#Affiliation').append($('<option>').val(data[i].Affiliation).text(data[i].Affiliation));
+                }
+          
+            }).fail(function(){
+            //console.log("Fail to load Rural District");
+        });
+        }else{
+          $('#Affiliation').empty();
+          $('#Affiliation').append($('<option>').val("Yes").text("Yes"));
+            $('#Affiliation').append($('<option selected>').val("No").text("No"));
+        }
+      
+   });
 
         //end script for loan
    </script>
+
+
 
      {{-- borrowing script end here --}}

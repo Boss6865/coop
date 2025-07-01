@@ -12,9 +12,13 @@
                   <!--begin::Form-->
             <form class="needs-validation" action="/management2" method ="POST" novalidate>
               @csrf
-                    <!--begin::Body-->
-                    <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
-                    <input type="hidden" name="id_of_society" value="{{ Session()->get('id_key'); }}">
+                     @if(!empty($Datas->Name_of_the_Society))
+                          <input type="hidden" name="Name_of_society2525" value="{{$Datas->Name_of_the_Society}}">
+                        <input type="hidden" name="id_of_society2525" value="{{$Datas->id}}">
+                          @else
+                          <input type="hidden" name="Name_of_society2525" value="{{ Session()->get('Sooos'); }}">
+                          <input type="hidden" name="id_of_society2525" value="{{ Session()->get('id_key'); }}">
+                          @endif
                 <div class="card-body">
                       <!--begin::Row-->
                     <div class="row g-2">
@@ -190,6 +194,6 @@
       <script>
         $('#Date_of_LastAGM').datepicker({
             uiLibrary: 'bootstrap5',
-            format: 'yyyy-mm-dd'
+            format: 'dd-mm-yyyy'
         });
     </script>

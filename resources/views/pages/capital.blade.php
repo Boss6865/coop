@@ -23,9 +23,9 @@
                           <div class="card-header"><div class="card-title">DETAILS INFORMATION OF  THE SOCIETY </div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id" function='onkeyup=word_id.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id1" function='onkeyup=word_id1.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id2" function='onkeyup=word_id2.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Admission Fee" Name="Admission_fee" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id" function='onkeyup=word_id.innerHTML=convertNumberToWords(this.value)' inclass="numbers" required="required"/>
+                                    <x-column_-input  title="Face Value Of Each Share" Name="Share_face_value" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id1" function='onkeyup=word_id1.innerHTML=convertNumberToWords(this.value)' inclass="numbers" required="required"/>
+                                    <x-column_-input  title="Authorized Share Capital" Name="Authorize_share_capital" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id2" function='onkeyup=word_id2.innerHTML=convertNumberToWords(this.value) inclass="numbers"' required="required"/>
                                     
                                       
                                   </div>
@@ -34,9 +34,9 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
-                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4"/>
+                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers" required="required"/>
+                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers"/>
+                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers"/>
                                     
                                   </div>
                           </div>
@@ -53,6 +53,7 @@
                                           <option>{{$activity->Activity}}</option>
                                           
                                           @endforeach --}}
+                                          <option value="credit">CREDIT</option>
                                           <option value="handloom">HANDLOOM</option>
                                           <option value="handicraft">HANDICRAFT</option>
                                           <option value="consumer">CONSUMER</option>
@@ -78,13 +79,14 @@
                                   </div>
                                   <div class="col-md-3">
                                     <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
-                                    <select Name="Secondary_Activity" class="form-select target" id="selectid3" required>
+                                    <select Name="Secondary_Activity" class="form-select target" id="selectid3">
                                         <option selected disabled value="">Choose...</option>
                                         {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
                                            
                                         <option>{{$activity->Activity}}</option>
                                         
                                         @endforeach --}}
+                                        <option value="credit">CREDIT</option>
                                         <option value="handloom">HANDLOOM</option>
                                       <option value="handicraft">HANDICRAFT</option>
                                       <option value="consumer">CONSUMER</option>
@@ -109,7 +111,7 @@
                                 </div>
                                 <div class="col-md-3">
                                   <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
-                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3" required>
+                                  <select Name="Tertiary_Activity" class="form-select target" id="selectid3">
                                       <option selected disabled value="">Choose...</option>
                                       {{-- <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
                                       @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
@@ -117,6 +119,7 @@
                                       <option>{{$activity->Activity}}</option>
                                       
                                       @endforeach --}}
+                                      <option value="credit">CREDIT</option>
                                       <option value="handloom">HANDLOOM</option>
                                       <option value="handicraft">HANDICRAFT</option>
                                       <option value="consumer">CONSUMER</option>
@@ -202,6 +205,7 @@
                                           <option selected disabled value="">Choose...</option>
                                           <option >Profit</option>
                                           <option>Loss</option>
+                                          <option>Neither Profit/Loss</option>
                                           
                                       </select>
                                       <div class="valid-feedback">Looks good!</div>
@@ -216,8 +220,8 @@
                           <div class="card-header"><div class="card-title">ACCUMULATED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Profit" Name="Profit" id="" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Loss" Name="Loss" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Profit" Name="Profit" id="" placeholder="Eg-100" div_class="col-md-2" inclass="numbers" required="required"/>
+                                    <x-column_-input  title="Loss" Name="Loss" id="" placeholder="Eg-100" div_class="col-md-2" inclass="numbers" required="required"/>
                                       
                                   </div>
                           </div>
@@ -263,8 +267,8 @@
                                     <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id5" function='onkeyup=word_id5.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id6" function='onkeyup=word_id6.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id5" function='onkeyup=word_id5.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id6" function='onkeyup=word_id6.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                     <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2"/>
 
                                   </div>
@@ -277,9 +281,9 @@
                                     <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id7" function='onkeyup=word_id7.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id8" function='onkeyup=word_id8.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id14" function='onkeyup=word_id14.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id7" function='onkeyup=word_id7.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id8" function='onkeyup=word_id8.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id14" function='onkeyup=word_id14.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
 
                                   </div>
                           </div>
@@ -288,9 +292,9 @@
                           <div class="card-header"><div class="card-title">REFUND OF AID SANCTIONED AS  LOAN</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id9" function='onkeyup=word_id9.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id10" function='onkeyup=word_id10.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id11" function='onkeyup=word_id11.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id9" function='onkeyup=word_id9.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id10" function='onkeyup=word_id10.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id11" function='onkeyup=word_id11.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
 
                                   </div>
                           </div>
@@ -298,8 +302,8 @@
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" word_id="word_id12" function='onkeyup=word_id12.innerHTML=convertNumberToWords(this.value)'/>
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id13" function='onkeyup=word_id13.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" />
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id13" function='onkeyup=word_id13.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                       
                                       
                                   </div>
@@ -499,4 +503,9 @@ function convertNumberToWords(amount) {
     }
     return words_string;
 }
+
+
+$('.numbers').keyup(function () {
+         this.value = this.value.replace(/[^0-9\.]/g,'');
+      });
 </script>

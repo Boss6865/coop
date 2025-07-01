@@ -157,9 +157,9 @@ overflow:scroll;
           
             <!-- /.card-body -->
             <div class="card-footer">
-              @foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/444">Edit</a>
-              @endforeach
+             
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/444">Edit</a>
+              
             </div>
             <!-- /.card-footer-->
           </div>
@@ -349,9 +349,9 @@ overflow:scroll;
             </div>
            
             <div class="card-footer">
-              @foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/555">Edit</a>
-              @endforeach
+              
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/555">Edit</a>
+              
             </div>
             <!-- /.card-footer-->
           </div>
@@ -510,9 +510,9 @@ overflow:scroll;
            
           
             <!-- /.card-body -->
-            <div class="card-footer">@foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/666">Edit</a>
-              @endforeach</div>
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/666">Edit</a>
+              </div>
             <!-- /.card-footer-->
           </div>
           <!-- /.card -->
@@ -1003,9 +1003,9 @@ overflow:scroll;
            
           
             <!-- /.card-body -->
-            <div class="card-footer">@foreach($Datas->committee as $data)
-              <a class="btn btn-primary btn-sm" href="/edit/{{$data->Society_Id}}/777">Edit</a>
-              @endforeach
+            <div class="card-footer">
+              <a class="btn btn-primary btn-sm" href="/edit/{{$Datas->id}}/777">Edit</a>
+             
             </div>
             <!-- /.card-footer-->
           </div>
@@ -1060,7 +1060,7 @@ overflow:scroll;
                   @php
                   $jan1=json_decode($investment->loan_investment_amount);
                   @endphp
-
+                  @if(json_decode($investment->type_of_govt_loan)!=null)
                   @foreach(json_decode($investment->type_of_govt_loan) as $key => $data1)
                   <tr>
                     <th>{{$key+1}}</th>
@@ -1068,6 +1068,7 @@ overflow:scroll;
                     <td>{{$jan1[$key]}}</td>
                   </tr>
                   @endforeach
+                  @endif
                 </table>
               </div>
             </div>
@@ -1135,7 +1136,7 @@ overflow:scroll;
                   $jan4=json_decode($borrowing_datas->borrowing_outstanding);
 
                   @endphp
-
+                  @if(json_decode($borrowing_datas->borrowing_from)!=null)
                   @foreach(json_decode($borrowing_datas->borrowing_from) as $key => $data1)
                     <tr>
                       <th>{{$key+1}}</th>
@@ -1147,6 +1148,7 @@ overflow:scroll;
                      
                     </tr>
                   @endforeach
+                  @endif
                   <table class="table">
                     <tbody>
                       <tr>
@@ -1322,7 +1324,7 @@ overflow:scroll;
                   $jan2=json_decode($asset_datas->item_amount);
                   
                   @endphp
-
+                   @if(json_decode($asset_datas->item_name)!=null)
                   @foreach(json_decode($asset_datas->item_name) as $key => $data1)
 
                   <tr>
@@ -1332,6 +1334,7 @@ overflow:scroll;
                     <td>{{$jan2[$key]}}</td>
                   </tr>
                   @endforeach
+                  @endif
                   </tbody>
                 </table>
                 
@@ -1400,7 +1403,7 @@ overflow:scroll;
                   $jan4=json_decode($loan_datas->Outstanding_interest_amount);
                   
                   @endphp
-
+                   @if(json_decode($loan_datas->type_of_govt_loan)!=null)
                   @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
                   <tr>
                     <th>{{$key+1}}</th>
@@ -1411,6 +1414,7 @@ overflow:scroll;
                     <td>{{$jan4[$key]}}</td>
                   </tr>
                   @endforeach
+                  @endif
                 </tbody>
 
               </table>
