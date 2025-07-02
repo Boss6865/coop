@@ -93,7 +93,7 @@
               <li class="nav-item">
                 <a href="/capitals" class="nav-link {{request()->is('capitals')?'active':''}}">
                   <i class="nav-icon bi bi-circle"></i>
-                  <p>CAPTITALS</p>
+                  <p>CAPITALS</p>
                 </a>
               </li>
               <li class="nav-item">

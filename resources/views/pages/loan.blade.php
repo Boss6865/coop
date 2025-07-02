@@ -31,7 +31,7 @@
                               <div class="row g-2" id="loan_newinput">
                                 <div class="col-md-2">
                                   <label for="" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3">
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
                                       <option>FURNITURE & FIXTURES</option>

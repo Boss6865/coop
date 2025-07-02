@@ -58,7 +58,7 @@
                                       <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="" class="form-label">Do You Have Gowdown</label>
-                                            <select Name="godown" class="form-select target" id="selectid3" required>
+                                            <select Name="godown" class="form-select target" id="godown" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option >Yes</option>
                                                 <option>No</option>
@@ -70,11 +70,11 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4"/>
+                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ACRE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4"/>
                                         <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers"/>
                                         <div class="col-md-4">
                                             <label for="" class="form-label">Types</label>
-                                            <select Name="godown_types" class="form-select target" id="selectid3" required>
+                                            <select Name="godown_types" class="form-select target" id="godown_types" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option >Owned</option>
                                                 <option>Lease</option>
@@ -226,6 +226,15 @@
 
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
+        });
+        $("body").on("change","#godown",function(){
+          var godown=$('#godown').val();
+          if(godown=="No"){
+            
+             $("#godown_types").prop("required", false);
+          }else if(godown=="Yes"){
+            $("#godown_types").prop("required", true);
+          }
         });
    </script>
 

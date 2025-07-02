@@ -16,14 +16,14 @@ return new class extends Migration
             $table->unsignedBigInteger('Society_Id');
             $table->string('self_building');
             $table->string('rented_building');
-            $table->string('rent_paid');
+            $table->string('rent_paid')->nullable();
             $table->string('godown');
             $table->string('godown_area')->nullable();
             $table->string('godown_capacity')->nullable();
-            $table->string('godown_types');
+            $table->string('godown_types')->nullable();
             $table->string('godown_type_agreement')->nullable();
             $table->string('godown_type_per_annum')->nullable();
-            $table->string('storage');
+            $table->string('storage')->nullable();
             $table->string('storage_cold')->nullable();
             $table->string('storage_dry')->nullable();
             $table->string('land');

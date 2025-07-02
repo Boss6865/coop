@@ -692,11 +692,11 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
+                                    <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Primary_Activity"/>
                                     <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Secondary_Activity"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/> --}}
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Tertiary_Activity"/>
                                     
-                                        <div class="col-md-3">
+                                        {{-- <div class="col-md-3">
                                           <label for="validationCustom01" class="form-label">Primary Activitiy</label>
                                           <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
                                             <option  @if($data->Primary_Activity=="credit") selected @endif>CREDIT</option>
@@ -716,6 +716,8 @@
                                       <option  @if($data->Primary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
                                       <option @if($data->Primary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
                                       <option  @if($data->Primary_Activity=="housing") selected @endif>HOUSING</option>
+                                      <option  @if($data->Primary_Activity=="lrb") selected @endif>Mariang Jingkieng Jri</option>
+                                      <option  @if($data->Primary_Activity=="Banking") selected @endif>Banking Service</option>
                                       <option  @if($data->Primary_Activity=="other") selected @endif>OTHERS TYPES</option>
                                           </select>
                                           <div class="valid-feedback">Looks good!</div>
@@ -742,6 +744,8 @@
                                       <option value="tandc"  @if($data->Secondary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
                                       <option value="labour" @if($data->Secondary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
                                       <option value="housing" @if($data->Secondary_Activity=="housing") selected @endif>HOUSING</option>
+                                       <option  @if($data->Secondary_Activity=="lrb") selected @endif>Mariang Jingkieng Jri</option>
+                                      <option  @if($data->Secondary_Activity=="Banking") selected @endif>Banking Service</option>
                                       <option value="other" @if($data->Secondary_Activity=="other") selected @endif>OTHERS TYPES</option>
                                         </select>
                                         <div class="valid-feedback">Looks good!</div>
@@ -768,17 +772,15 @@
                                       <option value="tandc"  @if($data->Tertiary_Activity=="tandc") selected @endif>THRIFT AND CREDIT</option>
                                       <option value="labour" @if($data->Tertiary_Activity=="labour") selected @endif>LABOUR CONTRACT</option>
                                       <option value="housing" @if($data->Tertiary_Activity=="housing") selected @endif>HOUSING</option>
+                                      <option  @if($data->Tertiary_Activity=="lrb") selected @endif>Mariang Jingkieng Jri</option>
+                                      <option  @if($data->Tertiary_Activity=="Banking") selected @endif>Banking Service</option>
                                       <option value="other" @if($data->Tertiary_Activity=="other") selected @endif>OTHERS TYPES</option>
-                                      {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                      <option @if(ucfirst($data->Tertiary_Activity)==$activity->Activity) selected @endif>{{$activity->Activity}}</option>
-                                      
-                                     @endforeach --}}
+                                     
                                           
                                   </select>
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
-                              </div>
+                              </div> --}}
                                     <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Other_Activity"/>
 
                                   </div>
@@ -1004,11 +1006,11 @@
                                 @php
                                 $jan1=json_decode($investment_data->loan_investment_amount);
                                 @endphp
-                                
+                                @if(json_decode($investment_data->type_of_govt_loan)!=null)
                                 @forEach(json_decode($investment_data->type_of_govt_loan) as $key => $data1)
                                 @if($key==0)
                                 <div class="col-md-4">
-                                  <label for="type_of_govt_loan" class="form-label">Type of Govt. Loan</label>
+                                  <label for="type_of_govt_loan" class="form-label">Type of Investment</label>
                                   <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option @if($data1=="MCAB") selected @endif>MCAB</option>
@@ -1055,7 +1057,46 @@
                                 @endforeach
                                 @else
                                 <div class="col-md-4">
-                                  <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
+                                  <label for="validationCustom01" class="form-label">Type of Investment</label>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
+                                      <option selected disabled value="">Choose...</option>
+                                      <option >MCAB</option>
+                                      <option>MECOFED</option>
+                                      <option>MRTCF</option>
+                                      <option>MSHFCS</option>
+                                      <option>MSFCF</option>
+                                      <option>MEGHALOOM</option>
+                                      <option>MSD&LCF</option>
+                                      <option>MJJSF</option>
+                                      <option>SUB-AREA MARKETING</option>
+                                      <option>OTHER</option>
+                                      
+                                  </select>
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  @error('type_of_govt_loan')
+                                  <div style="color:red">{{$message}}</div>
+                                  @enderror
+                              </div>
+                              <div class="col-md-4">
+                                        <label for="loan_investment_amount1" class="form-label">Investment Amount</label>
+                                        <input
+                                          type="text"
+                                          class="form-control numbers"
+                                          id="loan_investment_amount1"
+                                          value=""
+                                          name="loan_investment_amount[]"
+                                          placeholder="Investment Amount"
+                                          required
+                                        />
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
+                              <button type="button" id="rowAdder_investment" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                @endif
+                                @else
+                                <div class="col-md-4">
+                                  <label for="validationCustom01" class="form-label">Type of Investment</label>
                                   <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >MCAB</option>
@@ -1121,13 +1162,13 @@
                      <form class="needs-validation" action="/borrow/{{$Datas->id}}" method ="POST" novalidate>
                         @csrf
                         @method('PUT')
-                          <div class="card-header"><div class="card-title">INVESTMENT
+                          <div class="card-header"><div class="card-title">
                            @if(($msg ?? '')!="")
                           <div style="color:green"><h3> <i class="bi bi-check-circle-fill"></i>{{$msg}}</h3></div>
                           @endif  
                           </div></div>
 
-                        <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. 
+                        <div class="card-header"><div class="card-title">BORROWINGS 
                           <select Name="Govt_loan" class="form-select target" id="selectid3" required>
                           <option selected disabled value="">Choose...</option>
                           <option @if($borrowing_datas->Govt_loan=="Yes") selected @endif>Yes</option>
@@ -1147,6 +1188,7 @@
                                 $jan3=json_decode($borrowing_datas->borrowing_refunded);
                                 $jan4=json_decode($borrowing_datas->borrowing_outstanding);
                                 @endphp
+                                @if(json_decode($borrowing_datas->borrowing_from)!=null)
                                 @forEach(json_decode($borrowing_datas->borrowing_from) as $key => $data1)
                                 @if($key==0)
                                 <div class="col-md-2">
@@ -1193,6 +1235,33 @@
 
                           @endif
                           @endforeach
+                          @else
+                                <div class="col-md-2">
+                            <label for="validationCustom01" class="form-label">Borrowing from</label>
+                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" >
+                                <option selected disabled value="">Choose...</option>
+                                '<option >GOVT.</option>'+
+                                '<option>MCAB LTD.</option>'+
+                                '<option>OTHER FINANCIAL INSTITUTION</option>'+
+                                '<option>OTHER(Mentioned)</option>'+
+                                
+                                
+                            </select>
+                            @error('borrowing_from')
+                            <div style="color:red">{{$message}}</div>
+                            @enderror
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">This field is required. Can't be empty</div>
+                        </div>
+                        <x-column_-input  title="Types (Specify)" Name="borrowing_type[]" id="" placeholder="Eg- Loan Name" div_class="col-md-2"/>
+                        <x-column_-input  title="Amount" Name="borrowing_amount[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Refunded" Name="borrowing_refunded[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                        <x-column_-input  title="Outstanding" Name="borrowing_outstanding[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                       
+                          <button type="button" id="rowAdder_borrowing" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+              
+
+                          @endif
                           @endif
                       </div>
                 </div>
@@ -1389,6 +1458,7 @@
                                         $jan2=json_decode($asset_datas->item_amount);
                                        
                                         @endphp
+                                        @if(json_decode($asset_datas->item_name)!=null)
                                         @forEach(json_decode($asset_datas->item_name) as $key => $data1)
                                         @if($key==0)
                                         <x-column_-input  title="Name of Item" Name="item_name[]" id="" placeholder="Eg-Chairs" div_class="col-md-2" val="{{$data1}}"/>
@@ -1406,6 +1476,13 @@
 
                                         @endif
                                         @endforeach
+                                        @else
+                                        <x-column_-input  title="Name of Item" Name="item_name[]" id="" placeholder="Eg-Chairs" div_class="col-md-2"/>
+                                        <x-column_-input title="Nos./Area" id="" Name="item_no[]"  placeholder="Eg- 10 " div_class="col-md-2"/>
+                                        <x-column_-input title="Value" id="" Name="item_amount[]"  placeholder="Eg-1000" div_class="col-md-2" inclass="numbers"/>
+                                        <button type="button" id="asset_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                            
+                                        @endif
                                         @endif
                                     </div>
                               </div>
@@ -1461,7 +1538,7 @@
                                   $jan4=json_decode($loan_datas->Outstanding_interest_amount);
 
                                   @endphp
-
+                                    @if(json_decode($loan_datas->type_of_govt_loan)!=null)
                                   @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
                                   @if($key==0)
                                   <div class="col-md-2">
@@ -1524,6 +1601,39 @@
 
                                 @endif
                               @endforeach
+                              @else
+                               <div class="col-md-2">
+                                  <label for="" class="form-label">Type of Govt. Loan</label>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3">
+                                      <option selected disabled value="">Choose...</option>
+                                      <option >GODOWN</option>
+                                      <option>FURNITURE & FIXTURES</option>
+                                      <option>PLANT & MACHINERY</option>
+                                      <option>SHARE CAPITAL</option>
+                                      <option>WORKING CAPITAL</option>
+                                      <option>TRUCK LOAN</option>
+                                      <option>MARKETING LOAN</option>
+                                      <option>DAIRY / LIVESTOCK</option>
+                                      <option>PROCESSING LOAN</option>
+                                      <option>STORAGE LOAN</option>
+                                      <option>CATTLE BREEDING LOAN</option>
+                                      <option>PIGGERY LOAN</option>
+                                      <option>OTHER LOAN </option>
+                                      
+                                  </select>
+                                  @error('type_of_govt_loan')
+                                  <div style="color:red">{{$message}}</div>
+                                  @enderror
+                                  <div class="valid-feedback">Looks good!</div>
+                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                              </div>
+                                <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="" placeholder="Eg-2025" div_class="col-md-2"/>
+                                <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="" placeholder="Eg-20000" div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Principal Amount" id="" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2"/>
+                                <x-column_-input title="Outstanding Interest Amount" id="" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers"/>
+                                <button type="button" id="loan_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                    
+                              @endif
                             </div>
                       </div>
                               

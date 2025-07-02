@@ -75,7 +75,7 @@ class LoanController extends Controller
     {
        $data=Basic::find($id);
         // dd($data);
-        return view('pages.asset')->with(['Datas'=>$data]);
+        return view('pages.loan')->with(['Datas'=>$data]);
     }
 
     /**

@@ -34,9 +34,9 @@
                           <div class="card-body">
                                   <div class="row g-2">
                                      
-                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers" required="required"/>
-                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers"/>
-                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers"/>
+                                    <x-column_-input  title="Individual" Name="Individual_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers" word_id="word_id_share" function='onkeyup=word_id_share.innerHTML=convertNumberToWords(this.value)' required="required"/>
+                                    <x-column_-input  title="Govt." Name="Govt_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers" word_id="word_id_gshare" function='onkeyup=word_id_gshare.innerHTML=convertNumberToWords(this.value)'/>
+                                    <x-column_-input  title="Other Cooperative Institutions (State / Primary / Etc) Level" Name="Other_coop_share" id="" placeholder="Eg-100" div_class="col-md-4" inclass="numbers" word_id="word_id_oshare" function='onkeyup=word_id_oshare.innerHTML=convertNumberToWords(this.value)'/>
                                     
                                   </div>
                           </div>
@@ -44,15 +44,11 @@
                           <div class="card-header"><div class="card-title">ACTIVITIES OF THE SOCIETY (IF NIL, MENTION THE OBJECTIVE OF THE SOCIETY AS PER ITS BYE-LAW)</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-3">
                                       <label for="validationCustom01" class="form-label">Primary Activitiy</label>
                                       <select Name="Primary_Activity" class="form-select target" id="selectid3" required>
                                           <option selected disabled value="">Choose...</option>
-                                          {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                          <option>{{$activity->Activity}}</option>
                                           
-                                          @endforeach --}}
                                           <option value="credit">CREDIT</option>
                                           <option value="handloom">HANDLOOM</option>
                                           <option value="handicraft">HANDICRAFT</option>
@@ -70,22 +66,19 @@
                                           <option value="tandc">THRIFT AND CREDIT</option>
                                           <option value="labour">LABOUR CONTRACT</option>
                                           <option value="housing">HOUSING</option>
-                                          <option value="lrb">Marinang Jingkieng Jri</option>
+                                          <option value="lrb">Mariang Jingkieng Jri</option>
+                                          <option value="Banking">Banking Service</option>
                                           <option value="other">OTHERS TYPES</option>
                                          
                                       </select>
                                       <div class="valid-feedback">Looks good!</div>
                                       <div class="invalid-feedback">This field is required. Can't be empty</div>
-                                  </div>
-                                  <div class="col-md-3">
+                                  </div> --}}
+                                  {{-- <div class="col-md-3">
                                     <label for="validationCustom01" class="form-label">Secondary Activitiy</label>
                                     <select Name="Secondary_Activity" class="form-select target" id="selectid3">
                                         <option selected disabled value="">Choose...</option>
-                                        {{-- @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                        <option>{{$activity->Activity}}</option>
                                         
-                                        @endforeach --}}
                                         <option value="credit">CREDIT</option>
                                         <option value="handloom">HANDLOOM</option>
                                       <option value="handicraft">HANDICRAFT</option>
@@ -103,22 +96,19 @@
                                       <option value="tandc">THRIFT AND CREDIT</option>
                                       <option value="labour">LABOUR CONTRACT</option>
                                       <option value="housing">HOUSING</option>
+                                      <option value="lrb">Mariang Jingkieng Jri</option>
+                                      <option value="Banking">Banking Service</option>
                                       <option value="other">OTHERS TYPES</option>
                                      
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">This field is required. Can't be empty</div>
-                                </div>
-                                <div class="col-md-3">
+                                </div> --}}
+                                {{-- <div class="col-md-3">
                                   <label for="validationCustom01" class="form-label">Tertiary Activitiy</label>
                                   <select Name="Tertiary_Activity" class="form-select target" id="selectid3">
                                       <option selected disabled value="">Choose...</option>
-                                      {{-- <option >FOR KCC LOAN SECTION  OR DEPOSIT MOBILIZATION - PACS SECTOR</option>
-                                      @forEach(json_decode(file_get_contents('assets/Activity.json')) as $activity)
-                                           
-                                      <option>{{$activity->Activity}}</option>
                                       
-                                      @endforeach --}}
                                       <option value="credit">CREDIT</option>
                                       <option value="handloom">HANDLOOM</option>
                                       <option value="handicraft">HANDICRAFT</option>
@@ -136,15 +126,17 @@
                                       <option value="tandc">THRIFT AND CREDIT</option>
                                       <option value="labour">LABOUR CONTRACT</option>
                                       <option value="housing">HOUSING</option>
+                                      <option value="lrb">Mariang Jingkieng Jri</option>
+                                      <option value="Banking">Banking Service</option>
                                       <option value="other">OTHERS TYPES</option>
                                           
                                   </select>
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
-                              </div>
-                                    {{-- <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
+                              </div> --}}
+                                    <x-column_-input  title="Primary Activitiy" Name="Primary_Activity" id="" placeholder="Eg-100" div_class="col-md-3" required="required"/>
                                     <x-column_-input  title="Secondary Activitiy" Name="Secondary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
-                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/> --}}
+                                    <x-column_-input  title="Tertiary Activitiy" Name="Tertiary_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
 
                                     <x-column_-input  title="Others (Mention in)" Name="Other_Activity" id="" placeholder="Eg-100" div_class="col-md-3"/>
 

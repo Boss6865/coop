@@ -33,7 +33,7 @@
                             <div class="card-body">
                               <div class="row g-2" id="newinput_investment">
                                 <div class="col-md-4">
-                                  <label for="validationCustom01" class="form-label">Type of Govt. Loan</label>
+                                  <label for="validationCustom01" class="form-label">Type of Investment</label>
                                   <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
                                       <option selected disabled value="">Choose...</option>
                                       <option >MCAB</option>
@@ -48,6 +48,16 @@
                                       <option>OTHER</option>
                                       
                                   </select>
+                                  <div class="col-md-12" style="display:none" id="other_mention_here">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
+                                      name="other_mention"
+                                    />
+                                  </div>
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                                   @error('type_of_govt_loan')
@@ -152,6 +162,16 @@
           }
             
         });
+
+        $("select").on("change",function(){
+    var type_of_govt_loan =$(this).val();
+    if(type_of_govt_loan=="OTHER"){
+     $('#other_mention_here').show();
+      $("#other_mention_here input").focus();
+    }else{
+      $('#other_mention_here').hide();
+    }
+  });
      </script>
 
     </x-layout>

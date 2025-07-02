@@ -74,6 +74,17 @@
                               <option selected disabled value="">Choose...</option>
                               
                             </select>
+                            <div class="col-md-12" style="display:none" id="other_mention_here">
+                         
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="other_mention"
+                              value=""
+                              name="other_mention"
+                            />
+                          </div>
+                            
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">This field is required. Can't be empty</div>
                   </div>
@@ -424,7 +435,15 @@
               console.log("An error has occurred.");
           });
       });
-  
+  $("#Sector").on("change",function(){
+    var sector =$("#Sector").val();
+    if(sector=="OTHER TYPES"){
+     $('#other_mention_here').show();
+      $("#other_mention_here input").focus();
+    }else{
+      $('#other_mention_here').hide();
+    }
+  });
       // end of sector json
       //start of rural and urban district json
       $( "#Select_Area" ).on( "change", function() {

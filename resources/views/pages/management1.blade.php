@@ -63,16 +63,16 @@
             <div class="row g-2">
                        
                         <!--begin:Col-->
-                        <x-column_-input Name="Managing_Male" title="Number Of Male" id="validationCustom03" placeholder="Eg.2" div_class="col-md-4" inclass="numbers"/>
+                        <x-column_-input Name="Managing_Male" title="Number Of Male" id="validationCustom03" placeholder="Eg.2" div_class="col-md-4" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <x-column_-input Name="Managing_Female" title="Number Of Female" id="validationCustom04" placeholder="Eg.2" div_class="col-md-4" inclass="numbers"/>
+                        <x-column_-input Name="Managing_Female" title="Number Of Female" id="validationCustom04" placeholder="Eg.2" div_class="col-md-4" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
                          
                 <!--begin::Col-->
-                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="Date_of_LastAGM" placeholder='eg.2/02/2025' div_class="col-md-4" />
+                <x-column_-input Name="Date_of_LastAGM" title="Date Of Last Agm" id="Date_of_LastAGM" placeholder='eg.2/02/2025' div_class="col-md-4" required="required"/>
                 
                         <!--end::Col-->
                       
@@ -82,20 +82,20 @@
                         <!--begin::Row-->
                     <div class="row g-2">
                         <!--begin::Col-->
-                        <x-column_-input Name="Employee_Male" title="Total Male" id="validationCustom06" placeholder="eg.2" div_class="col-md-3" inclass="numbers"/>
+                        <x-column_-input Name="Employee_Male" title="Total Male" id="validationCustom06" placeholder="eg.2" div_class="col-md-3" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <x-column_-input Name="Employee_Female" title="Total Female" id="validationCustom07" placeholder="eg.2" div_class="col-md-3" inclass="numbers"/>
+                        <x-column_-input Name="Employee_Female" title="Total Female" id="validationCustom07" placeholder="eg.2" div_class="col-md-3" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <x-column_-input Name="Trained_Male" title="Trained Male" id="validationCustom08" placeholder="eg.2" div_class="col-md-3" inclass="numbers"/>
+                        <x-column_-input Name="Trained_Male" title="Trained Male" id="validationCustom08" placeholder="eg.2" div_class="col-md-3" inclass="numbers" required="required"/>
                        
                         <!--end::Col-->
                          
                      <!--begin::Col-->
-                     <x-column_-input Name="Trained_Female" title="Trained Female" id="validationCustom09" placeholder="eg.2" div_class="col-md-3" inclass="numbers"/>
+                     <x-column_-input Name="Trained_Female" title="Trained Female" id="validationCustom09" placeholder="eg.2" div_class="col-md-3" inclass="numbers" required="required"/>
                      
                         <!--end::Col-->
                       
@@ -106,15 +106,15 @@
                         <!--begin::Row-->
                     <div class="row g-2">
                         <!--begin::Col-->
-                        <x-column_-input Name="Programme_Type" title="Type" id="validationCustom10" placeholder="eg.2" div_class="col-md-4"/>
+                        <x-column_-input Name="Programme_Type" title="Type" id="validationCustom10" placeholder="eg.2" div_class="col-md-4" required="required"/>
                         
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <x-column_-input Name="Training_Program" title="Training Programme" id="validationCustom11" placeholder="eg.2" div_class="col-md-4"/>
+                        <x-column_-input Name="Training_Program" title="Training Programme" id="validationCustom11" placeholder="eg.2" div_class="col-md-4" required="required"/>
                         
                         <!--end::Col-->
                         <!--begin::Col-->
-                        <x-column_-input Name="Number_of_Trainee" title="No. of Trainees" id="validationCustom12" placeholder="eg.2" div_class="col-md-4" inclass="numbers"/>
+                        <x-column_-input Name="Number_of_Trainee" title="No. of Trainees" id="validationCustom12" placeholder="eg.2" div_class="col-md-4" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
                          
@@ -127,17 +127,17 @@
                         <!--begin::Row-->
                     <div class="row g-2">
                         <!--begin::Col-->
-                        <x-column_-input Name="Managemnt_Salary" title="Salary" id="validationCustom13" placeholder="eg.10000" div_class="col-md-4" inclass="numbers"/>
+                        <x-column_-input Name="Managemnt_Salary" title="Salary" id="validationCustom13" placeholder="eg.10000" div_class="col-md-4" inclass="numbers" required="required"/>
                        
                         <!--end::Col-->
                        
                         <!--begin::Col-->
-                        <x-column_-input Name="Management_Expense" title="Management Expenses" id="validationCustom14" placeholder="eg.2000" div_class="col-md-4" inclass="numbers"/>
+                        <x-column_-input Name="Management_Expense" title="Management Expenses" id="validationCustom14" placeholder="eg.2000" div_class="col-md-4" inclass="numbers" required="required"/>
                         
                         <!--end::Col-->
 
                          <!--begin::Col-->
-                         <x-column_-input Name="Other_Expense" title="Other Expenses" id="validationCustom15" placeholder="eg.10000" div_class="col-md-4" inclass="numbers"/>
+                         <x-column_-input Name="Other_Expense" title="Other Expenses" id="validationCustom15" placeholder="eg.10000" div_class="col-md-4" inclass="numbers" required="required"/>
                          
                         <!--end::Col-->
                          

@@ -122,7 +122,8 @@
                                                 {{$data->ST_Male+$data->SC_Male+$data->Gen_Male+$data->ST_Female+$data->SC_Female+$data->Gen_Female+$data->ST_SHG+$data->SC_SHG+$data->Gen_SHG+$data->ST_PG+$data->SC_PG+$data->Gen_PG+$data->ST_CoopSociety+$data->SC_CoopSociety+$data->Gen_CoopSociety}}
                                               </td>
                                               @endforeach
-                                              @if(!@empty($Society->committee->count))
+                                               @if(count($Society->committee)>0)
+                                              {{-- @if(true) --}}
                                               @foreach($Society->committee as $data)
                                               <td>
                                                 {{$data->President_Name}}:: {{$data->President_Contact}}
@@ -141,7 +142,7 @@
                                             <td>0</td>
                                             <td>0</td>
                                             @endif
-                                            @if(!@empty($Society->capital->count))
+                                            @if(count($Society->capital)>0)
                                             @foreach($Society->capital as $data)
                                               <td> 
                                                 

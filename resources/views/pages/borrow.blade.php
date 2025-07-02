@@ -18,8 +18,8 @@
                           <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}">
                           @endif
 
-                        <div class="card-header"><div class="card-title">BORROWINGS FROM GOVT. 
-                          <select Name="Govt_loan" class="form-select target" id="selectid3" required>
+                        <div class="card-header"><div class="card-title">BORROWINGS
+                          <select Name="Govt_loan" class="form-select target" id="Govt_loan" required>
                           <option selected disabled value="">Choose...</option>
                           <option >Yes</option>
                           <option>No</option>
@@ -139,6 +139,19 @@
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         });
+
+        $("body").on("change", "#Govt_loan", function () {
+          var Govt_loan=$("#Govt_loan").val();
+          if(Govt_loan=="Yes"){
+            $("select").prop("required", true);
+            $("input").prop("required", true);
+          }else{
+            $("select").prop("required", false);
+            $("input").prop("required", false);
+          }
+            
+        });
+        
    </script>
 
     </x-layout>
