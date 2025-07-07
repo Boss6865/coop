@@ -23,20 +23,20 @@
                     <div class="card-body">
                             <div class="row g-2">
                                
-                              <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Age/Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3"/>
-                              <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
-                              <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
+                              <x-column_-input  title="Name" Name="President_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Age/Date of Birth" Name="President_DOB" id="President_DOB" placeholder="2003-11-19" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Contact No." Name="President_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Email" Name="President_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" required="required"/>
 
                             </div>
                     </div>
                     <div class="card-header"><div class="card-title">DETAILS OF THE SECRETARY</div></div>
                     <div class="card-body">
                             <div class="row g-2">
-                              <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3"/>
-                              <x-column_-input  title="Age/Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3"/>
-                              <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3"/>
-                              <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3"/>
+                              <x-column_-input  title="Name" Name="Secretary_Name" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Age/Date of Birth" Name="Secretary_DOB" id="Secretary_DOB" placeholder="2003-11-19" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Contact No." Name="Secretary_Contact" id="validationCustom09" placeholder="Eg-9856678090" div_class="col-md-3" required="required"/>
+                              <x-column_-input  title="Email" Name="Secretary_Email" id="validationCustom09" placeholder="Eg-johndeo@email.com" div_class="col-md-3" required="required"/>
                                 
                             </div>
                     </div>
@@ -44,8 +44,8 @@
                     <div class="card-body">
                             <div id="newinput" class="row g-2">
                                
-                                <x-column_-input  title="Name of The Member" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-4"/>
-                                <x-column_-input title="Contact No" id="validationCustom10" Name="Member_Contact[]"  placeholder="Eg-9856678090" div_class="col-md-4"/>
+                                <x-column_-input  title="Name of The Member" Name="Member_Name[]" id="validationCustom09" placeholder="Eg-John-Deo" div_class="col-md-4" required="required"/>
+                                <x-column_-input title="Contact No" id="validationCustom10" Name="Member_Contact[]"  placeholder="Eg-9856678090" div_class="col-md-4" required="required"/>
                                 
                                 <button type="button" id="rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                             </div>

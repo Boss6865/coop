@@ -38,7 +38,7 @@ class AssetController extends Controller
        
             'Society_Id'=> 'required|integer',
             'self_building'=> 'required|string',
-            'rented_building'=> 'required|string',
+            'rented_building'=> 'nullable|string',
             'rent_paid'=> 'nullable|integer',
             'godown'=> 'nullable|string',
             'godown_area'=> 'nullable|string',

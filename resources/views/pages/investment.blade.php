@@ -55,7 +55,7 @@
                                       class="form-control"
                                       id="other_mention"
                                       value=""
-                                      name="other_mention"
+                                      name="other_mention[]"
                                     />
                                   </div>
                                   <div class="valid-feedback">Looks good!</div>
@@ -128,7 +128,7 @@
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-4">' +
-                  '<select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="type_of_govt_loan[]" class="form-select target" id="" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >MCAB</option>'+
                          '<option>MECOFED</option>'+
@@ -141,7 +141,8 @@
                          '<option>SUB-AREA MARKETING</option>'+
                          '<option>OTHER</option>'+
                                 
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="wekk"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
                
                 '<div class="col-md-4">' +
                   '<input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
@@ -172,6 +173,14 @@
       $('#other_mention_here').hide();
     }
   });
+ $(document).on('change', ".target", function () {
+ 
+    if(this.value=="OTHER"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
      </script>
 
     </x-layout>

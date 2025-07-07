@@ -18,7 +18,7 @@
                           <input type="hidden" name="Society_Id" value="{{ Session()->get('id_key'); }}">
                           @endif
                               <div class="card-header"><div class="card-title">Any Govt. Loans
-                                <select Name="any_Govt_loan" class="form-select target" id="selectid3" required>
+                                <select Name="any_Govt_loan" class="form-select target" id="any_Govt_loan" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option >Yes</option>
                                 <option>No</option>
@@ -28,10 +28,10 @@
                             <div style="color:red">{{$message}}</div>
                             @enderror
                             <div class="card-body">
-                              <div class="row g-2" id="loan_newinput">
+                              <div class="row g-2" id="loan_newinput" style="display: none" >
                                 <div class="col-md-2">
                                   <label for="" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3">
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="">
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
                                       <option>FURNITURE & FIXTURES</option>
@@ -141,6 +141,14 @@
 
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
+        });
+        $("body").on("change","#any_Govt_loan", function(){
+          var any_Govt_loan=$("#any_Govt_loan").val();
+          if(any_Govt_loan=="Yes"){
+            $('#loan_newinput').show();
+          }else if(any_Govt_loan=="No"){
+            $('#loan_newinput').hide();
+          }
         });
    </script>
 

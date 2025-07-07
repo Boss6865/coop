@@ -1059,12 +1059,13 @@ overflow:scroll;
                   </thead>
                   @php
                   $jan1=json_decode($investment->loan_investment_amount);
+                  $jan2=json_decode($investment->other_mention);
                   @endphp
                   @if(json_decode($investment->type_of_govt_loan)!=null)
                   @foreach(json_decode($investment->type_of_govt_loan) as $key => $data1)
                   <tr>
                     <th>{{$key+1}}</th>
-                    <td>{{$data1}}</td>
+                    <td>{{$data1}} @if($data1=="OTHER") : {{$jan2[$key]}} @endif</td>
                     <td>{{$jan1[$key]}}</td>
                   </tr>
                   @endforeach

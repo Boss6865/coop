@@ -6,7 +6,11 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <x-navigation title="{{ $Datas->Name_of_the_Society }}" Nav="Edit Society" />
-     
+     <style>
+      .offshow{
+  display: none;
+}
+     </style>
     <div class="card card-info card-outline mb-4">
         <div class="card-body my-5">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -1005,6 +1009,7 @@
                                 @if(!empty($investment_data->type_of_govt_loan))
                                 @php
                                 $jan1=json_decode($investment_data->loan_investment_amount);
+                                 $jan2=json_decode($investment_data->other_mention);
                                 @endphp
                                 @if(json_decode($investment_data->type_of_govt_loan)!=null)
                                 @forEach(json_decode($investment_data->type_of_govt_loan) as $key => $data1)
@@ -1025,6 +1030,18 @@
                                       <option @if($data1=="OTHER") selected @endif>OTHER</option>
                                       
                                   </select>
+                                   @if($data1=="OTHER") 
+                                <div class="col-md-12" id="other_mention_here">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value="{{$jan2[$key]}}"
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                                @endif
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
                                   @error('type_of_govt_loan')
@@ -1037,7 +1054,7 @@
                                 @else
                                 <div id="row" class="row g-2">
                                 <div class="col-md-4">
-                                <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan">
                                       <option selected disabled value="">Choose...</option>
                                       <option @if($data1=="MCAB") selected @endif>MCAB</option>
                                       <option @if($data1=="MECOFED") selected @endif>MECOFED</option>
@@ -1049,7 +1066,20 @@
                                       <option @if($data1=="MJJSF") selected @endif>MJJSF</option>
                                       <option @if($data1=="SUB-AREA MARKETING") selected @endif>SUB-AREA MARKETING</option>
                                       <option @if($data1=="OTHER") selected @endif>OTHER</option>           
-                                  </select></div>
+                                  </select>
+                                @if($data1=="OTHER") 
+                                <div class="col-md-12" id="other_mention_here">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value="{{$jan2[$key]}}"
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                                @endif
+                                </div>
                                 <div class="col-md-4">
                                 <input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan1[$key]}}"> </div>
                                 <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
@@ -1058,7 +1088,7 @@
                                 @else
                                 <div class="col-md-4">
                                   <label for="validationCustom01" class="form-label">Type of Investment</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" >
                                       <option selected disabled value="">Choose...</option>
                                       <option >MCAB</option>
                                       <option>MECOFED</option>
@@ -1072,8 +1102,16 @@
                                       <option>OTHER</option>
                                       
                                   </select>
-                                  <div class="valid-feedback">Looks good!</div>
-                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                 <div class="col-md-12 " id="other_mention_here" style="display: none">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                   @error('type_of_govt_loan')
                                   <div style="color:red">{{$message}}</div>
                                   @enderror
@@ -1097,7 +1135,7 @@
                                 @else
                                 <div class="col-md-4">
                                   <label for="validationCustom01" class="form-label">Type of Investment</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan" required>
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="type_of_govt_loan">
                                       <option selected disabled value="">Choose...</option>
                                       <option >MCAB</option>
                                       <option>MECOFED</option>
@@ -1111,8 +1149,17 @@
                                       <option>OTHER</option>
                                       
                                   </select>
-                                  <div class="valid-feedback">Looks good!</div>
-                                  <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                  <div class="col-md-12" style="display:none" id="other_mention_here">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                                  
                                   @error('type_of_govt_loan')
                                   <div style="color:red">{{$message}}</div>
                                   @enderror
@@ -1313,7 +1360,7 @@
                                       <div class="row g-2">
                                         <div class="col-md-3">
                                             <label for="" class="form-label">Own Building</label>
-                                            <select Name="self_building" class="form-select target" id="selectid3" required>
+                                            <select Name="self_building" class="form-select target" id="self_building" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->self_building=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->self_building=="No") selected @endif>No</option>
@@ -1325,7 +1372,7 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 {{$asset_datas->self_building=="No" ? 'offshow': ''}}" id="rented_building" >
                                             <label for="" class="form-label">Rented Building</label>
                                             <select Name="rented_building" class="form-select target" id="selectid3" required>
                                                 <option selected disabled value="">Choose...</option>
@@ -1336,12 +1383,25 @@
                                             @error('rented_building')
                                             <div style="color:red">{{$message}}</div>
                                             @enderror
-                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="valid-feedback" >Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" id="" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers" val="{{$asset_datas->rent_paid}}"/>
-                                       
+                                        {{-- <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" div_id="rent_paid" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers" val="{{$asset_datas->rent_paid}}"/> --}}
+                                       <div class="col-md-3 {{$asset_datas->self_building=="No" ? 'offshow': ''}}" id="rent_paid">
+                                          <label for="rent_paid" class="form-label">Rent Paid Per Annum</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id="rent_paid"
+                                            value="{{$asset_datas->rent_paid}}"
+                                            name="rent_paid"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
                                     </div>
                               </div>
                               <div class="card-header"><div class="card-title">GODOWN</div></div>
@@ -1349,7 +1409,7 @@
                                       <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="" class="form-label">Do You Have Gowdown</label>
-                                            <select Name="godown" class="form-select target" id="selectid3" required>
+                                            <select Name="godown" class="form-select target" id="godown" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->godown=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->godown=="No") selected @endif>No</option>
@@ -1361,11 +1421,40 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->godown_area}}"/>
-                                        <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_capacity}}"/>
-                                        <div class="col-md-4">
+                                        {{-- <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->godown_area}}"/>
+                                        <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_capacity}}"/> --}}
+                                        <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_area">
+                                          <label for="rent_paid" class="form-label">AREA OF THE GODOWN IN SQ.FT. / ARCE</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->godown_area}}"
+                                            name="godown_area"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_capacity">
+                                          <label for="rent_paid" class="form-label">CAPACITY IN MT</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->godown_capacity}}"
+                                            name="godown_capacity"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                        
+                                          <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_types_div">
                                             <label for="" class="form-label">Types</label>
-                                            <select Name="godown_types" class="form-select target" id="selectid3" required>
+                                            <select Name="godown_types" class="form-select target">
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->godown_types=="Owned") selected @endif>Owned</option>
                                                 <option @if($asset_datas->godown_types=="Lease") selected @endif>Lease</option>
@@ -1378,12 +1467,41 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Terms Of Agreement" Name="godown_type_agreement" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_agreement}}"/>
-                                        <x-column_-input  title="Amount Paid Per Annum" Name="godown_type_per_annum" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_per_annum}}"/>
-                                       
+                                        {{-- <x-column_-input  title="Terms Of Agreement" Name="godown_type_agreement" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_agreement}}"/>
+                                        <x-column_-input  title="Amount Paid Per Annum" Name="godown_type_per_annum" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_type_per_annum}}"/> --}}
+                                       <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_type_agreement">
+                                          <label for="rent_paid" class="form-label">Terms Of Agreement</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->godown_type_agreement}}"
+                                            name="godown_type_agreement"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_type_per_annum">
+                                          <label for="rent_paid" class="form-label">Amount Paid Per Annum</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->godown_type_per_annum}}"
+                                            name="godown_type_per_annum"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                      </div>
+                                      <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="" class="form-label">Storage</label>
-                                            <select Name="storage" class="form-select target" id="selectid3" required>
+                                            <select Name="storage" class="form-select target" id="storage" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->storage=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->storage=="No") selected @endif>No</option>
@@ -1395,12 +1513,42 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Cold" Name="storage_cold" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_cold}}"/>
-                                        <x-column_-input  title="Dry" Name="storage_dry" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_dry}}"/>
-                                       
+                                        {{-- <x-column_-input  title="Cold (in number)" Name="storage_cold" div_id="storage_cold" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_cold}}"/>
+                                        <x-column_-input  title="Dry (in number)" Name="storage_dry" div_id="storage_dry" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->storage_dry}}"/> --}}
+                                      <div class="col-md-4 {{$asset_datas->storage=="No" ? 'offshow': ''}}" id="storage_cold">
+                                          <label for="rent_paid" class="form-label">Cold (in number)</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->storage_cold}}"
+                                            name="storage_cold"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-4 {{$asset_datas->storage=="No" ? 'offshow': ''}}" id="storage_dry">
+                                          <label for="rent_paid" class="form-label">Dry (in number)</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->storage_dry}}"
+                                            name="storage_dry"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                      
+                                        </div>
+                                      <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="" class="form-label">Land</label>
-                                            <select Name="land" class="form-select target" id="selectid3" required>
+                                            <select Name="land" class="form-select target" id="land" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->land=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->land=="No") selected @endif>No</option>
@@ -1412,11 +1560,42 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->Land_area}}"/>
-                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->land_area_lease}}"/>
-                                        <div class="col-md-2">
+                                        {{-- <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" div_id="Land_area" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->Land_area}}"/>
+                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" div_id="land_area_lease" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" val="{{$asset_datas->land_area_lease}}"/>
+                                         --}}
+                                        <div class="col-md-4 {{$asset_datas->land=="No" ? 'offshow': ''}}" id="Land_area">
+                                          <label for="rent_paid" class="form-label">Land Area in Sq. Ft./Acre</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->Land_area}}"
+                                            name="Land_area"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-4 {{$asset_datas->land=="No" ? 'offshow': ''}}" id="land_area_lease">
+                                          <label for="rent_paid" class="form-label">If Lease Term Agreement and Area in Sq. Ft./Acre</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->land_area_lease}}"
+                                            name="land_area_lease"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                        </div>
+                                      <div class="row g-2">
+                                          <div class="col-md-2">
                                             <label for="" class="form-label">Furniture</label>
-                                            <select Name="furniture" class="form-select target" id="selectid3" required>
+                                            <select Name="furniture" class="form-select target" id="furniture" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->furniture=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->furniture=="No") selected @endif>No</option>
@@ -1428,11 +1607,42 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Total Nos." Name="furniture_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_total}}"/>
-                                        <x-column_-input  title="Value" Name="furniture_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_amount}}"/>
-                                        <div class="col-md-2">
+                                        {{-- <x-column_-input  title="Total Nos." Name="furniture_total" div_id="furniture_total" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_total}}"/>
+                                        <x-column_-input  title="Value" Name="furniture_amount" div_id="furniture_amount" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->furniture_amount}}"/> --}}
+                                       <div class="col-md-2 {{$asset_datas->furniture=="No" ? 'offshow': ''}}" id="furniture_total">
+                                          <label for="rent_paid" class="form-label">Total Nos.</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->furniture_total}}"
+                                            name="furniture_total"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-2 {{$asset_datas->furniture=="No" ? 'offshow': ''}}" id="furniture_amount">
+                                          <label for="rent_paid" class="form-label">Value</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->furniture_amount}}"
+                                            name="furniture_amount"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                       
+                                        </div>
+                                      <div class="row g-2">
+                                          <div class="col-md-2">
                                             <label for="" class="form-label">Computers</label>
-                                            <select Name="computers" class="form-select target" id="selectid3" required>
+                                            <select Name="computers" class="form-select target" id="computers" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->computers=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->computers=="No") selected @endif>No</option>
@@ -1444,13 +1654,46 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Total Nos." Name="computers_total" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_total}}"/>
-                                        <x-column_-input  title="Value" Name="computers_amount" id="" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_amount}}"/>
-                                       
+                                        {{-- <x-column_-input  title="Total Nos." Name="computers_total" div_id="computers_total" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_total}}"/>
+                                        <x-column_-input  title="Value" Name="computers_amount" div_id="computers_amount" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-2" inclass="numbers" val="{{$asset_datas->computers_amount}}"/> --}}
+                                        <div class="col-md-2 {{$asset_datas->computers=="No" ? 'offshow': ''}}" id="computers_total">
+                                          <label for="rent_paid" class="form-label">Total Nos.</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->computers_total}}"
+                                            name="computers_total"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
+                                    <div class="col-md-2 {{$asset_datas->computers=="No" ? 'offshow': ''}}" id="computers_amount">
+                                          <label for="rent_paid" class="form-label">Value</label>
+                                          <input
+                                            type="text"
+                                            class="form-control numbers"
+                                            id=""
+                                            value="{{$asset_datas->computers_amount}}"
+                                            name="computers_amount"
+                                            placeholder="Eg- 1000"
+                                           
+                                          />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                    </div>
                                     </div>
                               </div>
-                              <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS )  </div></div>
-                              <div class="card-body">
+                              <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS ) 
+                               <select Name="computers" class="form-select target" id="Other_item_id" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option @if(json_decode($asset_datas->item_name)!=null) selected @endif>Yes</option>
+                                       <option @if(json_decode($asset_datas->item_name)==null) selected @endif>No</option>
+                                   </select>  
+                              </div></div>
+                              <div class="card-body {{json_decode($asset_datas->item_name)==null ? 'offshow': ''}}" id="other">
                                       <div class="row g-2" id="asset_newinput">
                                         @if(!empty($asset_datas->item_no))
                                         @php
@@ -2089,7 +2332,9 @@ $( "#Yes1" ).on( "change", function() {
                          '<option>SUB-AREA MARKETING</option>'+
                          '<option>OTHER</option>'+
                                 
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="wekk"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
+               
                
                 '<div class="col-md-4">' +
                   '<input name="loan_investment_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
@@ -2102,6 +2347,32 @@ $( "#Yes1" ).on( "change", function() {
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         });
+        $("body").on("change", "#investment_Status", function () {
+          var investment_Status=$("#investment_Status").val();
+          if(investment_Status=="No"){
+            $("#type_of_govt_loan").prop("required", false);
+            $("#loan_investment_amount1").prop("required", false);
+          }
+            
+        });
+
+        $("select").on("change",function(){
+    var type_of_govt_loan =$(this).val();
+    if(type_of_govt_loan=="OTHER"){
+     $('#other_mention_here').show();
+      $("#other_mention_here input").focus();
+    }else{
+      $('#other_mention_here').hide();
+    }
+  });
+ $(document).on('change', ".target", function () {
+ 
+    if(this.value=="OTHER"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
      </script>
      
      {{-- investment script end --}}
@@ -2230,6 +2501,100 @@ $("#loan_rowAdder").click(function () {
    });
 
         //end script for loan
+
+         $('#self_building').on("change",function(){
+          
+          var self_building=$("#self_building").val();
+         
+          if(self_building=="Yes"){
+           
+            $("#rented_building").show();
+            $("#rent_paid").show();
+           
+          }else{
+            
+            $("#rented_building").hide();
+            $("#rent_paid").hide();
+           
+          }
+        });
+        $('#godown').on("change",function(){
+          
+          var godown=$("#godown").val();
+         
+          if(godown=="Yes"){
+           
+            $("#godown_area, #godown_types_div, #godown_type_agreement, #godown_type_per_annum, #godown_capacity").show();
+           
+          }else{
+            
+            $("#godown_area, #godown_types_div, #godown_type_agreement, #godown_type_per_annum, #godown_capacity").hide();
+   
+           
+          }
+        });
+        
+        $('#storage').on("change",function(){
+          
+          var storage=$("#storage").val();
+         
+          if(storage=="Yes"){
+           
+            $("#storage_cold, #storage_dry").show();
+           
+          }else{
+            
+            $("#storage_cold, #storage_dry").hide();
+   
+          }
+        });
+          
+         $('#land, #furniture, #computers, #Other_item_id').on("change",function(){
+          
+          var land=$("#land").val();
+          var furniture=$("#furniture").val();
+          var computers=$("#computers").val();
+          var Other_item_id=$("#Other_item_id").val();
+         
+          if(land=="Yes"){
+           
+            $("#Land_area, #land_area_lease").show();
+           
+          }else if(land=="No"){
+            
+            $("#Land_area, #land_area_lease").hide();
+   
+          }
+
+          if(furniture=="Yes"){
+           
+            $("#furniture_amount, #furniture_total").show();
+           
+          }else if(furniture=="No"){
+            
+            $("#furniture_amount, #furniture_total").hide();
+   
+          }
+ 
+          if(computers=="Yes"){
+           
+            $("#computers_total, #computers_amount").show();
+           
+          }else if(computers=="No"){
+            
+            $("#computers_total, #computers_amount").hide();
+   
+          }
+          if(Other_item_id=="Yes"){
+           
+            $("#other").show();
+           
+          }else if(Other_item_id=="No"){
+            
+            $("#other").hide();
+   
+          }
+        });
    </script>
 
 

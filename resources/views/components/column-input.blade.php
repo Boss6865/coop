@@ -2,6 +2,7 @@
 @props(['title'=>'Number Of Male',
 'div_class'=>'col-md-4',
 'id'=>'',
+'div_id'=>'',
 'word_id'=>'',
 'val'=>'',
 'Name'=>'',
@@ -9,9 +10,10 @@
 'placeholder'=>'Eg.2',
 'required'=>'',
 'function'=>'',
+'disp'=>'',
 'e_msg'=>'This field is required.'])
 <!--begin::Col-->
-<div class={{$div_class}}>
+<div class={{$div_class}} id={{$div_id}}>
     <label for="{{$id}}" class="form-label">{{$title}}</label>
         <input
             type="text"

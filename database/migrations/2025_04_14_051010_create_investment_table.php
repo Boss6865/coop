@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('investment_Status');
             $table->json('type_of_govt_loan')->nullable();
             $table->json('loan_investment_amount')->nullable();
+             $table->json('item_amount');
+              $table->json('item_amount');
             $table->timestamps();
             $table->foreign('Society_Id')->references('id')->on('_societydata')->onDelete('cascade');
         });

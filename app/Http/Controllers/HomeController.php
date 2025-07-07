@@ -184,6 +184,11 @@ class HomeController extends Controller
             ]);
             
             //return redirect()->route('pages.management1');
+            if( $Name_of_the_Society==""|| $id_of_society==""){
+
+            }else{
+                
+            }
            return redirect()->action([HomeController::class, 'management_2'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
             //return "success";
             

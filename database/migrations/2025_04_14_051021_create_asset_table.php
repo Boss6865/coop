@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('Society_Id');
             $table->string('self_building');
-            $table->string('rented_building');
+            $table->string('rented_building')->nullable();
             $table->string('rent_paid')->nullable();
-            $table->string('godown');
+            $table->string('godown')->nullable();
             $table->string('godown_area')->nullable();
             $table->string('godown_capacity')->nullable();
             $table->string('godown_types')->nullable();
@@ -26,13 +26,13 @@ return new class extends Migration
             $table->string('storage')->nullable();
             $table->string('storage_cold')->nullable();
             $table->string('storage_dry')->nullable();
-            $table->string('land');
+            $table->string('land')->nullable();
             $table->string('Land_area')->nullable();
             $table->string('land_area_lease')->nullable();
-            $table->string('furniture');
+            $table->string('furniture')->nullable();
             $table->string('furniture_total')->nullable();
             $table->string('furniture_amount')->nullable();
-            $table->string('computers');
+            $table->string('computers')->nullable();
             $table->string('computers_total')->nullable();
             $table->string('computers_amount')->nullable();
 

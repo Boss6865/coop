@@ -42,6 +42,7 @@ class Investment extends Controller
         
         $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
         $validatedData['loan_investment_amount']=json_encode($request->input('loan_investment_amount'));
+        $validatedData['other_mention']=json_encode($request->input('other_mention'));
         investement::create($validatedData);
         
 
@@ -80,7 +81,7 @@ class Investment extends Controller
         
         $validatedData['type_of_govt_loan']=json_encode($request->input('type_of_govt_loan'));
         $validatedData['loan_investment_amount']=json_encode($request->input('loan_investment_amount'));
-
+        $validatedData['other_mention']=json_encode($request->input('other_mention'));
          $finddata=Investement::where('Society_Id', $id);
            
             $finddata->update($validatedData);
@@ -89,7 +90,7 @@ class Investment extends Controller
         $borrowing=Borrowing::where('Society_Id', $id)->first();
         $asset_datas=Asset::where('Society_Id', $id)->first();
         $loan_datas=Loan::where('Society_Id', $id)->first();
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"000",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"999",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
     }
 
     /**
