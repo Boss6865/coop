@@ -1041,6 +1041,17 @@
                                       name="other_mention[]"
                                     />
                                   </div>
+                                  @else
+                                  <div class="col-md-12" id="other_mention_here" style="display: none">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                 @endif
                                   <div class="valid-feedback">Looks good!</div>
                                   <div class="invalid-feedback">This field is required. Can't be empty</div>
@@ -1075,6 +1086,17 @@
                                       class="form-control"
                                       id="other_mention"
                                       value="{{$jan2[$key]}}"
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                                  @else
+                                  <div class="col-md-12" id="other_mention_here" style="display: none">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
                                       name="other_mention[]"
                                     />
                                   </div>
