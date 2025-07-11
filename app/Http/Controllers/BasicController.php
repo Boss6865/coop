@@ -146,11 +146,11 @@ class BasicController extends Controller
            
         $validatedData=$request->validate([
                     'Society_Id'=> 'required|integer',
-                    'Admission_fee'=> 'required|integer',
+                    'Admission_fee'=> 'required|numeric|min:1|max:9999|decimal:2',
                     'Share_face_value'=> 'required|integer',
                     'Authorize_share_capital'=> 'required|integer',
-                    'Individual_share'=> 'required|integer',
-                    'Govt_share'=> 'required|integer',
+                    'Individual_share'=> 'required|numeric|min:0|max:9999999999999999|decimal:2',
+                    'Govt_share'=> 'required|numeric|min:0|max:9999999999999999|decimal:2',
                     'Other_coop_share'=> 'nullable|integer',
                     'Primary_Activity'=> 'required|string',
                     'Secondary_Activity'=> 'nullable|string',
@@ -159,11 +159,11 @@ class BasicController extends Controller
                     'Society_Fair_Price_Shop'=> 'nullable|string',
                     'Latest_Audit_complete'=> 'nullable|string',
                     'Audit_Class'=> 'nullable|string',
-                    'Working_Capitals'=> 'nullable|integer',
-                    'Business_turnover'=> 'nullable|integer',
-                    'Total_reserve'=> 'nullable|integer',
-                    'Profit_loss'=> 'nullable|integer',
-                    'Net_Profit_Loss'=> 'nullable|integer',
+                    'Working_Capitals'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
+                    'Business_turnover'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
+                    'Total_reserve'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
+                    'Profit_loss'=> 'nullable|string',
+                    'Net_Profit_Loss'=> 'nullable|string',
                     'Profit'=> 'required|integer',
                     'Loss'=> 'required|integer',
                     'Declear_Dividen'=> 'required|string',
@@ -173,18 +173,20 @@ class BasicController extends Controller
                     'CDF_Paid'=> 'required|string',
                     'CDf_Yes_paidamount'=> 'nullable|integer',
                     'CDf_Yes_paidDate'=> 'nullable|string',
-                    'Grant_Type'=> 'nullable|string',
-                    'Grant_Year'=> 'nullable|string',
-                    'Deptt_Name'=> 'nullable|string',
-                    'Grant_Sanctioned'=> 'nullable|integer',
-                    'Grant_Release'=> 'nullable|integer',
-                    'Date_release'=> 'nullable|string',
-                    'Aid_Type'=> 'nullable|string',
-                    'Aid_Year'=> 'nullable|string',
-                    'Agencies_Name'=> 'nullable|string',
-                    'Aid_Sanctioned'=> 'nullable|integer',
-                    'Aid_Grant_Release'=> 'nullable|integer',
-                    'Grant_Subsidies'=> 'nullable|integer',
+                    
+                    'Grant_Type'=> 'nullable|bail',
+                    'Grant_Year'=> 'nullable|bail',
+                    'Deptt_Name'=> 'nullable|bail',
+                    'Grant_Sanctioned'=> 'nullable|bail',
+                    'Grant_Release'=> 'nullable|bail',
+                    'Date_release'=> 'nullable|bail',
+                    'Aid_Type'=> 'nullable|bail',
+                    'Aid_Year'=> 'nullable|bail',
+                    'Agencies_Name'=> 'nullable|bail',
+                    'Aid_Sanctioned'=> 'nullable|bail',
+                    'Aid_Grant_Release'=> 'nullable|bail',
+                    'Grant_Subsidies'=> 'nullable|bail',
+
                     'Loan_Sanctioned'=> 'nullable|integer',
                     'Loan_Refunded'=> 'nullable|integer',
                     'Loan_Outstanding'=> 'nullable|integer',
@@ -192,6 +194,20 @@ class BasicController extends Controller
                     'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
    
                 ]);
+// $validatedData['Grant_Type']=json_encode($request->input('Grant_Type'));
+        // $validatedData['Grant_Year']=json_encode($request->input('Grant_Year'));
+        // $validatedData['Deptt_Name']=json_encode($request->input('Deptt_Name'));
+        // $validatedData['Grant_Sanctioned']=json_encode($request->input('Grant_Sanctioned'));
+        // $validatedData['Grant_Release']=json_encode($request->input('Grant_Release'));
+        // $validatedData['Date_release']=json_encode($request->input('Date_release'));
+
+        // $validatedData['Aid_Type']=json_encode($request->input('Aid_Type'));
+        // $validatedData['Aid_Year']=json_encode($request->input('Aid_Year'));
+        // $validatedData['Agencies_Name']=json_encode($request->input('Agencies_Name'));
+        // $validatedData['Aid_Sanctioned']=json_encode($request->input('Aid_Sanctioned'));
+        // $validatedData['Aid_Grant_Release']=json_encode($request->input('Aid_Grant_Release'));
+        // $validatedData['Grant_Subsidies']=json_encode($request->input('Grant_Subsidies'));
+
                 $Name_of_the_Society=$request->input('Society_Id');
                 $id_of_society=$request->input('id_of_society252');
                 //dd($validatedData);
@@ -201,7 +217,8 @@ class BasicController extends Controller
 
                 
             //return redirect()->route('pages.management1');
-           return redirect()->action([BasicController::class, 'Viewsociety'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+        //    return redirect()->action([BasicController::class, 'Viewsociety'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
+        return redirect()->action([Investment::class, 'index'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
             //return "success";
             
     }
@@ -440,8 +457,8 @@ class BasicController extends Controller
             'Society_Fair_Price_Shop'=> 'nullable|string',
             'Latest_Audit_complete'=> 'nullable|string',
             'Audit_Class'=> 'nullable|string',
-            'Working_Capitals'=> 'nullable|numeric|min:1|max:9999999999999999|decimal:2',
-            'Business_turnover'=> 'nullable|numeric|min:1|max:9999999999999999|decimal:2',
+            'Working_Capitals'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
+            'Business_turnover'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
             'Total_reserve'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
             'Profit_loss'=> 'nullable|string',
             'Net_Profit_Loss'=> 'nullable|string',
@@ -454,18 +471,20 @@ class BasicController extends Controller
             'CDF_Paid'=> 'required|string',
             'CDf_Yes_paidamount'=> 'nullable|integer',
             'CDf_Yes_paidDate'=> 'nullable|string',
-            'Grant_Type'=> 'nullable|string',
-            'Grant_Year'=> 'nullable|string',
-            'Deptt_Name'=> 'nullable|string',
-            'Grant_Sanctioned'=> 'nullable|integer',
-            'Grant_Release'=> 'nullable|integer',
-            'Date_release'=> 'nullable|string',
-            'Aid_Type'=> 'nullable|string',
-            'Aid_Year'=> 'nullable|string',
-            'Agencies_Name'=> 'nullable|string',
-            'Aid_Sanctioned'=> 'nullable|integer',
-            'Aid_Grant_Release'=> 'nullable|integer',
-            'Grant_Subsidies'=> 'nullable|integer',
+
+            'Grant_Type'=> 'nullable|bail',
+            'Grant_Year'=> 'nullable|bail',
+            'Deptt_Name'=> 'nullable|bail',
+            'Grant_Sanctioned'=> 'nullable|bail',
+            'Grant_Release'=> 'nullable|bail',
+            'Date_release'=> 'nullable|bail',
+            'Aid_Type'=> 'nullable|bail',
+            'Aid_Year'=> 'nullable|bail',
+            'Agencies_Name'=> 'nullable|bail',
+            'Aid_Sanctioned'=> 'nullable|bail',
+            'Aid_Grant_Release'=> 'nullable|bail',
+            'Grant_Subsidies'=> 'nullable|bail',
+
             'Loan_Sanctioned'=> 'nullable|integer',
             'Loan_Refunded'=> 'nullable|integer',
             'Loan_Outstanding'=> 'nullable|integer',
@@ -473,7 +492,19 @@ class BasicController extends Controller
             'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
 
         ]);
+        // $validatedData['Grant_Type']=json_encode($request->input('Grant_Type'));
+        // $validatedData['Grant_Year']=json_encode($request->input('Grant_Year'));
+        // $validatedData['Deptt_Name']=json_encode($request->input('Deptt_Name'));
+        // $validatedData['Grant_Sanctioned']=json_encode($request->input('Grant_Sanctioned'));
+        // $validatedData['Grant_Release']=json_encode($request->input('Grant_Release'));
+        // $validatedData['Date_release']=json_encode($request->input('Date_release'));
 
+        // $validatedData['Aid_Type']=json_encode($request->input('Aid_Type'));
+        // $validatedData['Aid_Year']=json_encode($request->input('Aid_Year'));
+        // $validatedData['Agencies_Name']=json_encode($request->input('Agencies_Name'));
+        // $validatedData['Aid_Sanctioned']=json_encode($request->input('Aid_Sanctioned'));
+        // $validatedData['Aid_Grant_Release']=json_encode($request->input('Aid_Grant_Release'));
+        // $validatedData['Grant_Subsidies']=json_encode($request->input('Grant_Subsidies'));
   
 
             $finddata= capital::where('Society_Id', $id);
@@ -489,32 +520,32 @@ class BasicController extends Controller
             
                 'ST_Male'=>'required|integer',
                 'ST_Female' => 'required|integer',
-                'ST_PG'=>'required|integer',
-                'ST_CoopSociety'=>'required|integer',
-                'ST_SHG'=> 'required|integer',
-                'SC_Male'=>'required|integer',
-                'SC_Female' => 'required|integer',
-                'SC_CoopSociety'=>'required|integer',
-                'SC_PG'=>'required|integer',
-                'SC_SHG'=>'required|integer',
-                'Gen_Male'=>'required|integer',
-                'Gen_Female'=>'required|integer',
-                'Gen_CoopSociety'=>'required|integer',
-                'Gen_PG'=>'required|integer',
-                'Gen_SHG'=>'required|integer',
-                'Managing_Male'=>'required|integer',
-                'Managing_Female'=> 'required|integer',
-                'Date_of_LastAGM'=>'required|date',
-                'Employee_Male'=>'required|integer',
-                'Employee_Female'=>'required|integer',
-                'Trained_Male'=> 'required|integer',
-                'Trained_Female'=> 'required|integer',
+                'ST_PG'=>'nullable|integer',
+                'ST_CoopSociety'=>'nullable|integer',
+                'ST_SHG'=> 'nullable|integer',
+                'SC_Male'=>'nullable|integer',
+                'SC_Female' => 'nullable|integer',
+                'SC_CoopSociety'=>'nullable|integer',
+                'SC_PG'=>'nullable|integer',
+                'SC_SHG'=>'nullable|integer',
+                'Gen_Male'=>'nullable|integer',
+                'Gen_Female'=>'nullable|integer',
+                'Gen_CoopSociety'=>'nullable|integer',
+                'Gen_PG'=>'nullable|integer',
+                'Gen_SHG'=>'nullable|integer',
+                'Managing_Male'=>'nullable|integer',
+                'Managing_Female'=> 'nullable|integer',
+                'Date_of_LastAGM'=>'nullable|date',
+                'Employee_Male'=>'nullable|integer',
+                'Employee_Female'=>'nullable|integer',
+                'Trained_Male'=> 'nullable|integer',
+                'Trained_Female'=> 'nullable|integer',
                 'Programme_Type'=>'nullable|string',
                 'Training_Program'=>'nullable|string',
-                'Number_of_Trainee'=>'required|integer',
-                'Managemnt_Salary'=> 'required|integer',
-                'Management_Expense'=> 'required|integer',
-                'Other_Expense'=> 'required|integer',
+                'Number_of_Trainee'=>'nullable|integer',
+                'Managemnt_Salary'=> 'nullable|integer',
+                'Management_Expense'=> 'nullable|integer',
+                'Other_Expense'=> 'nullable|integer',
 
         ]);
 

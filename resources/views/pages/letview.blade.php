@@ -84,11 +84,22 @@
                                             <td> {{$Society->District;}}</td>
                                             <td> {{$Society->Block;}}</td>
                                             <td> {{$Society->Village;}} - {{$Society->Pincode;}} </td>
-                                            @foreach($Society->membersociety as $data)
+                                            @forelse ($Society->membersociety as $data)
+                                                <td>
+                                              
+                                              {{$data->ST_Male + $data->ST_Female + $data->SC_Male + $data->SC_Female + $data->Gen_Male + $data->Gen_Female}}
+                                            
+                                                </td> 
+                                            @empty
+                                                 <td><p class="font-weight-bold">No Member found</p></td>
+                                            @endforelse
+                                            {{-- @foreach($Society->membersociety as $data)
                                             <td>
-                                            {{$data->ST_Male + $data->ST_Female + $data->SC_Male + $data->SC_Female + $data->Gen_Male + $data->Gen_Female}}
+                                              
+                                              {{$data->ST_Male + $data->ST_Female + $data->SC_Male + $data->SC_Female + $data->Gen_Male + $data->Gen_Female}}
+                                            
                                           </td>
-                                            @endforeach
+                                            @endforeach --}}
                                             <td>{{$Society->Status;}}</td>
                                             <td>{{$Society->updated_at;}}</td>
                                             

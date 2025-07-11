@@ -255,28 +255,33 @@
 
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A GRANT</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
+                                  <div class="row g-2" id="newinput_grand_aid">
                                     <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-1"/>
                                     <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id5" function='onkeyup=word_id5.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                     <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id6" function='onkeyup=word_id6.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                     <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2"/>
-
+                                    <div class="col-md-1" style="display: none">
+                                      <button type="button" id="rowAdder_grand_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
+                                    
                                   </div>
                           </div>
 
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
+                                  <div class="row g-2" id="newinput_loan_aid">
 
                                     <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="" placeholder="Eg-100" div_class="col-md-2"/>
-                                    <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2"/>
+                                    <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-1"/>
                                     <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="" placeholder="Eg-100" div_class="col-md-2"/>
                                     <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id7" function='onkeyup=word_id7.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                     <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id8" function='onkeyup=word_id8.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
                                     <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id14" function='onkeyup=word_id14.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
-
+                                   <div class="col-md-1" style="display: none">
+                                      <button type="button" id="rowAdder_loan_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
                                   </div>
                           </div>
 
@@ -500,4 +505,54 @@ function convertNumberToWords(amount) {
 $('.numbers').keyup(function () {
          this.value = this.value.replace(/[^0-9\.]/g,'');
       });
+
+       $("#rowAdder_grand_aid").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="Grant_Type[]" type="text" class="form-control numbers" placeholder="Eg-Name" required> </div>'+
+                  '<div class="col-md-1">' +
+                  '<input name="Grant_Year[]" type="text" class="form-control numbers" placeholder="Eg-year" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Deptt_Name[]" type="text" class="form-control numbers" placeholder="Eg-MBMA" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Sanctioned[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Release[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Date_release[]" type="text" class="form-control numbers" placeholder="Eg-Date" required> </div>'+
+                '<button type="button" id="Delete_grand_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_grand_aid').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_grand_aid_Row", function () {
+            $(this).parents("#row").remove();
+        });
+
+        $("#rowAdder_loan_aid").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="Aid_Type[]" type="text" class="form-control numbers" placeholder="Eg-Name" required> </div>'+
+                  '<div class="col-md-1">' +
+                  '<input name="Aid_Year[]" type="text" class="form-control numbers" placeholder="Eg-year" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Agencies_Name[]" type="text" class="form-control numbers" placeholder="Eg-MBMA" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Aid_Sanctioned[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Aid_Grant_Release[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Subsidies[]" type="text" class="form-control numbers" placeholder="Eg-Date" required> </div>'+
+                '<button type="button" id="Delete_loan_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_loan_aid').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_loan_aid_Row", function () {
+            $(this).parents("#row").remove();
+        });
 </script>

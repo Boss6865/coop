@@ -100,7 +100,7 @@
                                               <td> {{$Society->Date_of_registration;}}</td>
                                               <td> {{$Society->Village;}}, {{$Society->District;}} - {{$Society->Pincode;}}</td>
                                               <td> {{$Society->Status;}}</td>
-                                              @foreach($Society->membersociety as $data)
+                                              {{-- @foreach($Society->membersociety as $data)
                                               <td> 
                                                
                                                 {{$data->ST_Male+$data->SC_Male+$data->Gen_Male}}
@@ -121,7 +121,36 @@
                                               <td>
                                                 {{$data->ST_Male+$data->SC_Male+$data->Gen_Male+$data->ST_Female+$data->SC_Female+$data->Gen_Female+$data->ST_SHG+$data->SC_SHG+$data->Gen_SHG+$data->ST_PG+$data->SC_PG+$data->Gen_PG+$data->ST_CoopSociety+$data->SC_CoopSociety+$data->Gen_CoopSociety}}
                                               </td>
-                                              @endforeach
+                                              @endforeach --}}
+                                              @forelse($Society->membersociety as $data)
+                                                <td> 
+                                               
+                                                {{$data->ST_Male+$data->SC_Male+$data->Gen_Male}}
+                                               
+                                              </td>
+                                              <td>
+                                                {{$data->ST_Female+$data->SC_Female+$data->Gen_Female}}
+                                              </td>
+                                              <td>
+                                                {{$data->ST_SHG+$data->SC_SHG+$data->Gen_SHG}}
+                                              </td>
+                                              <td>
+                                                {{$data->ST_PG+$data->SC_PG+$data->Gen_PG}}
+                                              </td>
+                                              <td>
+                                                {{$data->ST_CoopSociety+$data->SC_CoopSociety+$data->Gen_CoopSociety}}
+                                              </td>
+                                              <td>
+                                                {{$data->ST_Male+$data->SC_Male+$data->Gen_Male+$data->ST_Female+$data->SC_Female+$data->Gen_Female+$data->ST_SHG+$data->SC_SHG+$data->Gen_SHG+$data->ST_PG+$data->SC_PG+$data->Gen_PG+$data->ST_CoopSociety+$data->SC_CoopSociety+$data->Gen_CoopSociety}}
+                                              </td>
+                                              @empty
+                                               <td>Not Yet Enty</td>
+                                              <td>Not Yet Enty</td>
+                                              <td>Not Yet Enty</td>
+                                              <td>Not Yet Enty</td>
+                                              <td>Not Yet Enty</td>
+                                              <td>Not Yet Enty</td>
+                                              @endforelse
                                                @if(count($Society->committee)>0)
                                               {{-- @if(true) --}}
                                               @foreach($Society->committee as $data)

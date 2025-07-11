@@ -334,8 +334,8 @@ overflow:scroll;
                       <td>{{$data->Training_Program}}</td>
                       <td>{{$data->Number_of_Trainee}}</td>
                       <td>{{$data->Managemnt_Salary}}</td>
-                      <td>{{$data->Trained_Female}}</td>
-                      <td>{{$data->Managemnt_Salary + $data->Management_Expense}}</td>
+                      <td>{{$data->Other_Expense}}</td>
+                      <td>{{$data->Managemnt_Salary + $data->Management_Expense + $data->Other_Expense}}</td>
                       
                     </tr>
                     
@@ -847,37 +847,57 @@ overflow:scroll;
                 <table class="table">
                   <thead>
                     <tr>
-                      <th colspan="5" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A GRANT</th>
+                      <th colspan="6" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A GRANT</th>
                     </tr>
-                   
+                    <tr>
+                      <th scope="row">TYPES OF GRANT</th>
+                      <th scope="row">YEAR</th>
+                      <th scope="row">NAME OF THE DEPTT.</th>
+                      <th scope="row">TOTAL GRANT SANCTIONED</th>
+                      <th scope="row">GRANT RELEASE</th>
+                      <th scope="row">DATE OF RELEASE</th>
+                    </tr>
                   </thead>
                   <tbody>
                     @foreach($Datas->capital as $data)
+                    @if(is_array(json_decode($data->Grant_Type)))
+                       @foreach (json_decode($data->Grant_Type) as $key => $crew) 
+                        <tr>
+                    
+                        {{-- <td>{{$key+1}}</td> --}}
+                          <td>{{$crew}}</td>
+                          
+                    
+                          {{-- <td>{{json_decode($data->Grant_Year)[$key]}}</td> --}}
+                             <td>@isset(json_decode($data->Grant_Year)[$key]) {{json_decode($data->Grant_Year)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Deptt_Name)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Deptt_Name)[$key]) {{json_decode($data->Deptt_Name)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Grant_Sanctioned)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Grant_Sanctioned)[$key]) {{json_decode($data->Grant_Sanctioned)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Grant_Release)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Grant_Release)[$key]) {{json_decode($data->Grant_Release)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Date_release)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Date_release)[$key]) {{json_decode($data->Date_release)[$key]}} @endisset</td>
+                        {{-- <td>{{json_decode($data->Member_Contact)[$key]}}</td> --}}
+                   
+                        </tr>
+                    @endforeach
+                    @else
                     <tr>
-                      <th scope="row">TYPES OF GRANT</th>
+                      
                       <td>{{$data->Grant_Type}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">YEAR</th>
+                    
                       <td>{{$data->Grant_Year}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">NAME OF THE DEPTT.</th>
+                    
                       <td>{{$data->Deptt_Name}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">TOTAL GRANT SANCTIONED</th>
+                    
                       <td>{{$data->Grant_Sanctioned}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">GRANT RELEASE</th>
+                    
                       <td>{{$data->Grant_Release}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">DATE OF RELEASE</th>
+                    
                       <td>{{$data->Date_release}}</td>
                     </tr>
-
+                    @endif
                     @endforeach
                   </tbody>
                 </table>
@@ -891,41 +911,54 @@ overflow:scroll;
                 <table class="table">
                   <thead>
                     <tr>
-                      <th colspan="5" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</th>
+                      <th colspan="6" scope="col" class="text-center">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</th>
                     </tr>
-                   
+                   <tr>
+                    <th scope="row">TYPES OF AID</th>
+                    <th scope="row">YEAR</th>
+                    <th scope="row">NAME OF THE AGENCIES</th>
+                    <th scope="row">TOTAL AID SANCTIONED</th>
+                    <th scope="row" >GRANT LOAN RELEASE</th>
+                    <th scope="row" >GRANT SUBSIDIES</th>
+                   </tr>
                   </thead>
                   <tbody>
                     @foreach($Datas->capital as $data)
+                    @if(is_array(json_decode($data->Aid_Type)))
+
+                      @foreach (json_decode($data->Aid_Type) as $key => $crew) 
+                        <tr>
+                    
+                        {{-- <td>{{$key+1}}</td> --}}
+                          <td>{{$crew}}</td>
+                          {{-- <td>{{json_decode($data->Aid_Year)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Aid_Year)[$key]) {{json_decode($data->Aid_Year)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Agencies_Name)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Agencies_Name)[$key]) {{json_decode($data->Agencies_Name)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Aid_Sanctioned)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Aid_Sanctioned)[$key]) {{json_decode($data->Aid_Sanctioned)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Aid_Grant_Release)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Aid_Grant_Release)[$key]) {{json_decode($data->Aid_Grant_Release)[$key]}} @endisset</td>
+                          {{-- <td>{{json_decode($data->Grant_Subsidies)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->Grant_Subsidies)[$key]) {{json_decode($data->Grant_Subsidies)[$key]}} @endisset</td>
+                        {{-- <td>{{json_decode($data->Member_Contact)[$key]}}</td> --}}
+                   
+                        </tr>
+                      @endforeach
+                    @else
                     <tr>
-                      <th scope="row">TYPES OF AID</th>
                       <td>{{$data->Aid_Type}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">YEAR</th>
+                   
                       <td>{{$data->Aid_Year}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">NAME OF THE AGENCIES</th>
+                    
                       <td>{{$data->Agencies_Name}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">TOTAL AID SANCTIONED</th>
+                    
                       <td>{{$data->Aid_Sanctioned}}</td>
-                    </tr>
-                    <tr>
-                      <th colspan="2" scope="col" class="text-center">GRANT RELEASE</th>
-                    </tr>
-                    <tr>
-                      
-                      <th scope="row">LOAN</th>
-                      <th scope="col">SUBSIDIES</th>
-                    </tr>
-                    <tr>
+                  
                       <td>{{$data->Aid_Grant_Release}}</td>
                       <td>{{$data->Grant_Subsidies}}</td>
                     </tr>
-
+                    @endif
                     @endforeach
                   </tbody>
                 </table>
@@ -1065,7 +1098,7 @@ overflow:scroll;
                   @foreach(json_decode($investment->type_of_govt_loan) as $key => $data1)
                   <tr>
                     <th>{{$key+1}}</th>
-                    <td>{{$data1}} @if($data1=="OTHER") : {{$jan2[$key]}} @endif</td>
+                    <td>{{$data1}} @if($data1=="OTHER") : @isset($jan2[$key]) {{$jan2[$key]}} @else Not Mentioned @endisset  @endif</td>
                     <td>{{$jan1[$key]}}</td>
                   </tr>
                   @endforeach

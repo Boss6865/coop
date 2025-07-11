@@ -919,28 +919,145 @@
 
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A GRANT</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
-                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
-                                    <x-column_-input  title="Year" Name="Grant_Year" id="Grant_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Year"/>
-                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
-                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
-                                    <x-column_-input  title="Grant Release" Name="Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Release"/>
-                                    <x-column_-input  title="Date Of Release" Name="Date_release" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
+                                  <div class="row g-2" id="newinput_grand_aid">
+                                    @if(is_array(json_decode($data->Grant_Type)))
+                                    @foreach (json_decode($data->Grant_Type) as $key => $crew)
+                                      @if($key==0)
+                                        <x-column_-input  title="Types Of Grant" Name="Grant_Type[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="$crew"/>
+                                        @isset(json_decode($data->Grant_Year)[$key])
+                                       <x-column_-input  title="Year" Name="Grant_Year[]" id="Grant_Year" placeholder="Eg-100" div_class="col-md-1" :val="json_decode($data->Grant_Year)[$key]"/>
+                                          @else
+                                          <x-column_-input  title="Year" Name="Grant_Year[]" id="Grant_Year" placeholder="Eg-100" div_class="col-md-1" />
+                                        @endisset
 
+                                        @isset(json_decode($data->Deptt_Name)[$key])
+                                       <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="json_decode($data->Deptt_Name)[$key]"/>
+                                          @else
+                                          <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name[]" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                        @endisset
+
+                                         @isset(json_decode($data->Grant_Sanctioned)[$key])
+                                       <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="json_decode($data->Grant_Sanctioned)[$key]"/>
+                                          @else
+                                          <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned[]" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                        @endisset
+                                        
+                                         @isset(json_decode($data->Grant_Release)[$key])
+                                        <x-column_-input  title="Grant Release" Name="Grant_Release[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="json_decode($data->Grant_Release)[$key]"/>
+                                          @else
+                                          <x-column_-input  title="Grant Release" Name="Grant_Release[]" id="" placeholder="Eg-100" div_class="col-md-2"/>
+                                        @endisset
+                                        
+                                        @isset(json_decode($data->Date_release)[$key])
+                                        <x-column_-input  title="Date Of Release" Name="Date_release[]" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="json_decode($data->Date_release)[$key]"/>
+                                          @else
+                                        <x-column_-input  title="Date Of Release" Name="Date_release[]" id="Date_release" placeholder="Eg-100" div_class="col-md-2"/>
+                                        @endisset
+                                       
+                                        
+                                       <div class="col-md-1">
+                                      <button type="button" id="rowAdder_grand_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
+                                          @else
+                                          <div id="row" class="row g-2">
+                                           
+                                          <div class="col-md-2">
+                                          <input name="Grant_Type[]" type="text" class="form-control numbers" value="{{$crew}}" required> </div>
+                                          <div class="col-md-1">
+                                            
+                                          <input name="Grant_Year[]" type="text" class="form-control numbers" value="{{json_decode($data->Grant_Year)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Deptt_Name[]" type="text" class="form-control numbers" value="{{json_decode($data->Deptt_Name)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Grant_Sanctioned[]" type="text" class="form-control numbers" value="{{json_decode($data->Grant_Sanctioned)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Grant_Release[]" type="text" class="form-control numbers" value="{{json_decode($data->Grant_Release)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Date_release[]" type="text" class="form-control numbers" value="{{json_decode($data->Date_release)[$key]}}" required> </div>
+                                          <button type="button" id="Delete_loan_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                                      @endif
+                                    @endforeach
+                                    @else
+                                    <x-column_-input  title="Types Of Grant" Name="Grant_Type[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Type"/>
+                                    <x-column_-input  title="Year" Name="Grant_Year[]" id="Grant_Year" placeholder="Eg-100" div_class="col-md-1" :val="$data->Grant_Year"/>
+                                    <x-column_-input  title="Name Of The DEPTT." Name="Deptt_Name[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Deptt_Name"/>
+                                    <x-column_-input  title="Total Grant Sanctioned" Name="Grant_Sanctioned[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Sanctioned"/>
+                                    <x-column_-input  title="Grant Release" Name="Grant_Release[]" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Release"/>
+                                    <x-column_-input  title="Date Of Release" Name="Date_release[]" id="Date_release" placeholder="Eg-100" div_class="col-md-2" :val="$data->Date_release"/>
+                                      <div class="col-md-1">
+                                      <button type="button" id="rowAdder_grand_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
+                                    @endif
                                   </div>
                           </div>
 
                           <div class="card-header"><div class="card-title">GOVERNMENT AID, IN THE FORM OF A  LOAN - CUM - SUBSIDIES</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
-
-                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Type"/>
-                                    <x-column_-input  title="Year" Name="Aid_Year" id="Aid_Year" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Year"/>
-                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Agencies_Name"/>
-                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
-                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
-                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Grant_Subsidies"/>
-
+                                  <div class="row g-2" id="newinput_loan_aid">
+                                    @if(is_array(json_decode($data->Aid_Type)))
+                                      @foreach (json_decode($data->Aid_Type) as $key => $crew)
+                                      @if($key==0)
+                                        <x-column_-input  title="Types Of Aid" Name="Aid_Type[]" id=""  div_class="col-md-2" :val="$crew"/>
+                                        @isset(json_decode($data->Aid_Year)[$key])
+                                        <x-column_-input  title="Year" Name="Aid_Year[]" id=""  div_class="col-md-1" :val="json_decode($data->Aid_Year)[$key]"/>
+                                          @else
+                                           <x-column_-input  title="Year" Name="Aid_Year[]" id=""  div_class="col-md-1"/>
+                                        @endisset
+                                        
+                                        @isset(json_decode($data->Agencies_Name)[$key])
+                                        <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name[]" id=""  div_class="col-md-2" :val="json_decode($data->Agencies_Name)[$key]"/>
+                                          @else
+                                           <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name[]" id=""  div_class="col-md-2"/>
+                                        @endisset
+                                        
+                                         @isset(json_decode($data->Aid_Sanctioned)[$key])
+                                        <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned[]" id=""  div_class="col-md-2" :val="json_decode($data->Aid_Sanctioned)[$key]"/>
+                                          @else
+                                           <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned[]" id=""  div_class="col-md-2"/>
+                                        @endisset
+                                         @isset(json_decode($data->Aid_Grant_Release)[$key])
+                                         <x-column_-input  title="Grant Loan Release" Name="Aid_Grant_Release[]" id=""  div_class="col-md-2" :val="json_decode($data->Aid_Grant_Release)[$key]"/>
+                                          @else
+                                            <x-column_-input  title="Grant Loan Release" Name="Aid_Grant_Release[]" id=""  div_class="col-md-2"/>
+                                        @endisset
+                                        @isset(json_decode($data->Grant_Subsidies)[$key])
+                                         <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies[]"  div_class="col-md-2" :val="json_decode($data->Grant_Subsidies)[$key]"/>
+                                          @else
+                                            <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies[]"  div_class="col-md-2"/>
+                                        @endisset
+                                       
+                                        
+                                          <div class="col-md-1">
+                                      <button type="button" id="rowAdder_loan_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
+                                      @else
+                                          <div id="row" class="row g-2">
+                                          <div class="col-md-2">
+                                          <input name="Aid_Type[]" type="text" class="form-control numbers" value="{{$crew}}" required> </div>
+                                          <div class="col-md-1">
+                                          <input name="Aid_Year[]" type="text" class="form-control numbers" value="{{json_decode($data->Aid_Year)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Agencies_Name[]" type="text" class="form-control numbers" value="{{json_decode($data->Agencies_Name)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Aid_Sanctioned[]" type="text" class="form-control numbers" value="{{json_decode($data->Aid_Sanctioned)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Aid_Grant_Release[]" type="text" class="form-control numbers" value="{{json_decode($data->Aid_Grant_Release)[$key]}}" required> </div>
+                                          <div class="col-md-2">
+                                          <input name="Grant_Subsidies[]" type="text" class="form-control numbers" value="{{json_decode($data->Grant_Subsidies)[$key]}}" required> </div>
+                                          <button type="button" id="Delete_loan_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                                      @endif
+                                    @endforeach
+                                    @else
+                                    <x-column_-input  title="Types Of Aid" Name="Aid_Type[]" id=""  div_class="col-md-2" :val="$data->Aid_Type"/>
+                                    <x-column_-input  title="Year" Name="Aid_Year[]" id="Aid_Year"  div_class="col-md-1" :val="$data->Aid_Year"/>
+                                    <x-column_-input  title="Name Of The Agencies" Name="Agencies_Name[]" id=""  div_class="col-md-2" :val="$data->Agencies_Name"/>
+                                    <x-column_-input  title="Total AID Sanctioned" Name="Aid_Sanctioned[]" id=""  div_class="col-md-2" :val="$data->Aid_Sanctioned"/>
+                                    <x-column_-input  title="Grant Loan Release " Name="Aid_Grant_Release[]" id=""  div_class="col-md-2" :val="$data->Aid_Grant_Release"/>
+                                    <x-column_-input  title="Grant Subsidies" Name="Grant_Subsidies[]" id=""  div_class="col-md-2" :val="$data->Grant_Subsidies"/>
+                                      <div class="col-md-1">
+                                      <button type="button" id="rowAdder_loan_aid" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
+                                     @endif
                                   </div>
                           </div>
 
@@ -948,9 +1065,9 @@
                           <div class="card-header"><div class="card-title">REFUND OF AID SANCTIONED AS  LOAN</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Sanctioned"/>
-                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Refunded"/>
-                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->Loan_Outstanding"/>
+                                    <x-column_-input  title="Loan Sanctioned" Name="Loan_Sanctioned" id=""  div_class="col-md-4" :val="$data->Loan_Sanctioned"/>
+                                    <x-column_-input  title="Loan Refunded " Name="Loan_Refunded" id=""  div_class="col-md-4" :val="$data->Loan_Refunded"/>
+                                    <x-column_-input  title="Loan Outstanding" Name="Loan_Outstanding" id=""  div_class="col-md-4" :val="$data->Loan_Outstanding"/>
 
                                   </div>
                           </div>
@@ -958,8 +1075,8 @@
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
                                   <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year"  div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id=""  div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
                                       
                                       
                                   </div>
@@ -1085,7 +1202,10 @@
                                       type="text"
                                       class="form-control"
                                       id="other_mention"
-                                      value="{{$jan2[$key]}}"
+                                      @isset($jan2[$key])
+                                          value="{{$jan2[$key]}}"
+                                      @endisset
+                                      
                                       name="other_mention[]"
                                     />
                                   </div>
@@ -2617,6 +2737,58 @@ $("#loan_rowAdder").click(function () {
    
           }
         });
+
+        //capital add new AID or Govt. Loan
+         $("#rowAdder_grand_aid").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="Grant_Type[]" type="text" class="form-control numbers" placeholder="Eg-Name" required> </div>'+
+                  '<div class="col-md-1">' +
+                  '<input name="Grant_Year[]" type="text" class="form-control numbers" placeholder="Eg-year" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Deptt_Name[]" type="text" class="form-control numbers" placeholder="Eg-MBMA" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Sanctioned[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Release[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Date_release[]" type="text" class="form-control numbers" placeholder="Eg-Date" required> </div>'+
+                '<button type="button" id="Delete_grand_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_grand_aid').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_grand_aid_Row", function () {
+            $(this).parents("#row").remove();
+        });
+
+        $("#rowAdder_loan_aid").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="Aid_Type[]" type="text" class="form-control numbers" placeholder="Eg-Name" required> </div>'+
+                  '<div class="col-md-1">' +
+                  '<input name="Aid_Year[]" type="text" class="form-control numbers" placeholder="Eg-year" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Agencies_Name[]" type="text" class="form-control numbers" placeholder="Eg-MBMA" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Aid_Sanctioned[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Aid_Grant_Release[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="Grant_Subsidies[]" type="text" class="form-control numbers" placeholder="Eg-Date" required> </div>'+
+                '<button type="button" id="Delete_loan_aid_Row" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_loan_aid').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_loan_aid_Row", function () {
+            $(this).parents("#row").remove();
+        });
+        //end here
    </script>
 
 
