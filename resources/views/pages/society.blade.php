@@ -57,7 +57,7 @@ overflow:scroll;
                      
                       <tr>
                         <th scope="row">NAME OF THE SOCIETY:</th>
-                        <td> {{ $Datas->Name_of_the_Society }}</td>
+                        <td> {{ ucwords($Datas->Name_of_the_Society) }}</td>
                       </tr>
                       <tr>
                         <th scope="row">REGISTRATION:</th>
@@ -65,7 +65,7 @@ overflow:scroll;
                       </tr>
                       <tr>
                         <th scope="row">DATE OF REGISTRATION:</th>
-                        <td>{{ $Datas->Date_of_registration }}</td>
+                        <td>{{ $Datas->Date_of_registration }}</td> 
                       </tr>
                       <tr>
                         <th scope="row"> SECTOR TYPE:</th>
@@ -202,7 +202,10 @@ overflow:scroll;
                       <th scope="col">TRIBE</th>
                       <th scope="col">MALE</th>
                       <th scope="col">FEMALE</th>
-                      <th scope="col">TOTALS</th>
+                     <th scope="col">COOP. SOC.</th>
+                      <th scope="col">PG</th>
+                      <th scope="col">SHGs</th>
+                      <th scope="col">TOTAL</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -210,19 +213,28 @@ overflow:scroll;
                       <th scope="row">ST</th>
                       <td>{{$data->ST_Male}}</td>
                       <td>{{$data->ST_Female}}</td>
-                      <td>{{$data->ST_Male + $data->ST_Female}}</td>
+                      <td>{{$data->ST_CoopSociety ? $data->ST_CoopSociety : 0}}</td>
+                      <td>{{$data->ST_PG ? $data->ST_PG : 0}}</td>
+                      <td>{{$data->ST_SHG ? $data->ST_SHG : 0}}</td>
+                      <td>{{$data->ST_Male + $data->ST_Female + $data->ST_CoopSociety + $data->ST_PG + $data->ST_SHG}}</td>
                     </tr>
                     <tr>
                       <th scope="row">SC</th>
-                      <td>{{$data->SC_Male}}</td>
-                      <td>{{$data->SC_Female}}</td>
-                      <td>{{$data->SC_Male + $data->SC_Female}}</td>
+                      <td>{{$data->SC_Male ? $data->SC_Male : 0}}</td>
+                      <td>{{$data->SC_Female ? $data->SC_Female : 0}}</td>
+                      <td>{{$data->SC_CoopSociety ? $data->SC_CoopSociety : 0 }}</td>
+                      <td>{{$data->SC_PG ? $data->SC_PG : 0}}</td>
+                      <td>{{$data->SC_SHG ? $data->SC_SHG :0}}</td>
+                      <td>{{$data->SC_Male + $data->SC_Female + $data->SC_CoopSociety + $data->SC_PG + $data->SC_SHG}}</td>
                     </tr>
                     <tr>
                       <th scope="row">GEN/OTHERS</th>
-                      <td>{{$data->Gen_Male}}</td>
-                      <td>{{$data->Gen_Female}}</td>
-                      <td>{{$data->Gen_Male + $data->Gen_Female}}</td>
+                      <td>{{$data->Gen_Male ? $data->Gen_Male : 0}}</td>
+                      <td>{{$data->Gen_Female ? $data->Gen_Female : 0}}</td>
+                      <td>{{$data->Gen_CoopSociety ? $data->Gen_CoopSociety : 0 }}</td>
+                      <td>{{$data->Gen_PG ? $data->Gen_PG : 0}}</td>
+                      <td>{{$data->Gen_SHG ? $data->Gen_SHG : 0}}</td>
+                      <td>{{$data->Gen_Male + $data->Gen_Female + $data->Gen_CoopSociety + $data->Gen_PG + $data->Gen_Male}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1254,18 +1266,22 @@ overflow:scroll;
                     <th>Own Building</th>
                     <td>{{$asset_datas->self_building}}</td>
                     </tr>
-                    <tr>
+                    @if($asset_datas->self_building=="Yes")
+                    <tr> 
                     <th>Rented Building</th>
                     <td>{{$asset_datas->rented_building}}</td>
                     </tr>
+                   
                     <tr>
                     <th>Rent Paid Per Annum</th>
                     <td>{{$asset_datas->rent_paid}}</td>
                     </tr>
+                     @endif
                     <tr>
                     <th>Do You Have Gowdown</th>
                     <td>{{$asset_datas->godown}}</td>
                     </tr>
+                    @if($asset_datas->godown=="Yes")
                     <tr>
                     <th>Area Of The Godown In Sq.Ft. / Arce</th>
                     <td>{{$asset_datas->godown_area}}</td>
@@ -1286,10 +1302,12 @@ overflow:scroll;
                     <th>Amount Paid Per Annum</th>
                     <td>{{$asset_datas->godown_type_per_annum}}</td>
                     </tr>
+                    @endif
                     <tr>
                     <th>Storage Available</th>
                     <td>{{$asset_datas->storage}}</td>
                     </tr>
+                     @if($asset_datas->storage=="Yes")
                     <tr>
                     <th>Cold Storage Available</th>
                     <td>{{$asset_datas->storage_cold}}</td>
@@ -1298,10 +1316,12 @@ overflow:scroll;
                     <th>Dry Storage Available</th>
                     <td>{{$asset_datas->storage_dry}}</td>
                     </tr>
+                    @endif
                     <tr>
                     <th>Land Available</th>
                     <td>{{$asset_datas->land}}</td>
                     </tr>
+                    @if($asset_datas->land=="Yes")
                     <tr>
                     <th>Land Area in Sq. Ft./Acre</th>
                     <td>{{$asset_datas->Land_area}}</td>
@@ -1310,10 +1330,12 @@ overflow:scroll;
                     <th>If Lease Term Agreement and Area in Sq. Ft./Acre</th>
                     <td>{{$asset_datas->land_area_lease}}</td>
                     </tr>
+                    @endif
                     <tr>
                     <th>Furniture Available</th>
                     <td>{{$asset_datas->furniture}}</td>
                     </tr>
+                    @if($asset_datas->furniture=="Yes")
                     <tr>
                     <th>Total Nos. of Furniture</th>
                     <td>{{$asset_datas->furniture_total}}</td>
@@ -1322,10 +1344,12 @@ overflow:scroll;
                     <th>Furniture Value</th>
                     <td>{{$asset_datas->furniture_amount}}</td>
                     </tr>
+                    @endif
                     <tr>
                     <th>Computers Available</th>
                     <td>{{$asset_datas->computers}}</td>
                     </tr>
+                    @if($asset_datas->computers=="Yes")
                     <tr>
                     <th>Total Nos. of Computers</th>
                     <td>{{$asset_datas->computers_total}}</td>
@@ -1334,16 +1358,18 @@ overflow:scroll;
                     <th>Computers Value</th>
                     <td>{{$asset_datas->computers_amount}}</td>
                     </tr>
-                    <tr>
+                    @endif
+                    {{-- <tr>
                     <th>Terms Of Agreement</th>
                     <td>{{$asset_datas->godown_type_agreement}}</td>
-                    </tr>
+                    </tr> --}}
 
                   </tbody>
                  
                 </table>
                 <table class="table">
                   <thead>
+                    <tr><th colspan="4" style="text-align:center;">OTHERS ASSETS</th></tr>
                     <tr>
                       <th>Sl. No.</th>
                       <th>Name of Item</th>

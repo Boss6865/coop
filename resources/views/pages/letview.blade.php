@@ -87,7 +87,7 @@
                                             @forelse ($Society->membersociety as $data)
                                                 <td>
                                               
-                                              {{$data->ST_Male + $data->ST_Female + $data->SC_Male + $data->SC_Female + $data->Gen_Male + $data->Gen_Female}}
+                                              {{$data->ST_Male + $data->ST_Female + $data->ST_CoopSociety + $data->ST_PG + $data->ST_SHG + $data->SC_Male + $data->SC_Female + $data->SC_CoopSociety + $data->SC_PG + $data->SC_SHG + $data->Gen_Male + $data->Gen_Female + $data->Gen_CoopSociety + $data->Gen_PG + $data->Gen_SHG}}
                                             
                                                 </td> 
                                             @empty

@@ -444,7 +444,7 @@ class BasicController extends Controller
             
         $validatedData=$request->validate([
            
-            'Admission_fee'=> 'required|numeric|min:1|max:9999|decimal:2',
+            'Admission_fee'=> 'required|numeric|min:0|max:9999|decimal:2',
             'Share_face_value'=> 'required|integer',
             'Authorize_share_capital'=> 'required|integer',
             'Individual_share'=> 'required|numeric|min:0|max:9999999999999999|decimal:2',
