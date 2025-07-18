@@ -36,9 +36,9 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <div class="col-md-3" id="rented_building">
+                                        <div class="col-md-3" >
                                             <label for="" class="form-label">Rented Building</label>
-                                            <select Name="rented_building" class="form-select target">
+                                            <select Name="rented_building" class="form-select target" id="rented_building">
                                                 <option selected disabled value="">Choose...</option>
                                                 <option >Yes</option>
                                                 <option>No</option>
@@ -255,18 +255,17 @@
             $("#godown_types").prop("required", true);
           }
         });
-        $('#self_building').on("change",function(){
+        $('#rented_building').on("change",function(){
           
-          var self_building=$("#self_building").val();
+          var rented_building=$("#rented_building").val();
          
-          if(self_building=="Yes"){
+          if(rented_building=="Yes"){
            
-            $("#rented_building").show();
+            
             $("#rent_paid").show();
            
           }else{
             
-            $("#rented_building").hide();
             $("#rent_paid").hide();
            
           }

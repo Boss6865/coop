@@ -1514,9 +1514,9 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <div class="col-md-3 {{$asset_datas->self_building=="No" ? 'offshow': ''}}" id="rented_building" >
+                                        <div class="col-md-3" id="" >
                                             <label for="" class="form-label">Rented Building</label>
-                                            <select Name="rented_building" class="form-select target" id="selectid3" required>
+                                            <select Name="rented_building" class="form-select target" id="rented_building" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option @if($asset_datas->rented_building=="Yes") selected @endif>Yes</option>
                                                 <option @if($asset_datas->rented_building=="No") selected @endif>No</option>
@@ -1530,7 +1530,7 @@
                                         </div>
                                         
                                         {{-- <x-column_-input  title="Rent Paid Per Annum" Name="rent_paid" div_id="rent_paid" placeholder="Eg- 1000" div_class="col-md-3" inclass="numbers" val="{{$asset_datas->rent_paid}}"/> --}}
-                                       <div class="col-md-3 {{$asset_datas->self_building=="No" ? 'offshow': ''}}" id="rent_paid">
+                                       <div class="col-md-3 {{$asset_datas->rented_building=="No" ? 'offshow': ''}}" id="rent_paid">
                                           <label for="rent_paid" class="form-label">Rent Paid Per Annum</label>
                                           <input
                                             type="text"
@@ -2644,18 +2644,18 @@ $("#loan_rowAdder").click(function () {
 
         //end script for loan
 
-         $('#self_building').on("change",function(){
+         $('#rented_building').on("change",function(){
           
-          var self_building=$("#self_building").val();
+          var rented_building=$("#rented_building").val();
          
-          if(self_building=="Yes"){
+          if(rented_building=="Yes"){
            
-            $("#rented_building").show();
+            
             $("#rent_paid").show();
            
           }else{
             
-            $("#rented_building").hide();
+            
             $("#rent_paid").hide();
            
           }
