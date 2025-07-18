@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('Loan_sanctioned_amount')->nullable();
             $table->json('Outstanding_Principal_amount')->nullable();
             $table->json('Outstanding_interest_amount')->nullable();
+            $table->json('other_mention')->nullable();
             $table->timestamps();
             $table->foreign('Society_Id')->references('id')->on('_societydata')->onDelete('cascade');
         });

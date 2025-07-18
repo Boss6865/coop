@@ -1921,14 +1921,14 @@
                                   $jan2=json_decode($loan_datas->Loan_sanctioned_amount);
                                   $jan3=json_decode($loan_datas->Outstanding_Principal_amount);
                                   $jan4=json_decode($loan_datas->Outstanding_interest_amount);
-
+                                  $jan5=json_decode($loan_datas->other_mention);
                                   @endphp
                                     @if(json_decode($loan_datas->type_of_govt_loan)!=null)
                                   @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
                                   @if($key==0)
                                   <div class="col-md-2">
                                     <label for="" class="form-label">Type of Govt. Loan</label>
-                                    <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>
+                                    <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type" required>
                                         <option selected disabled value="">Choose...</option>
                                         <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
                                         <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
@@ -1942,9 +1942,23 @@
                                         <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
                                         <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
                                         <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
+                                        <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
                                         <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
 
                                     </select>
+                                    <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                      @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
+                                      
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                     @error('type_of_govt_loan')
                                     <div style="color:red">{{$message}}</div>
                                     @enderror
@@ -1958,7 +1972,7 @@
                                 <button type="button" id="loan_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
                                   @else
                                   <div class="col-md-2">
-                                  <select Name="anyloan[]" class="form-select target" id="selectid3" required>
+                                  <select Name="anyloan[]" class="form-select target" id="govt_loan_type" required>
                                         <option selected disabled value="">Choose...</option>
                                         <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
                                         <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
@@ -1972,8 +1986,22 @@
                                         <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
                                         <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
                                         <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
+                                        <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
                                         <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
-                                    </select></div>
+                                    </select>
+                                  <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                       @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                                  </div>
                                   <div class="col-md-2">
                                   <input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required value="{{$jan1[$key]}}"> </div>
                                   <div class="col-md-2">
@@ -1989,7 +2017,7 @@
                               @else
                                <div class="col-md-2">
                                   <label for="" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="selectid3">
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type">
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
                                       <option>FURNITURE & FIXTURES</option>
@@ -2003,9 +2031,20 @@
                                       <option>STORAGE LOAN</option>
                                       <option>CATTLE BREEDING LOAN</option>
                                       <option>PIGGERY LOAN</option>
+                                      <option>ICDP LOAN</option>
                                       <option>OTHER LOAN </option>
                                       
                                   </select>
+                                  <div class="col-md-12" style="display:none" id="other_mention_here1">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                   @error('type_of_govt_loan')
                                   <div style="color:red">{{$message}}</div>
                                   @enderror
@@ -2586,7 +2625,7 @@ $("#loan_rowAdder").click(function () {
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-2">' +
-                  '<select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="type_of_govt_loan[]" class="form-select target wekk2" id="" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >GODOWN</option>'+
                         '<option>FURNITURE & FIXTURES</option>'+
@@ -2600,8 +2639,10 @@ $("#loan_rowAdder").click(function () {
                         '<option>STORAGE LOAN</option>'+
                         '<option>CATTLE BREEDING LOAN</option>'+
                         '<option>PIGGERY LOAN</option>'+
+                        '<option>ICDP LOAN</option>'+
                         '<option>OTHER LOAN </option>'+
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="wekk2"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
                 '<div class="col-md-2">' +
                 '<input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required> </div>'+
                 '<div class="col-md-2">' +
@@ -2619,6 +2660,24 @@ $("#loan_rowAdder").click(function () {
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         });
+
+         $("#govt_loan_type").on("change",function(){
+    var govt_loan_type =$(this).val();
+    if(govt_loan_type=="OTHER LOAN"){
+     $('#other_mention_here1').show();
+      $("#other_mention_here1 input").focus();
+    }else{
+      $('#other_mention_here1').hide();
+    }
+  });
+   $(document).on('change', ".wekk2", function () {
+ 
+    if(this.value=="OTHER LOAN"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
 
   $('#Affiliation').on("change",function() {
       var value= $( "#Affiliation" ).val();

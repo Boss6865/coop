@@ -46,7 +46,7 @@ class LoanController extends Controller
         $validatedData['Loan_sanctioned_amount']=json_encode($request->input('Loan_sanctioned_amount'));
         $validatedData['Outstanding_Principal_amount']=json_encode($request->input('Outstanding_Principal_amount'));
         $validatedData['Outstanding_interest_amount']=json_encode($request->input('Outstanding_interest_amount'));
-        
+        $validatedData['other_mention']=json_encode($request->input('other_mention'));
         Loan::create($validatedData);
 
         return redirect()->action([BasicController::class, 'View_1'])->with(['Sooos' => $Name_of_the_Society,'id_key'=>$id_of_society]);
@@ -93,6 +93,7 @@ class LoanController extends Controller
         $validatedData['Loan_sanctioned_amount']=json_encode($request->input('Loan_sanctioned_amount'));
         $validatedData['Outstanding_Principal_amount']=json_encode($request->input('Outstanding_Principal_amount'));
         $validatedData['Outstanding_interest_amount']=json_encode($request->input('Outstanding_interest_amount'));
+        $validatedData['other_mention']=json_encode($request->input('other_mention'));
          $finddata=Loan::where('Society_Id', $id);
         $finddata->update($validatedData);
         $data=Basic::find($id);

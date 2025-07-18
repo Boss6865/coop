@@ -31,7 +31,7 @@
                               <div class="row g-2" id="loan_newinput" style="display: none" >
                                 <div class="col-md-2">
                                   <label for="" class="form-label">Type of Govt. Loan</label>
-                                  <select Name="type_of_govt_loan[]" class="form-select target" id="">
+                                  <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type">
                                       <option selected disabled value="">Choose...</option>
                                       <option >GODOWN</option>
                                       <option>FURNITURE & FIXTURES</option>
@@ -45,9 +45,20 @@
                                       <option>STORAGE LOAN</option>
                                       <option>CATTLE BREEDING LOAN</option>
                                       <option>PIGGERY LOAN</option>
+                                      <option>ICDP LOAN</option>
                                       <option>OTHER LOAN </option>
                                       
                                   </select>
+                                  <div class="col-md-12" style="display:none" id="other_mention_here">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                   @error('type_of_govt_loan')
                                   <div style="color:red">{{$message}}</div>
                                   @enderror
@@ -109,7 +120,7 @@
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-2">' +
-                  '<select Name="type_of_govt_loan[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="type_of_govt_loan[]" class="form-select target wekk2" id="selectid3" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >GODOWN</option>'+
                         '<option>FURNITURE & FIXTURES</option>'+
@@ -123,8 +134,10 @@
                         '<option>STORAGE LOAN</option>'+
                         '<option>CATTLE BREEDING LOAN</option>'+
                         '<option>PIGGERY LOAN</option>'+
+                        '<option>ICDP LOAN</option>'+
                         '<option>OTHER LOAN </option>'+
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="wekk2"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
                 '<div class="col-md-2">' +
                 '<input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required> </div>'+
                 '<div class="col-md-2">' +
@@ -150,6 +163,25 @@
             $('#loan_newinput').hide();
           }
         });
+
+
+       $("#govt_loan_type").on("change",function(){
+    var govt_loan_type =$(this).val();
+    if(govt_loan_type=="OTHER LOAN"){
+     $('#other_mention_here').show();
+      $("#other_mention_here input").focus();
+    }else{
+      $('#other_mention_here').hide();
+    }
+  });
+   $(document).on('change', ".wekk2", function () {
+ 
+    if(this.value=="OTHER LOAN"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
    </script>
 
     </x-layout>
