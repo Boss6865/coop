@@ -1217,6 +1217,22 @@ overflow:scroll;
                         <th>Thrift A/C</th>
                         <td>{{$borrowing_datas->bank_thrift_ac}}</td>
                       </tr>
+                      <tr>
+                        <th>Others A/C</th>
+                        <td>{{$borrowing_datas->any_other_ac}}</td>
+                      </tr>
+                      @php
+                      $other_ac=json_decode($borrowing_datas->ac_amount);
+                     
+                    @endphp
+                     @if(json_decode($borrowing_datas->ac_name)!=null)
+                      @foreach(json_decode($borrowing_datas->ac_name) as $key => $data1)
+                        <tr>
+                          <td>{{$data1}}</td>
+                          <td>{{$other_ac[$key]}}</td>
+                        </tr>
+                      @endforeach
+                      @endif
                     </tbody>
                   </table>
                   </tbody>

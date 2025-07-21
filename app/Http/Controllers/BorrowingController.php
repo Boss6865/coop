@@ -44,12 +44,16 @@ class BorrowingController extends Controller
         'bank_rd_ac'=> 'nullable|integer',
         'bank_cd_ac'=>'nullable|integer',
         'bank_thrift_ac'=> 'nullable|integer',
+        'any_other_ac'=> 'required|string',
     ]);
     $validatedData['borrowing_from']=json_encode($request->input('borrowing_from'));
     $validatedData['borrowing_type']=json_encode($request->input('borrowing_type'));
     $validatedData['borrowing_amount']=json_encode($request->input('borrowing_amount'));
     $validatedData['borrowing_refunded']=json_encode($request->input('borrowing_refunded'));
     $validatedData['borrowing_outstanding']=json_encode($request->input('borrowing_outstanding'));
+    $validatedData['other_mention']=json_encode($request->input('other_mention'));
+    $validatedData['ac_name']=json_encode($request->input('ac_name'));
+    $validatedData['ac_amount']=json_encode($request->input('ac_amount'));
 
     Borrowing::create($validatedData);
 
@@ -88,12 +92,16 @@ class BorrowingController extends Controller
         'bank_rd_ac'=> 'nullable|integer',
         'bank_cd_ac'=>'nullable|integer',
         'bank_thrift_ac'=> 'nullable|integer',
+        'any_other_ac'=> 'required|string',
          ]);
          $validatedData['borrowing_from']=json_encode($request->input('borrowing_from'));
          $validatedData['borrowing_type']=json_encode($request->input('borrowing_type'));
          $validatedData['borrowing_amount']=json_encode($request->input('borrowing_amount'));
          $validatedData['borrowing_refunded']=json_encode($request->input('borrowing_refunded'));
          $validatedData['borrowing_outstanding']=json_encode($request->input('borrowing_outstanding'));
+         $validatedData['other_mention']=json_encode($request->input('other_mention'));
+        $validatedData['ac_name']=json_encode($request->input('ac_name'));
+        $validatedData['ac_amount']=json_encode($request->input('ac_amount'));
         $finddata=Borrowing::where('Society_Id', $id);
         $finddata->update($validatedData);
         $data=Basic::find($id);
@@ -101,7 +109,7 @@ class BorrowingController extends Controller
         $borrowing=Borrowing::where('Society_Id', $id)->first();
         $asset_datas=Asset::where('Society_Id', $id)->first();
         $loan_datas=Loan::where('Society_Id', $id)->first();
-        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"000",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
+        return view('pages.editsociety')->with(['Datas'=>$data,'val'=>"999",'borrowing_datas'=> $borrowing,'investment_data'=> $investment,'asset_datas'=>$asset_datas,'loan_datas'=>$loan_datas,'msg'=>"Successfull Updated!!"]);
 
     }
 

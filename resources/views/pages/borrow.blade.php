@@ -33,7 +33,7 @@
                         <div class="row g-2" id="newinput_borrowing">
                           <div class="col-md-2">
                             <label for="validationCustom01" class="form-label">Borrowing from</label>
-                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" >
+                            <select Name="borrowing_from[]" class="form-select target" id="borrowing_from" >
                                 <option selected disabled value="">Choose...</option>
                                 '<option >GOVT.</option>'+
                                 '<option>MCAB LTD.</option>'+
@@ -42,6 +42,15 @@
                                 
                                 
                             </select>
+                            <div class="col-md-12" style="display:none" id="other_mention_here2">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      value=""
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                             @error('borrowing_from')
                             <div style="color:red">{{$message}}</div>
                             @enderror
@@ -67,6 +76,22 @@
                                         <x-column_-input  title="Thrift A/C" Name="bank_thrift_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
                                         
                                     </div>
+                              </div>
+                              <div class="card-body">
+                                      <div class="row g-2">
+                                        <div class="card-title col-md-2">Any Others A/C
+                                        <select Name="any_other_ac" class="form-select target" id="any_other_ac" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option >Yes</option>
+                                        <option>No</option>
+                                        </select>
+                                      </div>
+                                        <div class="row g-2" id="other_ac" style="display:none">
+                                           <x-column_-input  title="Account Name" Name="ac_name[]" id="" placeholder="Eg- Special Ac Name" div_class="col-md-2"/>
+                                            <x-column_-input  title="Amount" Name="ac_amount[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                          <button type="button" id="rowAdder_other_ac" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        </div>
+                                      </div>
                               </div>
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Next</button>
@@ -114,14 +139,15 @@
             newRowAdd =
                 '<div id="row" class="row g-2">'+
                   '<div class="col-md-2">' +
-                  '<select Name="borrowing_from[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="borrowing_from[]" class="form-select target borrow" id="" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >GOVT.</option>'+
                         '<option>MCAB LTD.</option>'+
                         '<option>OTHER FINANCIAL INSTITUTION</option>'+
                         '<option>OTHER(Mentioned)</option>'+
                                 
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="borrow"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
                 '<div class="col-md-2">' +
                 '<input name="borrowing_type[]" type="text" class="form-control" placeholder="Loan Name" required> </div>'+
                 '<div class="col-md-2">' +
@@ -151,7 +177,54 @@
           }
             
         });
+
+    $("#borrowing_from").on("change",function(){
+    var borrowing_from =$(this).val();
+    if(borrowing_from=="OTHER(Mentioned)"){
+     $('#other_mention_here2').show();
+      $("#other_mention_here2 input").focus();
+    }else{
+      $('#other_mention_here2').hide();
+    }
+  });
+   $(document).on('change', ".borrow", function () {
+ 
+    if(this.value=="OTHER(Mentioned)"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
         
+        //other account
+    $("#any_other_ac").on("change",function(){
+    var any_other_ac =$(this).val();
+    if(any_other_ac=="Yes"){
+     $('#other_ac').show();
+
+    }else{
+      $('#other_ac').hide();
+    }
+  });
+
+
+   $("#rowAdder_other_ac").click(function () {
+            newRowAdd =
+                '<div id="other_row" class="row g-2">'+
+
+                '<div class="col-md-2">' +
+                '<input name="ac_name[]" type="text" class="form-control" placeholder="Eg-Special Ac Name" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="ac_amount[]" type="text" class="form-control" placeholder="Eg-1000" required> </div>'+
+                '<button type="button" id="delete_other" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#other_ac').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#delete_other", function () {
+            $(this).parents("#other_row").remove();
+        });
    </script>
 
     </x-layout>

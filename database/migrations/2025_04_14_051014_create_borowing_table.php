@@ -20,11 +20,15 @@ return new class extends Migration
             $table->json('borrowing_amount')->nullable();
             $table->json('borrowing_refunded')->nullable();
             $table->json('borrowing_outstanding')->nullable();
+            $table->json('other_mention')->nullable();
             $table->string('bank_sb_ac')->nullable();
             $table->string('bank_fd_ac')->nullable();
             $table->string('bank_rd_ac')->nullable();
             $table->string('bank_cd_ac')->nullable();
             $table->string('bank_thrift_ac')->nullable();
+            $table->string('any_other_ac')->nullable();
+            $table->json('ac_name')->nullable();
+            $table->json('ac_amount')->nullable();
             $table->timestamps();
             $table->foreign('Society_Id')->references('id')->on('_societydata')->onDelete('cascade');
         });

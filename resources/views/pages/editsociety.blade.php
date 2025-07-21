@@ -1376,19 +1376,33 @@
                                 $jan2=json_decode($borrowing_datas->borrowing_amount);
                                 $jan3=json_decode($borrowing_datas->borrowing_refunded);
                                 $jan4=json_decode($borrowing_datas->borrowing_outstanding);
+                                $jan5=json_decode($borrowing_datas->other_mention);
                                 @endphp
                                 @if(json_decode($borrowing_datas->borrowing_from)!=null)
                                 @forEach(json_decode($borrowing_datas->borrowing_from) as $key => $data1)
                                 @if($key==0)
                                 <div class="col-md-2">
                                    <label for="borrowing_from" class="form-label">Borrowing from</label>
-                                   <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
+                                   <select Name="borrowing_from[]" class="form-select target" id="borrowing_from" required>
                                        <option selected disabled value="">Choose...</option>
                                        <option @if($data1=="GOVT.") selected @endif>GOVT.</option>
                                        <option @if($data1=="MCAB LTD.") selected @endif>MCAB LTD.</option>
                                        <option @if($data1=="OTHER FINANCIAL INSTITUTION") selected @endif>OTHER FINANCIAL INSTITUTION</option>
                                        <option @if($data1=="OTHER(Mentioned)") selected @endif>OTHER(Mentioned)</option>
                                    </select>
+                                   <div class="col-md-12" @if($data1!="OTHER(Mentioned)") style="display:none" @endif id="other_mention_here2">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                      @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
+                                      
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                                    @error('borrowing_from')
                                    <div style="color:red">{{$message}}</div>
                                    @enderror
@@ -1404,14 +1418,28 @@
                           @else
                           <div id="row" class="row g-2">
                               <div class="col-md-2">
-                              <select Name="borrowing_from[]" class="form-select target" id="selectid3" required>
+                              <select Name="borrowing_from[]" class="form-select target" id="borrowing_from" required>
                                     <option selected disabled value="">Choose...</option>
                                       <option @if($data1=="GOVT.") selected @endif>GOVT.</option>
                                        <option @if($data1=="MCAB LTD.") selected @endif>MCAB LTD.</option>
                                        <option @if($data1=="OTHER FINANCIAL INSTITUTION") selected @endif>OTHER FINANCIAL INSTITUTION</option>
                                        <option @if($data1=="OTHER(Mentioned)") selected @endif>OTHER(Mentioned)</option>
 
-                                </select></div>
+                                </select>
+                                <div class="col-md-12" @if($data1!="OTHER(Mentioned)") style="display:none" @endif id="other_mention_here2">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                      @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
+                                      
+                                      name="other_mention[]"
+                                    />
+                                  </div>
+                              </div>
                             <div class="col-md-2">
                             <input name="borrowing_type[]" type="text" class="form-control" placeholder="Loan Name" required value="{{$jan1[$key]}}"> </div>
                             <div class="col-md-2">
@@ -1427,7 +1455,7 @@
                           @else
                                 <div class="col-md-2">
                             <label for="validationCustom01" class="form-label">Borrowing from</label>
-                            <select Name="borrowing_from[]" class="form-select target" id="selectid3" >
+                            <select Name="borrowing_from[]" class="form-select target" id="borrowing_from" >
                                 <option selected disabled value="">Choose...</option>
                                 '<option >GOVT.</option>'+
                                 '<option>MCAB LTD.</option>'+
@@ -1436,6 +1464,19 @@
                                 
                                 
                             </select>
+                            <div class="col-md-12"  style="display:none" id="other_mention_here2">
+                         
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="other_mention1"
+                                      @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
+                                      
+                                      name="other_mention[]"
+                                    />
+                                  </div>
                             @error('borrowing_from')
                             <div style="color:red">{{$message}}</div>
                             @enderror
@@ -1464,6 +1505,50 @@
                                         <x-column_-input  title="Thrift A/C" Name="bank_thrift_ac" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$borrowing_datas->bank_thrift_ac}}"/>
                                         
                                     </div>
+                              </div>
+                              <div class="card-body">
+                                      <div class="row g-2">
+                                        <div class="card-title col-md-2">Any Others A/C
+                                        <select Name="any_other_ac" class="form-select target" id="any_other_ac" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option  @if($borrowing_datas->any_other_ac=="Yes") selected @endif >Yes</option>
+                                        <option @if($borrowing_datas->any_other_ac=="No") selected @endif>No</option>
+                                        </select>
+                                      </div>
+                                          @if($borrowing_datas->any_other_ac=="Yes")
+                                          <div class="row g-2" id="other_ac">
+                                            @php
+                                            $other_amount=json_decode($borrowing_datas->ac_amount);
+                                            @endphp
+                                            @isset($borrowing_datas->ac_name)
+                                            @forEach(json_decode($borrowing_datas->ac_name) as $key => $data1)
+                                            @if($key==0)
+                                            <x-column_-input  title="Account Name" Name="ac_name[]" id="" placeholder="Eg- Special Ac Name" div_class="col-md-2" val="{{$data1}}"/>
+                                            <x-column_-input  title="Amount" Name="ac_amount[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers" val="{{$other_amount[$key]}}"/>
+                                            <button type="button" id="rowAdder_other_ac" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                            @else
+                                              <div id="other_row" class="row g-2">
+                                                <div class="col-md-2">
+                                                <input name="ac_name[]" type="text" class="form-control" placeholder="Eg-Special Ac Name" value="{{$data1}}"> </div>
+                                                <div class="col-md-2">
+                                                <input name="ac_amount[]" type="text" class="form-control" placeholder="Eg-1000" value="{{$other_amount[$key]}}" > </div>
+                                                <button type="button" id="delete_other" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button>
+                                              </div>
+                                            @endif
+                                            @endforeach
+                                            @endisset
+                                            
+                                        </div>
+                                          @else
+                                            <div class="row g-2" id="other_ac" style="display:none">
+                                              <x-column_-input  title="Account Name" Name="ac_name[]" id="" placeholder="Eg- Special Ac Name" div_class="col-md-2"/>
+                                            <x-column_-input  title="Amount" Name="ac_amount[]" id="" placeholder="Eg- 1000" div_class="col-md-2" inclass="numbers"/>
+                                          <button type="button" id="rowAdder_other_ac" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        </div>
+                                          @endif
+                                        
+                                           
+                                      </div>
                               </div>
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
@@ -2570,14 +2655,15 @@ $( "#Yes1" ).on( "change", function() {
             newRowAdd =
                  '<div id="row" class="row g-2">'+
                   '<div class="col-md-2">' +
-                  '<select Name="borrowing_from[]" class="form-select target" id="selectid3" required>'+
+                  '<select Name="borrowing_from[]" class="form-select target borrow" id="" required>'+
                         '<option selected disabled value="">Choose...</option>'+
                         '<option >GOVT.</option>'+
                         '<option>MCAB LTD.</option>'+
                         '<option>OTHER FINANCIAL INSTITUTION</option>'+
                         '<option>OTHER(Mentioned)</option>'+
                                 
-                   ' </select></div>'+
+                   ' </select>'+
+                   '<div class="col-md-12 other" style="display:none" id="borrow"><input type="text" class="form-control" id=""  value=""  name="other_mention[]"  /></div></div>'+
                 '<div class="col-md-2">' +
                 '<input name="borrowing_type[]" type="text" class="form-control" placeholder="Loan Name" required> </div>'+
                 '<div class="col-md-2">' +
@@ -2595,7 +2681,23 @@ $( "#Yes1" ).on( "change", function() {
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         });
-
+  $("#borrowing_from").on("change",function(){
+    var borrowing_from =$(this).val();
+    if(borrowing_from=="OTHER(Mentioned)"){
+     $('#other_mention_here2').show();
+      $("#other_mention_here2 input").focus();
+    }else{
+      $('#other_mention_here2').hide();
+    }
+  });
+   $(document).on('change', ".borrow", function () {
+ 
+    if(this.value=="OTHER(Mentioned)"){
+   $(this).closest("div").find('.other').show();
+    }else{
+      $(this).closest("div").find('.other').hide();
+    }
+    });
 
 
         // asset script start here
@@ -2848,6 +2950,46 @@ $("#loan_rowAdder").click(function () {
             $(this).parents("#row").remove();
         });
         //end here
+
+         //other account
+    $("#any_other_ac").on("change",function(){
+    var any_other_ac =$(this).val();
+    if(any_other_ac=="Yes"){
+     $('#other_ac').show();
+
+    }else{
+      $('#other_ac').hide();
+    }
+  });
+
+
+   $("#rowAdder_other_ac").click(function () {
+            newRowAdd =
+                '<div id="other_row" class="row g-2">'+
+
+                '<div class="col-md-2">' +
+                '<input name="ac_name[]" type="text" class="form-control" placeholder="Eg-Special Ac Name" required> </div>'+
+                '<div class="col-md-2">' +
+                '<input name="ac_amount[]" type="text" class="form-control" placeholder="Eg-1000" required> </div>'+
+                '<button type="button" id="delete_other" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#other_ac').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#delete_other", function () {
+            $(this).parents("#other_row").remove();
+        });
+
+        //end here
+        $(function() {
+    // setTimeout() function will be fired after page is loaded
+    // it will wait for 5 sec. and then will fire
+    // $("#successMessage").hide() function
+    setTimeout(function() {
+        $("#successMessage").hide('blind', {}, 500)
+    }, 5000);
+});
    </script>
 
 
