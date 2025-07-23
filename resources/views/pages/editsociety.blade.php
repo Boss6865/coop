@@ -1154,7 +1154,10 @@
                                       type="text"
                                       class="form-control"
                                       id="other_mention"
-                                      value="{{$jan2[$key]}}"
+                                      @isset($jan2[$key])
+                                          value="{{$jan2[$key]}}"
+                                      @endisset
+                                      
                                       name="other_mention[]"
                                     />
                                   </div>

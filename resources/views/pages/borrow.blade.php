@@ -1,5 +1,10 @@
 <x-layout>
-    <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Borrowing" />
+  @isset($Datas->Name_of_the_Society)
+  <x-navigation title="{{$Datas->Name_of_the_Society}}" Nav="Borrowing" />
+@else
+  <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Borrowing" />
+  @endisset
+  
       <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
       <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
@@ -85,6 +90,11 @@
                                         <option >Yes</option>
                                         <option>No</option>
                                         </select>
+                                        @error('any_other_ac')
+                                        <div style="color:red">{{$message}}</div>
+                                        @enderror
+                                        <div class="valid-feedback">Looks good!</div>
+                                          <div class="invalid-feedback">This field is required. Can't be empty</div>
                                       </div>
                                         <div class="row g-2" id="other_ac" style="display:none">
                                            <x-column_-input  title="Account Name" Name="ac_name[]" id="" placeholder="Eg- Special Ac Name" div_class="col-md-2"/>

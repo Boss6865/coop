@@ -1,4 +1,9 @@
 <x-layout>
+  @isset($Datas->Name_of_the_Society)
+  <x-navigation title="{{$Datas->Name_of_the_Society}}" Nav="investment" />
+  @else
+    <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="investment" />
+  @endif
     <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="investment" />
       <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}

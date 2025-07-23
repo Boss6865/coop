@@ -3,7 +3,12 @@
 {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
 <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-   <x-navigation title="{{ Session()->get('Sooos'); }}"/>
+@isset($Datas->Name_of_the_Society)
+   <x-navigation title="{{$Datas->Name_of_the_Society}}" Nav="Management - I"/>
+@else
+   <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="Management - I"/>
+@endisset
+
  <!--begin::Form Validation-->
  <div class="card card-info card-outline mb-4">
                   <!--begin::Header-->

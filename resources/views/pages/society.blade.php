@@ -1228,7 +1228,7 @@ overflow:scroll;
                      @if(json_decode($borrowing_datas->ac_name)!=null)
                       @foreach(json_decode($borrowing_datas->ac_name) as $key => $data1)
                         <tr>
-                          <td>{{$data1}}</td>
+                          <th>{{$data1}}</th>
                           <td>{{$other_ac[$key]}}</td>
                         </tr>
                       @endforeach
