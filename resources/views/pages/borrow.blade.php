@@ -176,17 +176,17 @@
             $(this).parents("#row").remove();
         });
 
-        $("body").on("change", "#Govt_loan", function () {
-          var Govt_loan=$("#Govt_loan").val();
-          if(Govt_loan=="Yes"){
-            $("select").prop("required", true);
-            $("input").prop("required", true);
-          }else{
-            $("select").prop("required", false);
-            $("input").prop("required", false);
-          }
+        // $("body").on("change", "#Govt_loan", function () {
+        //   var Govt_loan=$("#Govt_loan").val();
+        //   if(Govt_loan=="Yes"){
+        //     $("select").prop("required", true);
+        //     $("input").prop("required", true);
+        //   }else{
+        //     $("select").prop("required", false);
+        //     $("input").prop("required", false);
+        //   }
             
-        });
+        // });
 
     $("#borrowing_from").on("change",function(){
     var borrowing_from =$(this).val();

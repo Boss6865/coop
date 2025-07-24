@@ -1252,7 +1252,7 @@ overflow:scroll;
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header ">
-              <h3 class="card-title ">COMMON ASSET</h3>
+              <h3 class="card-title ">COMMON ASSETS</h3>
               <div class="card-tools">
                 <button
                   type="button"
@@ -1294,7 +1294,7 @@ overflow:scroll;
                     </tr>
                      @endif
                     <tr>
-                    <th>Do You Have Gowdown</th>
+                    <th>Do You Have Godown</th>
                     <td>{{$asset_datas->godown}}</td>
                     </tr>
                     @if($asset_datas->godown=="Yes")
@@ -1429,7 +1429,7 @@ overflow:scroll;
           <!-- Default box -->
           <div class="card direct-chat direct-chat-warning">
             <div class="card-header ">
-              <h3 class="card-title ">BASIC INFORMATION OF THE SOCIETY</h3>
+              <h3 class="card-title ">GOVERNMENT LOANS</h3>
               <div class="card-tools">
                 <button
                   type="button"

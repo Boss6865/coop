@@ -1654,10 +1654,10 @@
                                         {{-- <x-column_-input  title="AREA OF THE GODOWN IN SQ.FT. / ARCE" Name="godown_area" id="" placeholder="Eg- 1000" div_class="col-md-4" val="{{$asset_datas->godown_area}}"/>
                                         <x-column_-input  title="CAPACITY IN MT" Name="godown_capacity" id="" placeholder="Eg- 1000" div_class="col-md-4" inclass="numbers" val="{{$asset_datas->godown_capacity}}"/> --}}
                                         <div class="col-md-4 {{$asset_datas->godown=="No" ? 'offshow': ''}}" id="godown_area">
-                                          <label for="rent_paid" class="form-label">AREA OF THE GODOWN IN SQ.FT. / ARCE</label>
+                                          <label for="rent_paid" class="form-label">AREA OF THE GODOWN IN Sq.Ft. / Acre</label>
                                           <input
                                             type="text"
-                                            class="form-control numbers"
+                                            class="form-control"
                                             id=""
                                             value="{{$asset_datas->godown_area}}"
                                             name="godown_area"
@@ -1797,7 +1797,7 @@
                                           <label for="rent_paid" class="form-label">Land Area in Sq. Ft./Acre</label>
                                           <input
                                             type="text"
-                                            class="form-control numbers"
+                                            class="form-control"
                                             id=""
                                             value="{{$asset_datas->Land_area}}"
                                             name="Land_area"

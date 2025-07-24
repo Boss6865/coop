@@ -131,7 +131,7 @@
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
                                         
-                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" div_id="Land_area" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" inclass="numbers1"/>
+                                        <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" div_id="Land_area" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
                                         <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" div_id="land_area_lease" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" inclass="numbers1"/>
                                         </div>
                                       <div class="row g-2">
