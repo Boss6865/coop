@@ -298,11 +298,12 @@
 
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-100" div_class="col-md-4" />
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-4" word_id="word_id13" function='onkeyup=word_id13.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
-                                      
-                                      
+                                  <div class="row g-2" id="newinput_MANAGERIAL_SUBSIDY">
+                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year" placeholder="Eg-1991-1992" div_class="col-md-2" />
+                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id13" function='onkeyup=word_id13.innerHTML=convertNumberToWords(this.value)' inclass="numbers"/>
+                                      <div class="col-md-1" style="display: none">
+                                      <button type="button" id="rowAdder_managerial_subsidy" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                    </div>
                                   </div>
                           </div>
                           
@@ -553,6 +554,24 @@ $('.numbers').keyup(function () {
         });
 
         $("body").on("click", "#Delete_loan_aid_Row", function () {
+            $(this).parents("#row").remove();
+        });
+
+         $("#rowAdder_managerial_subsidy").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="MANAGERIAL_SUBSIDY_RECEIVED_Year[]" type="text" class="form-control numbers" placeholder="Eg-1991-1992" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+              
+                '<button type="button" id="Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_MANAGERIAL_SUBSIDY').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year", function () {
             $(this).parents("#row").remove();
         });
 </script>

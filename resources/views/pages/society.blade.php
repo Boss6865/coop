@@ -1021,7 +1021,7 @@ overflow:scroll;
                       <th colspan="4" scope="col" class="text-center">MANAGERIAL SUBSIDY RECEIVED</th>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
+                      <th> Sl. No.</th>
                       <th scope="row">YEAR</th>
                       <th scope="col">AMOUNT</th>
                       
@@ -1030,10 +1030,32 @@ overflow:scroll;
                   </thead>
                   <tbody>
                     @foreach($Datas->capital as $data)
-                    
-                    <th scope="row"></th>
+                     @if(is_array(json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Year)))
+
+                      @foreach (json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Year) as $key => $crew) 
+                        
+                      <tr>
+                        {{-- <td>{{$key+1}}</td> --}}
+                        <th>{{$key+1}}</th>
+                          <td>{{$crew}}</td>
+                          {{-- <td>{{json_decode($data->Aid_Year)[$key]}}</td> --}}
+                          <td>@isset(json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key]) {{json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key]}} @endisset</td>
+                         
+                      </tr>
+                        
+                   
+                      @endforeach
+                    @else
+                    <tr>
+                      <th>{{$key+1}}</th>
                       <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Year}}</td>
                       <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount}}</td>
+                    </tr>
+                      
+                      
+                    
+                    @endif
+                    
 
 
 

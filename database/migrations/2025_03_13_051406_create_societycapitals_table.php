@@ -58,7 +58,7 @@ return new class extends Migration
             $table->integer('Loan_Refunded')->nullable();
             $table->integer('Loan_Outstanding')->nullable();
             $table->string('MANAGERIAL_SUBSIDY_RECEIVED_Year')->nullable();
-            $table->integer('MANAGERIAL_SUBSIDY_RECEIVED_Amount')->nullable();
+            $table->string('MANAGERIAL_SUBSIDY_RECEIVED_Amount')->nullable();
 
             $table->timestamps();
             $table->foreign('Society_Id')->references('id')->on('_societydata')->onDelete('cascade');

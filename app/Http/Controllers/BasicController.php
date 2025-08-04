@@ -488,8 +488,8 @@ class BasicController extends Controller
             'Loan_Sanctioned'=> 'nullable|integer',
             'Loan_Refunded'=> 'nullable|integer',
             'Loan_Outstanding'=> 'nullable|integer',
-            'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|string',
-            'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|integer',
+            'MANAGERIAL_SUBSIDY_RECEIVED_Year'=> 'nullable|bail',
+            'MANAGERIAL_SUBSIDY_RECEIVED_Amount'=> 'nullable|bail',
 
         ]);
         // $validatedData['Grant_Type']=json_encode($request->input('Grant_Type'));

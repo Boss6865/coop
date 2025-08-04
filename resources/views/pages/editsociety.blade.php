@@ -1074,10 +1074,42 @@
 
                           <div class="card-header"><div class="card-title">MANAGERIAL SUBSIDY RECEIVED</div></div>
                           <div class="card-body">
-                                  <div class="row g-2">
-                                    <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year" id="MANAGERIAL_SUBSIDY_RECEIVED_Year"  div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Year"/>
-                                    <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount" id=""  div_class="col-md-4" :val="$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount"/>
-                                      
+                                  <div class="row g-2" id="newinput_MANAGERIAL_SUBSIDY">
+                                    @if(is_array(json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Year)))
+                                      @foreach (json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Year) as $key => $crew)
+                                      @if($key==0)
+                                        <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year[]" id="MANAGERIAL_SUBSIDY_RECEIVED_Year"  div_class="col-md-2" :val="$crew"/>
+                                        
+                                          @isset(json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key])
+                                        <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" id=""  div_class="col-md-2" :val="json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key]"/>
+                                          @else
+                                           <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" id=""  div_class="col-md-2"/>
+                                        @endisset
+                                        <div class="col-md-1">
+                                          <button type="button" id="rowAdder_managerial_subsidy" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        </div>
+                                        @else
+                                        <div id="row" class="row g-2">
+                                          <div class="col-md-2">
+                                            <input name="MANAGERIAL_SUBSIDY_RECEIVED_Year[]" type="text" class="form-control numbers" placeholder="Eg-1991-1992" value="{{$crew}}"> </div>
+                                          <div class="col-md-2">
+                                             @isset(json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key])
+                                              <input name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" value="{{json_decode($data->MANAGERIAL_SUBSIDY_RECEIVED_Amount)[$key]}}"> </div>  
+                                             @else
+                                               <input name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" value=""> </div>  
+                                             @endisset
+                                                   
+                                            <button type="button" id="Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                                      @endif
+                                      @endforeach
+                                      @else
+                                      <x-column_-input  title="Year" Name="MANAGERIAL_SUBSIDY_RECEIVED_Year[]" id="MANAGERIAL_SUBSIDY_RECEIVED_Year"  div_class="col-md-2"/>
+                                      <x-column_-input  title="Amount" Name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" id=""  div_class="col-md-2"/>
+                                        <div class="col-md-1">
+                                          <button type="button" id="rowAdder_managerial_subsidy" class="btn btn-secondary"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                        </div>
+                                      @endif
+                                    
                                       
                                   </div>
                           </div>
@@ -2993,6 +3025,26 @@ $("#loan_rowAdder").click(function () {
         $("#successMessage").hide('blind', {}, 500)
     }, 5000);
 });
+
+// managerial_subsidy
+$("#rowAdder_managerial_subsidy").click(function () {
+            newRowAdd =
+                '<div id="row" class="row g-2">'+
+                '<div class="col-md-2">' +
+                  '<input name="MANAGERIAL_SUBSIDY_RECEIVED_Year[]" type="text" class="form-control numbers" placeholder="Eg-1991-1992" required> </div>'+
+                  '<div class="col-md-2">' +
+                  '<input name="MANAGERIAL_SUBSIDY_RECEIVED_Amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required> </div>'+
+              
+                '<button type="button" id="Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>';
+
+            $('#newinput_MANAGERIAL_SUBSIDY').append(newRowAdd);
+            
+        });
+
+        $("body").on("click", "#Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year", function () {
+            $(this).parents("#row").remove();
+        });
+
    </script>
 
 
