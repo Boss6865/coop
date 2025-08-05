@@ -157,7 +157,7 @@
                                       <div class="valid-feedback">Looks good!</div>
                                       <div class="invalid-feedback">This field is required. Can't be empty</div>
                                   </div>
-                                  <div class="col-md-3">
+                                  <div class="col-md-2">
                                     <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
                                     <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
                                         <option selected >Not Yet Audited</option>
@@ -171,7 +171,7 @@
                                     {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3"/> --}}
                                       
                                       <!--begin::Col-->
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
                                             <select Name="Audit_Class" class="form-select target" id="selectid3" required>
                                                 <option selected>Not Yet Audited</option>
@@ -183,7 +183,8 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-3" word_id="word_id3" function='onkeyup=word_id3.innerHTML=convertNumberToWords(this.value)'/>
+                                        <x-column_-input  title="AUDIT SCORE" Name="audit_score" id="" placeholder="Eg-1 to 100" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id3" function='onkeyup=word_id3.innerHTML=convertNumberToWords(this.value)'/>
                                         <!--end::Col-->
                                       
                           </div>

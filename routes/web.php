@@ -150,6 +150,7 @@ Route::put('/other/{id}',[OtherController::class,'update']);
 Route::post('/activity',[Activitycontroller::class,'store']);
 Route::put('/activity/{id}',[Activitycontroller::class,'update']);
 Route::get('/pacs/{id}',[PacsController::class,'show']);
+Route::get('/pacs_edit/{id}',[PacsController::class,'edit']);
 Route::post('/pacs',[PacsController::class,'store']);
 Route::put('/pacs/{id}',[PacsController::class,'update']);
 Route::get('/ivcs/{id}',[IvcsController::class,'show']);

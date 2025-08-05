@@ -207,7 +207,7 @@
                                                 {{$data->Audit_Class}}
                                               </td>
                                               <td>
-                                                0
+                                                {{$data->audit_score}}
                                               </td>
                                               <td>
                                                 {{$data->Latest_Audit_complete}}

@@ -69,7 +69,14 @@ overflow:scroll;
                       </tr>
                       <tr>
                         <th scope="row"> SECTOR TYPE:</th>
-                        <td> {{ $Datas->Sector_Type }}</td>
+                        <td>
+                          {{-- PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS) --}}
+                          @if($Datas->Sector_Type=="")
+                          <a href="/pacs_edit/{{$Datas->id}}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">{{ $Datas->Sector_Type }}</a>
+                          @else
+                           {{ $Datas->Sector_Type }}
+                          @endif
+                        </td>
                       </tr>
                       <tr>
                         <th scope="row"> EMAIL:</th>
@@ -673,6 +680,12 @@ overflow:scroll;
                       <td>{{$data->Audit_Class}}</td>
                       <th scope="row">WORKING CAPITAL</th>
                       <td>Rs: {{$data->Working_Capitals}}/-</td>
+                     
+                    </tr>
+                    <tr>
+                      <th scope="row">AUDIT SCORE</th>
+                      <td>{{$data->audit_score}}</td>
+                  
                      
                     </tr>
                     <tr>

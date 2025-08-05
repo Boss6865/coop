@@ -77,7 +77,9 @@ class PacsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data=Basic::find($id);
+        $activity=Pacs::where('Society_Id', $id )->first();
+        return view('pages.pacsview')->with(['Datas'=>$data,'activities'=>$activity]);
     }
 
     /**

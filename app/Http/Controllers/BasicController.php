@@ -239,6 +239,7 @@ class BasicController extends Controller
             $Society_Fair_Price_Shop=$request->input('Society_Fair_Price_Shop');
             $Latest_Audit_complete=$request->input('Latest_Audit_complete');
             $Audit_Class=$request->input('Audit_Class');
+            $audit_score=$request->input('audit_score');
             $Working_Capitals=$request->input('Working_Capitals');
             $Business_turnover=$request->input('Business_turnover');
             $Total_reserve=$request->input('Total_reserve');
@@ -286,6 +287,7 @@ class BasicController extends Controller
         'Society_Fair_Price_Shop'=>$Society_Fair_Price_Shop,
         'Latest_Audit_complete'=>$Latest_Audit_complete,
         'Audit_Class'=>$Audit_Class,
+        'audit_score'=>$audit_score,
         'Working_Capitals'=>$Working_Capitals,
         'Business_turnover'=>$Business_turnover,
         'Total_reserve'=>$Total_reserve,
@@ -457,6 +459,7 @@ class BasicController extends Controller
             'Society_Fair_Price_Shop'=> 'nullable|string',
             'Latest_Audit_complete'=> 'nullable|string',
             'Audit_Class'=> 'nullable|string',
+            'audit_score'=> 'nullable|integer',
             'Working_Capitals'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
             'Business_turnover'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',
             'Total_reserve'=> 'nullable|numeric|min:0|max:9999999999999999|decimal:2',

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('Society_Fair_Price_Shop')->nullable();
             $table->string('Latest_Audit_complete')->nullable();
             $table->string('Audit_Class')->nullable();
+            $table->string('Audit_score')->nullable();
             $table->decimal('Working_Capitals',20,2)->nullable();
             $table->decimal('Business_turnover',20,2)->nullable();
             $table->decimal('Total_reserve',20,2)->nullable();

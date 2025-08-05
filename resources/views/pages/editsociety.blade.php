@@ -808,7 +808,7 @@
                                   </div>
                                     
                                       {{-- <x-column_-input  title="Year Of Latest Audit Completed" Name="Latest_Audit_complete" id="Latest_Audit_complete" placeholder="Eg-100" div_class="col-md-3" :val="$data->Latest_Audit_complete"/> --}}
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                         <label for="validationCustom01" class="form-label">Year Of Latest Audit Completed</label>
                                         <select Name="Latest_Audit_complete" class="form-select target" id="Latest_Audit_complete" required>
                                           <option @if($data->Audit_Class=="Not Yet Audited") selected @endif>Not Yet Audited</option>
@@ -820,7 +820,7 @@
                                         <div class="invalid-feedback">This field is required. Can't be empty</div>
                                     </div>
                                       <!--begin::Col-->
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
                                             <select Name="Audit_Class" class="form-select target" id="selectid3" required>
                                                 
@@ -833,7 +833,8 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-3" :val="$data->Working_Capitals"/>
+                                        <x-column_-input  title="AUDIT SCORE" Name="audit_score" id="" placeholder="Eg-1 to 100" div_class="col-md-2" inclass="numbers" :val="$data->audit_score"/>
+                                        <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-2" :val="$data->Working_Capitals"/>
                                         <!--end::Col-->
                                       
                           </div>
