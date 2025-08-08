@@ -171,7 +171,7 @@
                           
                         </div>
                         </div>
-                        <div class="card-header"><div class="card-title">Total Amount Recovery</div></div>
+                        <div class="card-header"><div class="card-title">TOTAL AMOUNT RECOVERY</div></div>
                         <div class="card-body">
                             <div class="row g-2">
                                     <x-column_-input  title="Principal Amount" Name="principal_amount" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->principal_amount ?? '')}}"/>

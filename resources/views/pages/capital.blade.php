@@ -173,7 +173,7 @@
                                       <!--begin::Col-->
                                       <div class="col-md-2">
                                             <label for="validationCustom01" class="form-label">Category Of Audit / Audit Class</label>
-                                            <select Name="Audit_Class" class="form-select target" id="selectid3" required>
+                                            <select Name="Audit_Class" class="form-select target" id="audit_class" required>
                                                 <option selected>Not Yet Audited</option>
                                                 <option >A</option>
                                                 <option>B</option>
@@ -183,7 +183,7 @@
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">This field is required. Can't be empty</div>
                                         </div>
-                                        <x-column_-input  title="AUDIT SCORE" Name="audit_score" id="" placeholder="Eg-1 to 100" div_class="col-md-2" inclass="numbers"/>
+                                        <x-column_-input  title="AUDIT SCORE" Name="audit_score" id="audit_score" placeholder="Eg-1 to 100" div_class="col-md-2" inclass="numbers"/>
                                         <x-column_-input  title="WORKING CAPITAL" Name="Working_Capitals" id="" placeholder="Eg-100" div_class="col-md-2" word_id="word_id3" function='onkeyup=word_id3.innerHTML=convertNumberToWords(this.value)'/>
                                         <!--end::Col-->
                                       
@@ -575,4 +575,14 @@ $('.numbers').keyup(function () {
         $("body").on("click", "#Delete_MANAGERIAL_SUBSIDY_RECEIVED_Year", function () {
             $(this).parents("#row").remove();
         });
+        // $("body").on("change","#audit_class",function(){
+        //   if($("#audit_class").val()=="Not Yet Audited"){
+        //     $("#audit_score").prop('required',false)
+        //   }else{
+            
+        //     $("#audit_score").prop('required',true)
+        //   }
+          
+        //   console.log("change");
+        // });
 </script>

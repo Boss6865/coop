@@ -71,7 +71,7 @@ overflow:scroll;
                         <th scope="row"> SECTOR TYPE:</th>
                         <td>
                           {{-- PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS) --}}
-                          @if($Datas->Sector_Type=="")
+                          @if($Datas->Sector_Type=="PRIMARY AGRICULTURAL CREDIT SOCITIES (PACS)")
                           <a href="/pacs_edit/{{$Datas->id}}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">{{ $Datas->Sector_Type }}</a>
                           @else
                            {{ $Datas->Sector_Type }}
@@ -1060,7 +1060,7 @@ overflow:scroll;
                       @endforeach
                     @else
                     <tr>
-                      <th>{{$key+1}}</th>
+                      <th>1</th>
                       <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Year}}</td>
                       <td>{{$data->MANAGERIAL_SUBSIDY_RECEIVED_Amount}}</td>
                     </tr>

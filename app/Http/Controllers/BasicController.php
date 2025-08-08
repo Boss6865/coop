@@ -538,7 +538,7 @@ class BasicController extends Controller
                 'Gen_SHG'=>'nullable|integer',
                 'Managing_Male'=>'nullable|integer',
                 'Managing_Female'=> 'nullable|integer',
-                'Date_of_LastAGM'=>'nullable|date',
+                'Date_of_LastAGM'=>'nullable|string',
                 'Employee_Male'=>'nullable|integer',
                 'Employee_Female'=>'nullable|integer',
                 'Trained_Male'=> 'nullable|integer',

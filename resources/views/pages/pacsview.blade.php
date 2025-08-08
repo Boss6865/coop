@@ -36,37 +36,188 @@
             <div class="card-body">
               <div class="col-md-12">
                 @isset($activities->activity)
+                <table class="table table-sm table-bordered"> 
+                  <tbody>
+                    <tr class="align-middle"><th style="width: 20%">KCC LOAN AVAILED DURING THE YEAR CURRENT YEAR:</th>
+                      <td style="width: 30%">
+                        <table class="table table-sm ">
+                          <tbody>
+                              <tr>
+                                  <th>Amount Sanctioned</th>
+                              <td>10000000</td>
+                              
+                              </tr>
+                              <tr>
+                                  <th>Nos. of member in which loans was sanctioned</th>
+                              <td>10000000</td>
+                              
+                              </tr>
+                              <tr>
+                              <th>Purpose of Which Loans was taken for</th>
+                              <td>1000000</td>
+                              
+                              </tr>
+                            
+                          </tbody>
+                        </table>
+                      </td>
+                      <th style="width: 20%">NO. OF KCC LOAN ISSUED TO MEMBERS DURING THE CURRENT YEAR:</th>
+                      <td style="width: 30%">
+                         <table class="table table-sm">
+                           <thead>
+                             <th>Sl. No.</th>
+                             <th>Male</th>
+                             <th>Female</th>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <th>1</th>
+                               <td>1000000</td>
+                               <td>1000000</td>
+
+                               </tr>
+
+                             
+                           </tbody>
+                       </table>
+                     </td>
+                    </tr>
+                    <tr class="align-middle"><th style="width: 20%">LOAN  RECOVERY  DURING THE CURRENT YEAR:</th>
+                          <td style="width: 30%">
+                          <table class="table table-sm ">
+                            <thead>
+                              <th>Sl. No.</th>
+                              <th>Ethnic Group/Clan</th>
+                              <th>Male</th>
+                              <th>Female</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>2025</td>
+                                    <td>10000000</td>
+                                    <td>100000</td>
+                                
+                                </tr>
+                              
+                              
+                            </tbody>
+                        </table>
+                      </td>
+                      <th style="width: 20%">TOTAL AMOUNT RECOVERY:</th>
+                      <td style="width: 30%">
+                          <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                  <th>Total Amount Recovery</th>
+                                  <td>100000</td>
+                                  <td>100000</td>
+                                </tr>
+                                 <tr>
+                                  <th>Principal Amount</th>
+                                  <td>100000</td>
+                                  <td>100000</td>
+                                </tr>
+                                 <tr>
+                                  <th>Interest Amount</th>
+                                  <td>100000</td>
+                                  <td>100000</td>
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="align-middle"><th style="width: 20%">KCC LOAN OUTSTANDING FOR THE LAST FIVE YEARS:</th>
+                          <td style="width: 30%">
+                          <table class="table table-sm ">
+                            <thead>
+                              <th>Sl. No.</th>
+                              <th>Years</th>
+                              <th>Principal Amount</th>
+                              <th>Interest Amount</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>2025</td>
+                                    <td>10000000</td>
+                                    <td>100000</td>
+                                
+                                </tr>
+                              
+                              
+                            </tbody>
+                        </table>
+                      </td>
+                      <th style="width: 20%">NO. OF KCC LOAN ISSUED TO MEMBERS DURING THE CURRENT YEAR:</th>
+                      <td style="width: 30%">
+                          <table class="table table-sm">
+                            <thead>
+                              <th>Sl. No.</th>
+                              <th>Ethnic Group/Clan</th>
+                              <th>Male</th>
+                              <th>Female</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <th>1</th>
+                                  <td>100000</td>
+                                  <td>100000</td>
+                                  <td>100000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="align-middle"><th style="width: 20%">DEFAULTERS:</th>
+                          <td style="width: 30%">
+                          <table class="table table-sm ">
+
+                            <tbody>
+                                <tr>
+                                    <th>No's.</th>
+                                    <td>25</td>
+
+                                </tr>
+                                <tr>
+                                    <th>Amount</th>
+                                    <td>25</td>
+
+                                </tr>
+                              
+                              
+                            </tbody>
+                        </table>
+                      </td>
+                      <th style="width: 20%">PROVISION FOR NPA (KCC)</th>
+                      <td style="width: 30%">
+                          <table class="table table-sm">
+
+                            <tbody>
+                                <tr>
+                                    <th>Principal</th>
+                                    <td>25</td>
+
+                                </tr>
+                                <tr>
+                                    <th>Interest</th>
+                                    <td>25</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 @else
                 <div style="color:red">
                     <h2> <i class="bi bi-x-lg"></i> No information Available</h2>
                     <a href="/pacs/{{$Datas->id}}"><button class="btn btn-outline-dark">Click Here to Add information</button></a>
                 </div>
-                <table class="table">
-                  
-                  <tbody>
-                    <tr>
-                      <th scope="row"></th>
-                      <th>Activity</th>
-                      <td>Otto</td>
-                      <th>Amount Sanctioned</th>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <th>Nos. of member in which loans was sanctioned</th>
-                      <td>member in which loans was sanctioned</td>
-                      <th>Purpose of Which Loans was taken for</th>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <th>Activity</th>
-                      <td>Otto</td>
-                      <th>Amount Sanctioned</th>
-                      <td>member in which loans was sanctioned/td>
-                    </tr>
-                  </tbody>
-                </table>
+                
                 @endisset
               </div>
             </div>

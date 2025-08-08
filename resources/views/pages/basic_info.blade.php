@@ -241,14 +241,14 @@
                           <!--begin::Col-->
                         <div class="col-5">
                           <select class="form-select"  name="Operation_District" id="Select_District1" required>
-                              <option selected disabled value="">Choose Villages</option>
+                              <option selected disabled value="">Choose District</option>
                               
                             </select>
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
                         <div class="col-1">
-                          <input type="text" class="form-control" placeholder="Toal No." id="GetTotal" disabled />
+                          <input type="text" class="form-control" placeholder="Total No." id="GetTotal" disabled />
                         </div>
                         <!--end::Col-->
                         
