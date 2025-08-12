@@ -66,9 +66,9 @@
                                     <label for="" class="form-label">Ethnic Group/Clan</label>
                                     <select name="clan[]" class="form-select" required>
                                         <option selected disabled value="">Choose...</option>
-                                        <option @if($jan2[$key]=="ST") selected @endif>ST</option>
-                                        <option @if($jan2[$key]=="SC") selected @endif>SC</option>
-                                        <option @if($jan2[$key]=="Gen or Other") selected @endif>Gen or Other</option>
+                                        <option @isset($jan2[$key]) @if($jan2[$key]=="ST") selected @endif @endisset>ST</option>
+                                        <option @isset($jan2[$key]) @if($jan2[$key]=="SC") selected @endif  @endisset>SC</option>
+                                        <option @isset($jan2[$key]) @if($jan2[$key]=="Gen or Other") selected @endif @endisset>Gen or Other</option>
                                     </select>
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">This field is required. Can't be empty</div>
