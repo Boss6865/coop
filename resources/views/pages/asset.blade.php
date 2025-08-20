@@ -257,7 +257,7 @@
             
              $("#godown_types").prop("required", false);
           }else if(godown=="Yes"){
-            $("#godown_types").prop("required", true);
+            //$("#godown_types").prop("required", true);
           }
         });
         $('#rented_building').on("change",function(){

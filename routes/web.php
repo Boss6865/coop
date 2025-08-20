@@ -114,7 +114,7 @@ Route::put('/farming/{id}',[FarmingController::class,'update']);
 Route::get('/fishery/{id}/{sign}',[FisheryController::class,'show']);
 Route::post('/fishery',[FisheryController::class,'store']);
 Route::put('/fishery/{id}',[FisheryController::class,'update']);
-Route::get('/market/{id}/{sign}',[MarketingController::class,'show']);
+Route::get('/market/{id}',[MarketingController::class,'show']);
 Route::post('/market',[MarketingController::class,'store']);
 Route::put('/market/{id}',[MarketingController::class,'update']);
 Route::get('/processing/{id}/{sign}',[ProcessingController::class,'show']);

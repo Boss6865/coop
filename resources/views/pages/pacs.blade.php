@@ -282,12 +282,49 @@
                                     <x-column_-input  title="Defaulters Amount" Name="defaulter_amount" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->defaulter_amount ?? '')}}"/>
                             </div>
                         </div>
+                        
                         <div class="card-header"><div class="card-title">PROVISION FOR NPA (KCC)</div></div>
                         <div class="card-body">
                             <div class="row g-2">
                                     <x-column_-input  title="Principal" Name="npa_principal" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->npa_principal ?? '')}}" />
                                     <x-column_-input  title="Interest" Name="npa_interest" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->npa_interest ?? '')}}"/>
                             </div>
+                        </div>
+                        <div class="card-header col-md-3"><div class="card-title">ON DEPOSIT MOBILIZATION</div>
+                             <select name="" class="form-select" required id="mobilization">
+                                 <option selected disabled value="">Choose...</option>
+                                 <option >Yes</option>
+                                 <option>No</option>
+                             </select>
+                        </div>
+                        <div style="display: none" id="mobilization_on_off">
+                         <div class="card-body">
+                            <div class="row g-2">
+                                    <x-column_-input  title="Saving Deposits Of Members During The Year" Name="saving_deposit_of_member_during_year" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->saving_deposit_of_member_during_year ?? '')}}" />
+                                    <x-column_-input  title="Fixed Deposits of Members During The Year" Name="fixed_deposit_of_member_during_year" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->fixed_deposit_of_member_during_year ?? '')}}"/>
+                                    <x-column_-input  title="Other Deposits Of Members During The Year (Specify)" Name="other_deposit_of_member_during_year" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->other_deposit_of_member_during_year ?? '')}}" />
+                                    <x-column_-input  title="Loan Issue to Members" Name="loan_issue_to_member" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->loan_issue_to_member ?? '')}}"/>
+                            </div>
+                        </div>
+                        <div class="card-header"><div class="card-title">LOAN RECOVERED FROM MEMBERS</div></div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                    <x-column_-input  title="Principal" Name="deposit_mob_rec_principal" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->deposit_mob_rec_principal ?? '')}}" />
+                                    <x-column_-input  title="Interest" Name="deposit_mob_rec_interest" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->deposit_mob_rec_interest ?? '')}}"/>
+                            </div>
+                        </div>
+                        <div class="card-header"><div class="card-title">LOAN OUTSTANDING FROM MEMBERS</div></div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                    <x-column_-input  title="Principal" Name="deposit_mob_out_principal" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->deposit_mob_out_principal ?? '')}}" />
+                                    <x-column_-input  title="Interest" Name="deposit_mob_out_interest" id="" placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->deposit_mob_out_interest ?? '')}}"/>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                    <x-column_-input  title="Indicate Other Sectors If Any As Shown at B And Follow The Next Step" Name="deposit_mob_other_indicate_sector" id="" placeholder="Eg-1000" div_class="col-md-4" val="{{($activities->deposit_mob_other_indicate_sector ?? '')}}" />
+                            </div>
+                        </div>
                         </div>
                       <div class="card-footer">
                         @if(!empty($activities->activity))
@@ -428,5 +465,15 @@
 
         $("body").on("click", "#DeleteRow4", function () {
             $(this).parents("#row4").remove();
+        });
+
+          $("body").on("change", "#mobilization", function () {
+            let value=$("#mobilization").val();
+            if(value=="Yes"){
+                $("#mobilization_on_off").show();
+            }else{
+                $("#mobilization_on_off").hide();
+            }
+            
         });
 </script>
