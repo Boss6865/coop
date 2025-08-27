@@ -325,6 +325,13 @@
                                     <x-column_-input  title="Indicate Other Sectors If Any As Shown at B And Follow The Next Step" Name="deposit_mob_other_indicate_sector" id="" placeholder="Eg-1000" div_class="col-md-4" val="{{($activities->deposit_mob_other_indicate_sector ?? '')}}" />
                             </div>
                         </div>
+                    </div>
+                    <div class="card-header col-md-3"><div class="card-title">MARKET</div>
+                             <select name="" class="form-select" required id="have_market">
+                                 <option selected disabled value="">Choose...</option>
+                                 <option >Yes</option>
+                                 <option>No</option>
+                             </select>
                         </div>
                       <div class="card-footer">
                         @if(!empty($activities->activity))
@@ -473,6 +480,13 @@
                 $("#mobilization_on_off").show();
             }else{
                 $("#mobilization_on_off").hide();
+            }
+            
+        });
+        $("body").on("change", "#have_market", function () {
+            let value=$("#have_market").val();
+            if(value=="Yes"){
+                window.location.href = "/market/{{$Datas->id}}";
             }
             
         });

@@ -105,7 +105,7 @@
                   <li class="nav-item">
                     <a href="/borrow" class="nav-link {{request()->is('borrow')?'active':''}}">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>BORROWING</p>
+                      <p>BORROWING AND DEPOSITS</p>
                     </a>
                   </li>
                   <li class="nav-item">
