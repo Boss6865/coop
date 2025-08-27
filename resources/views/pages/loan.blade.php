@@ -4,7 +4,7 @@
   @else
     <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="investment" />
   @endif
-    <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="investment" />
+    {{-- <x-navigation title="{{ Session()->get('Sooos'); }}" Nav="investment" /> --}}
       <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       {{-- <script src="https://code.jquery.com/jquery-git.js"></script> --}}
       <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
