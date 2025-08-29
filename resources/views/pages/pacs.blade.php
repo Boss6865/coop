@@ -326,7 +326,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-header col-md-3"><div class="card-title">MARKET</div>
+                    <div class="card-header"><div class="card-title">IVCS</div></div>
+                    <div class="card-body">
+                        <div class="row g-2">
+                           
+                          <x-column_-input  title="Corpus Fund" Name="corpus_fund"  placeholder="Eg-1000" div_class="col-md-3" val="{{($activities->corpus_fund ?? '')}}"/>
+                             
+                        </div>
+                    </div>
+
+                    <div class="card-header"><div class="card-title">LOAN/BORROWERS</div></div>
+                      <div class="card-body">
+                              <div class="row g-2">
+                                 
+                                <x-column_-input  title="Nos. of Loan Account/Borrowers" Name="nos_loanorborrower_account"  placeholder="Eg-2" div_class="col-md-3" val="{{($activities->nos_loanorborrower_account ?? '')}}"/>
+                                <x-column_-input  title="Total Loan Amount Disbured" Name="total_loan_disbured"  placeholder="Eg-100 " div_class="col-md-3" val="{{($activities->total_loan_disbured ?? '')}}"/>
+                                <x-column_-input  title="Nos. of Outstanding Borrowers" Name="outstanding_borrower"  placeholder="Eg-1" div_class="col-md-3" val="{{($activities->outstanding_borrower ?? '')}}"/>
+                                <x-column_-input  title="Outstanding Amount" Name="outstanding_amount"  placeholder="Eg- 1000" div_class="col-md-3" val="{{($activities->outstanding_amount ?? '')}}"/>
+                                
+                              </div>
+                      </div>
+
+                    <div class="card-header col-md-3"><div class="card-title">MARKETTING AND CONSUMER</div>
                              <select name="" class="form-select" required id="have_market">
                                  <option selected disabled value="">Choose...</option>
                                  <option >Yes</option>
@@ -341,7 +362,7 @@
                          <a href="/Sector_view"><button type="button" class="btn btn-secondary">Back</button></a> 
                           <button type="submit" class="btn btn-primary">Save</button>
                           @endif
-                  </div>
+                    </div>
               </form>
         </div>
 </x-layout>
