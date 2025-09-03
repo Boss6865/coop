@@ -704,9 +704,9 @@
     function multiply(bname) {
       var Area= $( "#Select_Area" ).val();
         if(Area=="Rural"){
-          $.getJSON("assets/Dist_Block_Vill.json", function(data2){
-                    //console.log(bname);
-                          var $optGroup = '<optgroup label ='+bname+'>';
+          $.getJSON("assets/Village_combine.json", function(data2){
+                    // console.log(bname);
+                          var $optGroup = '<optgroup label ="'+bname+'">';
                           var data_filter2 = data2.filter(element => element.Block_Name ==bname);
                           //console.log(data_filter2);
                           
@@ -722,9 +722,10 @@
                       $('#js-example-basic-single').append($optGroup);
                         });
         }else if(Area=="Urban"){
-          $.getJSON("assets/urban_village.json", function(data2){
-                    //console.log(bname);
-                          var $optGroup = '<optgroup label ='+bname+'>';
+          $.getJSON("assets/Village_combine.json", function(data2){
+                    
+                          var $optGroup = '<optgroup label ="'+bname+'">';
+                          
                           var data_filter2 = data2.filter(element => element.Block_Name ==bname);
                           //console.log(data_filter2);
                           
@@ -735,7 +736,7 @@
                           //$('#js-example-basic-single').append($('<option>').val(data_filter2[j].Vill_Name ).text(data_filter2[j].Vill_Name ));
                           
                       }
-                    
+                   
                       
                       $('#js-example-basic-single').append($optGroup);
                         });
