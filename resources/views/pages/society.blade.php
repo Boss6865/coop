@@ -107,8 +107,11 @@ overflow:scroll;
                         <td> {{ $Datas->Police_Station }}</td>
                       </tr>
                       <tr>
+                        @php
+                          $stringArray = explode(",",$Datas->Operation_villages);
+                        @endphp
                         <th scope="row">OPERATION AREA:</th>
-                        <td>  {{ $Datas->Operation_District }} - {{ $Datas->Operation_villages }}</td>
+                        <td> <p  class="fs-5"> {{ $Datas->Operation_District }}: ({{count($stringArray)}} @if(count($stringArray)>1) Villages @else Village  @endif) </p>{{ $Datas->Operation_villages }}</td>
                       </tr>
                       <tr>
                         <th scope="row">AFFILIATION:</th>
@@ -1512,13 +1515,14 @@ overflow:scroll;
                   $jan2=json_decode($loan_datas->Loan_sanctioned_amount);
                   $jan3=json_decode($loan_datas->Outstanding_Principal_amount);
                   $jan4=json_decode($loan_datas->Outstanding_interest_amount);
+                  $jan5=json_decode($loan_datas->other_mention);
                   
                   @endphp
                    @if(json_decode($loan_datas->type_of_govt_loan)!=null)
                   @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
                   <tr>
                     <th>{{$key+1}}</th>
-                    <td>{{$data1}}</td>
+                    <td>{{$data1}} @isset($jan5[$key])( {{$jan5[$key]}} ) @endisset</td>
                     <td>{{$jan1[$key]}}</td>
                     <td>{{$jan2[$key]}}</td>
                     <td>{{$jan3[$key]}}</td>

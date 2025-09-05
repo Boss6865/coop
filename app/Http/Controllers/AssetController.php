@@ -58,6 +58,7 @@ class AssetController extends Controller
             'computers'=> 'nullable|string',
             'computers_total'=> 'nullable|integer',
             'computers_amount'=> 'nullable|integer',
+            'other_yes_no'=> 'nullable|string',
         ]);
         $validatedData['item_name']=json_encode($request->input('item_name'));
         $validatedData['item_no']=json_encode($request->input('item_no'));
@@ -117,6 +118,7 @@ class AssetController extends Controller
             'computers'=> 'nullable|string',
             'computers_total'=> 'nullable|integer',
             'computers_amount'=> 'nullable|integer',
+            'other_yes_no'=> 'nullable|string',
         ]);
         $validatedData['item_name']=json_encode($request->input('item_name'));
         $validatedData['item_no']=json_encode($request->input('item_no'));

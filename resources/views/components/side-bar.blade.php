@@ -162,29 +162,18 @@
                       <p>All Sector Report</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="./layout/logo-switch.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./layout/layout-rtl.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout RTL</p>
-                    </a>
-                  </li>
+                  
                 </ul>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-tree-fill"></i>
                   <p>
-                    UI Elements
+                    To be Continue 1
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
+                {{-- <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="./UI/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
@@ -203,48 +192,48 @@
                       <p>Timeline</p>
                     </a>
                   </li>
-                </ul>
+                </ul> --}}
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-pencil-square"></i>
                   <p>
-                    Forms
+                    To be Continue 2
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
+                {{-- <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="./forms/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>General Elements</p>
                     </a>
                   </li>
-                </ul>
+                </ul> --}}
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-table"></i>
                   <p>
-                    Tables
+                    To be Continue 3
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
+                {{-- <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="./tables/simple.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Simple Tables</p>
                     </a>
                   </li>
-                </ul>
+                </ul> --}}
               </li>
-              <li class="nav-header">EXAMPLES</li>
+              <li class="nav-header">Authentication</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-arrow-in-right"></i>
                   <p>
-                    Auth
+                    Users
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -253,7 +242,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        Version 1
+                        District 1
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -261,13 +250,13 @@
                       <li class="nav-item">
                         <a href="./examples/login.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
+                          <p>List of User</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
+                          <p>Register User</p>
                         </a>
                       </li>
                     </ul>
@@ -276,7 +265,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon bi bi-box-arrow-in-right"></i>
                       <p>
-                        Version 2
+                        District 2
                         <i class="nav-arrow bi bi-chevron-right"></i>
                       </p>
                     </a>
@@ -284,26 +273,26 @@
                       <li class="nav-item">
                         <a href="./examples/login-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
+                          <p>List of User</p>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a href="./examples/register-v2.html" class="nav-link">
                           <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
+                          <p>Register User</p>
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="./examples/lockscreen.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Lockscreen</p>
                     </a>
-                  </li>
+                  </li> --}}
                 </ul>
               </li>
-              <li class="nav-header">DOCUMENTATIONS</li>
+              {{-- <li class="nav-header">DOCUMENTATIONS</li>
               <li class="nav-item">
                 <a href="./docs/introduction.html" class="nav-link">
                   <i class="nav-icon bi bi-download"></i>
@@ -469,7 +458,7 @@
                   <i class="nav-icon bi bi-circle text-info"></i>
                   <p>Informational</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
             <!--end::Sidebar Menu-->
           </nav>

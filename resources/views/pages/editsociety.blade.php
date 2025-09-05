@@ -1844,7 +1844,7 @@
                                           <label for="rent_paid" class="form-label">If Lease Term Agreement and Area in Sq. Ft./Acre</label>
                                           <input
                                             type="text"
-                                            class="form-control numbers"
+                                            class="form-control"
                                             id=""
                                             value="{{$asset_datas->land_area_lease}}"
                                             name="land_area_lease"
@@ -1950,13 +1950,14 @@
                                     </div>
                               </div>
                               <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS ) 
-                               <select Name="computers" class="form-select target" id="Other_item_id" required>
+                               <select Name="other_yes_no" class="form-select target" id="Other_item_id" required>
                                        <option selected disabled value="">Choose...</option>
-                                       <option @if(json_decode($asset_datas->item_name)!=null) selected @endif>Yes</option>
-                                       <option @if(json_decode($asset_datas->item_name)==null) selected @endif>No</option>
+                                       <option @if($asset_datas->other_yes_no=="Yes") selected @endif>Yes</option>
+                                       <option @if($asset_datas->other_yes_no=="No") selected @endif>No</option>
                                    </select>  
                               </div></div>
-                              <div class="card-body {{json_decode($asset_datas->item_name)==null ? 'offshow': ''}}" id="other">
+                              
+                              <div class="card-body {{$asset_datas->other_yes_no=="Yes" ? '': 'offshow'}}" id="other">
                                       <div class="row g-2" id="asset_newinput">
                                         @if(!empty($asset_datas->item_no))
                                         @php
@@ -1992,7 +1993,7 @@
                                         @endif
                                     </div>
                               </div>
-                              
+                             
                               <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
                                 <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
@@ -2045,96 +2046,97 @@
                                   $jan5=json_decode($loan_datas->other_mention);
                                   @endphp
                                     @if(json_decode($loan_datas->type_of_govt_loan)!=null)
-                                  @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
-                                  @if($key==0)
-                                  <div class="col-md-2">
-                                    <label for="" class="form-label">Type of Govt. Loan</label>
-                                    <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
-                                        <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
-                                        <option @if($data1=="PLANT & MACHINERY") selected @endif>PLANT & MACHINERY</option>
-                                        <option @if($data1=="SHARE CAPITAL") selected @endif>SHARE CAPITAL</option>
-                                        <option @if($data1=="WORKING CAPITAL") selected @endif>WORKING CAPITAL</option>
-                                        <option @if($data1=="TRUCK LOAN") selected @endif>TRUCK LOAN</option>
-                                        <option @if($data1=="MARKETING LOAN") selected @endif>MARKETING LOAN</option>
-                                        <option @if($data1=="DAIRY / LIVESTOCK") selected @endif>DAIRY / LIVESTOCK</option>
-                                        <option @if($data1=="PROCESSING LOAN") selected @endif>PROCESSING LOAN</option>
-                                        <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
-                                        <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
-                                        <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
-                                        <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
-                                        <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
+                                        @foreach(json_decode($loan_datas->type_of_govt_loan) as $key => $data1)
+                                          @if($key==0)
+                                              <div class="col-md-2">
+                                                <label for="" class="form-label">Type of Govt. Loan</label>
+                                                <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type" required>
+                                                    <option selected disabled value="">Choose...</option>
+                                                    <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
+                                                    <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
+                                                    <option @if($data1=="PLANT & MACHINERY") selected @endif>PLANT & MACHINERY</option>
+                                                    <option @if($data1=="SHARE CAPITAL") selected @endif>SHARE CAPITAL</option>
+                                                    <option @if($data1=="WORKING CAPITAL") selected @endif>WORKING CAPITAL</option>
+                                                    <option @if($data1=="TRUCK LOAN") selected @endif>TRUCK LOAN</option>
+                                                    <option @if($data1=="MARKETING LOAN") selected @endif>MARKETING LOAN</option>
+                                                    <option @if($data1=="DAIRY / LIVESTOCK") selected @endif>DAIRY / LIVESTOCK</option>
+                                                    <option @if($data1=="PROCESSING LOAN") selected @endif>PROCESSING LOAN</option>
+                                                    <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
+                                                    <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
+                                                    <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
+                                                    <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
+                                                    <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
 
-                                    </select>
-                                    <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
+                                                </select>
+                                            <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
                          
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="other_mention1"
-                                      @isset($jan5[$key])
-                                          value="{{$jan5[$key]}}"
-                                      @endisset
-                                      
-                                      name="other_mention[]"
-                                    />
-                                  </div>
-                                    @error('type_of_govt_loan')
-                                    <div style="color:red">{{$message}}</div>
-                                    @enderror
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">This field is required. Can't be empty</div>
-                                  </div>
-                                <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="" placeholder="Eg-2025" div_class="col-md-2" val="{{$jan1[$key]}}"/>
-                                <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="" placeholder="Eg-20000" div_class="col-md-2" val="{{$jan2[$key]}}"/>
-                                <x-column_-input title="Outstanding Principal Amount" id="" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2" val="{{$jan3[$key]}}"/>
-                                <x-column_-input title="Outstanding Interest Amount" id="" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers" val="{{$jan4[$key]}}"/>
-                                <button type="button" id="loan_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
-                                  @else
-                                  <div class="col-md-2">
-                                  <select Name="anyloan[]" class="form-select target" id="govt_loan_type" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
-                                        <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
-                                        <option @if($data1=="PLANT & MACHINERY") selected @endif>PLANT & MACHINERY</option>
-                                        <option @if($data1=="SHARE CAPITAL") selected @endif>SHARE CAPITAL</option>
-                                        <option @if($data1=="WORKING CAPITAL") selected @endif>WORKING CAPITAL</option>
-                                        <option @if($data1=="TRUCK LOAN") selected @endif>TRUCK LOAN</option>
-                                        <option @if($data1=="MARKETING LOAN") selected @endif>MARKETING LOAN</option>
-                                        <option @if($data1=="DAIRY / LIVESTOCK") selected @endif>DAIRY / LIVESTOCK</option>
-                                        <option @if($data1=="PROCESSING LOAN") selected @endif>PROCESSING LOAN</option>
-                                        <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
-                                        <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
-                                        <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
-                                        <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
-                                        <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
-                                    </select>
-                                  <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
-                         
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="other_mention1"
-                                       @isset($jan5[$key])
-                                          value="{{$jan5[$key]}}"
-                                      @endisset
-                                      name="other_mention[]"
-                                    />
-                                  </div>
-                                  </div>
-                                  <div class="col-md-2">
-                                  <input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required value="{{$jan1[$key]}}"> </div>
-                                  <div class="col-md-2">
-                                  <input name="Loan_sanctioned_amount[]" type="text" class="form-control" placeholder="Eg-20000" required value="{{$jan2[$key]}}"> </div>
-                                  <div class="col-md-2">
-                                  <input name="Outstanding_Principal_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan3[$key]}}"> </div>
-                                  <div class="col-md-2">
-                                  <input name="Outstanding_interest_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan4[$key]}}"> </div>
-                                  <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                id="other_mention1"
+                                                @isset($jan5[$key])
+                                                    value="{{$jan5[$key]}}"
+                                                @endisset
 
-                                @endif
-                              @endforeach
+                                                name="other_mention[]"
+                                              />
+                                            </div>
+                                              @error('type_of_govt_loan')
+                                              <div style="color:red">{{$message}}</div>
+                                              @enderror
+                                              <div class="valid-feedback">Looks good!</div>
+                                              <div class="invalid-feedback">This field is required. Can't be empty</div>
+                                          </div>
+                                            <x-column_-input  title="Loan Issue Year" Name="Loan_issue_year[]" id="" placeholder="Eg-2025" div_class="col-md-2" val="{{$jan1[$key]}}"/>
+                                            <x-column_-input  title="Loan Sanctioned Amount" Name="Loan_sanctioned_amount[]" id="" placeholder="Eg-20000" div_class="col-md-2" val="{{$jan2[$key]}}"/>
+                                            <x-column_-input title="Outstanding Principal Amount" id="" Name="Outstanding_Principal_amount[]"  placeholder="Eg- 10000 " div_class="col-md-2" val="{{$jan3[$key]}}"/>
+                                            <x-column_-input title="Outstanding Interest Amount" id="" Name="Outstanding_interest_amount[]"  placeholder="Eg-10000" div_class="col-md-2" inclass="numbers" val="{{$jan4[$key]}}"/>
+                                            <button type="button" id="loan_rowAdder" class="col-md-1"><i class="fa fa-plus" style="font-size:20px;color:violet">Add</i></button>
+                                      @else
+                                        <div id="row" class="row g-2">
+                                        <div class="col-md-2">
+                                        <select Name="type_of_govt_loan[]" class="form-select target" id="govt_loan_type" required>
+                                              <option selected disabled value="">Choose...</option>
+                                              <option @if($data1=="GODOWN") selected @endif>GODOWN</option>
+                                              <option @if($data1=="FURNITURE & FIXTURES") selected @endif>FURNITURE & FIXTURES</option>
+                                              <option @if($data1=="PLANT & MACHINERY") selected @endif>PLANT & MACHINERY</option>
+                                              <option @if($data1=="SHARE CAPITAL") selected @endif>SHARE CAPITAL</option>
+                                              <option @if($data1=="WORKING CAPITAL") selected @endif>WORKING CAPITAL</option>
+                                              <option @if($data1=="TRUCK LOAN") selected @endif>TRUCK LOAN</option>
+                                              <option @if($data1=="MARKETING LOAN") selected @endif>MARKETING LOAN</option>
+                                              <option @if($data1=="DAIRY / LIVESTOCK") selected @endif>DAIRY / LIVESTOCK</option>
+                                              <option @if($data1=="PROCESSING LOAN") selected @endif>PROCESSING LOAN</option>
+                                              <option @if($data1=="STORAGE LOAN") selected @endif>STORAGE LOAN</option>
+                                              <option @if($data1=="CATTLE BREEDING LOAN") selected @endif>CATTLE BREEDING LOAN</option>
+                                              <option @if($data1=="PIGGERY LOAN") selected @endif>PIGGERY LOAN</option>
+                                              <option @if($data1=="ICDP LOAN") selected @endif>ICDP LOAN</option>
+                                              <option @if($data1=="OTHER LOAN") selected @endif>OTHER LOAN</option>
+                                          </select>
+                                        <div class="col-md-12" @if($data1!="OTHER LOAN") style="display:none" @endif id="other_mention_here1">
+                         
+                                          <input
+                                            type="text"
+                                            class="form-control"
+                                            id="other_mention1"
+                                             @isset($jan5[$key])
+                                                value="{{$jan5[$key]}}"
+                                            @endisset
+                                            name="other_mention[]"
+                                          />
+                                        </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                        <input name="Loan_issue_year[]" type="text" class="form-control" placeholder="Eg-2025" required value="{{$jan1[$key]}}"> </div>
+                                        <div class="col-md-2">
+                                        <input name="Loan_sanctioned_amount[]" type="text" class="form-control" placeholder="Eg-20000" required value="{{$jan2[$key]}}"> </div>
+                                        <div class="col-md-2">
+                                        <input name="Outstanding_Principal_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan3[$key]}}"> </div>
+                                        <div class="col-md-2">
+                                        <input name="Outstanding_interest_amount[]" type="text" class="form-control numbers" placeholder="Eg-10000" required value="{{$jan4[$key]}}"> </div>
+                                        <button type="button" id="DeleteRow" class="col-md-1"><i class="fa fa-minus" style="font-size:20px;color:red"></i></button></div>
+                              
+                                    @endif
+                                  @endforeach
                               @else
                                <div class="col-md-2">
                                   <label for="" class="form-label">Type of Govt. Loan</label>
@@ -2162,7 +2164,9 @@
                                       type="text"
                                       class="form-control"
                                       id="other_mention1"
-                                      value=""
+                                       @isset($jan5[$key])
+                                          value="{{$jan5[$key]}}"
+                                      @endisset
                                       name="other_mention[]"
                                     />
                                   </div>
@@ -2180,13 +2184,14 @@
                     
                               @endif
                             </div>
-                      </div>
-                              
-                             
-                               <div class="card-footer">
+                            <div class="card-footer">
                                 <button class="btn btn-info" type="submit">Update</button> 
                                 <a href="/society/{{$Datas->id}}"><button type="button" class="btn btn-secondary">Back</button></a>
                           </div>
+                      </div>
+                              
+                             
+                               
                       </form>
 
                       @else

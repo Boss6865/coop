@@ -132,7 +132,7 @@
                                         </div>
                                         
                                         <x-column_-input  title="Land Area in Sq. Ft./Acre" Name="Land_area" div_id="Land_area" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
-                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" div_id="land_area_lease" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4" inclass="numbers1"/>
+                                        <x-column_-input  title="If Lease Term Agreement and Area in Sq. Ft./Acre" Name="land_area_lease" div_id="land_area_lease" placeholder="Eg- 1000 Sq. Ft." div_class="col-md-4"/>
                                         </div>
                                       <div class="row g-2">
                                         <div class="col-md-2">
@@ -173,7 +173,7 @@
                                     </div>
                               </div>
                               <div class="card-header"><div class="card-title">OTHERS (PLEASE SPECIFY THE ITEMS )  
-                                <select Name="computers" class="form-select target" id="Other_item_id" required>
+                                <select Name="other_yes_no" class="form-select target" id="Other_item_id" required>
                                        <option selected disabled value="">Choose...</option>
                                        <option >Yes</option>
                                        <option>No</option>
