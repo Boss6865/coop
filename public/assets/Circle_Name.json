@@ -1,162 +1,166 @@
 [
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Mawsynram"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Mawkynrew"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Mawphlang"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Pynursla"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Mawryngkneng"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Shella Bholaganj"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Laitkroh Khatarshnong"
- },
- {
-  "Dist_Name": "East Khasi Hills",
-  "Circle_Name": "Mylliem"
- },
- {
-  "Dist_Name": "East Jaintia Hills",
-  "Circle_Name": "Khliehriat"
- },
- {
-  "Dist_Name": "East Jaintia Hills",
-  "Circle_Name": "Saipung"
- },
- {
-  "Dist_Name": "West Jaintia Hills",
-  "Circle_Name": "Thadlaskein"
- },
- {
-  "Dist_Name": "West Jaintia Hills",
-  "Circle_Name": "Amlarem"
- },
- {
-  "Dist_Name": "West Jaintia Hills",
-  "Circle_Name": "Laskein"
- },
- {
-  "Dist_Name": "West Khasi Hills",
-  "Circle_Name": "Mairang"
- },
- {
-  "Dist_Name": "West Khasi Hills",
-  "Circle_Name": "Riangdo"
- },
- {
-  "Dist_Name": "West Khasi Hills",
-  "Circle_Name": "Nongstoin"
- },
- {
-  "Dist_Name": "West Khasi Hills",
-  "Circle_Name": "Markasa"
- },
- {
-  "Dist_Name": "Ri Bhoi",
-  "Circle_Name": "Bhoirymbong"
- },
- {
-  "Dist_Name": "Ri Bhoi",
-  "Circle_Name": "Nongpoh"
- },
- {
-  "Dist_Name": "Ri Bhoi",
-  "Circle_Name": "Umsning"
- },
- {
-  "Dist_Name": "Ri Bhoi",
-  "Circle_Name": "Byrnihat"
- },
- {
-  "Dist_Name": "South West Khasi Hills",
-  "Circle_Name": "Mawkyrwat"
- },
- {
-  "Dist_Name": "South West Khasi Hills",
-  "Circle_Name": "Ranikor"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Rongram"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Betasing"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Selsella"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Dalu"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Dadenggre"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Zikzk"
- },
- {
-  "Dist_Name": "West Garo Hills",
-  "Circle_Name": "Tikrikilla"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Songsak"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Kharkutta"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Rongjeng"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Williamnagar"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Bajengdora"
- },
- {
-  "Dist_Name": "East Garo Hills",
-  "Circle_Name": "Mendipathar"
- },
- {
-  "Dist_Name": "South Garo Hills",
-  "Circle_Name": "Chokpot Circle"
- },
- {
-  "Dist_Name": "South Garo Hills",
-  "Circle_Name": "Baghmara Cicle"
- },
- {
-  "Dist_Name": "South Garo Hills",
-  "Circle_Name": "Gasuapara"
- },
- {
-  "Dist_Name": "South Garo Hills",
-  "Circle_Name": "Rongara"
- }
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Mawsynram"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Mawkynrew"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Mawphlang"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Pynursla"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Mawryngkneng"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Shella Bholaganj"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Laitkroh Khatarshnong"
+    },
+    {
+        "Dist_Name": "East Khasi Hills",
+        "Circle_Name": "Mylliem"
+    },
+    {
+        "Dist_Name": "East Jaintia Hills",
+        "Circle_Name": "Khliehriat"
+    },
+    {
+        "Dist_Name": "East Jaintia Hills",
+        "Circle_Name": "Saipung"
+    },
+    {
+        "Dist_Name": "West Jaintia Hills",
+        "Circle_Name": "Thadlaskein"
+    },
+    {
+        "Dist_Name": "West Jaintia Hills",
+        "Circle_Name": "Amlarem"
+    },
+    {
+        "Dist_Name": "West Jaintia Hills",
+        "Circle_Name": "Laskein"
+    },
+    {
+        "Dist_Name": "West Khasi Hills",
+        "Circle_Name": "Mairang"
+    },
+    {
+        "Dist_Name": "West Khasi Hills",
+        "Circle_Name": "Riangdo"
+    },
+    {
+        "Dist_Name": "West Khasi Hills",
+        "Circle_Name": "Nongstoin"
+    },
+    {
+        "Dist_Name": "West Khasi Hills",
+        "Circle_Name": "Markasa"
+    },
+    {
+        "Dist_Name": "Ri Bhoi",
+        "Circle_Name": "Bhoirymbong"
+    },
+    {
+        "Dist_Name": "Ri Bhoi",
+        "Circle_Name": "Nongpoh"
+    },
+    {
+        "Dist_Name": "Ri Bhoi",
+        "Circle_Name": "Umsning"
+    },
+    {
+        "Dist_Name": "Ri Bhoi",
+        "Circle_Name": "Byrnihat"
+    },
+    {
+        "Dist_Name": "South West Khasi Hills",
+        "Circle_Name": "Mawkyrwat"
+    },
+    {
+        "Dist_Name": "South West Khasi Hills",
+        "Circle_Name": "Ranikor"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Rongram"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Betasing"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Selsella"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Dalu"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Dadenggre"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Zikzk"
+    },
+    {
+        "Dist_Name": "West Garo Hills",
+        "Circle_Name": "Tikrikilla"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Songsak"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Kharkutta"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Rongjeng"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Williamnagar"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Bajengdora"
+    },
+    {
+        "Dist_Name": "East Garo Hills",
+        "Circle_Name": "Mendipathar"
+    },
+    {
+        "Dist_Name": "South Garo Hills",
+        "Circle_Name": "Chokpot Circle"
+    },
+    {
+        "Dist_Name": "South Garo Hills",
+        "Circle_Name": "Baghmara Cicle"
+    },
+    {
+        "Dist_Name": "South Garo Hills",
+        "Circle_Name": "Gasuapara"
+    },
+    {
+        "Dist_Name": "South Garo Hills",
+        "Circle_Name": "Rongara"
+    },
+    {
+        "Dist_Name": "South Garo Hills",
+        "Circle_Name": "Siju"
+    }
 ]

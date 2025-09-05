@@ -28,6 +28,30 @@
               <!--begin::Col-->
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 1-->
+                @php
+                                           $total_society=0;
+                                           $total_fun=0; $total_non_fun=0; $total_member=0; $total_share=0; $total_govt_share=0; $total_wcapital=0;
+                                           $total_bturnover=0; $total_profit=0; $total_loss=0; $total_A=0; $total_B=0;$total_C=0; $total_D=0;
+                                       @endphp
+                                   
+                                       @foreach (json_decode(file_get_contents('assets/Sector_Name.json')) as $key=> $data)
+                                        @php
+                                           $total_society=$total_sector[$key]+$total_society;
+                                            $total_fun= $total_fun+$Fun[$key];
+                                            $total_non_fun=$total_non_fun+$Nfun[$key];
+                                            $total_member=$total_member+$Member[$key];
+                                            $total_share=$total_share+$Share[$key];
+                                            $total_govt_share=$total_govt_share+$Govt_Share[$key];
+                                            $total_wcapital=$total_wcapital+$Wcapital[$key];
+                                            $total_bturnover= $total_bturnover+$Bturnover[$key];
+                                            $total_profit=$total_profit+$Profit[$key];
+                                            $total_loss=$Loss[$key]+$total_loss;
+                                            $total_A= $total_A+ $A[$key] ;
+                                            $total_B= $total_B + $B[$key];
+                                            $total_C= $total_C + $C[$key];
+                                             $total_D= $total_D + $D[$key];
+                                       @endphp
+                                       @endforeach
                 <div class="small-box text-bg-primary">
                   <div class="inner">
                     <h3>150</h3>

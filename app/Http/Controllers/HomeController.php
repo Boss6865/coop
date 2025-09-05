@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Basic;
 use App\Models\membersociety;
 use App\Models\committee;
+use App\Models\capital;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -18,7 +19,67 @@ class HomeController extends Controller
            
             return redirect()->action([AdminloginController::class, 'login']);
         }
-        return view('pages.home');
+         $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
+        
+         foreach($Sectors as $sector){
+                $totmember=0;
+                $share=0;
+                $govtshare=0;
+                $workingcapital=0;
+                $Business_turnover=0;
+                $profit=0;
+                $loss=0;
+                $a=0;$b=0;$c=0;$d=0;
+                $total_sector[]=Basic::where('Sector_Type', $sector->Sector_Name)->count();
+                $function[]=Basic::where('Sector_Type',  $sector->Sector_Name)->where('Status', "Function")->count();
+                $Nonfunction[]=Basic::where('Sector_Type',  $sector->Sector_Name)->where('Status', "Non-function")->count();
+
+                $selectdist=Basic::where('Sector_Type',  $sector->Sector_Name)->get();
+                foreach($selectdist as $dis){
+                $totalMember=membersociety::where('Society_Id', $dis->id )->get();
+                foreach($totalMember as $tot){
+                    $totmember=$tot->ST_Male + $tot->ST_Female + $totmember;
+                    
+                }
+                $Getcapital=capital::where('Society_Id', $dis->id )->get();
+                foreach($Getcapital as $capital){
+                    
+                    $share=$capital->Individual_share + $capital->Govt_share + $share+ $capital->Other_coop_share;
+                    $govtshare=$capital->Govt_share+$govtshare;
+                    $workingcapital= $workingcapital+$capital->Working_Capitals;
+                    $Business_turnover=$Business_turnover+$capital->Business_turnover;
+                    if($capital->Profit_loss=="Profit"){
+                        $profit++;
+                    }else{
+                        $loss++;
+                    }
+                    if($capital->Audit_Class=="A"){
+                        $a++;
+                    }elseif($capital->Audit_Class=="B"){
+                        $b++;
+                    }elseif($capital->Audit_Class=="C"){
+                        $c++;
+                    }elseif($capital->Audit_Class=="D"){
+                        $d++;
+                    }
+
+                }
+            }
+            $finaltot[]=$totmember;
+            $finalshare[]=$share;
+            $totgovtshare[]=$govtshare;
+            $totalworkingcapital[]=$workingcapital;
+            $totBusiness_turnover[]=$Business_turnover;
+            $totprofit[]=$profit;
+            $totloss[]=$loss;
+            $final_a[]=$a; $final_b[]=$b; $final_c[]=$c; $final_d[]=$d;
+            }
+           
+            // dd($finaltot);
+            return view('pages.home', ['total_sector' => $total_sector, "Fun"=>$function, "Nfun" =>  $Nonfunction, 
+    "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d]);
+    
+        // return view('pages.home');
     }
 
 
