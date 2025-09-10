@@ -1,6 +1,7 @@
 <x-layout> 
          <!--begin::App Main-->
- 
+ <script src='https://cdn.plot.ly/plotly-3.1.0.min.js'></script>
+
         <!--begin::App Content Header-->
         <div class="app-content-header">
           <!--begin::Container-->
@@ -24,6 +25,9 @@
         <div class="app-content">
           <!--begin::Container-->
           <div class="container-fluid">
+
+
+          
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
@@ -135,6 +139,8 @@
                 <!--end::Small Box Widget 3-->
               </div>
               <!--end::Col-->
+              
+
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 4-->
                 <div class="small-box text-bg-danger">
@@ -172,15 +178,23 @@
               <!--end::Col-->
             </div>
             <!--end::Row-->
+
+              
             <!--begin::Row-->
             <div class="row">
+              
               <!-- Start col -->
               <div class="col-lg-7 connectedSortable">
+                <div class="card-header">
+                    <h3 class="card-title">Function and Non-Function Report</h3>
+                    
+                  </div>
                 <div class="card mb-4">
-                  <div class="card-header"><h3 class="card-title">Sales Value</h3></div>
-                  <div class="card-body"><div id="revenue-chart"></div></div>
+                  <div id='myDiv'></div>
+                  {{-- <div class="card-body"><div id="revenue-chart"></div></div> --}}
                 </div>
                 <!-- /.card -->
+                
                 <!-- DIRECT CHAT -->
                 <div class="card direct-chat direct-chat-primary mb-4">
                   <div class="card-header">
@@ -419,8 +433,19 @@
                 <!-- /.direct-chat -->
               </div>
               <!-- /.Start col -->
+               
+
+
+
               <!-- Start col -->
               <div class="col-lg-5 connectedSortable">
+                <div class="card-header">
+                    <h3 class="card-title">Total Member of a District</h3>
+                    
+                  </div>
+                <div class="card text-white bg-primary bg-gradient border-primary mb-4">
+                  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                  </div>
                 <div class="card text-white bg-primary bg-gradient border-primary mb-4">
                   <div class="card-header border-0">
                     <h3 class="card-title">Sales Value</h3>
@@ -649,5 +674,69 @@
       const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
       sparkline3.render();
       
+    </script>
+    <script>
+      var trace1 = {
+      x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
+  // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+  type: 'bar',
+  name: 'Function',
+  marker: {
+    color: '#198754',
+    opacity: 0.9,
+  }
+};
+
+var trace2 = {
+   x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
+  // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+  type: 'bar',
+  name: 'Non-Function',
+  marker: {
+    color: '#9A89BE',
+    opacity: 0.5
+  }
+};
+
+var data = [trace1, trace2];
+
+var layout = {
+  title: {
+    text: 'District Society Report'
+  },
+  xaxis: {
+    tickangle: -45
+  },
+  barmode: 'group'
+};
+
+Plotly.newPlot('myDiv', data, layout);
+
+
+ //-------------
+      // - PIE CHART -
+      //-------------
+
+      const pie_chart_options = {
+        series: [700, 500, 400, 600, 300, 100,101,230,745,852,125,500],
+        chart: {
+          type: 'donut',
+        },
+        labels: ['Eastern W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
+        dataLabels: {
+          enabled: false,
+        },
+        colors: ['#0d6efd', '#20c997', '#73f080', '#d63384', '#2f3233', '#adb5bd','#f511a9','#f01653','#f70a0a','#368f48','#10eb26','#3d0c6e'],
+      };
+
+      const pie_chart = new ApexCharts(document.querySelector('#chartContainer'), pie_chart_options);
+      pie_chart.render();
+
+      //-----------------
+      // - END PIE CHART -
+      //-----------------
+
     </script>
 </x-layout>
