@@ -74,10 +74,28 @@ class HomeController extends Controller
             $totloss[]=$loss;
             $final_a[]=$a; $final_b[]=$b; $final_c[]=$c; $final_d[]=$d;
             }
-           
-            // dd($finaltot);
+           $districts=json_decode(file_get_contents('assets/District.json') );
+           foreach($districts as $district){
+            $district_totmember=0;
+                $d_function[]=Basic::where('District',  $district->Dist_Name)->where('Status', "Function")->count();
+                $d_Nonfunction[]=Basic::where('District',  $district->Dist_Name)->where('Status', "Non-function")->count();
+
+                $select_district=Basic::where('District',  $district->Dist_Name)->get();
+                foreach($select_district as $dis_name){
+                $distric_total_member=membersociety::where('Society_Id', $dis_name->id )->get();
+                foreach($distric_total_member as $total){
+                    $district_totmember=$total->ST_Male + $total->ST_Female + $district_totmember;
+                }
+
+                }
+            
+            $district_final_tot[]=$district_totmember;
+           }
+            //  dd($district_final_tot);
             return view('pages.home', ['total_sector' => $total_sector, "Fun"=>$function, "Nfun" =>  $Nonfunction, 
-    "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d]);
+    "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, 
+    "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d,
+     "d_fun"=>$d_function, "d_Non_fun"=>$d_Nonfunction,"D_total_member"=>$district_final_tot]);
     
         // return view('pages.home');
     }

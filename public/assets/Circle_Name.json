@@ -162,5 +162,21 @@
     {
         "Dist_Name": "South Garo Hills",
         "Circle_Name": "Siju"
+    },
+    {
+        "Dist_Name": "North Garo Hills",
+        "Circle_Name": "Resubelpara"
+    },
+    {
+        "Dist_Name": "North Garo Hills",
+        "Circle_Name": "Kharkutta"
+    },
+    {
+        "Dist_Name": "North Garo Hills",
+        "Circle_Name": "Bajengdoba"
+    },
+    {
+        "Dist_Name": "North Garo Hills",
+        "Circle_Name": "Mendipathar"
     }
 ]

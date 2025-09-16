@@ -1,4 +1,8 @@
 <x-layout> 
+  @php
+      // var_dump(implode(",",$total_member));
+       
+  @endphp
          <!--begin::App Main-->
  <script src='https://cdn.plot.ly/plotly-3.1.0.min.js'></script>
 
@@ -57,6 +61,7 @@
                          $total_D= $total_D + $D[$key];
                    @endphp
                    @endforeach
+                   
                 <div class="small-box text-bg-primary">
                   <div class="inner">
                     <h3>{{$total_society}}</h3>
@@ -74,7 +79,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="/dist_view_society"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -102,7 +107,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="/dist_view_member"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -167,7 +172,7 @@
                     ></path>
                   </svg>
                   <a
-                    href="#"
+                    href="/dist_view_class"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
                   >
                     More info <i class="bi bi-link-45deg"></i>
@@ -676,10 +681,12 @@
       
     </script>
     <script>
+      // const function_value=[20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17];
+      const function_value=[{{implode(",",$d_fun)}}];
       var trace1 = {
       x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
   // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+  y: function_value,
   type: 'bar',
   name: 'Function',
   marker: {
@@ -687,11 +694,11 @@
     opacity: 0.9,
   }
 };
-
+const non_function_value=[{{implode(",",$d_Non_fun)}}];
 var trace2 = {
    x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
   // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+  y: non_function_value,
   type: 'bar',
   name: 'Non-Function',
   marker: {
@@ -718,9 +725,9 @@ Plotly.newPlot('myDiv', data, layout);
  //-------------
       // - PIE CHART -
       //-------------
-
+ const total_membe=[{{implode(",",$D_total_member)}}];
       const pie_chart_options = {
-        series: [700, 500, 400, 600, 300, 100,101,230,745,852,125,500],
+        series: total_membe,
         chart: {
           type: 'donut',
         },
