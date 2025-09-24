@@ -61,11 +61,11 @@
                                         <tr>
                                             <th>{{$key+1}}</th>
                                             <th>{{$district}}</th>
-                                            <td><a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">{{$A[$key]}}</a></td>
-                                            <td><a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">{{$B[$key]}}</a></td>
-                                            <td><a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">{{$C[$key]}}</a></td>
-                                            <td><a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">{{$D[$key]}}</a></td>
-                                            <td><a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">{{$E[$key]}}</a></td>
+                                            <td><a href="/dist_view_class/{{$key}}/A" class="btn btn-outline-success" role="button" aria-pressed="true">{{$A[$key]}}</a></td>
+                                            <td><a href="/dist_view_class/{{$key}}/B" class="btn btn-outline-success" role="button" aria-pressed="true">{{$B[$key]}}</a></td>
+                                            <td><a href="/dist_view_class/{{$key}}/C" class="btn btn-outline-success" role="button" aria-pressed="true">{{$C[$key]}}</a></td>
+                                            <td><a href="/dist_view_class/{{$key}}/D" class="btn btn-outline-success" role="button" aria-pressed="true">{{$D[$key]}}</a></td>
+                                            <td><a href="/dist_view_class/{{$key}}/E" class="btn btn-outline-success" role="button" aria-pressed="true">{{$E[$key]}}</a></td>
                                         </tr>
                                       
                                       @endforeach

@@ -33,7 +33,7 @@ class HomeController extends Controller
                 $total_sector[]=Basic::where('Sector_Type', $sector->Sector_Name)->count();
                 $function[]=Basic::where('Sector_Type',  $sector->Sector_Name)->where('Status', "Function")->count();
                 $Nonfunction[]=Basic::where('Sector_Type',  $sector->Sector_Name)->where('Status', "Non-function")->count();
-
+               
                 $selectdist=Basic::where('Sector_Type',  $sector->Sector_Name)->get();
                 foreach($selectdist as $dis){
                 $totalMember=membersociety::where('Society_Id', $dis->id )->get();
@@ -79,7 +79,7 @@ class HomeController extends Controller
             $district_totmember=0;
                 $d_function[]=Basic::where('District',  $district->Dist_Name)->where('Status', "Function")->count();
                 $d_Nonfunction[]=Basic::where('District',  $district->Dist_Name)->where('Status', "Non-function")->count();
-
+                 $over_all_total[]=Basic::where('District',  $district->Dist_Name)->where('Status', "Non-function")->count() + Basic::where('District',  $district->Dist_Name)->where('Status', "Function")->count();
                 $select_district=Basic::where('District',  $district->Dist_Name)->get();
                 foreach($select_district as $dis_name){
                 $distric_total_member=membersociety::where('Society_Id', $dis_name->id )->get();
@@ -91,11 +91,12 @@ class HomeController extends Controller
             
             $district_final_tot[]=$district_totmember;
            }
+           
             //  dd($district_final_tot);
             return view('pages.home', ['total_sector' => $total_sector, "Fun"=>$function, "Nfun" =>  $Nonfunction, 
     "Member" => $finaltot, "Share"=>$finalshare,"Govt_Share"=>$totgovtshare,"Wcapital"=>$totalworkingcapital, 
     "Bturnover"=>$totBusiness_turnover, "Profit"=> $totprofit, "Loss"=>$totloss,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d,
-     "d_fun"=>$d_function, "d_Non_fun"=>$d_Nonfunction,"D_total_member"=>$district_final_tot]);
+     "d_fun"=>$d_function, "d_Non_fun"=>$d_Nonfunction,"D_total_member"=>$district_final_tot, "over_all_total"=>$over_all_total]);
     
         // return view('pages.home');
     }

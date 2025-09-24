@@ -33,7 +33,7 @@ class DashboardController extends Controller
     public function show_status(string $id, string $id2)
     {
         $staus="";
-        if($id2==0){
+        if($id2==1){
            $staus="Non-function"; 
         }else{
             $staus="Function";
@@ -127,7 +127,50 @@ class DashboardController extends Controller
             // dd($final_d);
             return view('pages.view_district_class', ["districts"=>$district_name,"A"=>$final_a,"B"=> $final_b, "C"=> $final_c, "D"=> $final_d, "E"=>$final_e]);
         }
-    
-    
+        public function show_class_details(string $id, string $id2)
+        {
+             if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+
+        if($id2=="E"){
+            $id2="Not Yet Audited";
+        }
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+
+        
+        $district_name= array_column($Districts, 'Dist_Name');
+            $select_society=Basic::where('District', $district_name[$id])
+            ->join('societycapitals','societycapitals.Society_Id','=','_societydata.id')
+            ->where('Audit_Class', $id2)
+            ->get();
+        // dd( $select_society);
+        return view('pages.society_class_details', ['Societies' =>  $select_society, 'District'=> $district_name[$id], 'Class'=> $id2]);
+        }
+    public function show_society(string $id) {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+       
+            $district_name= array_column($Districts, 'Dist_Name');
+
+        $get_district_society_member=Basic::where('District', $district_name[$id] )->get();
+        return view('pages.district_view_all', ['Societies' => $get_district_society_member,'District'=> $district_name[$id]]);
+    }
+    public function show_sector(string $id) {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+        $Districts=json_decode(file_get_contents('assets/Sector_Name.json'));
+       
+            $sector_name= array_column($Districts, 'Sector_Name');
+
+        $get_district_society=Basic::where('Sector_Type', $sector_name[$id] )->get();
+        return view('pages.sector_view_all', ['Societies' => $get_district_society,'Sector'=> $sector_name[$id]]);
+    }
 
 }

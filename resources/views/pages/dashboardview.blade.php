@@ -68,8 +68,8 @@
                                             <th>{{$key+1}}</th>
                                             <td>{{$Data1[$key]}}</td>
                                             <th>{{$data}}</th>
-                                            <td><a href="view_society_district_status/{{$key}}/1" class="btn btn-outline-success" role="button" aria-pressed="true">{{$Fun[$key]}}</a></td>
-                                            <td><a href="view_society_district_status/{{$key}}/0" class="btn btn-outline-danger" role="button" aria-pressed="true">{{$Nfun[$key]}}</a></td>
+                                            <td><a href="view_society_district_status/{{$key}}/0" class="btn btn-outline-success" role="button" aria-pressed="true">{{$Fun[$key]}}</a></td>
+                                            <td><a href="view_society_district_status/{{$key}}/1" class="btn btn-outline-danger" role="button" aria-pressed="true">{{$Nfun[$key]}}</a></td>
                                             {{-- <td>{{$nlqd[$key]}}</td>
                                             <td>{{$Member[$key]}}</td>
                                             <td>{{$Share[$key]}}</td>

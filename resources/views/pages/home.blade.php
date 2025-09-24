@@ -1,11 +1,16 @@
 <x-layout> 
   @php
-      // var_dump(implode(",",$total_member));
+      // var_dump(implode(",",$over_all_total));
        
   @endphp
+  <style>
+    .apexcharts-tooltip {
+    background: #f3f3f3;
+    color: #000000;
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
          <!--begin::App Main-->
- <script src='https://cdn.plot.ly/plotly-3.1.0.min.js'></script>
-
         <!--begin::App Content Header-->
         <div class="app-content-header">
           <!--begin::Container-->
@@ -190,250 +195,19 @@
               
               <!-- Start col -->
               <div class="col-lg-7 connectedSortable">
-                <div class="card-header">
+                <div class="card-header border-primary">
                     <h3 class="card-title">Function and Non-Function Report</h3>
                     
                   </div>
-                <div class="card mb-4">
+                <div class="card mb-4 border-primary">
                   <div id='myDiv'></div>
                   {{-- <div class="card-body"><div id="revenue-chart"></div></div> --}}
                 </div>
                 <!-- /.card -->
                 
                 <!-- DIRECT CHAT -->
-                <div class="card direct-chat direct-chat-primary mb-4">
-                  <div class="card-header">
-                    <h3 class="card-title">Direct Chat</h3>
-                    <div class="card-tools">
-                      <span title="3 New Messages" class="badge text-bg-primary"> 3 </span>
-                      <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
-                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-tool"
-                        title="Contacts"
-                        data-lte-toggle="chat-pane"
-                      >
-                        <i class="bi bi-chat-text-fill"></i>
-                      </button>
-                      <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
-                        <i class="bi bi-x-lg"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                    <!-- Conversations are loaded here -->
-                    <div class="direct-chat-messages">
-                      <!-- Message. Default to the start -->
-                      <div class="direct-chat-msg">
-                        <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                          <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img
-                          class="direct-chat-img"
-                          src="../../dist/assets/img/user1-128x128.jpg"
-                          alt="message user image"
-                        />
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          Is this template really for free? That's unbelievable!
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-                      <!-- Message to the end -->
-                      <div class="direct-chat-msg end">
-                        <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                          <span class="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img
-                          class="direct-chat-img"
-                          src="../../dist/assets/img/user3-128x128.jpg"
-                          alt="message user image"
-                        />
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">You better believe it!</div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-                      <!-- Message. Default to the start -->
-                      <div class="direct-chat-msg">
-                        <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                          <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img
-                          class="direct-chat-img"
-                          src="../../dist/assets/img/user1-128x128.jpg"
-                          alt="message user image"
-                        />
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                          Working with AdminLTE on a great new app! Wanna join?
-                        </div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-                      <!-- Message to the end -->
-                      <div class="direct-chat-msg end">
-                        <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                          <span class="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img
-                          class="direct-chat-img"
-                          src="../../dist/assets/img/user3-128x128.jpg"
-                          alt="message user image"
-                        />
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">I would love to.</div>
-                        <!-- /.direct-chat-text -->
-                      </div>
-                      <!-- /.direct-chat-msg -->
-                    </div>
-                    <!-- /.direct-chat-messages-->
-                    <!-- Contacts are loaded here -->
-                    <div class="direct-chat-contacts">
-                      <ul class="contacts-list">
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user1-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                Count Dracula
-                                <small class="contacts-list-date float-end"> 2/28/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> How have you been? I was... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user7-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                Sarah Doe
-                                <small class="contacts-list-date float-end"> 2/23/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> I will be waiting for... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user3-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                Nadia Jolie
-                                <small class="contacts-list-date float-end"> 2/20/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> I'll call you back at... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user5-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                Nora S. Vans
-                                <small class="contacts-list-date float-end"> 2/10/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> Where is your new... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user6-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                John K.
-                                <small class="contacts-list-date float-end"> 1/27/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> Can I take a look at... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                        <li>
-                          <a href="#">
-                            <img
-                              class="contacts-list-img"
-                              src="../../dist/assets/img/user8-128x128.jpg"
-                              alt="User Avatar"
-                            />
-                            <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                Kenneth M.
-                                <small class="contacts-list-date float-end"> 1/4/2023 </small>
-                              </span>
-                              <span class="contacts-list-msg"> Never mind I found... </span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                          </a>
-                        </li>
-                        <!-- End Contact Item -->
-                      </ul>
-                      <!-- /.contacts-list -->
-                    </div>
-                    <!-- /.direct-chat-pane -->
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <form action="#" method="post">
-                      <div class="input-group">
-                        <input
-                          type="text"
-                          name="message"
-                          placeholder="Type Message ..."
-                          class="form-control"
-                        />
-                        <span class="input-group-append">
-                          <button type="button" class="btn btn-primary">Send</button>
-                        </span>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- /.card-footer-->
+                <div class="card mb-4 border-primary">
+                    <div id='sector_view'></div>
                 </div>
                 <!-- /.direct-chat -->
               </div>
@@ -448,45 +222,76 @@
                     <h3 class="card-title">Total Member of a District</h3>
                     
                   </div>
-                <div class="card text-white bg-primary bg-gradient border-primary mb-4">
-                  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div class="card text-white bg-gradient border-primary mb-4">
+                  <concanvas id="chartContainer" style="height: 370px; width: 100%;"></canvas>
                   </div>
-                <div class="card text-white bg-primary bg-gradient border-primary mb-4">
+                <div class="card text-white bg-gradient border-primary mb-4">
                   <div class="card-header border-0">
-                    <h3 class="card-title">Sales Value</h3>
-                    <div class="card-tools">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        data-lte-toggle="card-collapse"
-                      >
-                        <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                        <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                      </button>
-                    </div>
+                    <h3 class="card-title">District With Total Societies</h3>
+                    
                   </div>
-                  <div class="card-body"><div id="world-map" style="height: 220px"></div></div>
-                  <div class="card-footer border-0">
-                    <!--begin::Row-->
-                    <div class="row">
-                      <div class="col-4 text-center">
-                        <div id="sparkline-1" class="text-dark"></div>
-                        <div class="text-white">Visitors</div>
-                      </div>
-                      <div class="col-4 text-center">
-                        <div id="sparkline-2" class="text-dark"></div>
-                        <div class="text-white">Online</div>
-                      </div>
-                      <div class="col-4 text-center">
-                        <div id="sparkline-3" class="text-dark"></div>
-                        <div class="text-white">Sales</div>
-                      </div>
-                    </div>
-                    <!--end::Row-->
-                  </div>
+                  <div class="card-body"><div id="district_with_total" style="height: 220px"></div></div>
+                 
                 </div>
               </div>
               <!-- /.Start col -->
+               <div class="col-lg-7">
+                
+                <!-- /.card -->
+                <div class="card mb-4">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">DISTRICTS</h3>
+                    <div class="card-tools">
+                      {{-- <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-download"></i>
+                      </a> --}}
+                      <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-list"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body table-responsive p-0">
+                    <table class="table table-striped align-middle">
+                      <thead>
+                        <tr>
+                          <th>District</th>
+                          <th>No. of Societies</th>
+                          <th>Member</th>
+                          <th>View</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img
+                              src="../../dist/assets/img/coop_logo.png"
+                              alt="Product 1"
+                              class="rounded-circle img-size-32 me-2"
+                            />
+                            Some Product
+                            {{-- <span class="badge text-bg-danger">NEW</span> --}}
+                          </td>
+                          <td>$13 USD</td>
+                          <td>
+                            <small class="text-success me-1">
+                              <i class="bi bi-arrow-up"></i>
+                              12%
+                            </small>
+                            12,000 Sold
+                          </td>
+                          <td>
+                            <a href="#" class="text-secondary">
+                              <i class="bi bi-search"></i>
+                            </a>
+                          </td>
+                        </tr>
+                    
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
             </div>
             <!-- /.row (main row) -->
           </div>
@@ -497,253 +302,281 @@
       <!--end::App Main-->
 
        <!-- apexcharts -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
-      integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
-      crossorigin="anonymous"
-    ></script>
-    <!-- ChartJS -->
-    <script>
-      // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-      // IT'S ALL JUST JUNK FOR DEMO
-      // ++++++++++++++++++++++++++++++++++++++++++
 
-      const sales_chart_options = {
-        series: [
-          {
-            name: 'Digital Goods',
-            data: [28, 48, 40, 19, 86, 27, 90],
-          },
-          {
-            name: 'Electronics',
-            data: [65, 59, 80, 81, 56, 55, 40],
-          },
-        ],
-        chart: {
-          height: 300,
-          type: 'area',
-          toolbar: {
-            show: false,
-          },
+    
+    <script>
+      const district =['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'];
+      const sector_list=['PACS', 'IVCS', 'UC BANK', 'CONSUMER', 'MARKETING', 'HOUSING',
+            'MULTIPURPOSE', 'CREDIT AND THRIFT', 'INDUSTRIAL', 'DAIRY', 'FISHERY', 'HANDLOOM WEAVERS', 'HANDICRAFT',
+            'TRANSPORT', 'FARMING', 'LIVESTOCK', 'HORTICULTURE', 'CLF', 'FPO', 'PROCESSING',
+            'LABOUR CONTRACT', 'SERICULTURE', 'TOURISM', 'LIVING ROOT BRIDGES', 'EDU. AND TRAINING', 'OTHER TYPES',
+          ];
+const function_value=[{{implode(",",$d_fun)}}];
+
+const non_function_value=[{{implode(",",$d_Non_fun)}}];
+
+      var options = {
+          series: [{
+            name: "Function",
+            color: '#198754',
+          data: function_value
+        }, {
+          name:"Non-Function",
+          data: non_function_value
+        }],
+          chart: {
+          type: 'bar',
+          height: 440,
+          events: {
+     dataPointSelection: function(event, chartContext, opts) {
+        //  console.log(opts.dataPointIndex);
+        //  console.log(opts.seriesIndex);
+        
+        window.location.href = "/view_society_district_status/"+opts.dataPointIndex+"/"+opts.seriesIndex;
+      }
+    }
         },
-        legend: {
-          show: false,
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            dataLabels: {
+              position: 'top',
+            },
+          }
         },
-        colors: ['#0d6efd', '#20c997'],
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          offsetX: -6,
+          style: {
+            fontSize: '12px',
+            colors: ['#fff']
+          }
         },
         stroke: {
-          curve: 'smooth',
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: [
-            '2023-01-01',
-            '2023-02-01',
-            '2023-03-01',
-            '2023-04-01',
-            '2023-05-01',
-            '2023-06-01',
-            '2023-07-01',
-          ],
+          show: true,
+          width: 1,
+          colors: ['#fff']
         },
         tooltip: {
-          x: {
-            format: 'MMMM yyyy',
-          },
+          shared: true,
+          intersect: false
         },
-      };
+        xaxis: {
+          categories: district,
+        },
+        };
 
-      const sales_chart = new ApexCharts(
-        document.querySelector('#revenue-chart'),
-        sales_chart_options,
-      );
-      sales_chart.render();
-    </script>
-    <!-- jsvectormap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"
-      integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
-      integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY="
-      crossorigin="anonymous"
-    ></script>
-    <!-- jsvectormap -->
-    <script>
-      const visitorsData = {
-        US: 398, // USA
-        SA: 400, // Saudi Arabia
-        CA: 1000, // Canada
-        DE: 500, // Germany
-        FR: 760, // France
-        CN: 300, // China
-        AU: 700, // Australia
-        BR: 600, // Brazil
-        IN: 800, // India
-        GB: 320, // Great Britain
-        RU: 3000, // Russia
-      };
-
-      // World map by jsVectorMap
-      const map = new jsVectorMap({
-        selector: '#world-map',
-        map: 'world',
-      });
-
-      // Sparkline charts
-      const option_sparkline1 = {
-        series: [
-          {
-            data: [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021],
-          },
-        ],
-        chart: {
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
-          },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
-
-      const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
-      sparkline1.render();
-
-      const option_sparkline2 = {
-        series: [
-          {
-            data: [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921],
-          },
-        ],
-        chart: {
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
-          },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
-
-      const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
-      sparkline2.render();
-
-      const option_sparkline3 = {
-        series: [
-          {
-            data: [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21],
-          },
-        ],
-        chart: {
-          type: 'area',
-          height: 50,
-          sparkline: {
-            enabled: true,
-          },
-        },
-        stroke: {
-          curve: 'straight',
-        },
-        fill: {
-          opacity: 0.3,
-        },
-        yaxis: {
-          min: 0,
-        },
-        colors: ['#DCE6EC'],
-      };
-
-      const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
-      sparkline3.render();
-      
-    </script>
-    <script>
-      // const function_value=[20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17];
-      const function_value=[{{implode(",",$d_fun)}}];
-      var trace1 = {
-      x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
-  // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  y: function_value,
-  type: 'bar',
-  name: 'Function',
-  marker: {
-    color: '#198754',
-    opacity: 0.9,
-  }
-};
-const non_function_value=[{{implode(",",$d_Non_fun)}}];
-var trace2 = {
-   x: ['E. W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
-  // x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  y: non_function_value,
-  type: 'bar',
-  name: 'Non-Function',
-  marker: {
-    color: '#9A89BE',
-    opacity: 0.5
-  }
-};
-
-var data = [trace1, trace2];
-
-var layout = {
-  title: {
-    text: 'District Society Report'
-  },
-  xaxis: {
-    tickangle: -45
-  },
-  barmode: 'group'
-};
-
-Plotly.newPlot('myDiv', data, layout);
-
+        var chart = new ApexCharts(document.querySelector("#myDiv"), options);
+        chart.render();
 
  //-------------
       // - PIE CHART -
       //-------------
+
  const total_membe=[{{implode(",",$D_total_member)}}];
-      const pie_chart_options = {
-        series: total_membe,
+ var options = {
+          series:total_membe,
+          chart: {
+          width: 610,
+          type: 'pie',
+        },
+        labels: district,
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 300
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }],
+         colors: ['#0d6efd', '#20c997', '#73f080', '#d63384', '#2f3233', '#adb5bd','#f511a9','#f01653','#f70a0a','#368f48','#10eb26','#3d0c6e'],
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartContainer"), options);
+        chart.render();
+
+
+document.querySelector("#chartContainer").addEventListener("click", function() {
+      //  alert("click");
+      var activePoints = this.chart.getElementAtEvent(evt)[0];
+      if (activePoints[0]) {
+        var chartData = activePoints[0]['_chart'].config.data;
+        var idx = activePoints[0]['_index'];
+
+        var label = chartData.labels[idx];
+        var value = chartData.datasets[0].data[idx];
+
+        var url = "http://example.com/?label=" + label + "&value=" + value;
+        console.log(url);
+        alert(url);
+      }
+      });
+
+      //sector view
+  const total_sector=[{{implode(",",$total_sector)}}];
+       var options = {
+          series: [{
+          name: 'Total',
+          data: total_sector
+        }],
         chart: {
-          type: 'donut',
+          height: 450,
+          type: 'bar',
+          events: {
+     dataPointSelection: function(event, chartContext, opts) {
+        console.log(sector_list[opts.dataPointIndex]);
+        console.log(sector_list.indexOf(sector_list[opts.dataPointIndex]));
+        window.location.href = "/view_society_sector_district/"+sector_list.indexOf(sector_list[opts.dataPointIndex]);
+      }
+    }
         },
-        labels: ['Eastern W. Khasi Hills', 'E. Garo Hills', 'E. Jaintia Hills', 'E. Khasi Hills', 'N. Garo Hills', 'Ri Bhoi', 'S. Garo Hills', 'S. W. Garo Hills', 'S. W. Khasi Hills', 'W. Garo Hills', 'W. Jaintia Hills', 'W. Khasi Hills'],
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            columnWidth: '50%',
+          }
+        },
         dataLabels: {
-          enabled: false,
+          enabled: false
         },
-        colors: ['#0d6efd', '#20c997', '#73f080', '#d63384', '#2f3233', '#adb5bd','#f511a9','#f01653','#f70a0a','#368f48','#10eb26','#3d0c6e'],
-      };
+        stroke: {
+          width: 0
+        },
+        grid: {
+          row: {
+            colors: ['#fff', '#f2f2f2']
+          }
+        },
+        xaxis: {
+          labels: {
+            rotate: -45
+          },
+          categories: sector_list,
+          tickPlacement: 'on'
+        },
+        yaxis: {
+          title: {
+            text: 'Sectors',
+          },
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'light',
+            type: "horizontal",
+            shadeIntensity: 0.25,
+            gradientToColors: undefined,
+            inverseColors: true,
+            opacityFrom: 0.85,
+            opacityTo: 0.85,
+            stops: [50, 0, 100]
+          },
+        }
+        };
 
-      const pie_chart = new ApexCharts(document.querySelector('#chartContainer'), pie_chart_options);
-      pie_chart.render();
+        var chart = new ApexCharts(document.querySelector("#sector_view"), options);
+        chart.render();
 
-      //-----------------
-      // - END PIE CHART -
-      //-----------------
 
+        //funnel
+       const total_both_scoiety=[{{implode(",",$over_all_total)}}];
+       const total_both_scoiety1=[{{implode(",",$over_all_total)}}];
+
+       //array sort
+       let sorted_district = [];
+        var numArray = total_both_scoiety;
+        numArray.sort(function(a, b) {
+        return a - b;
+        });
+
+const sortedArray = total_both_scoiety1;
+// const valueToFind = 105;
+// const index = sortedArray.indexOf(valueToFind); 
+
+for(i=0;i<total_both_scoiety.length;i++){
+    const valueToFind =total_both_scoiety[i] ;
+    const index = sortedArray.indexOf(valueToFind); 
+    const valuesToCheck = [];
+    valuesToCheck.push(district[index]);
+    const allValuesPresent =valuesToCheck.every(value => sorted_district.includes(value));
+    console.log(allValuesPresent);
+    console.log(valueToFind);
+    console.log(index);
+    sorted_district.push(district[index]);
+}
+console.log(sorted_district);
+//end or array sort
+
+         var options = {
+          series: [
+          {
+            name: "",
+            data: total_both_scoiety,
+          },
+        ],
+          chart: {
+          type: 'bar',
+          height: 365,
+          dropShadow: {
+            enabled: true,
+          },
+           events: {
+     dataPointSelection: function(event, chartContext, opts) {
+        // console.log(sorted_district[opts.dataPointIndex]);
+        // console.log(district.indexOf(sorted_district[opts.dataPointIndex]));
+        window.location.href = "/view_society_district/"+district.indexOf(sorted_district[opts.dataPointIndex]);
+      }
+    }
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 0,
+            horizontal: true,
+            distributed: true,
+            barHeight: '80%',
+            isFunnel: true,
+          },
+        },
+        colors: [
+          '#F44F5E',
+          '#E55A89',
+          '#D863B1',
+          '#CA6CD8',
+          '#B57BED',
+          '#8D95EB',
+          '#62ACEA',
+          '#4BC3E6',
+          
+        ],
+        dataLabels: {
+          enabled: true,
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] 
+          },
+          dropShadow: {
+            enabled: true,
+          },
+        },
+        title: {
+          text: 'Total Societies of District',
+          align: 'middle',
+          style: {
+                color: '#000000',
+            },
+        },
+        xaxis: {
+          categories: sorted_district,
+        
+        },
+        legend: {
+          show: false,
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#district_with_total"), options);
+        chart.render();
     </script>
 </x-layout>
