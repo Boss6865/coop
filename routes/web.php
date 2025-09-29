@@ -46,6 +46,9 @@ Route::get('/dist_view_class/{id}/{sign}',[DashboardController::class,'show_clas
 Route::get('/view_society_district_status/{id}/{sign}',[DashboardController::class,'show_status']);
 Route::get('/view_society_district/{id}',[DashboardController::class,'show_society']);
 Route::get('/view_society_sector_district/{id}',[DashboardController::class,'show_sector']);
+Route::get('/view_both_n_nf_society/{id}',[DashboardController::class,'show_society_all']);
+Route::get('/single_sector_view/{id}',[DashboardController::class,'sector_view']);
+Route::get('/single_sector_member_view/{id}',[DashboardController::class,'sector_member_view']);
 Route::get('/basic_infos',[HomeController::class,'basic_info']);
 Route::get('/management1',[HomeController::class,'management_1']);
 Route::get('/management1/{id}',[HomeController::class,'management_1_edit']);

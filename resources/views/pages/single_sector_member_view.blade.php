@@ -6,17 +6,15 @@
           
       }
     </style>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.4/css/fixedColumns.dataTables.css" />
 <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/dataTables.fixedColumns.js"></script>
-<script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/fixedColumns.dataTables.js"></script>
+
   
-      <x-navigation  Nav="District Sector" />
+      <x-navigation  Nav="Sector" />
          <!--begin::App Main-->
         <main class="app-main">
           <!--begin::App Content Header-->
@@ -30,7 +28,7 @@
                   <!-- Default box -->
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">{{$District}} Societies Members</h3>
+                      <h3 class="card-title">{{$Sector}} MEMBERSHIP'S</h3>
                       <div class="card-tools">
                         <button
                           type="button"
@@ -65,18 +63,14 @@
                                               
                                              
                                               <th>Society Name</th>
-                                              {{-- <th>Registration</th>
-                                              <th>Registration Date</th> --}}
-                                              {{-- <th>Address</th>
-                                              <th> Status </th> --}}
+                                             
                                               <th> Total Male</th>
                                               <th> Total Female</th>
                                               <th> Total SHG</th>
                                               <th> Total PG</th>
                                               <th> Total COOP</th>
                                               <th> Total Member</th>
-                                              {{-- 
-                                              <th> President</th>
+                                              {{-- <th> President</th>
                                               <th> Secretary</th>
                                               <th> Lasat AGM</th>
                                               <th>Business Activity</th>
@@ -104,10 +98,10 @@
                                               
                                               <td> {{$Society->Name_of_the_Society;}}</td>
                                               {{-- <td> {{$Society->Registration_No;}}</td>
-                                              <td> {{$Society->Date_of_registration;}}</td> --}}
-                                              {{-- <td> {{$Society->Village;}}, {{$Society->District;}} - {{$Society->Pincode;}}</td>
+                                              <td> {{$Society->Date_of_registration;}}</td>
+                                              <td> {{$Society->Village;}}, {{$Society->District;}} - {{$Society->Pincode;}}</td>
                                               <td> {{$Society->Status;}}</td> --}}
-                                           @forelse($Society->membersociety as $data)
+                                              @forelse($Society->membersociety as $data)
                                               <td> 
                                                
                                                 {{$data->ST_Male+$data->SC_Male+$data->Gen_Male}}
@@ -129,28 +123,28 @@
                                                 {{$data->ST_Male+$data->SC_Male+$data->Gen_Male+$data->ST_Female+$data->SC_Female+$data->Gen_Female+$data->ST_SHG+$data->SC_SHG+$data->Gen_SHG+$data->ST_PG+$data->SC_PG+$data->Gen_PG+$data->ST_CoopSociety+$data->SC_CoopSociety+$data->Gen_CoopSociety}}
                                               </td>
                                               @empty
-                                              <td class="bg-danger">0</td>
-                                              <td class="bg-danger">0</td>
-                                              <td class="bg-danger">0</td>
-                                              <td class="bg-danger">0</td>
-                                              <td class="bg-danger">0</td>
-                                              <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                                  <td class="bg-danger">0</td>
+                                             
                                               @endforelse
-                                                {{--  
-                                              @foreach($Society->committee as $data)
+                                              {{-- @foreach($Society->committee as $data)
                                               <td>
                                                 {{$data->President_Name}}:: {{$data->President_Contact}}
                                               </td>
                                               <td>
                                                 {{$data->Secretary_Name}} :: {{$data->Secretary_Contact}}
                                               </td>
-                                              @endforeach
-                                              @foreach($Society->membersociety as $data)
+                                              @endforeach --}}
+                                              {{-- @foreach($Society->membersociety as $data)
                                               <td>
                                                 {{$data->Date_of_LastAGM}}
                                             </td>
-                                            @endforeach
-                                            @foreach($Society->capital as $data)
+                                            @endforeach --}}
+                                            {{-- @foreach($Society->capital as $data)
                                               <td> 
                                                 
                                                 {{$data->Primary_Activity}}: {{$data->Secondary_Activity}} : {{$data->Tertiary_Activity}} : {{$data->Other_Activity}}

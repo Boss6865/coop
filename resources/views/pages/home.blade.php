@@ -235,10 +235,78 @@
                 </div>
               </div>
               <!-- /.Start col -->
+              @php
+                 $districts=json_decode(file_get_contents('assets/District.json') );
+                 $Sectors=json_decode(file_get_contents('assets/Sector_Name.json') );
+               @endphp
                <div class="col-lg-7">
                 
                 <!-- /.card -->
-                <div class="card mb-4">
+                <div class="card mb-4 border-primary vh-50">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">SECTORS</h3>
+                    <div class="card-tools">
+                      {{-- <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-download"></i>
+                      </a> --}}
+                      <a href="#" class="btn btn-tool btn-sm">
+                        <i class="bi bi-list"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body table-responsive p-0">
+                    <table class="table table-striped align-middle">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Sectors</th>
+                          <th class="text-center">No. of Societies</th>
+                          <th class="text-center">Member</th>
+                          <th class="text-center">View</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                        @foreach($Sectors as $key=> $Sector)
+                        <tr>
+                          <td>
+                            <img
+                              src="../../dist/assets/img/coop_logo.png"
+                              alt="Product 1"
+                              class="rounded-circle img-size-32 me-2"
+                            />
+                           <a href="/single_sector_view/{{$key}}"  class="btn btn-light btn-sm">{{$Sector->Sector_Name}}</a>
+                            {{-- <span class="badge text-bg-danger">NEW</span> --}}
+                          </td>
+                          <td class="text-center"><a href="/single_sector_view/{{$key}}"  class="btn btn-light btn-sm">{{$total_sector[$key]}}</a></td>
+                          <td class="text-center">
+                            {{-- <small class="text-success me-1">
+                              <i class="bi bi-arrow-up"></i>
+                              12%
+                            </small> --}}
+                             <a href="/single_sector_member_view/{{$key}}"  class="btn btn-light btn-sm">{{$Member[$key]}}</a>
+                          </td>
+                          <td>
+                            <a href="/single_sector_view/{{$key}}" class="text-secondary btn-sm">
+                              <i class="bi bi-search"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        @endforeach
+                         <tr>
+                        <th class="text-center">Total</th>
+                        <th class="text-center"><a href="/Sector_view"  class="btn btn-light btn-lg">{{$total_society}}</a></th>
+                        <th colspan="2"><a href="/all_sector"  class="btn btn-light btn-lg">{{$total_member}}</a></th>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+               <div class="col-lg-5">
+                
+                <!-- /.card -->
+                <div class="card mb-4 border-primary vh-50">
                   <div class="card-header border-0">
                     <h3 class="card-title">DISTRICTS</h3>
                     <div class="card-tools">
@@ -254,44 +322,52 @@
                     <table class="table table-striped align-middle">
                       <thead>
                         <tr>
-                          <th>District</th>
-                          <th>No. of Societies</th>
-                          <th>Member</th>
-                          <th>View</th>
+                          <th class="text-center">District</th>
+                          <th class="text-center">No. of Societies</th>
+                          <th class="text-center">Member</th>
+                          <th class="text-center">View</th>
                         </tr>
                       </thead>
                       <tbody>
+                         @foreach($districts as $key=> $district)
                         <tr>
                           <td>
                             <img
                               src="../../dist/assets/img/coop_logo.png"
                               alt="Product 1"
                               class="rounded-circle img-size-32 me-2"
-                            />
-                            Some Product
+                            /><a href="/view_both_n_nf_society/{{$key}}"  class="btn btn-light btn-sm">
+                            {{$district->Dist_Name}} </a>
                             {{-- <span class="badge text-bg-danger">NEW</span> --}}
                           </td>
-                          <td>$13 USD</td>
+                          <td  class="text-center"><a href="/view_both_n_nf_society/{{$key}}"  class="btn btn-light btn-lg">{{$d_fun[$key] + $d_Non_fun[$key]}}</a></td>
                           <td>
-                            <small class="text-success me-1">
+                            {{-- <small class="text-success me-1">
                               <i class="bi bi-arrow-up"></i>
-                              12%
-                            </small>
-                            12,000 Sold
+                              
+                            </small> --}}
+                            <a href="/dist_view_dist_member/{{$key}}"  class="btn btn-light btn-sm">
+                            {{$D_total_member[$key]}}</a>
                           </td>
                           <td>
-                            <a href="#" class="text-secondary">
+                            <a href="/view_both_n_nf_society/{{$key}}"  class="btn btn-light">
                               <i class="bi bi-search"></i>
                             </a>
                           </td>
                         </tr>
-                    
+                      @endforeach
+                      <tr>
+                        <th class="text-center">Total</th>
+                        <th class="text-center"><a href="/dist_view_society"  class="btn btn-light btn-sm">{{$total_society}}</a></th>
+                        <th colspan="2"><a href="/dist_view_member"  class="btn btn-light btn-sm">{{$total_member}}</a></th>
+                      </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
                 <!-- /.card -->
               </div>
+              
             </div>
             <!-- /.row (main row) -->
           </div>
@@ -484,7 +560,7 @@ document.querySelector("#chartContainer").addEventListener("click", function() {
         //funnel
        const total_both_scoiety=[{{implode(",",$over_all_total)}}];
        const total_both_scoiety1=[{{implode(",",$over_all_total)}}];
-
+      const total_both_scoiety2=[{{implode(",",$over_all_total)}}];
        //array sort
        let sorted_district = [];
         var numArray = total_both_scoiety;
@@ -495,19 +571,35 @@ document.querySelector("#chartContainer").addEventListener("click", function() {
 const sortedArray = total_both_scoiety1;
 // const valueToFind = 105;
 // const index = sortedArray.indexOf(valueToFind); 
-
+var results = [];
 for(i=0;i<total_both_scoiety.length;i++){
     const valueToFind =total_both_scoiety[i] ;
-    const index = sortedArray.indexOf(valueToFind); 
+    let index = sortedArray.indexOf(valueToFind); 
     const valuesToCheck = [];
     valuesToCheck.push(district[index]);
     const allValuesPresent =valuesToCheck.every(value => sorted_district.includes(value));
-    console.log(allValuesPresent);
-    console.log(valueToFind);
-    console.log(index);
+    if(allValuesPresent){
+      if(results.length){
+        index=results[0]
+      }else{
+        var ind
+      while( ( ind = total_both_scoiety2.indexOf(valueToFind ) ) != -1 )
+      {
+          results.push( ind + results.length )
+          total_both_scoiety2.splice( ind, 1 )
+      }
+      results.splice(0,1);
+      index=results[0];
+      }
+      results.splice(0,1);
+    }
+    // console.log(allValuesPresent);
+    // console.log(valueToFind);
+    // console.log(index);
     sorted_district.push(district[index]);
 }
-console.log(sorted_district);
+
+
 //end or array sort
 
          var options = {

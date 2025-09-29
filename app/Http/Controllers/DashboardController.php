@@ -173,4 +173,48 @@ class DashboardController extends Controller
         return view('pages.sector_view_all', ['Societies' => $get_district_society,'Sector'=> $sector_name[$id]]);
     }
 
+       public function show_society_all(string $id)
+    {
+       
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+        $Districts=json_decode(file_get_contents('assets/District.json'));
+
+        
+        $district_name= array_column($Districts, 'Dist_Name');
+
+        $get_district_society=Basic::where('District', $district_name[$id] )->get();
+        return view('pages.society_both_n_nf', ['Societies' =>  $get_district_society, 'District'=> $district_name[$id]]);
+    }
+    public function sector_view(string $id)
+    {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+     
+        $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
+        
+       
+        $sector_name= array_column($Sectors, 'Sector_Name');
+        $get_district_sector=Basic::where('Sector_Type',  $sector_name[$id])->get();
+        return view('pages.single_sector_view', ['Societies' =>  $get_district_sector, 'Sector'=>$sector_name[$id]]);
+    }
+    public function sector_member_view(string $id)
+    {
+        if(!Auth::check()){
+           
+            return redirect()->action([AdminloginController::class, 'login']);
+        }
+     
+        $Sectors=json_decode(file_get_contents('assets/Sector_Name.json'));
+        
+       
+        $sector_name= array_column($Sectors, 'Sector_Name');
+        $get_district_sector=Basic::where('Sector_Type',  $sector_name[$id])->get();
+        return view('pages.single_sector_member_view', ['Societies' =>  $get_district_sector, 'Sector'=>$sector_name[$id]]);
+    }
+
 }
